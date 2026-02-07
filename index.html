@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
             --triveexec-navy: #1E2A3A;
             --triveexec-dark-navy: #0F1820;
             --triveexec-gold: #C9A961;
-            --triveexec-light-gold: #D4B574;
+            --triveexec-light-gold: #D4B874;
             --triveexec-dark-gold: #B39650;
             
             /* Supporting Colors */
@@ -854,7 +855,7 @@
                 </button>
                 <div class="header-date">
                     Assessment Date<br>
-                    <strong>January 24, 2026</strong>
+                    <strong class="assessment-date">January 24, 2026</strong>
                 </div>
             </div>
         </div>
@@ -863,11 +864,11 @@
     <!-- Company Banner -->
     <div class="company-banner">
         <div class="company-banner-content">
-            <h1 class="company-name"><span>Yoke</span> Company Ltd</h1>
+            <h1 class="company-name"><span class="company-display">Yoke</span> Company Ltd</h1>
             <div class="company-meta">
                 <div class="company-meta-item">
                     <span class="meta-icon">🏢</span>
-                    <span>Technology Sector</span>
+                    <span class="industry-display">Technology Sector</span>
                 </div>
                 <div class="company-meta-item">
                     <span class="meta-icon">💰</span>
@@ -875,7 +876,7 @@
                 </div>
                 <div class="company-meta-item">
                     <span class="meta-icon">📊</span>
-                    <span>95/120 Score</span>
+                    <span><span class="score-display">95</span>/120 Score</span>
                 </div>
             </div>
         </div>
@@ -903,20 +904,20 @@
                     <div style="text-align: center; margin-bottom: 1.5rem;">
                         <div style="background: var(--triveexec-gold); color: var(--triveexec-gold); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.1em; margin-bottom: 1rem;">Executive Summary</div>
                         <h3 style="font-size: 1.75rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Assessment Overview</h3>
-                        <p style="color: var(--triveexec-light-gold); font-size: 1rem;">Yoke Company Ltd - January 24, 2026</p>
+                        <p style="color: var(--triveexec-light-gold); font-size: 1rem;"><span class="company-display">Yoke</span> Company Ltd - <span class="assessment-date">January 24, 2026</span></p>
                     </div>
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Current State</div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;">95/120</div>
-                            <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">Grade A</div>
+                            <div style="font-size: 2.5rem; font-weight: 800; color: white;"><span class="score-display">95</span>/120</div>
+                            <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">Grade <span class="grade-display">A</span></div>
                         </div>
                         
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Critical Gap</div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--critical-red); margin-top: 0.75rem;">Financial Health</div>
-                            <div style="font-size: 0.9375rem; color: white;">5/120 Score</div>
+                            <div style="font-size: 0.9375rem; color: white;"><span class="pillar1-display">5</span>/120 Score</div>
                         </div>
                         
                         <div style="text-align: center;">
@@ -954,13 +955,13 @@
                 <div class="dashboard-grid">
                     <div class="metric-card">
                         <div class="metric-label">Overall Score</div>
-                        <div class="metric-value">95/120</div>
+                        <div class="metric-value"><span class="score-display">95</span>/120</div>
                         <div class="metric-change">79.2% Readiness</div>
                     </div>
 
                     <div class="metric-card">
                         <div class="metric-label">Readiness Grade</div>
-                        <div class="metric-value" style="font-size: 2rem; margin-top: 1rem;">A</div>
+                        <div class="metric-value grade-display" style="font-size: 2rem; margin-top: 1rem;">A</div>
                         <div class="metric-change">Highly Attractive</div>
                     </div>
 
@@ -989,17 +990,17 @@
                                     stroke-dashoffset="117.74"/>
                             </svg>
                             <div class="score-center">
-                                <div class="score-number">95</div>
+                                <div class="score-number score-display">95</div>
                                 <div class="score-denominator">/120</div>
                             </div>
                         </div>
-                        <div class="readiness-badge">A - Highly Attractive</div>
+                        <div class="readiness-badge"><span class="grade-display">A</span> - Highly Attractive</div>
                     </div>
 
                     <div class="card">
                         <h3 class="section-header" style="border: none; padding: 0; margin-bottom: 1rem;">Assessment Summary</h3>
                         <p style="color: #D1D5DB; line-height: 1.8; margin-bottom: 1.5rem;">
-                            <strong style="color: var(--triveexec-gold);">Exceptional performance</strong> with strong institutional readiness across most pillars. Your company demonstrates excellent fundamentals with <strong style="color: var(--critical-red);">critical improvement needed in Financial Health</strong> (5/120) to unlock maximum exit premium.
+                            <strong style="color: var(--triveexec-gold);">Exceptional performance</strong> with strong institutional readiness across most pillars. Your company demonstrates excellent fundamentals with <strong style="color: var(--critical-red);">critical improvement needed in Financial Health</strong> (<span class="pillar1-display">5</span>/120) to unlock maximum exit premium.
                         </p>
                         <div style="background: rgba(30, 42, 58, 0.5); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Priority Focus:</strong>
@@ -1015,12 +1016,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Financial Health</div>
                             <div>
-                                <div class="pillar-score needs-work">5</div>
+                                <div class="pillar-score needs-work pillar1-display">5</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar needs-work" style="width: 4.2%"></div>
+                            <div class="progress-bar needs-work pillar1-progress" style="width: 4.2%"></div>
                         </div>
                         <div class="progress-label">4.2% - Critical Priority</div>
                     </div>
@@ -1029,12 +1030,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Governance & Controls</div>
                             <div>
-                                <div class="pillar-score good">20</div>
+                                <div class="pillar-score good pillar2-display">20</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar good" style="width: 16.7%"></div>
+                            <div class="progress-bar good pillar2-progress" style="width: 16.7%"></div>
                         </div>
                         <div class="progress-label">16.7% - Strong</div>
                     </div>
@@ -1043,12 +1044,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Leadership & Team</div>
                             <div>
-                                <div class="pillar-score good">20</div>
+                                <div class="pillar-score good pillar3-display">20</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar good" style="width: 16.7%"></div>
+                            <div class="progress-bar good pillar3-progress" style="width: 16.7%"></div>
                         </div>
                         <div class="progress-label">16.7% - Strong</div>
                     </div>
@@ -1057,12 +1058,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Market Position</div>
                             <div>
-                                <div class="pillar-score good">20</div>
+                                <div class="pillar-score good pillar4-display">20</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar good" style="width: 16.7%"></div>
+                            <div class="progress-bar good pillar4-progress" style="width: 16.7%"></div>
                         </div>
                         <div class="progress-label">16.7% - Strong</div>
                     </div>
@@ -1071,12 +1072,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Operations & Scalability</div>
                             <div>
-                                <div class="pillar-score fair">16</div>
+                                <div class="pillar-score fair pillar5-display">16</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar fair" style="width: 13.3%"></div>
+                            <div class="progress-bar fair pillar5-progress" style="width: 13.3%"></div>
                         </div>
                         <div class="progress-label">13.3% - Development</div>
                     </div>
@@ -1085,12 +1086,12 @@
                         <div class="pillar-header">
                             <div class="pillar-name">Exit Readiness</div>
                             <div>
-                                <div class="pillar-score fair">14</div>
+                                <div class="pillar-score fair pillar6-display">14</div>
                                 <div class="pillar-max">/120</div>
                             </div>
                         </div>
                         <div class="progress-bar-container">
-                            <div class="progress-bar fair" style="width: 11.7%"></div>
+                            <div class="progress-bar fair pillar6-progress" style="width: 11.7%"></div>
                         </div>
                         <div class="progress-label">11.7% - Development</div>
                     </div>
@@ -1183,7 +1184,7 @@
                 <h3 class="section-header">Detailed Pillar Assessment</h3>
                 
                 <div class="action-card critical">
-                    <h4 style="color: var(--critical-red); margin-bottom: 1rem; font-size: 1.25rem;">🔴 Financial Health - 5/120 (Critical)</h4>
+                    <h4 style="color: var(--critical-red); margin-bottom: 1rem; font-size: 1.25rem;">🔴 Financial Health - <span class="pillar1-display">5</span>/120 (Critical)</h4>
                     <p style="color: #D1D5DB; margin-bottom: 1rem; line-height: 1.6;">
                         <strong>Strengths:</strong> Basic bookkeeping in place<br>
                         <strong>Critical Gaps:</strong> No audited financials, limited management reporting, insufficient systems, weak forecasting
@@ -1200,7 +1201,7 @@
                 </div>
 
                 <div class="card" style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--success-green); margin-bottom: 1rem; font-size: 1.25rem;">✓ Governance & Controls - 20/120 (Strong)</h4>
+                    <h4 style="color: var(--success-green); margin-bottom: 1rem; font-size: 1.25rem;">✓ Governance & Controls - <span class="pillar2-display">20</span>/120 (Strong)</h4>
                     <p style="color: #D1D5DB; line-height: 1.6;">
                         <strong>Strengths:</strong> Clear organizational structure, documented policies<br>
                         <strong>Enhancement Areas:</strong> Independent board development, committee structure
@@ -1208,7 +1209,7 @@
                 </div>
 
                 <div class="card" style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--success-green); margin-bottom: 1rem; font-size: 1.25rem;">✓ Leadership & Team - 20/120 (Strong)</h4>
+                    <h4 style="color: var(--success-green); margin-bottom: 1rem; font-size: 1.25rem;">✓ Leadership & Team - <span class="pillar3-display">20</span>/120 (Strong)</h4>
                     <p style="color: #D1D5DB; line-height: 1.6;">
                         <strong>Strengths:</strong> Experienced management team, low turnover, clear roles<br>
                         <strong>Enhancement Areas:</strong> Succession planning, management bench depth
@@ -1216,7 +1217,7 @@
                 </div>
 
                 <div class="card" style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--warning-orange); margin-bottom: 1rem; font-size: 1.25rem;">⚠ Exit Readiness - 14/120 (Development)</h4>
+                    <h4 style="color: var(--warning-orange); margin-bottom: 1rem; font-size: 1.25rem;">⚠ Exit Readiness - <span class="pillar6-display">14</span>/120 (Development)</h4>
                     <p style="color: #D1D5DB; margin-bottom: 1rem; line-height: 1.6;">
                         <strong>Strengths:</strong> Clear exit intent<br>
                         <strong>Gaps:</strong> Data room preparation, buyer profiling, transaction readiness
@@ -1237,7 +1238,7 @@
                         </div>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Impact:</strong>
-                            <span style="color: #D1D5DB;">Foundation for institutional credibility. Financial Health score improvement from 5 → 60+. Essential for all subsequent phases.</span>
+                            <span style="color: #D1D5DB;">Foundation for institutional credibility. Financial Health score improvement from <span class="pillar1-display">5</span> → 60+. Essential for all subsequent phases.</span>
                         </div>
                     </div>
 
@@ -1249,7 +1250,7 @@
                         </div>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Impact:</strong>
-                            <span style="color: #D1D5DB;">Unlocks premium valuation multiples. Exit Readiness score improvement 14 → 80+. Enables buyer confidence and reduces due diligence timeline.</span>
+                            <span style="color: #D1D5DB;">Unlocks premium valuation multiples. Exit Readiness score improvement <span class="pillar6-display">14</span> → 80+. Enables buyer confidence and reduces due diligence timeline.</span>
                         </div>
                     </div>
 
@@ -1261,7 +1262,7 @@
                         </div>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Impact:</strong>
-                            <span style="color: #D1D5DB;">De-risks transaction for buyers. Operations score improvement 16 → 90+. Validates scalability story and strengthens competitive positioning.</span>
+                            <span style="color: #D1D5DB;">De-risks transaction for buyers. Operations score improvement <span class="pillar5-display">16</span> → 90+. Validates scalability story and strengthens competitive positioning.</span>
                         </div>
                     </div>
 
@@ -1273,7 +1274,7 @@
                         </div>
                         <div style="margin-top: 1rem; padding-top: 1rem; border-top: 2px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Impact:</strong>
-                            <span style="color: #D1D5DB;">Maximizes valuation through competitive tension. Overall readiness 95 → 110+. Captures full 15-20% premium ($4.8-7.2M value creation).</span>
+                            <span style="color: #D1D5DB;">Maximizes valuation through competitive tension. Overall readiness <span class="score-display">95</span> → 110+. Captures full 15-20% premium ($4.8-7.2M value creation).</span>
                         </div>
                     </div>
                 </div>
@@ -1411,7 +1412,7 @@
                                 <div style="flex: 1; margin: 0 1rem;">
                                     <div style="background: var(--gray-200); height: 40px; border-radius: 8px; overflow: hidden; position: relative;">
                                         <div style="background: linear-gradient(90deg, var(--triveexec-navy) 0%, var(--triveexec-gold) 100%); height: 100%; width: 79.2%; display: flex; align-items: center; justify-content: flex-end; padding-right: 1rem; color: white; font-weight: 700; box-shadow: 0 2px 8px rgba(30, 42, 58, 0.3);">
-                                            95
+                                            <span class="score-display">95</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1499,15 +1500,15 @@
                         <div style="line-height: 2; color: #D1D5DB;">
                             <div style="margin-bottom: 0.75rem;">
                                 <strong style="color: var(--triveexec-gold);">Technology Sector:</strong><br>
-                                <span style="font-size: 0.875rem;">95 vs 82 avg (Top 15%)</span>
+                                <span style="font-size: 0.875rem;"><span class="score-display">95</span> vs 82 avg (Top 15%)</span>
                             </div>
                             <div style="margin-bottom: 0.75rem;">
                                 <strong style="color: var(--triveexec-gold);">Revenue Range ($25-50M):</strong><br>
-                                <span style="font-size: 0.875rem;">95 vs 78 avg (Top 20%)</span>
+                                <span style="font-size: 0.875rem;"><span class="score-display">95</span> vs 78 avg (Top 20%)</span>
                             </div>
                             <div>
                                 <strong style="color: var(--triveexec-gold);">ASEAN Region:</strong><br>
-                                <span style="font-size: 0.875rem;">95 vs 68 avg (Top 10%)</span>
+                                <span style="font-size: 0.875rem;"><span class="score-display">95</span> vs 68 avg (Top 10%)</span>
                             </div>
                         </div>
                     </div>
@@ -1529,42 +1530,42 @@
                         <tbody>
                             <tr>
                                 <td><strong>Financial Health</strong></td>
-                                <td style="color: var(--critical-red); font-weight: 700;">5</td>
+                                <td style="color: var(--critical-red); font-weight: 700;"><span class="pillar1-display">5</span></td>
                                 <td>48</td>
                                 <td>72</td>
                                 <td style="color: var(--critical-red); font-weight: 700;">-43 (Critical)</td>
                             </tr>
                             <tr>
                                 <td><strong>Governance & Controls</strong></td>
-                                <td style="color: var(--triveexec-gold); font-weight: 700;">20</td>
+                                <td style="color: var(--triveexec-gold); font-weight: 700;"><span class="pillar2-display">20</span></td>
                                 <td>14</td>
                                 <td>18</td>
                                 <td style="color: var(--success-green); font-weight: 700;">+6 (Above Avg)</td>
                             </tr>
                             <tr>
                                 <td><strong>Leadership & Team</strong></td>
-                                <td style="color: var(--triveexec-gold); font-weight: 700;">20</td>
+                                <td style="color: var(--triveexec-gold); font-weight: 700;"><span class="pillar3-display">20</span></td>
                                 <td>13</td>
                                 <td>18</td>
                                 <td style="color: var(--success-green); font-weight: 700;">+7 (Above Avg)</td>
                             </tr>
                             <tr>
                                 <td><strong>Market Position</strong></td>
-                                <td style="color: var(--triveexec-gold); font-weight: 700;">20</td>
+                                <td style="color: var(--triveexec-gold); font-weight: 700;"><span class="pillar4-display">20</span></td>
                                 <td>12</td>
                                 <td>19</td>
                                 <td style="color: var(--success-green); font-weight: 700;">+8 (Top Tier)</td>
                             </tr>
                             <tr>
                                 <td><strong>Operations & Scalability</strong></td>
-                                <td style="color: var(--warning-orange); font-weight: 700;">16</td>
+                                <td style="color: var(--warning-orange); font-weight: 700;"><span class="pillar5-display">16</span></td>
                                 <td>11</td>
                                 <td>17</td>
                                 <td style="color: var(--success-green); font-weight: 700;">+5 (Above Avg)</td>
                             </tr>
                             <tr>
                                 <td><strong>Exit Readiness</strong></td>
-                                <td style="color: var(--warning-orange); font-weight: 700;">14</td>
+                                <td style="color: var(--warning-orange); font-weight: 700;"><span class="pillar6-display">14</span></td>
                                 <td>8</td>
                                 <td>18</td>
                                 <td style="color: var(--success-green); font-weight: 700;">+6 (Above Avg)</td>
@@ -1652,7 +1653,7 @@
                         <div style="background: rgba(201, 169, 97, 0.1); padding: 1.25rem; border-radius: 8px; margin-top: 1.5rem; border-left: 4px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Expected Outcome:</strong>
                             <div style="color: #D1D5DB; font-size: 0.9375rem; line-height: 1.7;">
-                                Score improvement: 95 → 110+<br>
+                                Score improvement: <span class="score-display">95</span> → 110+<br>
                                 Value creation: <strong style="color: var(--success-green);">$4.8-7.2M</strong><br>
                                 Success fee on exit: <strong style="color: var(--triveexec-gold);">3% of transaction value</strong><br>
                                 Total investment (est.): <strong style="color: #F9FAFB);">$150K + $150-250K success fee</strong>
@@ -1692,8 +1693,8 @@
                         <div style="background: rgba(30, 42, 58, 0.5); padding: 1.25rem; border-radius: 8px; margin-top: 1.5rem; border-left: 4px solid var(--triveexec-navy);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Expected Outcome:</strong>
                             <div style="color: #D1D5DB; font-size: 0.9375rem; line-height: 1.7;">
-                                Financial Health: 5 → 65+<br>
-                                Overall Score: 95 → 102+<br>
+                                Financial Health: <span class="pillar1-display">5</span> → 65+<br>
+                                Overall Score: <span class="score-display">95</span> → 102+<br>
                                 Partial premium capture
                             </div>
                         </div>
@@ -1804,8 +1805,8 @@
                             </tr>
                             <tr>
                                 <td><strong>Expected Score Improvement</strong></td>
-                                <td style="background: rgba(201, 169, 97, 0.05); color: var(--success-green); font-weight: 700;">95 → 110+</td>
-                                <td style="color: var(--triveexec-gold); font-weight: 700;">95 → 102+</td>
+                                <td style="background: rgba(201, 169, 97, 0.05); color: var(--success-green); font-weight: 700;"><span class="score-display">95</span> → 110+</td>
+                                <td style="color: var(--triveexec-gold); font-weight: 700;"><span class="score-display">95</span> → 102+</td>
                                 <td>Planning only</td>
                             </tr>
                             <tr>
@@ -2039,7 +2040,7 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: #D1D5DB; margin-bottom: 0.5rem;">Current Score</div>
-                            <div style="font-size: 3rem; font-weight: 800; color: #D1D5DB;">95</div>
+                            <div style="font-size: 3rem; font-weight: 800; color: #D1D5DB;" class="score-display">95</div>
                         </div>
                         <div style="text-align: center;">
                             <div style="font-size: 2rem; color: var(--triveexec-gold); margin: 1rem 0;">→</div>
@@ -2075,7 +2076,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showTab(tabName, clickedElement) {
             // Prevent default behavior
             if (event) {
@@ -2143,6 +2144,140 @@
                         showTab(tabName, this);
                     }
                 });
+            });
+            
+            // ====================================================================
+            // READ URL PARAMETERS AND UPDATE DASHBOARD
+            // ====================================================================
+            
+            // Function to get URL parameter
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+            
+            // Get all parameters from URL
+            const urlCompany = getUrlParameter('company');
+            const urlScore = getUrlParameter('score');
+            const urlGrade = getUrlParameter('grade');
+            const urlTier = getUrlParameter('tier');
+            const urlP1 = getUrlParameter('p1');
+            const urlP2 = getUrlParameter('p2');
+            const urlP3 = getUrlParameter('p3');
+            const urlP4 = getUrlParameter('p4');
+            const urlP5 = getUrlParameter('p5');
+            const urlP6 = getUrlParameter('p6');
+            const urlIndustry = getUrlParameter('industry');
+            const urlDate = getUrlParameter('date');
+            
+            // Update company name everywhere
+            if (urlCompany) {
+                document.querySelectorAll('.company-display').forEach(el => {
+                    el.textContent = urlCompany;
+                });
+                
+                // Update page title
+                document.title = 'TriveHealth™ Dashboard - ' + urlCompany;
+            }
+            
+            // Update score everywhere
+            if (urlScore) {
+                document.querySelectorAll('.score-display').forEach(el => {
+                    el.textContent = urlScore;
+                });
+            }
+            
+            // Update grade everywhere
+            if (urlGrade) {
+                document.querySelectorAll('.grade-display').forEach(el => {
+                    el.textContent = urlGrade;
+                });
+            }
+            
+            // Update industry
+            if (urlIndustry) {
+                document.querySelectorAll('.industry-display').forEach(el => {
+                    el.textContent = urlIndustry + ' Sector';
+                });
+            }
+            
+            // Update assessment date
+            if (urlDate) {
+                document.querySelectorAll('.assessment-date').forEach(el => {
+                    el.textContent = urlDate;
+                });
+            }
+            
+            // Update pillar scores
+            if (urlP1) {
+                document.querySelectorAll('.pillar1-display').forEach(el => {
+                    el.textContent = urlP1;
+                });
+                // Update progress bar
+                const p1Percent = (parseInt(urlP1) / 30) * 100;
+                document.querySelectorAll('.pillar1-progress').forEach(el => {
+                    el.style.width = p1Percent + '%';
+                });
+            }
+            
+            if (urlP2) {
+                document.querySelectorAll('.pillar2-display').forEach(el => {
+                    el.textContent = urlP2;
+                });
+                const p2Percent = (parseInt(urlP2) / 20) * 100;
+                document.querySelectorAll('.pillar2-progress').forEach(el => {
+                    el.style.width = p2Percent + '%';
+                });
+            }
+            
+            if (urlP3) {
+                document.querySelectorAll('.pillar3-display').forEach(el => {
+                    el.textContent = urlP3;
+                });
+                const p3Percent = (parseInt(urlP3) / 20) * 100;
+                document.querySelectorAll('.pillar3-progress').forEach(el => {
+                    el.style.width = p3Percent + '%';
+                });
+            }
+            
+            if (urlP4) {
+                document.querySelectorAll('.pillar4-display').forEach(el => {
+                    el.textContent = urlP4;
+                });
+                const p4Percent = (parseInt(urlP4) / 20) * 100;
+                document.querySelectorAll('.pillar4-progress').forEach(el => {
+                    el.style.width = p4Percent + '%';
+                });
+            }
+            
+            if (urlP5) {
+                document.querySelectorAll('.pillar5-display').forEach(el => {
+                    el.textContent = urlP5;
+                });
+                const p5Percent = (parseInt(urlP5) / 16) * 100;
+                document.querySelectorAll('.pillar5-progress').forEach(el => {
+                    el.style.width = p5Percent + '%';
+                });
+            }
+            
+            if (urlP6) {
+                document.querySelectorAll('.pillar6-display').forEach(el => {
+                    el.textContent = urlP6;
+                });
+                const p6Percent = (parseInt(urlP6) / 14) * 100;
+                document.querySelectorAll('.pillar6-progress').forEach(el => {
+                    el.style.width = p6Percent + '%';
+                });
+            }
+            
+            console.log('Dashboard updated with URL parameters:', {
+                company: urlCompany,
+                score: urlScore,
+                grade: urlGrade,
+                tier: urlTier,
+                pillars: [urlP1, urlP2, urlP3, urlP4, urlP5, urlP6]
             });
         });
     </script>
