@@ -1620,9 +1620,9 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                     <!-- Package 1: Exit Accelerator (Recommended) -->
                     <div class="card" style="border: 3px solid var(--triveexec-gold); position: relative; background: linear-gradient(135deg, #1E2A3A 0%, #2A3847 100%);">
-                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: #1E2A3A; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 4px 12px rgba(201, 169, 97, 0.5);">
-                            Recommended
-                        </div>
+                        <div class="recommended-badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: #1E2A3A; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 4px 12px rgba(201, 169, 97, 0.5); display: none;">
+                            ⭐ Recommended For You
+                        </div>                        
                         
                         <div style="text-align: center; padding-top: 1.5rem;">
                             <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀</div>
@@ -1669,8 +1669,10 @@
                     </div>
                     
                     <!-- Package 2: Financial Foundation -->
-                    <div class="card" style="border: 2px solid var(--gray-300);">
-                        <div style="text-align: center;">
+                    <div class="card" style="border: 2px solid var(--gray-300); position: relative;">
+                        <div class="recommended-badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: #1E2A3A; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 4px 12px rgba(201, 169, 97, 0.5); display: none;">
+                            ⭐ Recommended For You
+                        </div>                        <div style="text-align: center;">
                             <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💼</div>
                             <h4 style="font-size: 1.5rem; font-weight: 700; color: var(--triveexec-gold); margin-bottom: 0.5rem;">Financial Foundation</h4>
                             <div style="font-size: 0.9375rem; color: #D1D5DB; margin-bottom: 1.5rem;">Critical Gap Remediation</div>
@@ -1707,8 +1709,10 @@
                     </div>
                     
                     <!-- Package 3: Strategy Sprint -->
-                    <div class="card" style="border: 2px solid var(--gray-300);">
-                        <div style="text-align: center;">
+                    <div class="card" style="border: 2px solid var(--gray-300); position: relative;">
+                        <div class="recommended-badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: #1E2A3A; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 4px 12px rgba(201, 169, 97, 0.5); display: none;">
+                            ⭐ Recommended For You
+                        </div>                        <div style="text-align: center;">
                             <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
                             <h4 style="font-size: 1.5rem; font-weight: 700; color: var(--triveexec-gold); margin-bottom: 0.5rem;">Strategy Sprint</h4>
                             <div style="font-size: 0.9375rem; color: #D1D5DB; margin-bottom: 1.5rem;">Roadmap Development</div>
@@ -1826,8 +1830,19 @@
                         </tbody>
                     </table>
                 </div>
-                
-                <!-- Next Steps CTA -->
+                <div style="background: linear-gradient(135deg, var(--triveexec-navy) 0%, #2A3847 100%); border: 3px solid var(--triveexec-gold); border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 3rem;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--triveexec-gold); margin-bottom: 1rem;">Not Sure Which Package is Right?</h3>
+                    <p style="font-size: 1.0625rem; color: #E5E7EB; margin-bottom: 2rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        Book a 90-minute Strategy Call with our advisory team. We'll review your dashboard findings, discuss your timeline, and create a personalised action plan with budget estimates and grant eligibility.
+                    </p>
+                    <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display: inline-block; background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: #1E2A3A; padding: 1.25rem 3rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4); transition: all 0.3s ease;">
+                        Book Strategy Call — SGD 500
+                    </a>
+                    <div style="margin-top: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
+                        💳 Secure payment via Stripe | 📅 Calendar link sent after payment
+                    </div>
+                </div>                <!-- Next Steps CTA -->
                 <div class="cta-section" style="margin-top: 3rem;">
                     <h2 class="cta-title">Ready to Get Started?</h2>
                     <p class="cta-description">
