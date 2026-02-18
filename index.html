@@ -910,20 +910,18 @@
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Current State</div>
-                            <div style="font-size: 2.5rem; font-weight: 800; color: white;"><span class="score-display">95</span>/120</div>
-                            <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">Grade <span class="grade-display">A</span></div>
-                        </div>
+                            <<div style="font-size: 2.5rem; font-weight: 800; color: white;"><span class="score-display">95</span>/120</div>
+                        <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">Grade <span class="grade-display">A</span></div>
+                        <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-top: 0.25rem;"><span class="readiness-percent">79.2%</span> Readiness</div>                        </div>
                         
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Critical Gap</div>
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--critical-red); margin-top: 0.75rem;">Financial Health</div>
-                            <div style="font-size: 0.9375rem; color: white;"><span class="pillar1-display">5</span>/120 Score</div>
+                            <<div style="font-size: 1.5rem; font-weight: 700; color: var(--critical-red); margin-top: 0.75rem;"><span class="critical-gap">Financial Health</span></div>                            <div style="font-size: 0.9375rem; color: white;"><span class="pillar1-display">5</span>/120 Score</div>
                         </div>
                         
                         <div style="text-align: center;">
                             <div style="font-size: 0.875rem; color: var(--triveexec-light-gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Investment</div>
-                            <div style="font-size: 2rem; font-weight: 800; color: white; margin-top: 0.5rem;">$260-370K</div>
-                            <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">9-12 Months</div>
+                            <<div style="font-size: 2rem; font-weight: 800; color: white; margin-top: 0.5rem;">$260-370K (est.)</div>                            <div style="font-size: 0.9375rem; color: var(--triveexec-gold); font-weight: 600;">9-12 Months</div>
                         </div>
                         
                         <div style="text-align: center;">
@@ -994,15 +992,14 @@
                                 <div class="score-denominator">/120</div>
                             </div>
                         </div>
-                        <div class="readiness-badge"><span class="grade-display">A</span> - Highly Attractive</div>
-                    </div>
+                        <div class="readiness-badge"><span class="grade-display">A</span> - <span class="grade-description">Highly Attractive</span></div>                    </div>
 
                     <div class="card">
                         <h3 class="section-header" style="border: none; padding: 0; margin-bottom: 1rem;">Assessment Summary</h3>
-                        <p style="color: #D1D5DB; line-height: 1.8; margin-bottom: 1.5rem;">
-                            <strong style="color: var(--triveexec-gold);">Exceptional performance</strong> with strong institutional readiness across most pillars. Your company demonstrates excellent fundamentals with <strong style="color: var(--critical-red);">critical improvement needed in Financial Health</strong> (<span class="pillar1-display">5</span>/120) to unlock maximum exit premium.
-                        </p>
-                        <div style="background: rgba(30, 42, 58, 0.5); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--triveexec-gold);">
+                        <<p style="color: #D1D5DB; line-height: 1.8; margin-bottom: 1.5rem;">
+                            <span class="assessment-text">Exceptional performance with strong institutional readiness across most pillars. Your company demonstrates excellent fundamentals</span> with <strong style="color: var(--critical-red);">critical improvement needed in <span class="critical-gap">Financial Health</span></strong> (<span class="pillar1-display">5</span>/120) to unlock maximum exit premium.
+                        </p>                        
+                            <div style="background: rgba(30, 42, 58, 0.5); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--triveexec-gold);">
                             <strong style="color: var(--triveexec-gold); display: block; margin-bottom: 0.5rem;">Priority Focus:</strong>
                             <p style="color: #D1D5DB; margin: 0;">Immediate financial systems implementation and audit preparation can capture 15-20% valuation premium ($4.8-7.2M) within 3-6 months.</p>
                         </div>
@@ -2473,8 +2470,103 @@ Best regards`;
             if (urlP1 || urlP2) {
                 setTimeout(highlightRecommendedPackage, 100);
             }
+            function calculateDynamicMetrics() {
+                const score = parseInt(urlScore) || 0;
+                const p1 = parseInt(urlP1) || 0;
+                const p2 = parseInt(urlP2) || 0;
+                const p3 = parseInt(urlP3) || 0;
+                const p4 = parseInt(urlP4) || 0;
+                const p5 = parseInt(urlP5) || 0;
+                const p6 = parseInt(urlP6) || 0;
+                
+                const readinessPercent = ((score / 120) * 100).toFixed(1);
+                
+                const gradeDescriptions = {
+                    'A': 'Highly Attractive',
+                    'A-': 'Very Strong',
+                    'B+': 'Strong Potential',
+                    'B': 'Good Foundation',
+                    'B-': 'Moderate Readiness',
+                    'C+': 'Developing',
+                    'C': 'Significant Work Needed',
+                    'C-': 'Major Gaps',
+                    'D': 'Early Stage',
+                    'F': 'Not Ready'
+                };
+                
+                const gradeDesc = gradeDescriptions[urlGrade] || 'Assessment Complete';
+                
+                const pillars = [p1, p2, p3, p4, p5, p6];
+                const lowestPillar = Math.min(...pillars);
+                const lowestPillarIndex = pillars.indexOf(lowestPillar);
+                const pillarNames = ['Financial Health', 'Governance & Controls', 'Leadership & Team', 'Market Position', 'Operations & Scalability', 'Exit Readiness'];
+                const criticalGap = pillarNames[lowestPillarIndex];
+                
+                const assessmentTexts = {
+                    'A': 'Exceptional performance with strong institutional readiness across most pillars. Your company demonstrates excellent fundamentals',
+                    'A-': 'Very strong performance with solid institutional readiness. Your company shows strong fundamentals',
+                    'B+': 'Strong performance with good institutional readiness. Your company demonstrates solid fundamentals',
+                    'B': 'Good performance with moderate institutional readiness. Your company shows promising fundamentals',
+                    'B-': 'Moderate performance with developing institutional readiness. Your company has foundational elements in place',
+                    'C+': 'Developing performance with several areas requiring attention. Your company shows potential',
+                    'C': 'Significant gaps across multiple pillars. Your company requires substantial improvements',
+                    'C-': 'Major gaps in institutional readiness. Your company needs comprehensive transformation',
+                    'D': 'Critical gaps across most pillars. Your company is in early stages of exit preparation',
+                    'F': 'Not ready for institutional exit. Your company requires fundamental transformation across all pillars'
+                };
+                
+                const assessmentText = assessmentTexts[urlGrade] || 'Assessment complete. Review findings below.';
+                
+                const gapMultiplier = Math.max(0, (110 - score) / 10);
+                const valueGapLow = (gapMultiplier * 0.8).toFixed(1);
+                const valueGapHigh = (gapMultiplier * 1.2).toFixed(1);
+                
+                const premiumPercent = score >= 90 ? '15-20%' : 
+                                      score >= 70 ? '10-15%' : 
+                                      score >= 50 ? '5-10%' : 
+                                      score >= 30 ? '3-5%' : '0-3%';
+                
+                document.querySelectorAll('.readiness-percent').forEach(el => {
+                    el.textContent = readinessPercent + '%';
+                });
+                
+                document.querySelectorAll('.grade-description').forEach(el => {
+                    el.textContent = gradeDesc;
+                });
+                
+                document.querySelectorAll('.assessment-text').forEach(el => {
+                    el.textContent = assessmentText;
+                });
+                
+                document.querySelectorAll('.critical-gap').forEach(el => {
+                    el.textContent = criticalGap;
+                });
+                
+                document.querySelectorAll('.value-gap-low').forEach(el => {
+                    el.textContent = valueGapLow;
+                });
+                
+                document.querySelectorAll('.value-gap-high').forEach(el => {
+                    el.textContent = valueGapHigh;
+                });
+                
+                document.querySelectorAll('.premium-percent').forEach(el => {
+                    el.textContent = premiumPercent;
+                });
+                
+                console.log('Dynamic metrics calculated:', {
+                    score,
+                    readinessPercent,
+                    gradeDesc,
+                    criticalGap,
+                    valueGap: `$${valueGapLow}-${valueGapHigh}M`,
+                    premium: premiumPercent
+                });
+            }
             
-            console.log('Dashboard updated with URL parameters:', {
+            if (urlScore) {
+                calculateDynamicMetrics();
+            }            console.log('Dashboard updated with URL parameters:', {
                 company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
