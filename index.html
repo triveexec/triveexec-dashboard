@@ -2105,14 +2105,15 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         function requestValidation(phase) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const companyName = urlParams.get('company') || 'Unknown Company';
-    const userEmail = 'info@triveexec.com';
-    
-    const subject = `Phase ${phase.toUpperCase()} Validation Request - ${companyName}`;
-    const body = `Hello TriveExec Team,
+            const urlParams = new URLSearchParams(window.location.search);
+            const companyName = urlParams.get('company') || 'Unknown Company';
+            const userEmail = 'info@triveexec.com';
+            
+            const subject = `Phase ${phase.toUpperCase()} Validation Request - ${companyName}`;
+            const body = `Hello TriveExec Team,
 
 I have completed all milestones for ${phase.toUpperCase()} and would like to request validation.
 
@@ -2122,41 +2123,36 @@ Dashboard: ${window.location.href}
 I am ready to discuss next steps and would like to book a Strategy Call.
 
 Best regards`;
-    
-    window.location.href = `mailto:insights@triveexec.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}    </script>  
+            
+            window.location.href = `mailto:insights@triveexec.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
         function showTab(tabName, clickedElement) {
-            // Prevent default behavior
             if (event) {
                 event.preventDefault();
                 event.stopPropagation();
             }
             
-            // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => {
                 content.classList.remove('active');
             });
 
-            // Remove active class from all tabs
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
                 tab.classList.remove('active');
             });
 
-            // Show selected tab content
             const targetContent = document.getElementById(tabName);
             if (targetContent) {
                 targetContent.classList.add('active');
             }
 
-            // Add active class to clicked tab
             if (event && event.target) {
                 event.target.classList.add('active');
             } else if (clickedElement) {
                 clickedElement.classList.add('active');
             } else {
-                // Fallback: find the tab by matching onclick attribute
                 tabs.forEach(tab => {
                     if (tab.getAttribute('onclick').includes(tabName)) {
                         tab.classList.add('active');
@@ -2165,16 +2161,13 @@ Best regards`;
             }
         }
         
-        // Add touch event listeners for mobile on DOM load
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
-                // Add touch event for mobile
                 tab.addEventListener('touchend', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     
-                    // Extract tab name from onclick attribute
                     const onclickAttr = this.getAttribute('onclick');
                     const match = onclickAttr.match(/showTab\('([^']+)'\)/);
                     if (match) {
@@ -2183,7 +2176,6 @@ Best regards`;
                     }
                 }, { passive: false });
                 
-                // Also handle click for desktop
                 tab.addEventListener('click', function(e) {
                     const onclickAttr = this.getAttribute('onclick');
                     const match = onclickAttr.match(/showTab\('([^']+)'\)/);
@@ -2194,11 +2186,6 @@ Best regards`;
                 });
             });
             
-            // ====================================================================
-            // READ URL PARAMETERS AND UPDATE DASHBOARD
-            // ====================================================================
-            
-            // Function to get URL parameter
             function getUrlParameter(name) {
                 name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
                 var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -2206,7 +2193,6 @@ Best regards`;
                 return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             }
             
-            // Get all parameters from URL
             const urlCompany = getUrlParameter('company');
             const urlScore = getUrlParameter('score');
             const urlGrade = getUrlParameter('grade');
@@ -2220,50 +2206,41 @@ Best regards`;
             const urlIndustry = getUrlParameter('industry');
             const urlDate = getUrlParameter('date');
             
-            // Update company name everywhere
             if (urlCompany) {
                 document.querySelectorAll('.company-display').forEach(el => {
                     el.textContent = urlCompany;
                 });
-                
-                // Update page title
                 document.title = 'TriveHealth™ Dashboard - ' + urlCompany;
             }
             
-            // Update score everywhere
             if (urlScore) {
                 document.querySelectorAll('.score-display').forEach(el => {
                     el.textContent = urlScore;
                 });
             }
             
-            // Update grade everywhere
             if (urlGrade) {
                 document.querySelectorAll('.grade-display').forEach(el => {
                     el.textContent = urlGrade;
                 });
             }
             
-            // Update industry
             if (urlIndustry) {
                 document.querySelectorAll('.industry-display').forEach(el => {
                     el.textContent = urlIndustry + ' Sector';
                 });
             }
             
-            // Update assessment date
             if (urlDate) {
                 document.querySelectorAll('.assessment-date').forEach(el => {
                     el.textContent = urlDate;
                 });
             }
             
-            // Update pillar scores
             if (urlP1) {
                 document.querySelectorAll('.pillar1-display').forEach(el => {
                     el.textContent = urlP1;
                 });
-                // Update progress bar
                 const p1Percent = (parseInt(urlP1) / 30) * 100;
                 document.querySelectorAll('.pillar1-progress').forEach(el => {
                     el.style.width = p1Percent + '%';
