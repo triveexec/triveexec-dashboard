@@ -1901,9 +1901,9 @@
                                     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
                                         <div><strong>Timeline:</strong> Week 1-2</div>
                                         <div><strong>Owner:</strong> CEO</div>
-                                        <div><strong>Investment:</strong> $8K/month</div>
-                                    </div>
-                                </div>
+                                        <div><strong>Scope:</strong> Significant — ongoing advisory engagement</div>
+                                        <div>
+                                    </div>                                
                             </div>
                         </div>
                         
@@ -1922,7 +1922,7 @@
                                     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
                                         <div><strong>Timeline:</strong> Week 3-8</div>
                                         <div><strong>Owner:</strong> CFO</div>
-                                        <div><strong>Investment:</strong> $45K</div>
+                                        <div><strong>Scope:</strong> Major — enterprise system implementation</div>  
                                     </div>
                                 </div>
                             </div>
@@ -1943,7 +1943,7 @@
                                     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
                                         <div><strong>Timeline:</strong> Week 8-10</div>
                                         <div><strong>Owner:</strong> CFO</div>
-                                        <div><strong>Investment:</strong> $60K</div>
+                                        <div><strong>Scope:</strong> Major — multi-year audit engagement</div>   
                                     </div>
                                 </div>
                             </div>
@@ -1964,7 +1964,7 @@
                                     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
                                         <div><strong>Timeline:</strong> Week 6-12</div>
                                         <div><strong>Owner:</strong> CEO</div>
-                                        <div><strong>Investment:</strong> $15K</div>
+                                        <div><strong>Scope:</strong> Moderate — legal/advisory engagement</div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -1985,15 +1985,40 @@
                                     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: #D1D5DB;">
                                         <div><strong>Timeline:</strong> Week 10-12</div>
                                         <div><strong>Owner:</strong> TriveExec</div>
-                                        <div><strong>Investment:</strong> $12K</div>
-                                    </div>
+                                        <div><strong>Scope:</strong> Moderate — platform setup & document organization</div>                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Phase 2: Months 4-6 (Collapsed/Summary) -->
+                        
+                <!-- Budget Planning Note -->
+                <div style="background: rgba(30, 42, 58, 0.8); border: 2px dashed rgba(201, 169, 97, 0.4); border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="font-size: 2rem;">💰</div>
+                        <div>
+                            <div style="font-size: 1.125rem; font-weight: 700; color: var(--triveexec-gold); margin-bottom: 0.25rem;">Investment & Budget Planning</div>
+                            <div style="font-size: 0.875rem; color: #D1D5DB;">Personalised cost estimates provided during Strategy Call</div>
+                        </div>
+                    </div>
+                    <div style="color: #D1D5DB; font-size: 0.9375rem; line-height: 1.7;">
+                        Implementation costs vary significantly based on company size, complexity, vendor selection, and government grant eligibility. 
+                        <strong style="color: var(--triveexec-light-gold);">Singapore SMEs may qualify for PSG (up to 70% subsidy) and EDG grants.</strong>
+                        <br><br>
+                        📞 <strong style="color: var(--triveexec-gold);">Book a Strategy Call (SGD 500)</strong> for personalised budget planning, grant eligibility assessment, and vendor recommendations.
+                        <br>
+                        ✉️ Questions? Email: <a href="mailto:insights@triveexec.com" style="color: var(--triveexec-gold); text-decoration: none;">insights@triveexec.com</a>
+                    </div>
+                </div> 
+                         <!-- Request Validation Button -->
+                <div style="text-align: center; margin: 2.5rem 0;">
+                    <button onclick="requestValidation('phase1')" style="background: linear-gradient(135deg, var(--triveexec-gold) 0%, var(--triveexec-light-gold) 100%); color: var(--triveexec-navy); font-size: 1.0625rem; font-weight: 700; padding: 1rem 2.5rem; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3); transition: all 0.3s ease; font-family: Arial, sans-serif;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(201, 169, 97, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(201, 169, 97, 0.3)';">
+                        ✓ Request TriveExec Validation — Phase 1 Complete
+                    </button>
+                    <div style="margin-top: 0.75rem; font-size: 0.875rem; color: #9CA3AF; font-style: italic;">
+                        Complete all 5 milestones, then request validation to unlock Phase 2
+                    </div>
+                </div>                <!-- Phase 2: Months 4-6 (Collapsed/Summary) -->
                 <div class="card" style="margin-bottom: 2rem; opacity: 0.7;">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                         <div>
@@ -2080,7 +2105,26 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        function requestValidation(phase) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const companyName = urlParams.get('company') || 'Unknown Company';
+    const userEmail = 'info@triveexec.com';
+    
+    const subject = `Phase ${phase.toUpperCase()} Validation Request - ${companyName}`;
+    const body = `Hello TriveExec Team,
+
+I have completed all milestones for ${phase.toUpperCase()} and would like to request validation.
+
+Company: ${companyName}
+Dashboard: ${window.location.href}
+
+I am ready to discuss next steps and would like to book a Strategy Call.
+
+Best regards`;
+    
+    window.location.href = `mailto:insights@triveexec.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}    </script>  
         function showTab(tabName, clickedElement) {
             // Prevent default behavior
             if (event) {
