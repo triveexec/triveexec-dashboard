@@ -2398,17 +2398,76 @@ Best regards`;
             // Call the function after URL parameters are loaded
             if (urlP1 || urlP2 || urlP3 || urlP4 || urlP5 || urlP6) {
                 reorderMilestones();
-            }// Call the function after URL parameters are loaded
-            if (urlP1 || urlP2 || urlP3 || urlP4 || urlP5 || urlP6) {
-                reorderMilestones();
             }
             
             // ============================================================
-            // SERVICE PACKAGE RECOMMENDATION LOGIC  ← ADD FEATURE 2 HERE
+            // SERVICE PACKAGE RECOMMENDATION LOGIC
             // ============================================================
             
             function determineRecommendedPackage() {
-                ...
+                const p1Score = parseInt(urlP1) || 0;
+                const p2Score = parseInt(urlP2) || 0;
+                const p3Score = parseInt(urlP3) || 0;
+                const p4Score = parseInt(urlP4) || 0;
+                const p5Score = parseInt(urlP5) || 0;
+                const p6Score = parseInt(urlP6) || 0;
+                
+                const allScores = [p1Score, p2Score, p3Score, p4Score, p5Score, p6Score];
+                const pillarsBelow15 = allScores.filter(score => score < 15).length;
+                
+                let recommendedPackage = '';
+                
+                if (p1Score < 10 && pillarsBelow15 <= 2) {
+                    recommendedPackage = 'financial-foundation';
+                } else if (pillarsBelow15 >= 3) {
+                    recommendedPackage = 'exit-accelerator';
+                } else {
+                    recommendedPackage = 'strategy-sprint';
+                }
+                
+                console.log('Recommended package:', recommendedPackage, {
+                    p1Score,
+                    pillarsBelow15,
+                    reasoning: recommendedPackage === 'exit-accelerator' ? '3+ pillars need work' :
+                               recommendedPackage === 'financial-foundation' ? 'Financial Health critical gap' :
+                               'Focused gaps only'
+                });
+                
+                return recommendedPackage;
+            }
+            
+            function highlightRecommendedPackage() {
+                const recommended = determineRecommendedPackage();
+                
+                document.querySelectorAll('.recommended-badge').forEach(badge => {
+                    badge.style.display = 'none';
+                });
+                
+                const packageCards = document.querySelectorAll('#services .card');
+                packageCards.forEach(card => {
+                    const cardText = card.textContent;
+                    
+                    if (recommended === 'exit-accelerator' && cardText.includes('Exit Accelerator')) {
+                        const badge = card.querySelector('.recommended-badge');
+                        if (badge) badge.style.display = 'block';
+                        card.style.border = '3px solid var(--triveexec-gold)';
+                        card.style.boxShadow = '0 8px 24px rgba(201, 169, 97, 0.4)';
+                    } else if (recommended === 'financial-foundation' && cardText.includes('Financial Foundation')) {
+                        const badge = card.querySelector('.recommended-badge');
+                        if (badge) badge.style.display = 'block';
+                        card.style.border = '3px solid var(--triveexec-gold)';
+                        card.style.boxShadow = '0 8px 24px rgba(201, 169, 97, 0.4)';
+                    } else if (recommended === 'strategy-sprint' && cardText.includes('Strategy Sprint')) {
+                        const badge = card.querySelector('.recommended-badge');
+                        if (badge) badge.style.display = 'block';
+                        card.style.border = '3px solid var(--triveexec-gold)';
+                        card.style.boxShadow = '0 8px 24px rgba(201, 169, 97, 0.4)';
+                    }
+                });
+            }
+            
+            if (urlP1 || urlP2) {
+                setTimeout(highlightRecommendedPackage, 100);
             }
             
             console.log('Dashboard updated with URL parameters:', {
@@ -2417,18 +2476,7 @@ Best regards`;
                 grade: urlGrade,
                 tier: urlTier,
                 pillars: [urlP1, urlP2, urlP3, urlP4, urlP5, urlP6]
-            });
-        });
-    </script>
-</body>
-</html>console.log('Dashboard updated with URL parameters:', {
-                company: urlCompany,
-                score: urlScore,
-                grade: urlGrade,
-                tier: urlTier,
-                pillars: [urlP1, urlP2, urlP3, urlP4, urlP5, urlP6]
-            });
-        });
+            });        });
     </script>
 </body>
 </html>
