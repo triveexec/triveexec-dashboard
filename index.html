@@ -2315,8 +2315,113 @@ Best regards`;
                     el.style.width = p6Percent + '%';
                 });
             }
+            // ============================================================
+            // HYBRID PRIORITY ORDERING FOR PHASE 1 MILESTONES
+            // ============================================================
+            
+            function reorderMilestones() {
+                // Define milestones with their pillar associations
+                const milestones = [
+                    {
+                        id: 'milestone-cfo',
+                        pillar: 'p1', // Financial Health
+                        title: 'Engage Fractional CFO',
+                        order: 1
+                    },
+                    {
+                        id: 'milestone-financial-system',
+                        pillar: 'p1', // Financial Health
+                        title: 'Select & Implement Financial System',
+                        order: 2
+                    },
+                    {
+                        id: 'milestone-audit',
+                        pillar: 'p1', // Financial Health
+                        title: 'Engage Audit Firm',
+                        order: 3
+                    },
+                    {
+                        id: 'milestone-governance',
+                        pillar: 'p2', // Governance & Controls
+                        title: 'Establish Governance Framework',
+                        order: 4
+                    },
+                    {
+                        id: 'milestone-dataroom',
+                        pillar: 'p6', // Exit Readiness
+                        title: 'Begin Data Room Structure',
+                        order: 5
+                    }
+                ];
+                
+                // Get pillar scores from URL
+                const pillarScores = {
+                    p1: parseInt(urlP1) || 0,
+                    p2: parseInt(urlP2) || 0,
+                    p3: parseInt(urlP3) || 0,
+                    p4: parseInt(urlP4) || 0,
+                    p5: parseInt(urlP5) || 0,
+                    p6: parseInt(urlP6) || 0
+                };
+                
+                // Sort milestones by pillar score (lowest first)
+                milestones.sort((a, b) => {
+                    const scoreA = pillarScores[a.pillar];
+                    const scoreB = pillarScores[b.pillar];
+                    if (scoreA !== scoreB) {
+                        return scoreA - scoreB; // Lower scores first
+                    }
+                    return a.order - b.order; // Original order as tiebreaker
+                });
+                
+                // Assign priority badges based on pillar scores
+                milestones.forEach(milestone => {
+                    const score = pillarScores[milestone.pillar];
+                    if (score <= 8) {
+                        milestone.priority = 'PRIORITY';
+                        milestone.priorityColor = 'var(--critical-red)';
+                    } else if (score <= 14) {
+                        milestone.priority = 'HIGH';
+                        milestone.priorityColor = 'var(--warning-orange)';
+                    } else {
+                        milestone.priority = 'STANDARD';
+                        milestone.priorityColor = 'var(--gray-400)';
+                    }
+                });
+                
+                console.log('Milestones reordered by priority:', milestones);
+                
+                // Note: Actual DOM reordering would happen here
+                // For now, this sets up the logic - we'll implement visual reordering in next step
+            }
+            
+            // Call the function after URL parameters are loaded
+            if (urlP1 || urlP2 || urlP3 || urlP4 || urlP5 || urlP6) {
+                reorderMilestones();
+            }// Call the function after URL parameters are loaded
+            if (urlP1 || urlP2 || urlP3 || urlP4 || urlP5 || urlP6) {
+                reorderMilestones();
+            }
+            
+            // ============================================================
+            // SERVICE PACKAGE RECOMMENDATION LOGIC  ← ADD FEATURE 2 HERE
+            // ============================================================
+            
+            function determineRecommendedPackage() {
+                ...
+            }
             
             console.log('Dashboard updated with URL parameters:', {
+                company: urlCompany,
+                score: urlScore,
+                grade: urlGrade,
+                tier: urlTier,
+                pillars: [urlP1, urlP2, urlP3, urlP4, urlP5, urlP6]
+            });
+        });
+    </script>
+</body>
+</html>console.log('Dashboard updated with URL parameters:', {
                 company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
