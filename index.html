@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -954,15 +953,13 @@
                     <div class="metric-card">
                         <div class="metric-label">Overall Score</div>
                         <div class="metric-value"><span class="score-display">95</span>/120</div>
-                        <div class="metric-change">79.2% Readiness</div>
+                        <div class="metric-change"><span class="readiness-percent">79.2%</span> Readiness</div>
                     </div>
-
                     <div class="metric-card">
                         <div class="metric-label">Readiness Grade</div>
                         <div class="metric-value grade-display" style="font-size: 2rem; margin-top: 1rem;">A</div>
-                        <div class="metric-change">Highly Attractive</div>
+                        <div class="metric-change grade-description">Highly Attractive</div>
                     </div>
-
                     <div class="metric-card">
                         <div class="metric-label">Value Gap</div>
                         <div class="metric-value" style="font-size: 2.25rem;">$4.8-7.2M</div>
@@ -2564,10 +2561,75 @@ Best regards`;
                 });
             }
             
+            function updatePillarRatings() {
+                const pillars = [
+                    { score: parseInt(urlP1) || 0, max: 30, selector: '.pillar-card:nth-child(1)' },
+                    { score: parseInt(urlP2) || 0, max: 20, selector: '.pillar-card:nth-child(2)' },
+                    { score: parseInt(urlP3) || 0, max: 20, selector: '.pillar-card:nth-child(3)' },
+                    { score: parseInt(urlP4) || 0, max: 20, selector: '.pillar-card:nth-child(4)' },
+                    { score: parseInt(urlP5) || 0, max: 16, selector: '.pillar-card:nth-child(5)' },
+                    { score: parseInt(urlP6) || 0, max: 14, selector: '.pillar-card:nth-child(6)' }
+                ];
+                
+                pillars.forEach(pillar => {
+                    const percent = (pillar.score / pillar.max) * 100;
+                    const card = document.querySelector(pillar.selector);
+                    
+                    if (!card) return;
+                    
+                    let rating, color, borderColor;
+                    
+                    if (percent >= 75) {
+                        rating = 'excellent';
+                        color = 'var(--success-green)';
+                        borderColor = 'var(--success-green)';
+                    } else if (percent >= 50) {
+                        rating = 'good';
+                        color = 'var(--triveexec-gold)';
+                        borderColor = 'var(--triveexec-gold)';
+                    } else if (percent >= 25) {
+                        rating = 'fair';
+                        color = 'var(--warning-orange)';
+                        borderColor = 'var(--warning-orange)';
+                    } else {
+                        rating = 'needs-work';
+                        color = 'var(--critical-red)';
+                        borderColor = 'var(--critical-red)';
+                    }
+                    
+                    card.className = `pillar-card ${rating}`;
+                    card.style.borderLeftColor = borderColor;
+                    
+                    const scoreEl = card.querySelector('.pillar-score');
+                    if (scoreEl) {
+                        scoreEl.className = `pillar-score ${rating}`;
+                    }
+                    
+                    const progressBar = card.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.className = `progress-bar ${rating}`;
+                    }
+                    
+                    const label = card.querySelector('.progress-label');
+                    if (label) {
+                        const labelText = rating === 'excellent' ? 'Excellent' :
+                                        rating === 'good' ? 'Strong' :
+                                        rating === 'fair' ? 'Development' :
+                                        'Critical Priority';
+                        label.textContent = `${percent.toFixed(1)}% - ${labelText}`;
+                    }
+                });
+            }
+            
             if (urlScore) {
                 calculateDynamicMetrics();
-            }            console.log('Dashboard updated with URL parameters:', {
-                company: urlCompany,
+            }
+            
+            if (urlP1 || urlP2) {
+                updatePillarRatings();
+            }
+            
+            console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
                 tier: urlTier,
