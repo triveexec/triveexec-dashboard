@@ -2734,8 +2734,8 @@ function updateExitReadinessTab() {
                     { score: parseInt(urlP5) || 0, max: 16, displayClass: '.pillar5-display', actionsClass: '.pillar5-actions', h4Index: 4 },
                     { score: parseInt(urlP6) || 0, max: 14, displayClass: '.pillar6-display', actionsClass: '.pillar6-actions', h4Index: 5 }
                 ];
-
-                const pillarActions = [
+                console.log('Scores array created', scores);               
+    const pillarActions = [
                     {
                         name: 'Financial Health',
                         excellent: ['Maintain audited financials and IFRS compliance', 'Optimise working capital ratios quarterly'],
@@ -2779,15 +2779,16 @@ function updateExitReadinessTab() {
                         poor: ['Exit is 18-36 months away — begin foundation work', 'Address all critical pillar gaps first', 'Develop 3-year exit preparation roadmap', 'Engage exit advisor to prioritise actions', 'Begin building institutional-grade documentation']
                     }
                 ];
-
-                const readiness_tab = document.getElementById('readiness');
-                if (!readiness_tab) return;
+                console.log('Pillar actions created');               
+    const readiness_tab = document.getElementById('readiness');
+    console.log('Readiness tab found:', readiness_tab);               
+    if (!readiness_tab) return;
 
                 const h4s = readiness_tab.querySelectorAll('h4');
-
-                scores.forEach((pillar, index) => {
+  console.log('H4s found:', h4s.length);                
+    scores.forEach((pillar, index) => {
+console.log('Processing pillar', index);
                     const percent = (pillar.score / pillar.max) * 100;
-
                     const displayEl = readiness_tab.querySelector(pillar.displayClass);
                     if (displayEl) displayEl.textContent = pillar.score;
 
