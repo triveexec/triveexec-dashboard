@@ -19,33 +19,42 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #0B1018; color: #E5E7EB; min-height: 100vh; }
         a { color: var(--gold); }
+
         .header { background: linear-gradient(135deg, #1E2A3A, #0F1820); padding: 1.5rem 2rem; border-bottom: 3px solid var(--gold); }
         .header-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .brand { font-size: 2rem; font-weight: 700; color: white; }
         .brand span { color: var(--gold); }
         .print-btn { background: rgba(255,255,255,0.1); color: white; border: 2px solid var(--gold); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+
         .banner { background: linear-gradient(135deg, #1E2A3A, #2A3847); padding: 2rem; border-bottom: 2px solid var(--gold); }
         .banner-inner { max-width: 1400px; margin: 0 auto; }
         .company-name { font-size: 2.25rem; font-weight: 300; color: white; margin-bottom: 0.75rem; }
         .company-name b { color: var(--gold); font-weight: 700; }
         .meta { display: flex; gap: 2rem; color: rgba(255,255,255,0.85); font-size: 0.9rem; flex-wrap: wrap; }
+
         .tab-nav { max-width: 1400px; margin: 2rem auto 0; padding: 0 2rem; display: flex; gap: 0.5rem; overflow-x: auto; }
         .tab-btn { padding: 1rem 1.5rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(201,169,97,0.2); border-radius: 10px 10px 0 0; color: rgba(255,255,255,0.7); cursor: pointer; white-space: nowrap; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
         .tab-btn:hover { background: rgba(255,255,255,0.12); color: white; }
         .tab-btn.active { background: white; color: var(--gold); border-color: var(--gold); border-bottom-color: white; }
+
         .content-wrap { background: #1A2332; max-width: 1400px; margin: 0 auto; border-radius: 0 0 16px 16px; }
         .tab-panel { padding: 2.5rem 2rem; }
+
         .card { background: #1E2A3A; border-radius: 12px; padding: 2rem; border: 1px solid rgba(201,169,97,0.2); margin-bottom: 1.5rem; }
         .card:hover { border-color: var(--gold); }
         .card h4 { color: var(--gold); margin-bottom: 1rem; font-size: 1.2rem; }
+
         .section-title { font-size: 1.75rem; font-weight: 700; color: #F9FAFB; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--gold); }
+
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; margin-bottom: 2rem; }
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
         .metric { background: linear-gradient(135deg, #1E2A3A, #2A3847); border: 2px solid var(--gold); border-radius: 12px; padding: 2rem; text-align: center; }
         .metric-label { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 1rem; }
         .metric-value { font-size: 3rem; font-weight: 800; color: white; line-height: 1; }
         .metric-sub { font-size: 0.875rem; color: var(--light-gold); margin-top: 0.5rem; }
+
         .pillar-card { background: #1E2A3A; border-radius: 12px; padding: 1.75rem; border-left: 5px solid var(--gold); transition: transform 0.2s; }
         .pillar-card:hover { transform: translateY(-4px); }
         .pillar-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
@@ -53,17 +62,21 @@
         .pillar-score-big { font-size: 2.25rem; font-weight: 800; line-height: 1; }
         .pillar-max { font-size: 1rem; color: #D1D5DB; }
         .bar-bg { height: 10px; background: #374151; border-radius: 10px; overflow: hidden; margin-bottom: 0.5rem; }
-        .bar-fill { height: 100%; border-radius: 10px; }
+        .bar-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
         .bar-label { font-size: 0.875rem; color: #D1D5DB; }
+
         .badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--light-gold)); color: #1E2A3A; padding: 1rem 2.5rem; border-radius: 30px; font-weight: 700; font-size: 1.2rem; margin: 1.5rem 0; text-transform: uppercase; }
+
         .circle-wrap { width: 220px; height: 220px; margin: 0 auto; position: relative; }
         .circle-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
         .circle-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
         .circle-num { font-size: 4rem; font-weight: 800; color: var(--gold); line-height: 1; }
         .circle-den { font-size: 1.75rem; color: #D1D5DB; font-weight: 600; }
+
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 1.25rem; text-align: left; border-bottom: 2px solid rgba(201,169,97,0.2); color: #D1D5DB; }
         th { font-weight: 700; color: var(--gold); background: #0F1820; text-transform: uppercase; font-size: 0.875rem; }
+
         .timeline { position: relative; padding-left: 2.5rem; }
         .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gold), #1E2A3A); }
         .timeline-item { position: relative; margin-bottom: 2.5rem; }
@@ -71,20 +84,23 @@
         .timeline-phase { font-weight: 700; color: var(--gold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
         .timeline-title { font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
         .timeline-desc { color: #D1D5DB; line-height: 1.6; }
+
         .cta { background: linear-gradient(135deg, #1E2A3A, #2A3847); border: 3px solid var(--gold); border-radius: 12px; padding: 3rem 2rem; text-align: center; margin-top: 2rem; }
         .cta h2 { font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
         .cta p { color: #E5E7EB; margin-bottom: 2rem; line-height: 1.6; }
         .btn-gold { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--light-gold)); color: #1E2A3A; padding: 1rem 2.5rem; border-radius: 10px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
         .btn-navy { display: inline-block; background: #1E2A3A; color: white; border: 2px solid var(--gold); padding: 1rem 2.5rem; border-radius: 10px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
+
         .footer { background: #1E2A3A; padding: 2.5rem 2rem; margin-top: 4rem; border-top: 3px solid var(--gold); text-align: center; color: rgba(255,255,255,0.8); }
         .footer-brand { font-size: 1.75rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
         .footer-brand span { color: var(--gold); }
-        .grant-card { background: rgba(16,185,129,0.08); border: 2px solid rgba(16,185,129,0.4); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
-        .grant-card h5 { color: var(--green); font-size: 1rem; margin-bottom: 0.75rem; }
-        .grant-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: #D1D5DB; font-size: 0.9rem; }
-        .grant-item:last-child { border-bottom: none; }
-        .grant-pct { color: var(--green); font-weight: 700; }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .tab-panel { padding: 1.5rem 1rem; } }
+
+        .pillar-action-item { color: #D1D5DB; line-height: 1.8; margin-bottom: 0.25rem; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .tab-panel { padding: 1.5rem 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -114,7 +130,7 @@
     <div class="tab-btn active" onclick="showTab('dashboard',this)">&#128202; Dashboard</div>
     <div class="tab-btn" onclick="showTab('valuation',this)">&#128176; Valuation Analysis</div>
     <div class="tab-btn" onclick="showTab('readiness',this)">&#10003; Exit Readiness</div>
-    <div class="tab-btn" onclick="showTab('roadmap',this)">&#128506; Improvement Roadmap</div>
+    <div class="tab-btn" onclick="showTab('roadmap',this)">&#128506;&#65039; Improvement Roadmap</div>
     <div class="tab-btn" onclick="showTab('actions',this)">&#127919; Action Plan</div>
     <div class="tab-btn" onclick="showTab('benchmarking',this)">&#128200; Competitive Benchmarking</div>
     <div class="tab-btn" onclick="showTab('services',this)">&#127873; Service Packages</div>
@@ -144,14 +160,14 @@
                     <div style="color:white;"><span class="d-p1">&#8212;</span>/30 Score</div>
                 </div>
                 <div style="text-align:center;">
-                    <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Readiness Premium</div>
-                    <div style="font-size:2.5rem;font-weight:800;color:var(--gold);margin-top:0.5rem;"><span class="d-premium">&#8212;</span></div>
-                    <div style="color:var(--green);font-weight:600;">Above standard multiple</div>
+                    <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Investment</div>
+                    <div style="font-size:2rem;font-weight:800;color:white;margin-top:0.5rem;">$260-370K</div>
+                    <div style="color:var(--gold);">9-12 Months</div>
                 </div>
                 <div style="text-align:center;">
-                    <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Grant Funding</div>
-                    <div style="font-size:2rem;font-weight:800;color:var(--green);margin-top:0.5rem;">Up to 50%</div>
-                    <div style="color:#D1D5DB;font-weight:600;">of costs may be subsidised</div>
+                    <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Value Creation</div>
+                    <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">$<span class="d-vlow">&#8212;</span>-<span class="d-vhigh">&#8212;</span>M</div>
+                    <div style="color:var(--green);font-weight:600;">13-27x ROI</div>
                 </div>
             </div>
             <div style="background:rgba(201,169,97,0.1);padding:1.5rem;border-radius:8px;border-left:4px solid var(--gold);">
@@ -169,7 +185,7 @@
         <div class="grid-3">
             <div class="metric"><div class="metric-label">Overall Score</div><div class="metric-value"><span class="d-score">&#8212;</span>/120</div><div class="metric-sub"><span class="d-pct">&#8212;</span>% Readiness</div></div>
             <div class="metric"><div class="metric-label">Readiness Grade</div><div class="metric-value" style="font-size:2rem;margin-top:1rem;"><span class="d-grade">&#8212;</span></div><div class="metric-sub d-grade-desc">&#8212;</div></div>
-            <div class="metric"><div class="metric-label">Readiness Premium</div><div class="metric-value" style="font-size:2.25rem;"><span class="d-premium">&#8212;</span></div><div class="metric-sub">Above standard market multiple</div></div>
+            <div class="metric"><div class="metric-label">Value Gap</div><div class="metric-value" style="font-size:2.25rem;">$<span class="d-vlow">&#8212;</span>-<span class="d-vhigh">&#8212;</span>M</div><div class="metric-sub"><span class="d-premium">&#8212;</span> Premium</div></div>
         </div>
 
         <div class="grid-2">
@@ -201,76 +217,33 @@
 
     <!-- VALUATION -->
     <div id="tab-valuation" class="tab-panel" style="display:none;">
-
-        <!-- HERO BANNER -->
         <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:2rem;color:white;">
-            <div style="background:var(--gold);color:#1E2A3A;display:inline-block;padding:0.5rem 1.25rem;border-radius:20px;font-size:0.875rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Indicative Valuation Premium</div>
+            <div style="background:var(--gold);color:#1E2A3A;display:inline-block;padding:0.5rem 1.25rem;border-radius:20px;font-size:0.875rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Premium Potential</div>
             <div style="font-size:3.5rem;font-weight:800;"><span class="d-premium">&#8212;</span></div>
-            <div style="font-size:1.125rem;color:var(--light-gold);">Key improvements achievable within 3-6 months</div>
+            <div style="font-size:1.125rem;color:var(--light-gold);">Achievable within 3-6 months | Timeline: <span class="d-timeline">&#8212;</span></div>
         </div>
-
-        <!-- VALUATION TABLE -->
         <h3 class="section-title">Valuation Multiple Analysis</h3>
         <table>
-            <thead><tr><th>Metric</th><th>Current Range</th><th>Target Range</th><th>Uplift</th></tr></thead>
+            <thead><tr><th>Metric</th><th>Current</th><th>Target</th><th>Gap</th></tr></thead>
             <tbody>
-                <tr>
-                    <td><strong style="color:var(--gold);">EBITDA Multiple</strong><div style="font-size:0.8rem;color:#9CA3AF;margin-top:0.25rem;">Enterprise Value ÷ EBITDA</div></td>
-                    <td><span class="d-ebitda-current">&#8212;</span></td>
-                    <td><span class="d-ebitda-target">&#8212;</span></td>
-                    <td style="color:var(--green);font-weight:700;" class="d-ebitda-uplift">&#8212;</td>
-                </tr>
-                <tr>
-                    <td><strong style="color:var(--gold);">Revenue Multiple</strong><div style="font-size:0.8rem;color:#9CA3AF;margin-top:0.25rem;">Enterprise Value ÷ Annual Revenue</div></td>
-                    <td><span class="d-rev-current">&#8212;</span></td>
-                    <td><span class="d-rev-target">&#8212;</span></td>
-                    <td style="color:var(--green);font-weight:700;" class="d-rev-uplift">&#8212;</td>
-                </tr>
-                <tr>
-                    <td><strong style="color:var(--gold);">Institutional Readiness Premium</strong><div style="font-size:0.8rem;color:#9CA3AF;margin-top:0.25rem;">Proprietary TriveExec metric</div></td>
-                    <td>Standard market multiple</td>
-                    <td><span class="d-premium">&#8212;</span> above standard</td>
-                    <td style="color:var(--green);font-weight:700;"><span class="d-premium">&#8212;</span> uplift</td>
-                </tr>
-                <tr>
-                    <td><strong style="color:var(--gold);">Due Diligence Risk Rating</strong><div style="font-size:0.8rem;color:#9CA3AF;margin-top:0.25rem;">Proprietary TriveExec metric</div></td>
-                    <td id="dd-risk-current" style="font-weight:700;">&#8212;</td>
-                    <td>Low Risk</td>
-                    <td id="dd-risk-gap" style="font-weight:700;">&#8212;</td>
-                </tr>
+                <tr><td><strong style="color:var(--gold);">EBITDA Multiple</strong></td><td>5.5-6.5x</td><td>6.5-8.0x</td><td style="color:var(--green);font-weight:700;">+1.0-1.5x</td></tr>
+                <tr><td><strong style="color:var(--gold);">Estimated Valuation</strong></td><td>$28-32M</td><td>$32-39M</td><td style="color:var(--green);font-weight:700;">+$<span class="d-vlow">&#8212;</span>-<span class="d-vhigh">&#8212;</span>M</td></tr>
+                <tr><td><strong style="color:var(--gold);">Revenue Multiple</strong></td><td>0.8-1.0x</td><td>1.0-1.2x</td><td style="color:var(--green);font-weight:700;">+0.2x</td></tr>
+                <tr><td><strong style="color:var(--gold);">Timeline to Exit</strong></td><td><span class="d-timeline">&#8212;</span></td><td>6-9 months</td><td style="color:var(--green);font-weight:700;">-6-9 months</td></tr>
             </tbody>
         </table>
-
-        <!-- DISCLAIMER -->
-        <div style="background:rgba(30,42,58,0.8);border:1px solid rgba(201,169,97,0.3);border-radius:8px;padding:1.5rem;margin-top:1.5rem;margin-bottom:2rem;">
-            <strong style="color:var(--gold);display:block;margin-bottom:0.75rem;">&#9432; Important Disclaimer</strong>
-            <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;margin-bottom:1rem;">Valuation multiples presented are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A transaction data. They do not represent a formal valuation opinion. Actual valuation will depend on your specific financials, EBITDA, revenue quality, growth trajectory, sector conditions, and buyer appetite at the time of transaction.</p>
-            <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;margin-bottom:1.5rem;">The Institutional Readiness Premium and Due Diligence Risk Rating are proprietary TriveExec metrics derived from your TriveHealth&#8482; assessment scores.</p>
-            <div style="background:rgba(201,169,97,0.1);border-radius:6px;padding:1.25rem;border-left:3px solid var(--gold);">
-                <strong style="color:var(--gold);">&#128222; Want a Formal Valuation Assessment?</strong>
-                <p style="color:#D1D5DB;font-size:0.9rem;margin-top:0.5rem;line-height:1.7;">TriveExec provides comprehensive formal valuation assessments as part of our exit advisory services. Book a Strategy Call to discuss your specific financials and receive a defensible valuation range for your business.</p>
-                <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold" style="display:inline-block;margin-top:1rem;font-size:0.875rem;padding:0.75rem 1.5rem;">Book Strategy Call &#8212; SGD 500</a>
-            </div>
-        </div>
-
-        <!-- VALUE DRIVERS + GRANT FUNDING -->
-        <div class="grid-3">
+        <div class="grid-3" style="margin-top:2rem;">
+            <div class="card"><h4>Value Drivers</h4><div id="value-drivers"></div></div>
             <div class="card">
-                <h4>&#128200; Value Drivers</h4>
-                <div id="value-drivers"></div>
-            </div>
-            <div class="card" style="grid-column: span 2;">
-                <h4>&#127963; Government Grant Funding Opportunities</h4>
-                <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.5rem;font-size:0.95rem;">Government grants and incentives are available across ASEAN to subsidise SME capability development and exit preparation costs. Qualifying professional services, advisory fees, and systems implementation may be partially funded — significantly reducing your out-of-pocket investment.</p>
-                <div id="grant-content"></div>
-                <div style="background:rgba(201,169,97,0.1);border-radius:8px;padding:1.25rem;border-left:3px solid var(--gold);margin-top:1rem;">
-                    <strong style="color:var(--gold);">&#128222; Check Your Grant Eligibility</strong>
-                    <p style="color:#D1D5DB;font-size:0.9rem;margin-top:0.5rem;">Grant eligibility depends on your company profile, project scope, and the specific scheme. Book a Strategy Call and we will help you identify which grants you may qualify for.</p>
-                    <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:inline-block;margin-top:1rem;font-size:0.875rem;padding:0.75rem 1.5rem;">Book Strategy Call &#8212; SGD 500</a>
+                <h4>Investment Required</h4>
+                <div style="line-height:2;color:#D1D5DB;">
+                    <div style="display:flex;justify-content:space-between;"><span>Professional Services:</span><strong style="color:var(--gold);">$180-250K</strong></div>
+                    <div style="display:flex;justify-content:space-between;"><span>Systems Implementation:</span><strong style="color:var(--gold);">$80-120K</strong></div>
+                    <div style="display:flex;justify-content:space-between;padding-top:1rem;border-top:2px solid var(--gold);margin-top:1rem;"><strong>Total:</strong><strong style="color:var(--gold);font-size:1.25rem;">$260-370K</strong></div>
+                    <div style="display:flex;justify-content:space-between;margin-top:1rem;"><strong style="color:var(--green);">Projected ROI:</strong><strong style="color:var(--green);font-size:1.25rem;">13-27x</strong></div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- EXIT READINESS -->
@@ -305,16 +278,16 @@
                 <div class="timeline-phase">Months 10-12: Market Readiness</div>
                 <div class="timeline-title">Go-to-Market Execution</div>
                 <div class="timeline-desc">CIM preparation, controlled auction process, final due diligence prep, deal structure optimisation, buyer outreach.</div>
-                <div style="margin-top:1rem;padding-top:1rem;border-top:2px solid var(--gold);"><strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">Impact:</strong><span style="color:#D1D5DB;">Maximises valuation through competitive tension and targets optimal buyer universe.</span></div>
+                <div style="margin-top:1rem;padding-top:1rem;border-top:2px solid var(--gold);"><strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">Impact:</strong><span style="color:#D1D5DB;">Maximises valuation through competitive tension. Targets optimal buyer universe.</span></div>
             </div>
         </div>
         <div class="card" style="background:var(--navy);border:2px solid var(--gold);margin-top:2rem;">
-            <h4>Summary</h4>
+            <h4>Investment Summary</h4>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;">
+                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">Total Investment</div><div style="font-size:2rem;font-weight:700;color:white;">$260-370K</div></div>
                 <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">Timeline</div><div style="font-size:2rem;font-weight:700;color:white;">9-12 Months</div></div>
-                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">Readiness Premium</div><div style="font-size:2rem;font-weight:700;color:white;"><span class="d-premium">&#8212;</span></div></div>
-                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">DD Risk Target</div><div style="font-size:2rem;font-weight:700;color:var(--green);">Low</div></div>
-                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">Grant Subsidy</div><div style="font-size:2rem;font-weight:700;color:var(--green);">Up to 50%</div></div>
+                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">Value Creation</div><div style="font-size:2rem;font-weight:700;color:white;">$<span class="d-vlow">&#8212;</span>-<span class="d-vhigh">&#8212;</span>M</div></div>
+                <div><div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;">ROI</div><div style="font-size:2rem;font-weight:700;color:white;">13-27x</div></div>
             </div>
         </div>
     </div>
@@ -367,54 +340,89 @@
             <table>
                 <thead><tr><th>Pillar</th><th>Your Score</th><th>Industry Avg</th><th>Top Quartile</th><th>Variance</th></tr></thead>
                 <tbody>
-                    <tr><td><strong style="color:var(--gold);">Financial Health</strong></td><td style="font-weight:700;"><span class="d-p1">&#8212;</span>/30</td><td>18</td><td>24</td><td id="bench-p1" style="font-weight:700;">&#8212;</td></tr>
-                    <tr><td><strong style="color:var(--gold);">Governance &amp; Controls</strong></td><td style="font-weight:700;"><span class="d-p2">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bench-p2" style="font-weight:700;">&#8212;</td></tr>
-                    <tr><td><strong style="color:var(--gold);">Leadership &amp; Team</strong></td><td style="font-weight:700;"><span class="d-p3">&#8212;</span>/20</td><td>13</td><td>18</td><td id="bench-p3" style="font-weight:700;">&#8212;</td></tr>
-                    <tr><td><strong style="color:var(--gold);">Market Position</strong></td><td style="font-weight:700;"><span class="d-p4">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bench-p4" style="font-weight:700;">&#8212;</td></tr>
-                    <tr><td><strong style="color:var(--gold);">Operations &amp; Scalability</strong></td><td style="font-weight:700;"><span class="d-p5">&#8212;</span>/16</td><td>10</td><td>14</td><td id="bench-p5" style="font-weight:700;">&#8212;</td></tr>
-                    <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td style="font-weight:700;"><span class="d-p6">&#8212;</span>/14</td><td>8</td><td>12</td><td id="bench-p6" style="font-weight:700;">&#8212;</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Financial Health</strong></td><td style="color:var(--red);font-weight:700;"><span class="d-p1">&#8212;</span>/30</td><td>48</td><td>72</td><td style="color:var(--red);font-weight:700;">Critical</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Governance &amp; Controls</strong></td><td style="color:var(--gold);font-weight:700;"><span class="d-p2">&#8212;</span>/20</td><td>14</td><td>18</td><td style="color:var(--gold);font-weight:700;">Average</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Leadership &amp; Team</strong></td><td style="color:var(--green);font-weight:700;"><span class="d-p3">&#8212;</span>/20</td><td>13</td><td>18</td><td style="color:var(--green);font-weight:700;">+7 Above Avg</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Market Position</strong></td><td style="color:var(--green);font-weight:700;"><span class="d-p4">&#8212;</span>/20</td><td>12</td><td>19</td><td style="color:var(--green);font-weight:700;">+8 Top Tier</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Operations &amp; Scalability</strong></td><td style="color:var(--green);font-weight:700;"><span class="d-p5">&#8212;</span>/16</td><td>11</td><td>17</td><td style="color:var(--green);font-weight:700;">+5 Above Avg</td></tr>
+                    <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td style="color:var(--green);font-weight:700;"><span class="d-p6">&#8212;</span>/14</td><td>8</td><td>18</td><td style="color:var(--green);font-weight:700;">+6 Above Avg</td></tr>
                 </tbody>
             </table>
+            <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid var(--gold);">
+                <strong style="color:var(--gold);display:block;margin-bottom:0.75rem;">Key Insight:</strong>
+                <p style="color:#D1D5DB;line-height:1.7;margin:0;">You significantly outperform peers in 5 of 6 pillars. Financial Health is the sole area requiring immediate attention. Addressing this will position you among the <strong style="color:var(--gold);">top 5%</strong> of exit-ready companies.</p>
+            </div>
         </div>
         <div style="background:#1a2332;border-left:4px solid var(--gold);padding:15px 20px;margin:25px 0;border-radius:4px;font-size:13px;color:#D1D5DB;">
-            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks are derived from AI-assisted research and publicly available market data across mid-market ASEAN SMEs. These figures are indicative. TriveExec is actively building its proprietary benchmarking database.
+            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks are derived from AI-assisted research and publicly available market data. These figures are indicative. TriveExec is actively building its proprietary benchmarking database.
         </div>
         <div class="grid-3">
             <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);"><h4>Average Improvement</h4><div style="font-size:3rem;font-weight:800;color:white;">+28</div><div style="color:#D1D5DB;">Points in 12 months</div></div>
             <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);"><h4>Valuation Uplift</h4><div style="font-size:3rem;font-weight:800;color:white;">22%</div><div style="color:#D1D5DB;">Average premium achieved</div></div>
-            <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);"><h4>Grant Subsidy</h4><div style="font-size:3rem;font-weight:800;color:var(--green);">50%</div><div style="color:#D1D5DB;">Average cost reduction via grants</div></div>
+            <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);"><h4>Exit Timeline</h4><div style="font-size:3rem;font-weight:800;color:white;">9.4</div><div style="color:#D1D5DB;">Months to close (avg)</div></div>
         </div>
     </div>
 
     <!-- SERVICES -->
     <div id="tab-services" class="tab-panel" style="display:none;">
         <h3 class="section-title">TriveExec Service Packages</h3>
-        <div style="text-align:center;margin-bottom:3rem;"><p style="font-size:1.1rem;color:#D1D5DB;line-height:1.8;max-width:800px;margin:0 auto;">Based on your assessment, we have identified the optimal service configuration to unlock your valuation premium. Government grants may subsidise up to <strong style="color:var(--green);">50%</strong> of qualifying costs.</p></div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:3rem;">
+        <div style="text-align:center;margin-bottom:3rem;">
+            <p style="font-size:1.1rem;color:#D1D5DB;line-height:1.8;max-width:800px;margin:0 auto;">Based on your assessment, we have identified the optimal service configuration to capture the <strong style="color:var(--gold);">$<span class="d-vlow">&#8212;</span>-<span class="d-vhigh">&#8212;</span>M valuation premium</strong>.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-bottom:3rem;">
             <div class="card" id="pkg-exit" style="border:3px solid var(--gold);background:linear-gradient(135deg,#1E2A3A,#2A3847);position:relative;">
-                <div id="badge-exit" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended</div>
-                <div style="text-align:center;padding-top:1.5rem;"><div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128640;</div><h4 style="font-size:1.75rem;margin-bottom:0.5rem;">Exit Accelerator</h4><div style="color:#D1D5DB;margin-bottom:1.5rem;">Full Transformation Package</div><div style="font-size:0.875rem;color:var(--green);font-weight:600;margin-bottom:1rem;">Grants may apply — book to confirm</div></div>
-                <div style="border-top:2px solid var(--gold);padding-top:1.5rem;margin-top:0.5rem;color:#D1D5DB;line-height:2;"><strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>&#10003; Fractional CFO<br>&#10003; Financial Systems<br>&#10003; 3-Year Audit Prep<br>&#10003; Quality of Earnings<br>&#10003; Data Room Build<br>&#10003; Transaction Advisory<br>&#10003; CIM Preparation<br>&#10003; Buyer Outreach</div>
+                <div id="badge-exit" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended For You</div>
+                <div style="text-align:center;padding-top:1.5rem;">
+                    <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128640;</div>
+                    <h4 style="font-size:1.75rem;margin-bottom:0.5rem;">Exit Accelerator</h4>
+                    <div style="color:#D1D5DB;margin-bottom:1.5rem;">Full Transformation Package</div>
+                    <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">$150K Retainer</div>
+                    <div style="color:var(--green);font-size:1.2rem;font-weight:600;">+ 3% Success Fee</div>
+                    <div style="color:#D1D5DB;font-size:0.875rem;">6-9 month engagement</div>
+                </div>
+                <div style="border-top:2px solid var(--gold);padding-top:1.5rem;margin-top:1.5rem;color:#D1D5DB;line-height:2;">
+                    <strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>
+                    &#10003; Fractional CFO (9 months)<br>&#10003; Financial Systems<br>&#10003; 3-Year Audit Prep<br>&#10003; Quality of Earnings<br>&#10003; Data Room Build<br>&#10003; Transaction Advisory<br>&#10003; CIM Preparation<br>&#10003; Buyer Outreach
+                </div>
                 <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:2rem;">Schedule Consultation</a>
             </div>
             <div class="card" id="pkg-financial" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-                <div id="badge-financial" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended</div>
-                <div style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128188;</div><h4>Financial Foundation</h4><div style="color:#D1D5DB;margin-bottom:1.5rem;">Critical Gap Remediation</div><div style="font-size:0.875rem;color:var(--green);font-weight:600;margin-bottom:1rem;">Grants may apply — book to confirm</div></div>
-                <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1.5rem;margin-top:0.5rem;color:#D1D5DB;line-height:2;"><strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>&#10003; Fractional CFO<br>&#10003; Financial Systems Setup<br>&#10003; Audit Firm Engagement<br>&#10003; QoE Analysis<br>&#10003; Monthly Reporting Package</div>
+                <div id="badge-financial" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended For You</div>
+                <div style="text-align:center;">
+                    <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128188;</div>
+                    <h4>Financial Foundation</h4>
+                    <div style="color:#D1D5DB;margin-bottom:1.5rem;">Critical Gap Remediation</div>
+                    <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">$80K</div>
+                    <div style="color:#D1D5DB;font-size:0.875rem;">3-4 month engagement</div>
+                </div>
+                <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1.5rem;margin-top:1.5rem;color:#D1D5DB;line-height:2;">
+                    <strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>
+                    &#10003; Fractional CFO (4 months)<br>&#10003; Financial Systems Setup<br>&#10003; Audit Firm Engagement<br>&#10003; QoE Analysis<br>&#10003; Monthly Reporting Package
+                </div>
                 <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:2rem;">Learn More</a>
             </div>
             <div class="card" id="pkg-sprint" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-                <div id="badge-sprint" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended</div>
-                <div style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.5rem;">&#9889;</div><h4>Strategy Sprint</h4><div style="color:#D1D5DB;margin-bottom:1.5rem;">Roadmap Development</div><div style="font-size:0.875rem;color:var(--green);font-weight:600;margin-bottom:1rem;">Grants may apply — book to confirm</div></div>
-                <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1.5rem;margin-top:0.5rem;color:#D1D5DB;line-height:2;"><strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>&#10003; Implementation Roadmap<br>&#10003; Vendor Selection Support<br>&#10003; Budget &amp; Timeline Planning<br>&#10003; Grant Eligibility Assessment<br>&#10003; 90-Day Quick Wins</div>
+                <div id="badge-sprint" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;text-transform:uppercase;">&#11088; Recommended For You</div>
+                <div style="text-align:center;">
+                    <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#9889;</div>
+                    <h4>Strategy Sprint</h4>
+                    <div style="color:#D1D5DB;margin-bottom:1.5rem;">Roadmap Development</div>
+                    <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">$25K</div>
+                    <div style="color:#D1D5DB;font-size:0.875rem;">4-6 week engagement</div>
+                </div>
+                <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1.5rem;margin-top:1.5rem;color:#D1D5DB;line-height:2;">
+                    <strong style="color:var(--gold);display:block;margin-bottom:1rem;">Includes:</strong>
+                    &#10003; Implementation Roadmap<br>&#10003; Vendor Selection Support<br>&#10003; Budget &amp; Timeline Planning<br>&#10003; Priority Action Plan<br>&#10003; 90-Day Quick Wins
+                </div>
                 <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:2rem;">Get Started</a>
             </div>
         </div>
         <div class="cta">
             <div style="font-size:2rem;margin-bottom:1rem;">&#128222;</div>
             <h2>Not Sure Which Package?</h2>
-            <p>Book a 90-minute Strategy Call. We will review your dashboard, discuss your timeline, assess your grant eligibility, and create a personalised action plan.</p>
+            <p>Book a 90-minute Strategy Call. We will review your dashboard, discuss your timeline, and create a personalised action plan.</p>
             <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book Strategy Call &#8212; SGD 500</a>
+            <div style="margin-top:1.5rem;font-size:0.875rem;color:#D1D5DB;">&#128179; Secure payment via Stripe | &#128197; Calendar link sent after payment</div>
         </div>
     </div>
 
@@ -422,7 +430,11 @@
     <div id="tab-tracker" class="tab-panel" style="display:none;">
         <h3 class="section-title">Implementation Progress Tracker</h3>
         <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
-            <div style="text-align:center;margin-bottom:1.5rem;"><h4 style="font-size:1.75rem;margin-bottom:1rem;">Overall Implementation Progress</h4><div style="font-size:4rem;font-weight:800;color:white;">0%</div><div style="color:#D1D5DB;">0 of 15 milestones completed</div></div>
+            <div style="text-align:center;margin-bottom:1.5rem;">
+                <h4 style="font-size:1.75rem;margin-bottom:1rem;">Overall Implementation Progress</h4>
+                <div style="font-size:4rem;font-weight:800;color:white;">0%</div>
+                <div style="color:#D1D5DB;">0 of 15 milestones completed</div>
+            </div>
             <div style="background:rgba(255,255,255,0.1);height:24px;border-radius:12px;overflow:hidden;"><div style="background:linear-gradient(90deg,var(--gold),var(--light-gold));height:100%;width:0%;"></div></div>
         </div>
         <div class="card">
@@ -431,14 +443,16 @@
                 <div style="text-align:right;"><div style="font-size:2rem;font-weight:800;color:#D1D5DB;">0%</div><div style="color:#D1D5DB;">0/5 Complete</div></div>
             </div>
             <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">
-                <div style="display:flex;gap:1rem;margin-bottom:1rem;"><div style="font-size:2rem;">&#8505;</div><h4 style="color:#60A5FA;margin:0;">Phase 1 is Self-Managed</h4></div>
+                <div style="display:flex;gap:1rem;margin-bottom:1rem;"><div style="font-size:2rem;">&#8505;&#65039;</div><h4 style="color:#60A5FA;margin:0;">Phase 1 is Self-Managed</h4></div>
                 <p style="color:#D1D5DB;line-height:1.7;margin:0;">Included with your TriveHealth&#8482; Dashboard. Work through 5 milestones at your own pace.<br><br>
-                &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="/cdn-cgi/l/email-protection#553c3b263c323d21261521273c2330302d30367b363a38" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="2940475a404e415d5a695d5b405f4c4c514c4a074a4644">[email&#160;protected]</span></a></p>
+                &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>
             </div>
             <div id="phase1-milestones"></div>
         </div>
         <div style="text-align:center;margin:2.5rem 0;">
-            <button onclick="requestValidation()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">&#10003; Request TriveExec Validation &#8212; Phase 1 Complete</button>
+            <button onclick="requestValidation()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">
+                &#10003; Request TriveExec Validation &#8212; Phase 1 Complete
+            </button>
         </div>
         <div class="card" style="opacity:0.6;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 4-6</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
         <div class="card" style="opacity:0.6;margin-top:1rem;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 3: Validation</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 7-9</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
@@ -454,189 +468,134 @@
         Transforming mid-market ASEAN SMEs<br>
         Premium exits, strategic and succession planning<br><br>
         This assessment is confidential and valid for 90 days.<br>
-        <a href="/cdn-cgi/l/email-protection#c8a1a6bba1afa0bcbb88bcbaa1beadadb0adabe6aba7a5"><span class="__cf_email__" data-cfemail="f990978a909e918d8ab98d8b908f9c9c819c9ad79a9694">[email&#160;protected]</span></a>
+        <a href="mailto:insights@triveexec.com">insights@triveexec.com</a>
     </p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ============================================================
-// TAB SWITCHING — bulletproof inline style
-// ============================================================
+<script>
 var ALL_TABS = ['dashboard','valuation','readiness','roadmap','actions','benchmarking','services','tracker'];
+
 function showTab(name, btn) {
-    for (var i=0;i<ALL_TABS.length;i++){var el=document.getElementById('tab-'+ALL_TABS[i]); if(el)el.style.display='none';}
-    var allBtns=document.querySelectorAll('.tab-btn');
-    for (var j=0;j<allBtns.length;j++){allBtns[j].classList.remove('active');}
-    var target=document.getElementById('tab-'+name);
-    if(target)target.style.display='block';
-    if(btn)btn.classList.add('active');
+    for (var i = 0; i < ALL_TABS.length; i++) {
+        var el = document.getElementById('tab-' + ALL_TABS[i]);
+        if (el) el.style.display = 'none';
+    }
+    var allBtns = document.querySelectorAll('.tab-btn');
+    for (var j = 0; j < allBtns.length; j++) {
+        allBtns[j].classList.remove('active');
+    }
+    var target = document.getElementById('tab-' + name);
+    if (target) target.style.display = 'block';
+    if (btn) btn.classList.add('active');
 }
 
-// ============================================================
-// URL PARAMS
-// ============================================================
 function getP(name) {
-    var r=new RegExp('[\\?&]'+name+'=([^&#]*)').exec(location.search);
-    return r?decodeURIComponent(r[1].replace(/\+/g,' ')):'';
-}
-var urlCompany=getP('company'), urlScore=parseInt(getP('score'))||0, urlGrade=getP('grade');
-var urlIndustry=getP('industry'), urlDate=getP('date'), urlCountry=getP('country')||'SG';
-var urlP=[parseInt(getP('p1'))||0,parseInt(getP('p2'))||0,parseInt(getP('p3'))||0,parseInt(getP('p4'))||0,parseInt(getP('p5'))||0,parseInt(getP('p6'))||0];
-var pillarMax=[30,20,20,20,16,14];
-var pillarName=['Financial Health','Governance & Controls','Leadership & Team','Market Position','Operations & Scalability','Exit Readiness'];
-
-function setClass(cls,val){var els=document.querySelectorAll('.'+cls); for(var i=0;i<els.length;i++){els[i].textContent=val;}}
-
-// ============================================================
-// GRANT CONTENT — country-switched
-// ============================================================
-var grantData = {
-    'SG': {
-        title: 'Singapore Government Grants',
-        flag: '🇸🇬',
-        intro: 'Enterprise Singapore provides substantial grant support for SME capability development. TriveExec is an approved vendor for qualifying schemes.',
-        grants: [
-            { name: 'Enterprise Development Grant (EDG)', desc: 'Business strategy, financial management, and internationalisation', pct: 'Up to 50%' },
-            { name: 'Productivity Solutions Grant (PSG)', desc: 'Pre-approved technology solutions and consultancy packages', pct: 'Up to 50%' },
-            { name: 'Market Readiness Assistance (MRA)', desc: 'Overseas market expansion and business development', pct: 'Up to 50%' }
-        ]
-    },
-    'MY': {
-        title: 'Malaysia Government Grants',
-        flag: '🇲🇾',
-        intro: 'Malaysia offers a range of SME support programmes through SME Corp, MDEC, and other agencies to fund capability development.',
-        grants: [
-            { name: 'SME Corp Capability Development Grant', desc: 'Business process improvement and advisory services', pct: 'Up to 70%' },
-            { name: 'HRDC Claimable Advisory Services', desc: 'Qualifying training and advisory engagements', pct: 'Claimable' },
-            { name: 'MSME Digitalisation Grant', desc: 'Technology adoption and digital transformation', pct: 'Up to 50%' }
-        ]
-    },
-    'ID': {
-        title: 'Indonesia Government Incentives',
-        flag: '🇮🇩',
-        intro: 'Indonesia supports SME growth through Kemenkop UKM and LPDB-KUMKM programmes, with ongoing expansion of digitalisation incentives.',
-        grants: [
-            { name: 'LPDB-KUMKM Funding Support', desc: 'SME financing and capability development programmes', pct: 'Varies' },
-            { name: 'Kemenkop UKM Development Programme', desc: 'Business advisory and capacity building support', pct: 'Varies' },
-            { name: 'OSS Digitalisation Incentives', desc: 'Technology adoption for compliant SMEs', pct: 'Varies' }
-        ]
-    }
-};
-
-function buildGrantContent() {
-    var container = document.getElementById('grant-content');
-    if (!container) return;
-    var country = urlCountry.toUpperCase();
-    var data = grantData[country] || grantData['SG'];
-    var html = '<div class="grant-card">';
-    html += '<h5>' + data.flag + ' ' + data.title + '</h5>';
-    html += '<p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:1rem;">' + data.intro + '</p>';
-    for (var i=0;i<data.grants.length;i++) {
-        var g = data.grants[i];
-        html += '<div class="grant-item"><div><strong style="color:var(--light-gold);">' + g.name + '</strong><div style="font-size:0.8rem;color:#9CA3AF;margin-top:0.2rem;">' + g.desc + '</div></div><div class="grant-pct">' + g.pct + '</div></div>';
-    }
-    html += '</div>';
-    container.innerHTML = html;
+    var r = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(location.search);
+    return r ? decodeURIComponent(r[1].replace(/\+/g, ' ')) : '';
 }
 
-// ============================================================
-// FILL ALL DYNAMIC VALUES
-// ============================================================
+var urlCompany  = getP('company');
+var urlScore    = parseInt(getP('score')) || 0;
+var urlGrade    = getP('grade');
+var urlIndustry = getP('industry');
+var urlDate     = getP('date');
+var urlP = [
+    parseInt(getP('p1')) || 0,
+    parseInt(getP('p2')) || 0,
+    parseInt(getP('p3')) || 0,
+    parseInt(getP('p4')) || 0,
+    parseInt(getP('p5')) || 0,
+    parseInt(getP('p6')) || 0
+];
+var pillarMax  = [30, 20, 20, 20, 16, 14];
+var pillarName = ['Financial Health','Governance & Controls','Leadership & Team','Market Position','Operations & Scalability','Exit Readiness'];
+
+function setClass(cls, val) {
+    var els = document.querySelectorAll('.' + cls);
+    for (var i = 0; i < els.length; i++) { els[i].textContent = val; }
+}
+
 function fillAll() {
-    var pct=((urlScore/120)*100).toFixed(1);
-    var gradeMap={'A':'Highly Attractive','A-':'Very Strong','B+':'Strong Potential','B':'Good Foundation','B-':'Moderate Readiness','C+':'Developing','C':'Significant Work Needed','C-':'Major Gaps','D':'Early Stage','F':'Not Ready'};
-    var gradeDesc=gradeMap[urlGrade]||'Assessment Complete';
-    var minScore=urlP[0],lowestIdx=0;
-    for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
-    var premium=urlScore>=90?'15-20%':urlScore>=70?'10-15%':urlScore>=50?'5-10%':'3-5%';
-    var summaryMap={'A':'Exceptional performance with strong institutional readiness across most pillars.','A-':'Very strong performance with solid institutional readiness.','B+':'Strong performance with good institutional readiness.','B':'Good performance with moderate institutional readiness.','B-':'Moderate performance with developing institutional readiness.','C+':'Developing performance — several areas require attention.','C':'Significant gaps across multiple pillars.','C-':'Major gaps in institutional readiness.','D':'Critical gaps — early stages of exit preparation.','F':'Not ready for institutional exit — fundamental transformation required.'};
-    var summary=summaryMap[urlGrade]||'Review your pillar scores below.';
+    var pct = ((urlScore / 120) * 100).toFixed(1);
+    var gradeMap = {'A':'Highly Attractive','A-':'Very Strong','B+':'Strong Potential','B':'Good Foundation','B-':'Moderate Readiness','C+':'Developing','C':'Significant Work Needed','C-':'Major Gaps','D':'Early Stage','F':'Not Ready'};
+    var gradeDesc = gradeMap[urlGrade] || 'Assessment Complete';
 
-    setClass('d-company',urlCompany||'Your Company');
-    setClass('d-score',urlScore||'—'); setClass('d-grade',urlGrade||'—');
-    setClass('d-grade-desc',gradeDesc); setClass('d-pct',pct);
-    setClass('d-gap',pillarName[lowestIdx]);
-    setClass('d-p1',urlP[0]); setClass('d-p2',urlP[1]); setClass('d-p3',urlP[2]);
-    setClass('d-p4',urlP[3]); setClass('d-p5',urlP[4]); setClass('d-p6',urlP[5]);
-    setClass('d-premium',premium);
-    setClass('d-summary',summary);
-    setClass('d-summary-long',summary+' Critical improvement needed in '+pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') to unlock maximum exit premium.');
-    setClass('d-date',urlDate||new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}));
-    if(urlIndustry)setClass('d-industry',urlIndustry);
-    if(urlCompany)document.title='TriveHealth™ - '+urlCompany;
+    var minScore = urlP[0], lowestIdx = 0;
+    for (var i = 1; i < urlP.length; i++) { if (urlP[i] < minScore) { minScore = urlP[i]; lowestIdx = i; } }
+    var criticalGap = pillarName[lowestIdx];
 
-    var circle=document.getElementById('score-circle');
-    if(circle)circle.setAttribute('stroke-dashoffset',(565.48-(urlScore/120)*565.48).toString());
+    var gapMult = Math.max(0, (110 - urlScore) / 10);
+    var vLow  = (gapMult * 0.8).toFixed(1);
+    var vHigh = (gapMult * 1.2).toFixed(1);
+    var premium  = urlScore >= 90 ? '15-20%' : urlScore >= 70 ? '10-15%' : urlScore >= 50 ? '5-10%' : '3-5%';
+    var timeline = urlScore >= 90 ? '6-12 months' : urlScore >= 70 ? '12-18 months' : urlScore >= 50 ? '18-24 months' : '24-36 months';
+    var summaryMap = {'A':'Exceptional performance with strong institutional readiness across most pillars.','A-':'Very strong performance with solid institutional readiness.','B+':'Strong performance with good institutional readiness.','B':'Good performance with moderate institutional readiness.','B-':'Moderate performance with developing institutional readiness.','C+':'Developing performance — several areas require attention.','C':'Significant gaps across multiple pillars.','C-':'Major gaps in institutional readiness.','D':'Critical gaps — early stages of exit preparation.','F':'Not ready for institutional exit — fundamental transformation required.'};
+    var summary = summaryMap[urlGrade] || 'Review your pillar scores below.';
 
-    // EBITDA & Revenue multiples — score based
-    var ec,et,eu,rc,rt,ru;
-    if(urlScore>=90)      {ec='6.5-7.5x';et='8.0-10.0x';eu='+1.5-2.5x';rc='1.2-1.5x';rt='1.5-2.0x';ru='+0.3-0.5x';}
-    else if(urlScore>=70) {ec='5.5-6.5x';et='6.5-8.0x'; eu='+1.0-1.5x';rc='0.8-1.0x';rt='1.0-1.2x';ru='+0.2x';}
-    else if(urlScore>=50) {ec='4.0-5.5x';et='5.5-7.0x'; eu='+1.0-2.0x';rc='0.5-0.8x';rt='0.8-1.0x';ru='+0.2-0.3x';}
-    else                  {ec='2.5-4.0x';et='4.0-5.5x'; eu='+1.0-2.0x';rc='0.3-0.5x';rt='0.5-0.8x';ru='+0.2x';}
-    setClass('d-ebitda-current',ec); setClass('d-ebitda-target',et); setClass('d-ebitda-uplift',eu);
-    setClass('d-rev-current',rc);    setClass('d-rev-target',rt);    setClass('d-rev-uplift',ru);
+    setClass('d-company',    urlCompany || 'Your Company');
+    setClass('d-score',      urlScore || '—');
+    setClass('d-grade',      urlGrade || '—');
+    setClass('d-grade-desc', gradeDesc);
+    setClass('d-pct',        pct);
+    setClass('d-gap',        criticalGap);
+    setClass('d-p1',         urlP[0]);
+    setClass('d-p2',         urlP[1]);
+    setClass('d-p3',         urlP[2]);
+    setClass('d-p4',         urlP[3]);
+    setClass('d-p5',         urlP[4]);
+    setClass('d-p6',         urlP[5]);
+    setClass('d-vlow',       vLow);
+    setClass('d-vhigh',      vHigh);
+    setClass('d-premium',    premium);
+    setClass('d-timeline',   timeline);
+    setClass('d-summary',    summary);
+    setClass('d-summary-long', summary + ' Critical improvement needed in ' + criticalGap + ' (' + urlP[lowestIdx] + '/' + pillarMax[lowestIdx] + ') to unlock maximum exit premium.');
+    setClass('d-date', urlDate || new Date().toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'}));
 
-    // DD Risk Rating
-    var critCount=0,weakCount=0;
-    for(var pi=0;pi<urlP.length;pi++){var pp=(urlP[pi]/pillarMax[pi])*100; if(pp<25)critCount++; else if(pp<50)weakCount++;}
-    var ddRisk,ddColor,ddGap,ddCur;
-    if(critCount>=2)       {ddRisk='High';        ddColor='var(--red)';    ddGap='Reduce to Low Risk'; ddCur='High Risk';}
-    else if(critCount===1) {ddRisk='Medium-High'; ddColor='var(--orange)'; ddGap='Reduce to Low Risk'; ddCur='Medium-High Risk';}
-    else if(weakCount>=2)  {ddRisk='Medium';      ddColor='var(--orange)'; ddGap='Reduce to Low Risk'; ddCur='Medium Risk';}
-    else                   {ddRisk='Low';         ddColor='var(--green)';  ddGap='Optimised';          ddCur='Low Risk';}
-    var ddC=document.getElementById('dd-risk-current');
-    var ddG=document.getElementById('dd-risk-gap');
-    if(ddC){ddC.textContent=ddCur; ddC.style.color=ddColor;}
-    if(ddG){ddG.textContent=ddGap; ddG.style.color=ddColor;}
+    if (urlIndustry) setClass('d-industry', urlIndustry);
+    if (urlCompany) document.title = 'TriveHealth™ - ' + urlCompany;
 
-    // Benchmarking variance
-    var benchAvg=[18,12,13,12,10,8];
-    var benchIds=['bench-p1','bench-p2','bench-p3','bench-p4','bench-p5','bench-p6'];
-    for(var b=0;b<urlP.length;b++){
-        var diff=urlP[b]-benchAvg[b];
-        var el=document.getElementById(benchIds[b]);
-        if(el){
-            el.textContent=diff>=0?'+'+diff+' vs avg':diff+' vs avg';
-            el.style.color=diff>=5?'var(--green)':diff>=-2?'var(--gold)':'var(--red)';
-        }
-    }
+    var circle = document.getElementById('score-circle');
+    if (circle) { circle.setAttribute('stroke-dashoffset', (565.48 - (urlScore / 120) * 565.48).toString()); }
 }
 
-// ============================================================
-// PILLAR CARDS
-// ============================================================
-function buildPillarCards(){
-    var container=document.getElementById('pillar-grid-dashboard'); if(!container)return;
-    container.innerHTML='';
-    var colours=['#EF4444','#F59E0B','#C9A961','#10B981'];
-    var labels=['Critical Priority','Needs Work','Good Foundation','Excellent'];
-    for(var i=0;i<urlP.length;i++){
-        var score=urlP[i],pct=(score/pillarMax[i])*100,tier=pct>=75?3:pct>=50?2:pct>=25?1:0;
-        var div=document.createElement('div'); div.className='pillar-card'; div.style.borderLeftColor=colours[tier];
-        div.innerHTML='<div class="pillar-header"><div class="pillar-name">'+pillarName[i]+'</div><div><div class="pillar-score-big" style="color:'+colours[tier]+';">'+score+'</div><div class="pillar-max">/'+pillarMax[i]+'</div></div></div><div class="bar-bg"><div class="bar-fill" style="width:'+pct.toFixed(1)+'%;background:'+colours[tier]+';"></div></div><div class="bar-label">'+pct.toFixed(1)+'% — '+labels[tier]+'</div>';
+function buildPillarCards() {
+    var container = document.getElementById('pillar-grid-dashboard');
+    if (!container) return;
+    container.innerHTML = '';
+    var colours = ['#EF4444','#F59E0B','#C9A961','#10B981'];
+    var labels  = ['Critical Priority','Needs Work','Good Foundation','Excellent'];
+    for (var i = 0; i < urlP.length; i++) {
+        var score = urlP[i];
+        var pct   = (score / pillarMax[i]) * 100;
+        var tier  = pct >= 75 ? 3 : pct >= 50 ? 2 : pct >= 25 ? 1 : 0;
+        var col   = colours[tier];
+        var div   = document.createElement('div');
+        div.className = 'pillar-card';
+        div.style.borderLeftColor = col;
+        div.innerHTML = '<div class="pillar-header"><div class="pillar-name">' + pillarName[i] + '</div><div><div class="pillar-score-big" style="color:' + col + ';">' + score + '</div><div class="pillar-max">/' + pillarMax[i] + '</div></div></div><div class="bar-bg"><div class="bar-fill" style="width:' + pct.toFixed(1) + '%;background:' + col + ';"></div></div><div class="bar-label">' + pct.toFixed(1) + '% — ' + labels[tier] + '</div>';
         container.appendChild(div);
     }
 }
 
-// ============================================================
-// VALUE DRIVERS
-// ============================================================
-function buildValueDrivers(){
-    var el=document.getElementById('value-drivers'); if(!el)return; el.innerHTML='';
-    var icons=['✗','⚠','✓','✓'],cols=['var(--red)','var(--orange)','var(--gold)','var(--green)'],lbls=['Critical gap','Enhancement needed','Strong','Excellence'];
-    for(var i=0;i<urlP.length;i++){
-        var pct=(urlP[i]/pillarMax[i])*100,tier=pct>=75?3:pct>=50?2:pct>=25?1:0;
-        var p=document.createElement('p'); p.style.cssText='color:#D1D5DB;margin-bottom:0.5rem;';
-        p.innerHTML=icons[tier]+' <strong style="color:'+cols[tier]+';">'+pillarName[i]+'</strong> — '+lbls[tier];
+function buildValueDrivers() {
+    var el = document.getElementById('value-drivers');
+    if (!el) return;
+    el.innerHTML = '';
+    var icons = ['✗','⚠','✓','✓'];
+    var cols  = ['var(--red)','var(--orange)','var(--gold)','var(--green)'];
+    var lbls  = ['Critical gap','Enhancement needed','Strong','Excellence'];
+    for (var i = 0; i < urlP.length; i++) {
+        var pct  = (urlP[i] / pillarMax[i]) * 100;
+        var tier = pct >= 75 ? 3 : pct >= 50 ? 2 : pct >= 25 ? 1 : 0;
+        var p = document.createElement('p');
+        p.style.cssText = 'color:#D1D5DB;margin-bottom:0.5rem;';
+        p.innerHTML = icons[tier] + ' <strong style="color:' + cols[tier] + ';">' + pillarName[i] + '</strong> — ' + lbls[tier];
         el.appendChild(p);
     }
 }
 
-// ============================================================
-// EXIT READINESS
-// ============================================================
-var pillarActions=[
+var pillarActions = [
     {excellent:['Maintain audited financials and IFRS compliance','Optimise working capital ratios quarterly'],good:['Commission independent financial audit','Implement monthly management reporting'],fair:['Engage CFO or fractional CFO immediately','Implement accrual accounting','Set up 3-year financial projections'],poor:['Immediate restructuring of financial statements required','Separate personal and business finances','Implement basic bookkeeping system','Commission forensic-ready financial clean-up','Establish chart of accounts and financial controls']},
     {excellent:['Conduct annual board effectiveness review','Maintain ISO or equivalent certifications'],good:['Formalise board charter and committee structure','Implement quarterly compliance reporting'],fair:['Appoint independent board members','Document all key policies and procedures','Implement internal audit function'],poor:['Establish formal board of directors immediately','Create shareholder agreement and constitution','Implement basic compliance framework','Document all material contracts and IP ownership','Engage corporate secretary for proper governance']},
     {excellent:['Refine succession planning documentation','Continue leadership development programmes'],good:['Formalise leadership competency framework','Implement structured performance management'],fair:['Build second-tier management layer','Document key person dependencies','Establish retention programme for key talent'],poor:['Immediate leadership team assessment required','Reduce single-person dependency risk','Implement talent acquisition strategy','Create organisational chart and reporting lines','Establish HR policies and employment contracts']},
@@ -645,60 +604,110 @@ var pillarActions=[
     {excellent:['Prepare investor-ready information memorandum','Engage M&A advisors for market sounding'],good:['Develop exit strategy options analysis','Begin building relationships with potential acquirers'],fair:['Clarify preferred exit pathway (IPO/M&A/PE)','Commission preliminary valuation assessment','Identify and address key due diligence risks'],poor:['Exit is 18-36 months away — begin foundation work','Address all critical pillar gaps first','Develop 3-year exit preparation roadmap','Engage exit advisor to prioritise actions','Begin building institutional-grade documentation']}
 ];
 
-function buildReadinessPillars(){
-    var container=document.getElementById('readiness-pillars'); if(!container)return; container.innerHTML='';
-    var icons=['🔴','⚠️','✓','✓'],colours=['var(--red)','var(--orange)','var(--gold)','var(--green)'];
-    for(var i=0;i<urlP.length;i++){
-        var score=urlP[i],pct=(score/pillarMax[i])*100,tier=pct>=75?3:pct>=50?2:pct>=25?1:0;
-        var pa=pillarActions[i],acts=tier===3?pa.excellent:tier===2?pa.good:tier===1?pa.fair:pa.poor;
-        var actHtml=''; for(var k=0;k<acts.length;k++){actHtml+='<p style="color:#D1D5DB;line-height:1.8;margin-bottom:0.25rem;">• '+acts[k]+'</p>';}
-        var div=document.createElement('div'); div.className='card'; div.style.marginBottom='1.5rem';
-        div.innerHTML='<h4 style="color:'+colours[tier]+';font-size:1.25rem;">'+icons[tier]+' '+pillarName[i]+' — '+score+'/'+pillarMax[i]+'</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Required Actions:</strong><div style="margin-top:0.75rem;">'+actHtml+'</div></div>';
+function buildReadinessPillars() {
+    var container = document.getElementById('readiness-pillars');
+    if (!container) return;
+    container.innerHTML = '';
+    var icons   = ['🔴','⚠','✓','✓'];
+    var colours = ['var(--red)','var(--orange)','var(--gold)','var(--green)'];
+    for (var i = 0; i < urlP.length; i++) {
+        var score = urlP[i];
+        var pct   = (score / pillarMax[i]) * 100;
+        var tier  = pct >= 75 ? 3 : pct >= 50 ? 2 : pct >= 25 ? 1 : 0;
+        var pa    = pillarActions[i];
+        var acts  = tier === 3 ? pa.excellent : tier === 2 ? pa.good : tier === 1 ? pa.fair : pa.poor;
+        var col   = colours[tier];
+        var icon  = icons[tier];
+        var actHtml = '';
+        for (var k = 0; k < acts.length; k++) {
+            actHtml += '<p style="color:#D1D5DB;line-height:1.8;margin-bottom:0.25rem;">• ' + acts[k] + '</p>';
+        }
+        var div = document.createElement('div');
+        div.className = 'card';
+        div.style.marginBottom = '1.5rem';
+        div.innerHTML = '<h4 style="color:' + col + ';font-size:1.25rem;">' + icon + ' ' + pillarName[i] + ' — ' + score + '/' + pillarMax[i] + '</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Required Actions:</strong><div style="margin-top:0.75rem;">' + actHtml + '</div></div>';
         container.appendChild(div);
     }
 }
 
-// ============================================================
-// ACTION PLAN
-// ============================================================
-function buildActionPlan(){
-    var container=document.getElementById('action-plan-content'); if(!container)return;
-    var thresholds=[[22,'Financial Health','Commission forensic-ready financial clean-up and appoint CFO','Commission independent financial audit and implement monthly reporting','30-60 days','CFO Advisory'],[15,'Governance & Controls','Establish board of directors and implement compliance framework','Formalise board structure and appoint independent directors','60-90 days','Governance Advisory'],[15,'Leadership & Team','Immediate leadership assessment and reduce key person dependency','Build second-tier management and formalise HR policies','60-90 days','People Advisory'],[15,'Market Position','Commission market positioning analysis and build customer reference base','Develop competitive positioning and document market advantages','30-60 days','Strategy Advisory'],[12,'Operations & Scalability','Document all critical processes and implement basic systems','Map operational processes and implement KPI monitoring','60-90 days','Operations Advisory'],[10,'Exit Readiness','Engage exit advisor and develop 3-year exit preparation roadmap','Clarify exit pathway and commission preliminary valuation assessment','30-60 days','Exit Advisory']];
-    var allActions=[];
-    for(var i=0;i<urlP.length;i++){var t=thresholds[i]; if(urlP[i]<t[0]){var crit=urlP[i]<(t[0]/2); allActions.push({priority:crit?'critical':'high',icon:crit?'🔴':'🟠',pillar:t[1],action:crit?t[2]:t[3],timeline:t[4],service:t[5]});}}
-    allActions.sort(function(a,b){return ({critical:0,high:1})[a.priority]-({critical:0,high:1})[b.priority];});
-    var top5=allActions.slice(0,5);
-    var html='<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your assessment, here are your priority actions for the next 90 days, organised by impact and urgency.</p>';
-    if(top5.length===0){html+='<p style="color:var(--green);font-weight:600;">✓ All pillars are performing well. Focus on maintaining standards and preparing investor documentation.</p>';}
-    else{for(var j=0;j<top5.length;j++){var item=top5[j],bc=item.priority==='critical'?'var(--red)':'var(--orange)'; html+='<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;"><span>'+item.icon+'</span><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;text-transform:uppercase;">'+item.priority+'</span></div><p style="color:#E5E7EB;margin:0.25rem 0 0.5rem;">'+item.action+'</p><div style="display:flex;gap:1.5rem;font-size:0.85rem;color:#9CA3AF;"><span>⏱ '+item.timeline+'</span><span>🎯 '+item.service+'</span></div></div>';}}
-    container.innerHTML=html;
+function buildActionPlan() {
+    var container = document.getElementById('action-plan-content');
+    if (!container) return;
+    var thresholds = [
+        [22,'Financial Health','Commission forensic-ready financial clean-up and appoint CFO','Commission independent financial audit and implement monthly reporting','30-60 days','S$15,000-30,000','CFO Advisory'],
+        [15,'Governance & Controls','Establish board of directors and implement compliance framework','Formalise board structure and appoint independent directors','60-90 days','S$10,000-20,000','Governance Advisory'],
+        [15,'Leadership & Team','Immediate leadership assessment and reduce key person dependency','Build second-tier management and formalise HR policies','60-90 days','S$8,000-15,000','People Advisory'],
+        [15,'Market Position','Commission market positioning analysis and build customer reference base','Develop competitive positioning and document market advantages','30-60 days','S$8,000-12,000','Strategy Advisory'],
+        [12,'Operations & Scalability','Document all critical processes and implement basic systems','Map operational processes and implement KPI monitoring','60-90 days','S$10,000-18,000','Operations Advisory'],
+        [10,'Exit Readiness','Engage exit advisor and develop 3-year exit preparation roadmap','Clarify exit pathway and commission preliminary valuation assessment','30-60 days','S$5,000-10,000','Exit Advisory']
+    ];
+    var allActions = [];
+    for (var i = 0; i < urlP.length; i++) {
+        var t = thresholds[i];
+        if (urlP[i] < t[0]) {
+            var critical = urlP[i] < (t[0] / 2);
+            allActions.push({ priority: critical ? 'critical' : 'high', icon: critical ? '🔴' : '🟠', pillar: t[1], action: critical ? t[2] : t[3], timeline: t[4], cost: t[5], service: t[6] });
+        }
+    }
+    allActions.sort(function(a,b){ var o={critical:0,high:1}; return o[a.priority]-o[b.priority]; });
+    var top5 = allActions.slice(0,5);
+    var html = '<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your assessment, here are your priority actions for the next 90 days, organised by impact and urgency.</p>';
+    if (top5.length === 0) {
+        html += '<p style="color:var(--green);font-weight:600;">✓ All pillars are performing well. Focus on maintaining standards and preparing investor documentation.</p>';
+    } else {
+        for (var j = 0; j < top5.length; j++) {
+            var item = top5[j];
+            var bc = item.priority === 'critical' ? 'var(--red)' : 'var(--orange)';
+            html += '<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;"><span>'+item.icon+'</span><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;text-transform:uppercase;">'+item.priority+'</span></div><p style="color:#E5E7EB;margin:0.25rem 0 0.5rem;">'+item.action+'</p><div style="display:flex;gap:1.5rem;font-size:0.85rem;color:#9CA3AF;"><span>⏱ '+item.timeline+'</span><span>💰 '+item.cost+'</span><span>🎯 '+item.service+'</span></div></div>';
+        }
+    }
+    container.innerHTML = html;
 }
 
-// ============================================================
-// TRACKER MILESTONES
-// ============================================================
-function buildMilestones(){
-    var container=document.getElementById('phase1-milestones'); if(!container)return;
-    var ms=[{title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and priority assessment.',tl:'Week 1-2',owner:'CEO'},{title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts.',tl:'Week 3-8',owner:'CFO'},{title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or regional firm for 3-year historical audit. Sign engagement letter.',tl:'Week 8-10',owner:'CFO'},{title:'Establish Governance Framework',priority:'High',col:'var(--orange)',desc:'Document board structure, committee charters, delegation of authority matrix.',tl:'Week 6-12',owner:'CEO'},{title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room platform and organise into standard M&A categories.',tl:'Week 10-12',owner:'TriveExec'}];
-    var html='';
-    for(var i=0;i<ms.length;i++){var m=ms[i]; html+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;"><div style="display:flex;align-items:flex-start;gap:1rem;"><input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);"><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+m.title+'</strong><span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span></div><p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p><div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>⏱ '+m.tl+'</span><span>👤 '+m.owner+'</span></div></div></div></div>';}
-    container.innerHTML=html;
+function buildMilestones() {
+    var container = document.getElementById('phase1-milestones');
+    if (!container) return;
+    var milestones = [
+        {title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and priority assessment.',timeline:'Week 1-2',owner:'CEO'},
+        {title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts.',timeline:'Week 3-8',owner:'CFO'},
+        {title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or regional firm for 3-year historical audit. Sign engagement letter.',timeline:'Week 8-10',owner:'CFO'},
+        {title:'Establish Governance Framework',priority:'High',col:'var(--orange)',desc:'Document board structure, committee charters, delegation of authority matrix.',timeline:'Week 6-12',owner:'CEO'},
+        {title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room platform and organise into standard M&A categories.',timeline:'Week 10-12',owner:'TriveExec'}
+    ];
+    var html = '';
+    for (var i = 0; i < milestones.length; i++) {
+        var m = milestones[i];
+        html += '<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;"><div style="display:flex;align-items:flex-start;gap:1rem;"><input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);"><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+m.title+'</strong><span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span></div><p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p><div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>⏱ '+m.timeline+'</span><span>👤 '+m.owner+'</span></div></div></div></div>';
+    }
+    container.innerHTML = html;
 }
 
-// ============================================================
-// SERVICE PACKAGE RECOMMENDATION
-// ============================================================
-function highlightPackage(){
-    var below=0; for(var i=0;i<urlP.length;i++){if(urlP[i]<15)below++;}
-    var rec=urlP[0]<10&&below<=2?'financial':below>=3?'exit':'sprint';
-    var badge=document.getElementById('badge-'+rec),card=document.getElementById('pkg-'+rec);
-    if(badge)badge.style.display='block';
-    if(card){card.style.border='3px solid var(--gold)'; card.style.boxShadow='0 8px 24px rgba(201,169,97,0.4)';}
+function highlightPackage() {
+    var below = 0;
+    for (var i = 0; i < urlP.length; i++) { if (urlP[i] < 15) below++; }
+    var rec = urlP[0] < 10 && below <= 2 ? 'financial' : below >= 3 ? 'exit' : 'sprint';
+    var badge = document.getElementById('badge-' + rec);
+    var card  = document.getElementById('pkg-' + rec);
+    if (badge) badge.style.display = 'block';
+    if (card)  { card.style.border = '3px solid var(--gold)'; card.style.boxShadow = '0 8px 24px rgba(201,169,97,0.4)'; }
 }
 
-function requestValidation(){
-    var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+function requestValidation() {
+    var company = getP('company') || 'Unknown';
+    var subject = 'Phase Validation Request - ' + company;
+    var body = 'Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: ' + company + '\nDashboard: ' + window.location.href + '\n\nBest regards';
+    window.location.href = 'mailto:insights@triveexec.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
 
-// 
+window.onload = function() {
+    fillAll();
+    buildPillarCards();
+    buildValueDrivers();
+    buildReadinessPillars();
+    buildActionPlan();
+    buildMilestones();
+    setTimeout(highlightPackage, 100);
+};
+</script>
+</body>
+</html>
