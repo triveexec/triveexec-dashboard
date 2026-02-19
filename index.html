@@ -2724,98 +2724,169 @@ Best regards`;
     console.log('Valuation analysis updated with dynamic drivers');
 }
 
-if (urlScore) {
-    updateValuationAnalysis();
-}  function updateExitReadiness() {
-    const pillars = [
-        {
-            score: parseInt(urlP1) || 0,
-            max: 30,
-            selector: '.pillar1-actions',
-            low: ['Engage Fractional CFO or Finance Director', 'Implement financial management system (Xero/NetSuite)', 'Prepare for statutory audit engagement', 'Build monthly management reporting framework'],
-            mid: ['Complete 3-year audited financial statements', 'Establish quality of earnings analysis', 'Build 3-year financial forecast model', 'Document all accounting policies'],
-            high: ['Refine financial projections for buyers', 'Prepare detailed working capital analysis', 'Document normalized EBITDA adjustments']
-        },
-        {
-            score: parseInt(urlP2) || 0,
-            max: 20,
-            selector: '.pillar2-actions',
-            low: ['Establish formal board structure', 'Document organizational chart and reporting lines', 'Create policy and procedure manual', 'Implement basic compliance framework'],
-            mid: ['Develop independent board or advisory board', 'Establish audit and compensation committees', 'Implement quarterly board reporting', 'Document decision-making authorities'],
-            high: ['Refine board effectiveness', 'Strengthen committee charters', 'Document governance track record for buyers']
-        },
-        {
-            score: parseInt(urlP3) || 0,
-            max: 20,
-            selector: '.pillar3-actions',
-            low: ['Document organization structure', 'Create role descriptions for key positions', 'Develop succession planning framework', 'Build management team bench strength'],
-            mid: ['Complete formal succession plan for founder/CEO', 'Strengthen second-tier management', 'Document key person dependencies', 'Build leadership development program'],
-            high: ['Finalize transition roadmap', 'Prepare management presentation materials', 'Document retention strategies']
-        },
-        {
-            score: parseInt(urlP4) || 0,
-            max: 20,
-            selector: '.pillar4-actions',
-            low: ['Conduct competitive analysis', 'Document market positioning', 'Analyze customer concentration risks', 'Build customer retention strategies'],
-            mid: ['Develop investment thesis and equity story', 'Create detailed market analysis', 'Document competitive advantages', 'Prepare growth strategy presentation'],
-            high: ['Refine buyer value proposition', 'Prepare market comparables analysis', 'Document addressable market opportunity']
-        },
-        {
-            score: parseInt(urlP5) || 0,
-            max: 16,
-            selector: '.pillar5-actions',
-            low: ['Document core business processes', 'Implement basic operational KPIs', 'Assess technology infrastructure', 'Identify operational dependencies'],
-            mid: ['Implement CRM/ERP systems', 'Build scalability roadmap', 'Document standard operating procedures', 'Measure operational efficiency metrics'],
-            high: ['Demonstrate operational scalability', 'Prepare technology roadmap for buyers', 'Document process automation capabilities']
-        },
-        {
-            score: parseInt(urlP6) || 0,
-            max: 14,
-            selector: '.pillar6-actions',
-            low: ['Organize financial and legal documents', 'Begin data room structure', 'Identify potential buyers/investors', 'Engage M&A or capital markets advisor'],
-            mid: ['Complete virtual data room', 'Prepare management presentation deck', 'Develop buyer target list', 'Prepare Q&A materials'],
-            high: ['Finalize all transaction documents', 'Complete sell-side due diligence', 'Refine negotiation strategy']
-        }
-    ];
-    
-    pillars.forEach(pillar => {
-        const percent = (pillar.score / pillar.max) * 100;
-        const element = document.querySelector(pillar.selector);
-        
-        if (!element) return;
-        
-        let actions;
-        if (percent < 33) {
-            actions = pillar.low;
-        } else if (percent < 67) {
-            actions = pillar.mid;
-        } else {
-            actions = pillar.high;
-        }
-        
-        const listHTML = actions.map(action => `<li>${action}</li>`).join('');
-        element.innerHTML = listHTML;
-    });
-    
-    console.log('Exit readiness actions updated');
-}
+}  function updateExitReadinessTab() {
+                const scores = [
+                    { score: parseInt(urlP1) || 0, max: 30, displayClass: '.pillar1-display', actionsClass: '.pillar1-actions', h4Index: 0 },
+                    { score: parseInt(urlP2) || 0, max: 20, displayClass: '.pillar2-display', actionsClass: '.pillar2-actions', h4Index: 1 },
+                    { score: parseInt(urlP3) || 0, max: 20, displayClass: '.pillar3-display', actionsClass: '.pillar3-actions', h4Index: 2 },
+                    { score: parseInt(urlP4) || 0, max: 20, displayClass: '.pillar4-display', actionsClass: '.pillar4-actions', h4Index: 3 },
+                    { score: parseInt(urlP5) || 0, max: 16, displayClass: '.pillar5-display', actionsClass: '.pillar5-actions', h4Index: 4 },
+                    { score: parseInt(urlP6) || 0, max: 14, displayClass: '.pillar6-display', actionsClass: '.pillar6-actions', h4Index: 5 }
+                ];
 
-if (urlScore) {
+                const pillarActions = [
+                    {
+                        name: 'Financial Health',
+                        excellent: ['Maintain audited financials and IFRS compliance', 'Optimise working capital ratios quarterly'],
+                        good: ['Commission independent financial audit', 'Implement monthly management reporting'],
+                        fair: ['Engage CFO or fractional CFO immediately', 'Implement proper accrual accounting', 'Set up 3-year financial projections'],
+                        poor: ['Immediate restructuring of financial statements required', 'Separate personal and business finances urgently', 'Implement basic bookkeeping system', 'Commission forensic-ready financial clean-up', 'Establish chart of accounts and financial controls']
+                    },
+                    {
+                        name: 'Governance & Controls',
+                        excellent: ['Conduct annual board effectiveness review', 'Maintain ISO or equivalent certifications'],
+                        good: ['Formalise board charter and committee structure', 'Implement quarterly compliance reporting'],
+                        fair: ['Appoint independent board members', 'Document all key policies and procedures', 'Implement internal audit function'],
+                        poor: ['Establish formal board of directors immediately', 'Create shareholder agreement and constitution', 'Implement basic compliance framework', 'Document all material contracts and IP ownership', 'Engage corporate secretary for proper governance']
+                    },
+                    {
+                        name: 'Leadership & Team',
+                        excellent: ['Refine succession planning documentation', 'Continue leadership development programmes'],
+                        good: ['Formalise leadership competency framework', 'Implement structured performance management'],
+                        fair: ['Build second-tier management layer', 'Document key person dependencies', 'Establish retention programme for key talent'],
+                        poor: ['Immediate leadership team assessment required', 'Reduce single-person dependency risk', 'Implement talent acquisition strategy', 'Create organisational chart and reporting lines', 'Establish HR policies and employment contracts']
+                    },
+                    {
+                        name: 'Market Position',
+                        excellent: ['Protect and expand IP portfolio', 'Document competitive moat for buyer narratives'],
+                        good: ['Commission independent market analysis', 'Formalise customer satisfaction measurement'],
+                        fair: ['Develop clear market positioning statement', 'Build case studies and client testimonials', 'Identify and document key competitive advantages'],
+                        poor: ['Conduct immediate market positioning analysis', 'Build minimum viable customer reference base', 'Establish brand identity and messaging framework', 'Document total addressable market opportunity', 'Create sales pipeline and CRM system']
+                    },
+                    {
+                        name: 'Operations & Scalability',
+                        excellent: ['Automate remaining manual processes', 'Develop international scalability playbook'],
+                        good: ['Document all core operational processes', 'Implement KPI dashboard and monitoring'],
+                        fair: ['Map and document critical business processes', 'Implement scalable technology infrastructure', 'Establish operational metrics and targets'],
+                        poor: ['Immediate operational documentation required', 'Implement basic project management systems', 'Establish quality control processes', 'Map revenue-generating processes end-to-end', 'Create standard operating procedures for all key functions']
+                    },
+                    {
+                        name: 'Exit Readiness',
+                        excellent: ['Prepare investor-ready information memorandum', 'Engage M&A advisors for market sounding'],
+                        good: ['Develop exit strategy options analysis', 'Begin building relationships with potential acquirers'],
+                        fair: ['Clarify preferred exit pathway (IPO/M&A/PE)', 'Commission preliminary valuation assessment', 'Identify and address key due diligence risks'],
+                        poor: ['Exit is 18-36 months away — begin foundation work', 'Address all critical pillar gaps first', 'Develop 3-year exit preparation roadmap', 'Engage exit advisor to prioritise actions', 'Begin building institutional-grade documentation']
+                    }
+                ];
+
+                const readiness_tab = document.getElementById('readiness');
+                if (!readiness_tab) return;
+
+                const h4s = readiness_tab.querySelectorAll('h4');
+
+                scores.forEach((pillar, index) => {
+                    const percent = (pillar.score / pillar.max) * 100;
+
+                    const displayEl = readiness_tab.querySelector(pillar.displayClass);
+                    if (displayEl) displayEl.textContent = pillar.score;
+
+                    const actionsEl = readiness_tab.querySelector(pillar.actionsClass);
+                    if (!actionsEl) return;
+
+                    let actions, icon, color;
+
+                    if (percent >= 75) {
+                        actions = pillarActions[index].excellent;
+                        icon = '✓';
+                        color = 'var(--success-green)';
+                    } else if (percent >= 50) {
+                        actions = pillarActions[index].good;
+                        icon = '✓';
+                        color = 'var(--triveexec-gold)';
+                    } else if (percent >= 25) {
+                        actions = pillarActions[index].fair;
+                        icon = '⚠';
+                        color = 'var(--warning-orange)';
+                    } else {
+                        actions = pillarActions[index].poor;
+                        icon = '🔴';
+                        color = 'var(--critical-red)';
+                    }
+
+                    actionsEl.innerHTML = actions.map(a => `<li>${a}</li>`).join('');
+
+                    if (h4s[index]) {
+                        h4s[index].style.color = color;
+                        const nameText = pillarActions[index].name;
+                        h4s[index].innerHTML = `${icon} ${nameText} — <span class="${pillar.displayClass.replace('.', '')}">${pillar.score}</span>/${pillar.max}`;
+                    }
+                });
+            }
+
+            function updateActionPlan() {
+                const score = parseInt(urlScore) || 0;
+                const p1 = parseInt(urlP1) || 0;
+                const p2 = parseInt(urlP2) || 0;
+                const p3 = parseInt(urlP3) || 0;
+                const p4 = parseInt(urlP4) || 0;
+                const p5 = parseInt(urlP5) || 0;
+                const p6 = parseInt(urlP6) || 0;
+
+                const actionPlanDiv = document.getElementById('action-plan');
+                if (!actionPlanDiv) return;
+
+                const allActions = [];
+
+                if (p1 < 22) allActions.push({ priority: p1 < 10 ? 'critical' : 'high', icon: p1 < 10 ? '🔴' : '🟠', pillar: 'Financial Health', action: p1 < 10 ? 'Commission forensic-ready financial clean-up and appoint CFO' : 'Commission independent financial audit and implement monthly reporting', timeline: '30-60 days', cost: 'S$15,000–30,000', service: 'CFO Advisory' });
+                if (p2 < 15) allActions.push({ priority: p2 < 7 ? 'critical' : 'high', icon: p2 < 7 ? '🔴' : '🟠', pillar: 'Governance & Controls', action: p2 < 7 ? 'Establish board of directors and implement compliance framework' : 'Formalise board structure and appoint independent directors', timeline: '60-90 days', cost: 'S$10,000–20,000', service: 'Governance Advisory' });
+                if (p3 < 15) allActions.push({ priority: p3 < 7 ? 'critical' : 'medium', icon: p3 < 7 ? '🔴' : '🟡', pillar: 'Leadership & Team', action: p3 < 7 ? 'Immediate leadership assessment and reduce key person dependency' : 'Build second-tier management and formalise HR policies', timeline: '60-90 days', cost: 'S$8,000–15,000', service: 'People Advisory' });
+                if (p4 < 15) allActions.push({ priority: p4 < 7 ? 'critical' : 'medium', icon: p4 < 7 ? '🔴' : '🟡', pillar: 'Market Position', action: p4 < 7 ? 'Commission market positioning analysis and build customer reference base' : 'Develop competitive positioning and document market advantages', timeline: '30-60 days', cost: 'S$8,000–12,000', service: 'Strategy Advisory' });
+                if (p5 < 12) allActions.push({ priority: p5 < 6 ? 'critical' : 'medium', icon: p5 < 6 ? '🔴' : '🟡', pillar: 'Operations & Scalability', action: p5 < 6 ? 'Document all critical processes and implement basic systems' : 'Map operational processes and implement KPI monitoring', timeline: '60-90 days', cost: 'S$10,000–18,000', service: 'Operations Advisory' });
+                if (p6 < 10) allActions.push({ priority: p6 < 5 ? 'critical' : 'medium', icon: p6 < 5 ? '🔴' : '🟡', pillar: 'Exit Readiness', action: p6 < 5 ? 'Engage exit advisor and develop 3-year exit preparation roadmap' : 'Clarify exit pathway and commission preliminary valuation assessment', timeline: '30-60 days', cost: 'S$5,000–10,000', service: 'Exit Advisory' });
+
+                allActions.sort((a, b) => {
+                    const order = { critical: 0, high: 1, medium: 2 };
+                    return order[a.priority] - order[b.priority];
+                });
+
+                const top5 = allActions.slice(0, 5);
+
+                const gradientDiv = actionPlanDiv.querySelector('div[style*="linear-gradient"]');
+                if (gradientDiv) {
+                    let html = '<p style="color: #E5E7EB; line-height: 1.8; margin-bottom: 1.5rem;">Based on your assessment, here are your priority actions for the next 90 days, organised by impact and urgency.</p>';
+
+                    if (top5.length === 0) {
+                        html += '<p style="color: var(--success-green); font-weight: 600;">✓ All pillars are performing well. Focus on maintaining standards and preparing your investor documentation.</p>';
+                    } else {
+                        top5.forEach((item, i) => {
+                            const borderColor = item.priority === 'critical' ? 'var(--critical-red)' : item.priority === 'high' ? 'var(--warning-orange)' : 'var(--triveexec-gold)';
+                            html += `
+                            <div style="background: rgba(30,42,58,0.6); border-left: 4px solid ${borderColor}; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1rem;">
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span>${item.icon}</span>
+                                    <strong style="color: var(--triveexec-gold);">${item.pillar}</strong>
+                                    <span style="background: ${borderColor}; color: #fff; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 20px; text-transform:uppercase;">${item.priority}</span>
+                                </div>
+                                <p style="color: #E5E7EB; margin: 0.25rem 0 0.5rem;">${item.action}</p>
+                                <div style="display:flex; gap:1.5rem; font-size:0.85rem; color:#9CA3AF;">
+                                    <span>⏱ ${item.timeline}</span>
+                                    <span>💰 ${item.cost}</span>
+                                    <span>🎯 ${item.service}</span>
+                                </div>
+                            </div>`;
+                        });
+                    }
+                    gradientDiv.innerHTML = html;
+                }
+            }
+    if (urlScore) {
     calculateDynamicMetrics();
-}
-
-if (urlP1 || urlP2) {
     updatePillarRatings();
-}
-
-if (urlScore) {
     updateValuationAnalysis();
-}
-
-if (urlScore) {
-    updateExitReadiness();
-}
-            console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
+    updateExitReadinessTab();
+    updateActionPlan();
+        }
+        console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
                 tier: urlTier,
