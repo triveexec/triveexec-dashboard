@@ -834,7 +834,7 @@
             color: var(--triveexec-gold) !important;
         }
         
-        .card p, .card div:not(.progress-bar), .card li {
+        .card p, .card div:not(.progress-bar) {
             color: #D1D5DB !important;
         }
     </style>
@@ -2820,9 +2820,8 @@ const actionsEl = allUls[index];
                         color = 'var(--critical-red)';
                     }
 
-                    actionsEl.innerHTML = actions.map(a => `<li>${a}</li>`).join('');
-
-                    if (h4s[index]) {
+actionsEl.innerHTML = actions.map(a => `<p>• ${a}</p>`).join('');                    
+        if (h4s[index]) {
                         h4s[index].style.color = color;
                         const nameText = pillarActions[index].name;
                         h4s[index].innerHTML = `${icon} ${nameText} — <span class="${pillar.displayClass.replace('.', '')}">${pillar.score}</span>/${pillar.max}`;
