@@ -566,54 +566,39 @@
             <!-- VALUATION TAB -->
             <div id="valuation" class="tab-content">
                 <div class="valuation-highlight">
-                    <div class="premium-badge">Indicative Valuation Premium</div>
+                    <div class="premium-badge">Premium Potential</div>
                     <div class="premium-percentage"><span class="premium-percent">15-20%</span></div>
-                    <div class="premium-subtitle">Key improvements achievable within 3-6 months</div>
+                    <div class="premium-subtitle">Achievable within 3-6 months | Timeline to Exit: <span class="exit-timeline-text">12-18 months</span></div>
                 </div>
 
                 <h3 class="section-header">Valuation Multiple Analysis</h3>
                 <table class="valuation-table">
                     <thead>
-                        <tr><th>Metric</th><th>Current Range</th><th>Target Range</th><th>Uplift</th></tr>
+                        <tr><th>Metric</th><th>Current</th><th>Target</th><th>Gap</th></tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>EBITDA Multiple</strong><br><small style="color:#9CA3AF;">Enterprise Value &divide; EBITDA</small></td>
-                            <td><span class="ebitda-current">5.5-6.5x</span></td>
-                            <td><span class="ebitda-target">6.5-8.0x</span></td>
-                            <td style="color:var(--success-green);font-weight:700;" class="ebitda-uplift">+1.0-1.5x</td>
+                            <td><strong>EBITDA Multiple</strong></td>
+                            <td>5.5-6.5x</td><td>6.5-8.0x</td>
+                            <td style="color:var(--success-green);font-weight:700;">+1.0-1.5x</td>
                         </tr>
                         <tr>
-                            <td><strong>Revenue Multiple</strong><br><small style="color:#9CA3AF;">Enterprise Value &divide; Annual Revenue</small></td>
-                            <td><span class="rev-current">0.8-1.0x</span></td>
-                            <td><span class="rev-target">1.0-1.2x</span></td>
-                            <td style="color:var(--success-green);font-weight:700;" class="rev-uplift">+0.2x</td>
+                            <td><strong>Estimated Valuation</strong></td>
+                            <td>$28-32M</td><td>$32-39M</td>
+                            <td style="color:var(--success-green);font-weight:700;">+$<span class="value-gap-low">4.8</span>-<span class="value-gap-high">7.2</span>M</td>
                         </tr>
                         <tr>
-                            <td><strong>Institutional Readiness Premium</strong><br><small style="color:#9CA3AF;">Proprietary TriveExec metric</small></td>
-                            <td>Standard market multiple</td>
-                            <td><span class="premium-percent">15-20%</span> above standard</td>
-                            <td style="color:var(--success-green);font-weight:700;"><span class="premium-percent">15-20%</span> uplift</td>
+                            <td><strong>Revenue Multiple</strong></td>
+                            <td>0.8-1.0x</td><td>1.0-1.2x</td>
+                            <td style="color:var(--success-green);font-weight:700;">+0.2x</td>
                         </tr>
                         <tr>
-                            <td><strong>Due Diligence Risk Rating</strong><br><small style="color:#9CA3AF;">Proprietary TriveExec metric</small></td>
-                            <td id="dd-risk-current" style="font-weight:700;">&mdash;</td>
-                            <td>Low Risk</td>
-                            <td id="dd-risk-gap" style="font-weight:700;">&mdash;</td>
+                            <td><strong>Timeline to Exit</strong></td>
+                            <td><span class="exit-timeline-text">12-18 months</span></td><td>6-9 months</td>
+                            <td style="color:var(--success-green);font-weight:700;">-6-9 months</td>
                         </tr>
                     </tbody>
                 </table>
-
-                <div style="background:rgba(30,42,58,0.8);border:1px solid rgba(201,169,97,0.3);border-radius:8px;padding:1.5rem;margin-top:1.5rem;margin-bottom:2rem;">
-                    <strong style="color:var(--triveexec-gold);display:block;margin-bottom:0.75rem;">&#9432; Important Disclaimer</strong>
-                    <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;margin-bottom:1rem;">Valuation multiples presented are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A transaction data. They do not represent a formal valuation opinion. Actual valuation will depend on your specific financials, EBITDA, revenue quality, growth trajectory, sector conditions, and buyer appetite at the time of transaction.</p>
-                    <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;margin-bottom:1.5rem;">The Institutional Readiness Premium and Due Diligence Risk Rating are proprietary TriveExec metrics derived from your TriveHealth&#8482; assessment scores.</p>
-                    <div style="background:rgba(201,169,97,0.1);border-radius:6px;padding:1.25rem;border-left:3px solid var(--triveexec-gold);">
-                        <strong style="color:var(--triveexec-gold);">&#128222; Want a Formal Valuation Assessment?</strong>
-                        <p style="color:#D1D5DB;font-size:0.9rem;margin-top:0.5rem;line-height:1.7;">TriveExec provides formal valuation assessments as part of our exit advisory services. Book a Strategy Call to discuss your specific financials and receive a defensible valuation range.</p>
-                        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-top:1rem;font-size:0.875rem;padding:0.75rem 1.5rem;">Book Strategy Call &mdash; SGD 500</a>
-                    </div>
-                </div>
 
                 <div class="dashboard-grid" style="margin-top:2rem;">
                     <div class="card">
@@ -621,13 +606,24 @@
                         <div class="value-drivers-grid" style="display:grid;gap:0.75rem;"></div>
                     </div>
                     <div class="card">
-                        <h4 style="color:var(--triveexec-gold);margin-bottom:1rem;font-size:1.25rem;">Government Grant Funding</h4>
-                        <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.5rem;font-size:0.95rem;">Government grants and incentives are available across ASEAN to subsidise SME capability development and exit preparation costs. Qualifying advisory fees, professional services, and systems implementation may be partially funded.</p>
-                        <div id="grant-content"></div>
-                        <div style="background:rgba(201,169,97,0.1);border-radius:8px;padding:1.25rem;border-left:3px solid var(--triveexec-gold);margin-top:1rem;">
-                            <strong style="color:var(--triveexec-gold);">&#128222; Check Your Grant Eligibility</strong>
-                            <p style="color:#D1D5DB;font-size:0.9rem;margin-top:0.5rem;">Grant eligibility depends on your company profile, project scope, and the specific scheme. Book a Strategy Call and we will help you identify which grants you may qualify for.</p>
-                            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn btn-primary" style="display:inline-block;margin-top:1rem;font-size:0.875rem;padding:0.75rem 1.5rem;">Book Strategy Call &mdash; SGD 500</a>
+                        <h4 style="color:var(--triveexec-gold);margin-bottom:1rem;font-size:1.25rem;">Investment Required</h4>
+                        <div style="line-height:2;color:#D1D5DB;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                                <span>Professional Services:</span>
+                                <strong style="color:var(--triveexec-gold);">$180-250K</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                                <span>Systems Implementation:</span>
+                                <strong style="color:var(--triveexec-gold);">$80-120K</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding-top:1rem;border-top:2px solid var(--triveexec-gold);margin-top:1rem;">
+                                <strong>Total Investment:</strong>
+                                <strong style="color:var(--triveexec-gold);font-size:1.25rem;">$260-370K</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-top:1rem;">
+                                <strong style="color:var(--success-green);">Projected ROI:</strong>
+                                <strong style="color:var(--success-green);font-size:1.25rem;">13-27x</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1240,59 +1236,13 @@
                 document.querySelectorAll('.value-gap-low').forEach(function(el) { el.textContent = vgLow; });
                 document.querySelectorAll('.value-gap-high').forEach(function(el) { el.textContent = vgHigh; });
                 document.querySelectorAll('.premium-percent').forEach(function(el) { el.textContent = premiumPct; });
+                document.querySelectorAll('.exit-timeline-text').forEach(function(el) { el.textContent = timelineText; });
+
                 // Update score circle
                 var circumference = 565.48;
                 var offset = circumference - (score / 120) * circumference;
                 var circle = document.querySelector('.score-circle-progress');
                 if (circle) circle.setAttribute('stroke-dashoffset', offset);
-
-                // ---- DYNAMIC EBITDA & REVENUE MULTIPLES ----
-                var ebitdaC, ebitdaT, ebitdaU, revC, revT, revU;
-                if (score >= 90) {
-                    ebitdaC='6.5-7.5x'; ebitdaT='8.0-10.0x'; ebitdaU='+1.5-2.5x';
-                    revC='1.2-1.5x'; revT='1.5-2.0x'; revU='+0.3-0.5x';
-                } else if (score >= 70) {
-                    ebitdaC='5.5-6.5x'; ebitdaT='6.5-8.0x'; ebitdaU='+1.0-1.5x';
-                    revC='0.8-1.0x'; revT='1.0-1.2x'; revU='+0.2x';
-                } else if (score >= 50) {
-                    ebitdaC='4.0-5.5x'; ebitdaT='5.5-7.0x'; ebitdaU='+1.0-2.0x';
-                    revC='0.5-0.8x'; revT='0.8-1.0x'; revU='+0.2-0.3x';
-                } else {
-                    ebitdaC='2.5-4.0x'; ebitdaT='4.0-5.5x'; ebitdaU='+1.0-2.0x';
-                    revC='0.3-0.5x'; revT='0.5-0.8x'; revU='+0.2-0.3x';
-                }
-                document.querySelectorAll('.ebitda-current').forEach(function(el){el.textContent=ebitdaC;});
-                document.querySelectorAll('.ebitda-target').forEach(function(el){el.textContent=ebitdaT;});
-                document.querySelectorAll('.ebitda-uplift').forEach(function(el){el.textContent=ebitdaU;});
-                document.querySelectorAll('.rev-current').forEach(function(el){el.textContent=revC;});
-                document.querySelectorAll('.rev-target').forEach(function(el){el.textContent=revT;});
-                document.querySelectorAll('.rev-uplift').forEach(function(el){el.textContent=revU;});
-
-                // ---- DD RISK RATING ----
-                var critCount=0, weakCount=0;
-                pillarScores.forEach(function(ps,i){var pp=(ps/pillarMaxes[i])*100; if(pp<25) critCount++; else if(pp<50) weakCount++;});
-                var ddRisk, ddColor, ddGap;
-                if (critCount>=2) { ddRisk='High Risk'; ddColor='var(--critical-red)'; ddGap='Immediate action required'; }
-                else if (critCount===1) { ddRisk='Medium-High Risk'; ddColor='var(--warning-orange)'; ddGap='Address critical pillar gaps'; }
-                else if (weakCount>=2) { ddRisk='Medium Risk'; ddColor='#F59E0B'; ddGap='Strengthen weak areas'; }
-                else { ddRisk='Low Risk'; ddColor='var(--success-green)'; ddGap='Maintain standards'; }
-                var ddCurEl=document.getElementById('dd-risk-current');
-                var ddGapEl=document.getElementById('dd-risk-gap');
-                if(ddCurEl){ddCurEl.textContent=ddRisk; ddCurEl.style.color=ddColor;}
-                if(ddGapEl){ddGapEl.textContent=ddGap; ddGapEl.style.color=ddColor;}
-
-                // ---- GRANT FUNDING CONTENT ----
-                var urlCountry=getParam('country')||'SG';
-                var grantHtml='';
-                if(urlCountry==='MY'){
-                    grantHtml='<div style="line-height:2;color:#D1D5DB;"><div style="margin-bottom:0.75rem;"><strong style="color:var(--triveexec-gold);">MSME Digitalisation Grant</strong><br><span style="font-size:0.9rem;">Up to 50% subsidy on qualifying digitalisation projects</span></div><div style="margin-bottom:0.75rem;"><strong style="color:var(--triveexec-gold);">SME Corp Capability Development Grant</strong><br><span style="font-size:0.9rem;">Business advisory and capability building support</span></div><div><strong style="color:var(--triveexec-gold);">HRDC Claimable Advisory Services</strong><br><span style="font-size:0.9rem;">Claimable training and advisory engagements</span></div></div>';
-                } else if(urlCountry==='ID'){
-                    grantHtml='<div style="line-height:2;color:#D1D5DB;"><div style="margin-bottom:0.75rem;"><strong style="color:var(--triveexec-gold);">LPDB-KUMKM Funding Support</strong><br><span style="font-size:0.9rem;">SME development and capacity building programmes</span></div><div><strong style="color:var(--triveexec-gold);">Kemenkop UKM Development Programmes</strong><br><span style="font-size:0.9rem;">Ministry of Cooperatives SME support initiatives</span></div></div>';
-                } else {
-                    grantHtml='<div style="line-height:2;color:#D1D5DB;"><div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;align-items:center;"><span><strong style="color:var(--triveexec-gold);">PSG</strong> &mdash; Productivity Solutions Grant</span><strong style="color:var(--success-green);">Up to 50%</strong></div><div style="display:flex;justify-content:space-between;align-items:center;"><span><strong style="color:var(--triveexec-gold);">EDG</strong> &mdash; Enterprise Development Grant</span><strong style="color:var(--success-green);">Up to 50%</strong></div></div>';
-                }
-                var grantEl=document.getElementById('grant-content');
-                if(grantEl) grantEl.innerHTML=grantHtml;
             }
 
             // ---- PILLAR RATINGS ----
