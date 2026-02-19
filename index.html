@@ -2801,8 +2801,21 @@ if (urlScore) {
 }
 
 if (urlScore) {
+    calculateDynamicMetrics();
+}
+
+if (urlP1 || urlP2) {
+    updatePillarRatings();
+}
+
+if (urlScore) {
+    updateValuationAnalysis();
+}
+
+if (urlScore) {
     updateExitReadiness();
-}             console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
+}
+            console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
                 tier: urlTier,
