@@ -381,7 +381,7 @@
         <div class="main-content">
 
             <!-- DASHBOARD TAB -->
-            <div id="dashboard" class="tab-content active">
+            <div id="dashboard" class="tab-content" style="display:block;">
                 <div class="card" style="background:linear-gradient(135deg,var(--triveexec-navy) 0%,#2A3847 100%);color:white;border:3px solid var(--triveexec-gold);margin-bottom:2rem;">
                     <div style="text-align:center;margin-bottom:1.5rem;">
                         <div style="background:var(--triveexec-gold);color:#1E2A3A;display:inline-block;padding:0.5rem 1.5rem;border-radius:20px;font-weight:700;text-transform:uppercase;font-size:0.875rem;letter-spacing:0.1em;margin-bottom:1rem;">Executive Summary</div>
@@ -564,7 +564,7 @@
             </div>
 
             <!-- VALUATION TAB -->
-            <div id="valuation" class="tab-content">
+            <div id="valuation" class="tab-content" style="display:none;">
                 <div class="valuation-highlight">
                     <div class="premium-badge">Premium Potential</div>
                     <div class="premium-percentage"><span class="premium-percent">15-20%</span></div>
@@ -630,7 +630,7 @@
             </div>
 
             <!-- EXIT READINESS TAB -->
-            <div id="readiness" class="tab-content">
+            <div id="readiness" class="tab-content" style="display:none;">
                 <h3 class="section-header">Detailed Pillar Assessment</h3>
 
                 <div class="card" style="margin-bottom:1.5rem;">
@@ -683,7 +683,7 @@
             </div>
 
             <!-- IMPROVEMENT ROADMAP TAB -->
-            <div id="roadmap" class="tab-content">
+            <div id="roadmap" class="tab-content" style="display:none;">
                 <h3 class="section-header">12-Month Implementation Timeline</h3>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -735,7 +735,7 @@
             </div>
 
             <!-- ACTION PLAN TAB -->
-            <div id="actions" class="tab-content">
+            <div id="actions" class="tab-content" style="display:none;">
                 <h3 class="section-header">90-Day Priority Action Plan</h3>
                 <div id="dynamic-action-plan" style="background:linear-gradient(135deg,var(--triveexec-navy) 0%,#1E3A5F 100%);border:3px solid var(--triveexec-gold);border-radius:12px;padding:2rem;margin-bottom:2rem;">
                     <p style="color:#E5E7EB;line-height:1.8;margin-bottom:1rem;">Based on your assessment, here are your priority actions for the next 90 days, organised by impact and urgency.</p>
@@ -750,7 +750,7 @@
             </div>
 
             <!-- BENCHMARKING TAB -->
-            <div id="benchmarking" class="tab-content">
+            <div id="benchmarking" class="tab-content" style="display:none;">
                 <h3 class="section-header">Industry Benchmarking Analysis</h3>
                 <div class="card" style="background:linear-gradient(135deg,#1E2A3A 0%,#2A3847 100%);margin-bottom:2rem;border:2px solid var(--triveexec-gold);">
                     <div style="text-align:center;margin-bottom:2rem;">
@@ -860,7 +860,7 @@
             </div>
 
             <!-- SERVICE PACKAGES TAB -->
-            <div id="services" class="tab-content">
+            <div id="services" class="tab-content" style="display:none;">
                 <h3 class="section-header">TriveExec Service Packages</h3>
                 <div style="text-align:center;margin-bottom:3rem;">
                     <p style="font-size:1.125rem;color:#D1D5DB;line-height:1.8;max-width:800px;margin:0 auto;">Based on your assessment, we have identified the optimal service configuration to accelerate your exit readiness and capture the <strong style="color:var(--triveexec-gold);">$<span class="value-gap-low">4.8</span>-<span class="value-gap-high">7.2</span>M valuation premium</strong>.</p>
@@ -953,7 +953,7 @@
             </div>
 
             <!-- PROGRESS TRACKER TAB -->
-            <div id="tracker" class="tab-content">
+            <div id="tracker" class="tab-content" style="display:none;">
                 <h3 class="section-header">Implementation Progress Tracker</h3>
                 <div class="card" style="background:linear-gradient(135deg,var(--triveexec-navy) 0%,#2A3847 100%);color:white;border:3px solid var(--triveexec-gold);margin-bottom:2rem;">
                     <div style="text-align:center;margin-bottom:2rem;">
@@ -1128,11 +1128,18 @@
         }
 
         function showTab(tabName, clickedEl) {
-            document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
-            document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+            document.querySelectorAll('.tab-content').forEach(function(c) { c.style.display = 'none'; });
+            document.querySelectorAll('.tab').forEach(function(t) {
+                t.style.background = 'rgba(255,255,255,0.08)';
+                t.style.color = 'rgba(255,255,255,0.7)';
+                t.style.borderBottomColor = '';
+            });
             var target = document.getElementById(tabName);
-            if (target) target.classList.add('active');
-            if (clickedEl) clickedEl.classList.add('active');
+            if (target) target.style.display = 'block';
+            if (clickedEl) {
+                clickedEl.style.background = 'white';
+                clickedEl.style.color = 'var(--triveexec-gold)';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -1170,19 +1177,18 @@
                 document.title = 'TriveHealth™ Dashboard - ' + urlCompany;
             }
             if (urlScore) { document.querySelectorAll('.score-display').forEach(function(el) { el.textContent = urlScore; }); }
-            var urlGradeLetter = urlGrade ? urlGrade.charAt(0) : '';
-            if (urlGradeLetter) { document.querySelectorAll('.grade-display').forEach(function(el) { el.textContent = urlGradeLetter; }); }
+            if (urlGrade) { document.querySelectorAll('.grade-display').forEach(function(el) { el.textContent = urlGrade; }); }
             if (urlIndustry) { document.querySelectorAll('.industry-display').forEach(function(el) { el.textContent = urlIndustry + ' Sector'; }); }
             if (urlDate) { document.querySelectorAll('.assessment-date').forEach(function(el) { el.textContent = urlDate; }); }
 
             var pillarMaxes = [30, 20, 20, 20, 16, 14];
             var pillarScores = [
-                Math.round(parseFloat(urlP1) || 0),
-                Math.round(parseFloat(urlP2) || 0),
-                Math.round(parseFloat(urlP3) || 0),
-                Math.round(parseFloat(urlP4) || 0),
-                Math.round(parseFloat(urlP5) || 0),
-                Math.round(parseFloat(urlP6) || 0)
+                parseInt(urlP1) || 0,
+                parseInt(urlP2) || 0,
+                parseInt(urlP3) || 0,
+                parseInt(urlP4) || 0,
+                parseInt(urlP5) || 0,
+                parseInt(urlP6) || 0
             ];
             var pillarClasses = ['pillar1', 'pillar2', 'pillar3', 'pillar4', 'pillar5', 'pillar6'];
 
@@ -1202,7 +1208,7 @@
                     'A': 'Highly Attractive', 'A-': 'Very Strong', 'B+': 'Strong Potential',
                     'B': 'Good Foundation', 'B-': 'Moderate Readiness', 'C+': 'Developing',
                     'C': 'Significant Work Needed', 'C-': 'Major Gaps', 'D': 'Early Stage', 'F': 'Not Ready'
-                }[urlGradeLetter] || 'Assessment Complete';
+                }[urlGrade] || 'Assessment Complete';
 
                 var pillarNames = ['Financial Health', 'Governance & Controls', 'Leadership & Team', 'Market Position', 'Operations & Scalability', 'Exit Readiness'];
                 var lowestIdx = pillarScores.indexOf(Math.min.apply(null, pillarScores));
@@ -1220,7 +1226,7 @@
                     'D': 'Critical gaps across most pillars. Your company is in early stages of exit preparation',
                     'F': 'Not ready for institutional exit. Your company requires fundamental transformation across all pillars'
                 };
-                var assessmentText = assessmentTexts[urlGradeLetter] || 'Assessment complete. Review your findings below.';
+                var assessmentText = assessmentTexts[urlGrade] || 'Assessment complete. Review your findings below.';
 
                 var gapMult = Math.max(0, (110 - score) / 10);
                 var vgLow = (gapMult * 0.8).toFixed(1);
