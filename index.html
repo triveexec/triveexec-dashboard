@@ -1141,13 +1141,8 @@
                 <div class="dashboard-grid" style="margin-top: 2rem;">
                     <div class="card">
                         <h4 style="color: var(--triveexec-gold); margin-bottom: 1rem; font-size: 1.25rem;">Value Drivers</h4>
-                        <div style="line-height: 1.8; color: #D1D5DB;">
-                            <p style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--success-green);">Strong Market Position</strong> - Competitive advantages</p>
-                            <p style="margin-bottom: 0.75rem;">✓ <strong style="color: var(--success-green);">Leadership Excellence</strong> - Management team strength</p>
-                            <p style="margin-bottom: 0.75rem;">⚠ <strong style="color: var(--critical-red);">Financial Systems</strong> - Critical gap</p>
-                            <p>⚠ <strong style="color: var(--warning-orange);">Exit Documentation</strong> - Enhancement needed</p>
-                        </div>
-                    </div>
+                        <<div class="value-drivers-grid" style="display: grid; gap: 0.75rem;">
+</div>                    </div>
 
                     <div class="card">
                         <h4 style="color: var(--triveexec-gold); margin-bottom: 1rem; font-size: 1.25rem;">Investment Required</h4>
@@ -2628,8 +2623,79 @@ Best regards`;
             if (urlP1 || urlP2) {
                 updatePillarRatings();
             }
+            function updateValuationAnalysis() {
+    const score = parseInt(urlScore) || 0;
+    const p1 = parseInt(urlP1) || 0;
+    const p2 = parseInt(urlP2) || 0;
+    const p3 = parseInt(urlP3) || 0;
+    const p4 = parseInt(urlP4) || 0;
+    const p5 = parseInt(urlP5) || 0;
+    const p6 = parseInt(urlP6) || 0;
+    
+    const drivers = [
+        { name: 'Financial Health', score: p1, max: 30, pillar: 'p1' },
+        { name: 'Governance Frameworks', score: p2, max: 20, pillar: 'p2' },
+        { name: 'Leadership Excellence', score: p3, max: 20, pillar: 'p3' },
+        { name: 'Market Position', score: p4, max: 20, pillar: 'p4' },
+        { name: 'Operational Efficiency', score: p5, max: 16, pillar: 'p5' },
+        { name: 'Exit Readiness', score: p6, max: 14, pillar: 'p6' }
+    ];
+    
+    const grid = document.querySelector('.value-drivers-grid');
+    if (grid) {
+        grid.innerHTML = '';
+        
+        drivers.forEach(driver => {
+            const percent = (driver.score / driver.max) * 100;
+            let icon, color, label;
             
-            console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
+            if (percent >= 75) {
+                icon = '✓';
+                color = 'var(--success-green)';
+                label = 'Excellence';
+            } else if (percent >= 50) {
+                icon = '✓';
+                color = 'var(--triveexec-gold)';
+                label = 'Strong';
+            } else if (percent >= 25) {
+                icon = '⚠';
+                color = 'var(--warning-orange)';
+                label = 'Enhancement needed';
+            } else {
+                icon = '✗';
+                color = 'var(--critical-red)';
+                label = 'Critical gap';
+            }
+            
+            const p = document.createElement('p');
+            p.innerHTML = `${icon} <strong style="color: ${color};">${driver.name}</strong> - ${label}`;
+            grid.appendChild(p);
+        });
+    }
+    
+    let timelineText;
+    if (score >= 90) {
+        timelineText = '6-12 months';
+    } else if (score >= 70) {
+        timelineText = '12-18 months';
+    } else if (score >= 50) {
+        timelineText = '18-24 months';
+    } else if (score >= 30) {
+        timelineText = '24-36 months';
+    } else {
+        timelineText = '36+ months';
+    }
+    
+    document.querySelectorAll('.exit-timeline-text').forEach(el => {
+        el.textContent = timelineText;
+    });
+    
+    console.log('Valuation analysis updated with dynamic drivers');
+}
+
+if (urlScore) {
+    updateValuationAnalysis();
+}    console.log('Dashboard updated with URL parameters:', {                company: urlCompany,
                 score: urlScore,
                 grade: urlGrade,
                 tier: urlTier,
