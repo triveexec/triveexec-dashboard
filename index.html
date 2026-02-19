@@ -2793,8 +2793,11 @@ console.log('Processing pillar', index);
                     if (displayEl) displayEl.textContent = pillar.score;
 
                     const actionsEl = readiness_tab.querySelector(pillar.actionsClass);
-         console.log('actionsEl found:', actionsEl);                   
-        if (!actionsEl) return;
+         console.log('actionsEl found:', actionsEl); 
+        if (index === 5) {
+        console.log('Pillar 6 search:', pillar.actionsClass);
+        console.log('All ULs in readiness:', readiness_tab.querySelectorAll('ul').length);
+    }        if (!actionsEl) return;
 
                     let actions, icon, color;
 
