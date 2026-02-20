@@ -103,7 +103,7 @@
 </div>
 <div class="content-wrap">
 
-<!-- DASHBOARD -->
+<!-- DASHBOARD — unchanged -->
 <div id="tab-dashboard" class="tab-panel" style="display:block;">
     <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
         <div style="text-align:center;margin-bottom:1.5rem;">
@@ -176,22 +176,57 @@
     <div class="pillar-grid" id="pillar-grid-dashboard"></div>
 </div>
 
-<!-- VALUATION -->
+<!-- VALUATION — UPDATED -->
 <div id="tab-valuation" class="tab-panel" style="display:none;">
+
+    <!-- CHANGE 1: Premium Potential header — now fully dynamic -->
     <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:2rem;color:white;">
         <div style="background:var(--gold);color:#1E2A3A;display:inline-block;padding:0.5rem 1.25rem;border-radius:20px;font-size:0.875rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Premium Potential</div>
         <div style="font-size:3.5rem;font-weight:800;"><span class="d-premium">&#8212;</span></div>
-        <div style="font-size:1.125rem;color:var(--light-gold);">Achievable within 3-6 months | Timeline: <span class="d-timeline">&#8212;</span></div>
+        <div style="font-size:1.125rem;color:var(--light-gold);" class="val-premium-subtitle">&#8212;</div>
     </div>
+
+    <!-- CHANGE 2: Valuation Multiple Analysis table — 4 rows, 2 proprietary -->
     <h3 class="section-title">Valuation Multiple Analysis</h3>
     <table>
         <thead><tr><th>Metric</th><th>Current</th><th>Target</th><th>Uplift</th></tr></thead>
         <tbody>
-            <tr><td><strong style="color:var(--gold);">EBITDA Multiple</strong></td><td>5.5-6.5x</td><td>6.5-8.0x</td><td style="color:var(--green);font-weight:700;">+1.0-1.5x</td></tr>
-            <tr><td><strong style="color:var(--gold);">Revenue Multiple</strong></td><td>0.8-1.0x</td><td>1.0-1.2x</td><td style="color:var(--green);font-weight:700;">+0.2x</td></tr>
+            <tr>
+                <td><strong style="color:var(--gold);">EBITDA Multiple</strong><br><span style="font-size:0.75rem;color:#9CA3AF;">Indicative ASEAN mid-market data</span></td>
+                <td>5.5-6.5x</td><td>6.5-8.0x</td>
+                <td style="color:var(--green);font-weight:700;">+1.0-1.5x</td>
+            </tr>
+            <tr>
+                <td><strong style="color:var(--gold);">Revenue Multiple</strong><br><span style="font-size:0.75rem;color:#9CA3AF;">Indicative ASEAN mid-market data</span></td>
+                <td>0.8-1.0x</td><td>1.0-1.2x</td>
+                <td style="color:var(--green);font-weight:700;">+0.2x</td>
+            </tr>
+            <tr>
+                <td><strong style="color:var(--gold);">Readiness Premium / Discount</strong><br><span style="font-size:0.75rem;color:var(--gold);">&#9733; TriveExec Proprietary Index&#8482;</span></td>
+                <td class="val-readiness-current">&#8212;</td>
+                <td class="val-readiness-target">&#8212;</td>
+                <td class="val-readiness-gap" style="font-weight:700;">&#8212;</td>
+            </tr>
+            <tr>
+                <td><strong style="color:var(--gold);">Valuation Uplift Potential</strong><br><span style="font-size:0.75rem;color:var(--gold);">&#9733; TriveExec Proprietary Index&#8482;</span></td>
+                <td>Current readiness score</td>
+                <td class="val-uplift-target">&#8212;</td>
+                <td class="val-uplift-gap" style="color:var(--green);font-weight:700;">&#8212;</td>
+            </tr>
         </tbody>
     </table>
-    <div class="grid-3" style="margin-top:2rem;">
+
+    <!-- CHANGE 3: Budget Planning Note — new, ASEAN-generic + Singapore sublayer -->
+    <div style="background:rgba(16,185,129,0.06);border-left:4px solid var(--gold);border-radius:4px;padding:1rem 1.25rem;margin-top:1.25rem;margin-bottom:1.5rem;">
+        <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#128161; Budget Planning Note</strong>
+        <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Government grants and subsidies may be available in your market to offset implementation costs. Engage a local advisor to explore eligibility before committing budgets.</p>
+        <div style="border-top:1px solid rgba(201,169,97,0.25);padding-top:0.75rem;">
+            <p style="font-size:0.8rem;color:var(--gold);font-weight:600;margin-bottom:0.25rem;">&#127480;&#127468; Singapore SMEs</p>
+            <p style="font-size:0.8rem;color:#D1D5DB;">May qualify for <strong style="color:white;">PSG</strong> (up to 50% subsidy, capped at S$30,000/year) and <strong style="color:white;">EDG</strong> grants via the Business Grants Portal (BGP).</p>
+        </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:1rem;">
         <div class="card"><h4>Value Drivers</h4><div id="value-drivers"></div></div>
         <div class="card">
             <h4>&#127963; Singapore Government Grants</h4>
@@ -202,19 +237,21 @@
             <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold" style="display:block;text-align:center;font-size:0.875rem;padding:0.75rem 1.5rem;">Check Grant Eligibility &#8212; SGD 500</a>
         </div>
     </div>
+
+    <!-- CHANGE 4: Expanded disclaimer with proprietary methodology note -->
     <div style="background:rgba(30,42,58,0.8);border:1px solid rgba(201,169,97,0.3);border-radius:8px;padding:1.5rem;margin-top:1rem;">
         <strong style="color:var(--gold);display:block;margin-bottom:0.75rem;">&#9432; Important Disclaimer</strong>
-        <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;">Valuation multiples are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A data. They do not represent a formal valuation opinion. Actual valuation depends on your specific financials, EBITDA, growth trajectory, sector conditions, and buyer appetite.</p>
+        <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;">EBITDA and Revenue multiples are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A transaction data. As TriveExec builds its proprietary database through ongoing client engagements, these benchmarks will be progressively refined with actual transaction data. Readiness Premium/Discount and Valuation Uplift Potential are calculated using TriveExec's proprietary SME Institutional Readiness Index&#8482; methodology. These figures do not represent a formal valuation opinion. Actual valuation depends on your specific financials, EBITDA, growth trajectory, sector conditions, and buyer appetite. For a personalised valuation analysis based on your actual financials, book a Strategy Call with TriveExec.</p>
     </div>
 </div>
 
-<!-- EXIT READINESS -->
+<!-- EXIT READINESS — unchanged -->
 <div id="tab-readiness" class="tab-panel" style="display:none;">
     <h3 class="section-title">Detailed Pillar Assessment</h3>
     <div id="readiness-pillars"></div>
 </div>
 
-<!-- ROADMAP -->
+<!-- ROADMAP — unchanged -->
 <div id="tab-roadmap" class="tab-panel" style="display:none;">
     <h3 class="section-title">12-Month Implementation Timeline</h3>
     <div class="timeline">
@@ -241,7 +278,7 @@
     </div>
 </div>
 
-<!-- ACTION PLAN -->
+<!-- ACTION PLAN — unchanged -->
 <div id="tab-actions" class="tab-panel" style="display:none;">
     <h3 class="section-title">90-Day Priority Action Plan</h3>
     <div id="action-plan-content" style="background:linear-gradient(135deg,#1E2A3A,#1E3A5F);border:3px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;"></div>
@@ -252,16 +289,19 @@
     </div>
 </div>
 
-<!-- BENCHMARKING -->
+<!-- BENCHMARKING — UPDATED -->
 <div id="tab-benchmarking" class="tab-panel" style="display:none;">
     <h3 class="section-title">Industry Benchmarking Analysis</h3>
+
+    <!-- CHANGE 5: Position header — now fully dynamic -->
     <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);margin-bottom:2rem;">
         <div style="text-align:center;margin-bottom:2rem;">
             <div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:0.5rem;">Your Position</div>
-            <div style="font-size:3.5rem;font-weight:800;color:var(--gold);">TOP QUARTILE</div>
-            <div style="color:#D1D5DB;">Among the highest-performing companies in institutional readiness</div>
+            <div style="font-size:3.5rem;font-weight:800;color:var(--gold);" class="bench-position-title">&#8212;</div>
+            <div style="color:#D1D5DB;" class="bench-position-desc">&#8212;</div>
         </div>
     </div>
+
     <h3 class="section-title">Pillar-by-Pillar Benchmarking</h3>
     <div class="card">
         <table>
@@ -275,13 +315,15 @@
                 <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td><span class="d-p6">&#8212;</span>/14</td><td>7</td><td>11</td></tr>
             </tbody>
         </table>
+
+        <!-- CHANGE 6: Expanded benchmarking disclaimer -->
         <div style="margin-top:1rem;padding:1rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid var(--gold);font-size:0.85rem;color:#D1D5DB;">
-            <strong style="color:var(--gold);">Disclaimer:</strong> Benchmarks derived from publicly available ASEAN mid-market M&amp;A data. Indicative only.
+            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks presented in this analysis are derived from AI-assisted research and publicly available market data across mid-market SMEs in the ASEAN region. While every effort has been made to ensure relevance and accuracy, these figures are indicative and should not be treated as definitive market data. TriveExec is actively building its proprietary benchmarking database through ongoing client assessments, which will progressively enhance the precision and reliability of these comparisons.
         </div>
     </div>
 </div>
 
-<!-- SERVICES -->
+<!-- SERVICES — unchanged -->
 <div id="tab-services" class="tab-panel" style="display:none;">
     <h3 class="section-title">TriveExec Service Packages</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:3rem;">
@@ -336,7 +378,7 @@
     </div>
 </div>
 
-<!-- TRACKER -->
+<!-- TRACKER — unchanged -->
 <div id="tab-tracker" class="tab-panel" style="display:none;">
     <h3 class="section-title">Implementation Progress Tracker</h3>
     <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
@@ -428,10 +470,29 @@ function fillAll(){
     var gradeDesc=gradeMap[urlGrade]||gradeMap[g]||'Assessment Complete';
     var minScore=urlP[0],lowestIdx=0;
     for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
-    var premium=urlScore>=90?'15-20%':urlScore>=70?'10-15%':urlScore>=50?'5-10%':'3-5%';
-    var timeline=urlScore>=90?'6-12 months':urlScore>=70?'12-18 months':urlScore>=50?'18-24 months':'24-36 months';
+
+    // CHANGE 7: Updated premium tiers (was 4 tiers, now 5 with correct ranges)
+    var premium, premiumSubtitle;
+    if(urlScore>=90){
+        premium='20-30%';
+        premiumSubtitle='Achievable within 3-6 months';
+    } else if(urlScore>=70){
+        premium='15-20%';
+        premiumSubtitle='Achievable within 6-12 months';
+    } else if(urlScore>=50){
+        premium='10-15%';
+        premiumSubtitle='Achievable within 12-18 months';
+    } else if(urlScore>=30){
+        premium='5-10%';
+        premiumSubtitle='Achievable within 18-24 months';
+    } else {
+        premium='Significant Uplift Possible';
+        premiumSubtitle='Foundation building required \u2014 24-36 months';
+    }
+
     var summaryMap={'A':'Exceptional institutional readiness across most pillars.','B+':'Strong performance with good institutional readiness.','B':'Good foundation with moderate readiness.','C+':'Several areas require attention.','C':'Significant gaps across multiple pillars.','D':'Critical gaps - early stages of exit preparation.','F':'Fundamental transformation required.'};
     var summary=summaryMap[urlGrade]||'Review your pillar scores below.';
+
     setAll('d-company',urlCompany||'Your Company');
     setAll('d-score',urlScore||'—');
     setAll('d-grade',urlGrade||'—');
@@ -441,12 +502,69 @@ function fillAll(){
     setAll('d-p1',urlP[0]); setAll('d-p2',urlP[1]); setAll('d-p3',urlP[2]);
     setAll('d-p4',urlP[3]); setAll('d-p5',urlP[4]); setAll('d-p6',urlP[5]);
     setAll('d-premium',premium);
-    setAll('d-timeline',timeline);
     setAll('d-summary',summary);
     setAll('d-summary-long',summary+' Critical improvement needed in '+pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') to unlock maximum exit premium.');
     setAll('d-date',urlDate||new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}));
     if(urlIndustry) setAll('d-industry',urlIndustry);
     if(urlCompany) document.title='TriveHealth\u2122 - '+urlCompany;
+
+    // CHANGE 8: Valuation tab — premium subtitle
+    setAll('val-premium-subtitle', premiumSubtitle);
+
+    // CHANGE 9: Valuation tab — Readiness Premium/Discount row (dynamic)
+    var readinessCurrent, readinessTarget, readinessGap, readinessGapColor;
+    if(urlScore>=90){
+        readinessCurrent='Strong Premium'; readinessTarget='Maximum Premium';
+        readinessGap='+20-30% above baseline'; readinessGapColor='var(--green)';
+    } else if(urlScore>=70){
+        readinessCurrent='Moderate Premium'; readinessTarget='Strong Premium';
+        readinessGap='+10-20% above baseline'; readinessGapColor='var(--green)';
+    } else if(urlScore>=50){
+        readinessCurrent='Baseline'; readinessTarget='Moderate Premium';
+        readinessGap='+5-10% uplift available'; readinessGapColor='var(--orange)';
+    } else if(urlScore>=30){
+        readinessCurrent='Discount Applied'; readinessTarget='Baseline';
+        readinessGap='-10-15% vs peers'; readinessGapColor='var(--orange)';
+    } else {
+        readinessCurrent='Significant Discount'; readinessTarget='Baseline';
+        readinessGap='-20-25% vs peers'; readinessGapColor='var(--red)';
+    }
+    setAll('val-readiness-current', readinessCurrent);
+    setAll('val-readiness-target', readinessTarget);
+    var rgEls=document.querySelectorAll('.val-readiness-gap');
+    for(var ri=0;ri<rgEls.length;ri++){ rgEls[ri].textContent=readinessGap; rgEls[ri].style.color=readinessGapColor; }
+
+    // CHANGE 10: Valuation tab — Uplift Potential row (dynamic)
+    var upliftTarget, upliftGap;
+    if(urlScore>=90){ upliftTarget='Optimise for exit'; upliftGap='Up to 30% uplift'; }
+    else if(urlScore>=70){ upliftTarget='Address key gaps'; upliftGap='Up to 20% uplift'; }
+    else if(urlScore>=50){ upliftTarget='Structured improvement'; upliftGap='Up to 15% uplift'; }
+    else if(urlScore>=30){ upliftTarget='Foundation + growth'; upliftGap='Up to 25% uplift'; }
+    else { upliftTarget='Full transformation'; upliftGap='Up to 40% uplift'; }
+    setAll('val-uplift-target', upliftTarget);
+    setAll('val-uplift-gap', upliftGap);
+
+    // CHANGE 11: Benchmarking — dynamic position header (5 tiers)
+    var benchTitle, benchDesc;
+    if(urlScore>=90){
+        benchTitle='\ud83c\udfc6 Elite \u2014 Top 10%';
+        benchDesc='You rank among the highest-performing exit-ready companies in ASEAN';
+    } else if(urlScore>=70){
+        benchTitle='\u2b50 Top Quartile';
+        benchDesc='You outperform the majority of your peers \u2014 focused improvements will elevate you further';
+    } else if(urlScore>=50){
+        benchTitle='\ud83d\udcc8 Above Average';
+        benchDesc='You are ahead of the baseline \u2014 targeted action can move you to top quartile';
+    } else if(urlScore>=30){
+        benchTitle='\ud83d\udcca Below Average';
+        benchDesc='You have foundational strengths but significant gaps to close before exit readiness';
+    } else {
+        benchTitle='\ud83d\udd27 Foundation Stage';
+        benchDesc='Substantial groundwork required \u2014 significant value creation opportunity ahead';
+    }
+    setAll('bench-position-title', benchTitle);
+    setAll('bench-position-desc', benchDesc);
+
     var c=document.getElementById('score-circle');
     if(c) c.setAttribute('stroke-dashoffset',(565.48-(urlScore/120)*565.48).toString());
 }
