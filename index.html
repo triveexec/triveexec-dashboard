@@ -129,9 +129,9 @@
                 <div style="color:var(--green);font-weight:600;">Above standard multiple</div>
             </div>
             <div style="text-align:center;">
-                <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Grant Funding</div>
-                <div style="font-size:2rem;font-weight:800;color:var(--green);margin-top:0.5rem;">Up to 50%</div>
-                <div style="color:#D1D5DB;font-weight:600;">costs may be subsidised</div>
+                <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Exit Timeline</div>
+                <div style="font-size:1.6rem;font-weight:800;color:var(--gold);margin-top:0.5rem;" id="dash-exit-timeline">&#8212;</div>
+                <div style="color:#D1D5DB;font-weight:600;">estimated to exit-ready</div>
             </div>
         </div>
         <div style="background:rgba(201,169,97,0.1);padding:1.5rem;border-radius:8px;border-left:4px solid var(--gold);">
@@ -141,7 +141,7 @@
             </div>
             <div style="display:flex;gap:1rem;align-items:center;">
                 <div style="font-size:2rem;">&#9889;</div>
-                <div><strong style="color:var(--gold);display:block;margin-bottom:0.25rem;">Immediate Action</strong><span style="line-height:1.6;">Address your critical gap first to capture maximum valuation premium within 3-6 months.</span></div>
+                <div><strong style="color:var(--gold);display:block;margin-bottom:0.25rem;">Immediate Action</strong><span id="exec-immediate-action" style="line-height:1.6;">&#8212;</span></div>
             </div>
         </div>
     </div>
@@ -165,10 +165,24 @@
         </div>
         <div class="card">
             <h3 style="font-size:1.5rem;font-weight:700;color:#F9FAFB;margin-bottom:1rem;">Assessment Summary</h3>
-            <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.5rem;" class="d-summary-long">Assessment complete. Review your pillar scores below.</p>
-            <div style="background:rgba(30,42,58,0.5);padding:1.5rem;border-radius:8px;border-left:4px solid var(--gold);">
-                <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">Priority Focus:</strong>
-                <p style="color:#D1D5DB;margin:0;">Address your critical gap first to capture maximum valuation premium within 3-6 months.</p>
+            <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.25rem;" class="d-summary-long">Assessment complete. Review your pillar scores below.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.25rem;">
+                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Valuation Risk</div>
+                    <div style="font-weight:700;color:white;font-size:0.85rem;" id="summary-val-risk">&#8212;</div>
+                </div>
+                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Biggest Gap</div>
+                    <div style="font-weight:700;color:var(--red);font-size:0.85rem;" class="d-gap">&#8212;</div>
+                </div>
+                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
+                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Timeline</div>
+                    <div style="font-weight:700;color:white;font-size:0.85rem;" id="summary-timeline">&#8212;</div>
+                </div>
+            </div>
+            <div style="background:rgba(201,169,97,0.1);padding:1.25rem;border-radius:8px;border-left:4px solid var(--gold);">
+                <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#127919; Your #1 Priority:</strong>
+                <p style="color:#D1D5DB;margin:0;line-height:1.6;" id="summary-priority">&#8212;</p>
             </div>
         </div>
     </div>
@@ -229,12 +243,44 @@
     <div class="grid-3" style="margin-top:1rem;">
         <div class="card"><h4>Value Drivers</h4><div id="value-drivers"></div></div>
         <div class="card">
-            <h4>&#127963; Singapore Government Grants</h4>
-            <div style="margin-bottom:1rem;">
-                <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#D1D5DB;font-size:0.9rem;"><span>Productivity Solutions Grant (PSG)</span><span style="color:var(--green);font-weight:700;">Up to 50%</span></div>
-                <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#D1D5DB;font-size:0.9rem;"><span>Enterprise Development Grant (EDG)</span><span style="color:var(--green);font-weight:700;">Up to 50%</span></div>
+            <h4>&#128181; Value Leakage Calculator</h4>
+            <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;">Based on your pillar scores, estimate how much exit value you are currently leaving on the table versus a fully prepared peer.</p>
+            <!-- MODE TOGGLE -->
+            <div style="display:flex;gap:0.75rem;margin-bottom:1.25rem;">
+                <button id="btn-own-ebitda" onclick="switchEbitdaMode('own')" style="flex:1;padding:0.6rem;border-radius:6px;border:2px solid var(--gold);background:var(--gold);color:#1E2A3A;font-weight:700;font-size:0.8rem;cursor:pointer;">Use My EBITDA</button>
+                <button id="btn-bench-ebitda" onclick="switchEbitdaMode('benchmark')" style="flex:1;padding:0.6rem;border-radius:6px;border:2px solid var(--gold);background:transparent;color:var(--gold);font-weight:700;font-size:0.8rem;cursor:pointer;">Sector Benchmark</button>
             </div>
-            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold" style="display:block;text-align:center;font-size:0.875rem;padding:0.75rem 1.5rem;">Check Grant Eligibility &#8212; SGD 500</a>
+            <!-- OWN EBITDA -->
+            <div id="own-ebitda-panel">
+                <label style="color:#9CA3AF;font-size:0.8rem;display:block;margin-bottom:0.5rem;">Select your approximate annual EBITDA (S$)</label>
+                <select id="ebitda-select" onchange="calculateValueLeakage()" style="width:100%;padding:0.75rem;border-radius:6px;border:1px solid rgba(201,169,97,0.4);background:#1E2A3A;color:white;font-size:0.9rem;">
+                    <option value="">-- Select a range --</option>
+                    <option value="350000">Under S$500,000</option>
+                    <option value="750000">S$500,000 &#8211; S$1,000,000</option>
+                    <option value="1500000">S$1,000,000 &#8211; S$2,000,000</option>
+                    <option value="3500000">S$2,000,000 &#8211; S$5,000,000</option>
+                    <option value="7500000">S$5,000,000 &#8211; S$10,000,000</option>
+                    <option value="12000000">Above S$10,000,000</option>
+                </select>
+            </div>
+            <!-- BENCHMARK -->
+            <div id="benchmark-ebitda-panel" style="display:none;">
+                <div style="background:rgba(201,169,97,0.08);border-radius:6px;padding:1rem;border-left:3px solid var(--gold);">
+                    <span style="color:#9CA3AF;font-size:0.8rem;">Sector benchmark for </span><span id="bench-industry-label" style="color:var(--gold);font-weight:700;font-size:0.875rem;">your industry</span><br>
+                    <span style="color:white;font-size:1.1rem;font-weight:700;">S$<span id="bench-ebitda-value">&#8212;</span></span><span style="color:#9CA3AF;font-size:0.8rem;"> EBITDA (mid-market benchmark)</span>
+                </div>
+            </div>
+            <!-- RESULT -->
+            <div id="leakage-result" style="margin-top:1.25rem;display:none;">
+                <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15),rgba(220,38,38,0.05));border:1px solid rgba(220,38,38,0.4);border-radius:8px;padding:1.25rem;text-align:center;">
+                    <div style="color:#9CA3AF;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Estimated Value Leakage</div>
+                    <div style="font-size:1.75rem;font-weight:800;color:#F87171;">S$<span id="leakage-low">&#8212;</span> &#8211; S$<span id="leakage-high">&#8212;</span></div>
+                    <div style="color:#9CA3AF;font-size:0.78rem;margin-top:0.4rem;"><span id="leakage-mult-low">&#8212;</span>x &#8211; <span id="leakage-mult-high">&#8212;</span>x multiple discount vs fully prepared peer</div>
+                </div>
+                <div id="leakage-worst-pillar" style="margin-top:0.75rem;background:rgba(30,42,58,0.6);border-radius:6px;padding:0.875rem;"></div>
+                <p style="color:#6B7280;font-size:0.72rem;line-height:1.6;margin-top:0.75rem;">&#9432; Indicative estimate based on TriveHealth&#8482; pillar scores and sector benchmarks. Not a formal valuation opinion.</p>
+            </div>
+            <div id="leakage-prompt" style="margin-top:1.25rem;text-align:center;color:#6B7280;font-size:0.85rem;">Select your EBITDA range above to calculate your value leakage</div>
         </div>
     </div>
 
@@ -281,24 +327,43 @@
         </div>
     </div>
 
-    <h3 class="section-title">Pillar-by-Pillar Benchmarking</h3>
+    <h3 class="section-title">Pillar Gap vs Sector Leaders</h3>
     <div class="card">
         <table>
-            <thead><tr><th>Pillar</th><th>Your Score</th><th>Industry Avg</th><th>Top Quartile</th></tr></thead>
+            <thead><tr><th>Pillar</th><th>Your Score</th><th>Industry Avg</th><th>Top Quartile</th><th>Gap to Top</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color:var(--gold);">Financial Health</strong></td><td><span class="d-p1">&#8212;</span>/30</td><td>18</td><td>24</td></tr>
-                <tr><td><strong style="color:var(--gold);">Governance &amp; Controls</strong></td><td><span class="d-p2">&#8212;</span>/20</td><td>12</td><td>17</td></tr>
-                <tr><td><strong style="color:var(--gold);">Leadership &amp; Team</strong></td><td><span class="d-p3">&#8212;</span>/20</td><td>13</td><td>17</td></tr>
-                <tr><td><strong style="color:var(--gold);">Market Position</strong></td><td><span class="d-p4">&#8212;</span>/20</td><td>12</td><td>17</td></tr>
-                <tr><td><strong style="color:var(--gold);">Operations &amp; Scalability</strong></td><td><span class="d-p5">&#8212;</span>/16</td><td>10</td><td>14</td></tr>
-                <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td><span class="d-p6">&#8212;</span>/14</td><td>7</td><td>11</td></tr>
+                <tr><td><strong style="color:var(--gold);">Financial Health</strong></td><td><span class="d-p1">&#8212;</span>/30</td><td>18</td><td>24</td><td id="bm-gap-p1" style="font-weight:700;">&#8212;</td></tr>
+                <tr><td><strong style="color:var(--gold);">Governance &amp; Controls</strong></td><td><span class="d-p2">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bm-gap-p2" style="font-weight:700;">&#8212;</td></tr>
+                <tr><td><strong style="color:var(--gold);">Leadership &amp; Team</strong></td><td><span class="d-p3">&#8212;</span>/20</td><td>13</td><td>17</td><td id="bm-gap-p3" style="font-weight:700;">&#8212;</td></tr>
+                <tr><td><strong style="color:var(--gold);">Market Position</strong></td><td><span class="d-p4">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bm-gap-p4" style="font-weight:700;">&#8212;</td></tr>
+                <tr><td><strong style="color:var(--gold);">Operations &amp; Scalability</strong></td><td><span class="d-p5">&#8212;</span>/16</td><td>10</td><td>14</td><td id="bm-gap-p5" style="font-weight:700;">&#8212;</td></tr>
+                <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td><span class="d-p6">&#8212;</span>/14</td><td>7</td><td>11</td><td id="bm-gap-p6" style="font-weight:700;">&#8212;</td></tr>
             </tbody>
         </table>
-
-        <!-- CHANGE 6: Expanded benchmarking disclaimer -->
         <div style="margin-top:1rem;padding:1rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid var(--gold);font-size:0.85rem;color:#D1D5DB;">
-            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks presented in this analysis are derived from AI-assisted research and publicly available market data across mid-market SMEs in the ASEAN region. While every effort has been made to ensure relevance and accuracy, these figures are indicative and should not be treated as definitive market data. TriveExec is actively building its proprietary benchmarking database through ongoing client assessments, which will progressively enhance the precision and reliability of these comparisons.
+            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks are derived from AI-assisted research and publicly available market data across mid-market SMEs in the ASEAN region. These figures are indicative. TriveExec is actively building its proprietary benchmarking database through ongoing client assessments.
         </div>
+    </div>
+
+    <!-- THE GAP THAT COSTS YOU MOST -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.03));border:1px solid rgba(239,68,68,0.3);">
+        <h4 style="color:#F87171;">&#9888; The Gap That Costs You Most</h4>
+        <div id="bm-cost-gap-content" style="color:#D1D5DB;line-height:1.7;"></div>
+    </div>
+
+    <!-- WHAT TOP QUARTILE COMPANIES DO DIFFERENTLY -->
+    <div class="card">
+        <h4>&#127942; What Top-Quartile Companies Do Differently</h4>
+        <div id="bm-top-quartile-content" style="color:#D1D5DB;"></div>
+    </div>
+
+    <!-- VALUATION CONNECTION -->
+    <div style="background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.3);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+        <div>
+            <div style="color:var(--gold);font-weight:700;margin-bottom:0.35rem;">&#128181; Your Valuation Gap vs Sector Leaders</div>
+            <div style="color:#D1D5DB;font-size:0.875rem;line-height:1.6;" id="bm-val-connection">Based on your score gap versus top-quartile peers, see the Value Leakage Calculator in the Valuation Analysis tab for a personalised S$ estimate.</div>
+        </div>
+        <a href="#" onclick="switchToValuation(event)" style="white-space:nowrap;display:inline-block;border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;">View Calculator &#8594;</a>
     </div>
 </div>
 
@@ -374,13 +439,30 @@
 
     </div>
 
-    <!-- UPDATED BOTTOM CTA -->
+    <!-- MERGED RECOMMENDATION + CTA -->
+    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
+        <div>
+            <div style="display:inline-block;background:rgba(201,169,97,0.15);color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:0.75rem;">&#11088; Recommended For You</div>
+            <div style="font-size:1.2rem;font-weight:800;color:var(--gold);margin-bottom:0.5rem;line-height:1.3;" id="rec-pkg-name">&#8212;</div>
+            <div style="color:#D1D5DB;font-size:0.875rem;line-height:1.6;margin-bottom:1.25rem;max-width:420px;" id="rec-pkg-reason">&#8212;</div>
+            <a id="rec-pkg-scroll-btn" href="#" onclick="scrollToPackage(event)" style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;">&#8212;</a>
+        </div>
+        <div style="width:1px;background:rgba(201,169,97,0.3);align-self:stretch;"></div>
+        <div style="text-align:center;min-width:200px;">
+            <div style="font-size:1.75rem;margin-bottom:0.75rem;">&#128222;</div>
+            <div style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.5rem;">Not Sure Which Package?</div>
+            <div style="color:#9CA3AF;font-size:0.8rem;line-height:1.5;margin-bottom:1.25rem;">Talk to our advisory team and get a personalised recommendation.</div>
+            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:inline-block;border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;white-space:nowrap;">Book Strategy Call &#8212; SGD 500</a>
+            <div style="color:#6B7280;font-size:0.75rem;margin-top:0.5rem;">Up to 90 minutes &#183; Secure via Stripe</div>
+        </div>
+    </div>
+
     <div class="cta">
         <h2>Ready to Begin Your Exit Journey?</h2>
         <p>Whether you are starting with a Strategy Call or ready for a full Exit Accelerator engagement, our advisory team will guide you through the right pathway for your business.</p>
         <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book a Strategy Call &#8212; SGD 500</a>
         <div style="margin-top:1.5rem;">
-            <a href="mailto:insights@triveexec.com" style="color:var(--gold);font-size:0.9rem;">&#128140; Or email us at insights@triveexec.com</a>
+            <a href="/cdn-cgi/l/email-protection#d3babda0bab4bba7a093a7a1baa5b6b6abb6b0fdb0bcbe" style="color:var(--gold);font-size:0.9rem;">&#128140; Or email us at <span class="__cf_email__" data-cfemail="aec7c0ddc7c9c6daddeedadcc7d8cbcbd6cbcd80cdc1c3">[email&#160;protected]</span></a>
         </div>
         <div style="margin-top:1rem;font-size:0.875rem;color:#D1D5DB;">&#128179; Secure payment via Stripe | &#128197; Calendar link sent after payment</div>
     </div>
@@ -404,7 +486,7 @@
         <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">
             <h4 style="color:#60A5FA;margin-bottom:0.5rem;">&#8505;&#65039; Phase 1 is Self-Managed</h4>
             <p style="color:#D1D5DB;line-height:1.7;margin:0;">Included with your TriveHealth&#8482; Dashboard. Work through milestones at your own pace.<br><br>
-            &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>
+            &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="/cdn-cgi/l/email-protection#4d24233e242a25393e0d393f243b282835282e632e2220" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="036a6d706a646b77704377716a7566667b66602d606c6e">[email&#160;protected]</span></a></p>
         </div>
         <div id="phase1-milestones"></div>
     </div>
@@ -466,11 +548,11 @@
         <strong style="color:var(--gold);">Singapore &#183; Malaysia &#183; Indonesia</strong><br>
         Transforming mid-market ASEAN SMEs | Premium exits &amp; succession planning<br><br>
         This assessment is confidential and valid for 90 days.<br>
-        <a href="mailto:insights@triveexec.com">insights@triveexec.com</a>
+        <a href="/cdn-cgi/l/email-protection#0c65627f656b64787f4c787e657a696974696f226f6361"><span class="__cf_email__" data-cfemail="f39a9d809a949b8780b387819a8596968b9690dd909c9e">[email&#160;protected]</span></a>
     </p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var ALL_TABS=['dashboard','valuation','readiness','roadmap','actions','benchmarking','services','tracker'];
 
 function showTab(name,btn){
@@ -1072,6 +1154,213 @@ function buildPhases(){
     container.innerHTML=p2html+p3html+p4html;
 }
 
+// ── VALUE LEAKAGE CALCULATOR (Tweak 1) ──────────────────────────────────────
+var ebitdaMode='own';
+var industryBenchmarks={
+    'Technology':{label:'Technology',ebitda:2500000},
+    'Manufacturing':{label:'Manufacturing',ebitda:3500000},
+    'Services':{label:'Professional Services',ebitda:2000000},
+    'Healthcare':{label:'Healthcare / MedTech',ebitda:2500000},
+    'F&B':{label:'F&B',ebitda:1000000},
+    'Retail':{label:'Retail / Consumer',ebitda:1500000},
+    'Logistics':{label:'Logistics / Supply Chain',ebitda:2500000},
+    'Construction':{label:'Construction / Engineering',ebitda:3000000},
+    'Other':{label:'General SME',ebitda:2000000}
+};
+var pillarDiscounts=[
+    {mildT:22,sevT:14,d:[0.0,0.3,0.3,0.7,0.8,1.5]},
+    {mildT:15,sevT:10,d:[0.0,0.3,0.3,0.6,0.6,1.2]},
+    {mildT:15,sevT:10,d:[0.0,0.2,0.3,0.8,1.0,2.0]},
+    {mildT:15,sevT:10,d:[0.0,0.3,0.3,0.6,0.6,1.2]},
+    {mildT:12,sevT:8, d:[0.0,0.2,0.2,0.5,0.5,1.0]},
+    {mildT:10,sevT:6, d:[0.0,0.2,0.2,0.5,0.5,1.0]}
+];
+function fmtSGD(v){if(v>=1000000)return (v/1000000).toFixed(2)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
+function fmtM(v){if(v>=1000000)return (v/1000000).toFixed(1)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
+function switchEbitdaMode(mode){
+    ebitdaMode=mode;
+    var op=document.getElementById('own-ebitda-panel'),bp=document.getElementById('benchmark-ebitda-panel');
+    var bo=document.getElementById('btn-own-ebitda'),bb=document.getElementById('btn-bench-ebitda');
+    if(mode==='own'){
+        op.style.display='block';bp.style.display='none';
+        bo.style.background='var(--gold)';bo.style.color='#1E2A3A';
+        bb.style.background='transparent';bb.style.color='var(--gold)';
+    } else {
+        op.style.display='none';bp.style.display='block';
+        bo.style.background='transparent';bo.style.color='var(--gold)';
+        bb.style.background='var(--gold)';bb.style.color='#1E2A3A';
+        var ind=urlIndustry||'Other';
+        var bench=industryBenchmarks[ind]||industryBenchmarks['Other'];
+        var lbl=document.getElementById('bench-industry-label');
+        var val=document.getElementById('bench-ebitda-value');
+        if(lbl) lbl.textContent=bench.label;
+        if(val) val.textContent=fmtM(bench.ebitda);
+    }
+    calculateValueLeakage();
+}
+function calculateValueLeakage(){
+    var ebitda=0;
+    if(ebitdaMode==='own'){
+        var sel=document.getElementById('ebitda-select');
+        if(!sel||!sel.value){
+            var r=document.getElementById('leakage-result'),p=document.getElementById('leakage-prompt');
+            if(r) r.style.display='none';
+            if(p) p.style.display='block';
+            return;
+        }
+        ebitda=parseFloat(sel.value);
+    } else {
+        var ind2=urlIndustry||'Other';
+        ebitda=(industryBenchmarks[ind2]||industryBenchmarks['Other']).ebitda;
+    }
+    var totalLow=0,totalHigh=0,worst={name:'',high:0,idx:-1};
+    for(var i=0;i<urlP.length;i++){
+        var pd=pillarDiscounts[i],lo,hi;
+        if(urlP[i]>=pd.mildT){lo=pd.d[0];hi=pd.d[1];}
+        else if(urlP[i]>=pd.sevT){lo=pd.d[2];hi=pd.d[3];}
+        else{lo=pd.d[4];hi=pd.d[5];}
+        totalLow+=lo;totalHigh+=hi;
+        if(hi>worst.high){worst={name:pillarName[i],high:hi,low:lo,idx:i};}
+    }
+    totalLow=Math.min(totalLow,5.0);totalHigh=Math.min(totalHigh,8.0);
+    var ll=ebitda*totalLow,lh=ebitda*totalHigh;
+    var rEl=document.getElementById('leakage-result'),pEl=document.getElementById('leakage-prompt');
+    var lo2=document.getElementById('leakage-low'),hi2=document.getElementById('leakage-high');
+    var ml=document.getElementById('leakage-mult-low'),mh=document.getElementById('leakage-mult-high');
+    var wp=document.getElementById('leakage-worst-pillar');
+    if(lo2) lo2.textContent=fmtSGD(ll);
+    if(hi2) hi2.textContent=fmtSGD(lh);
+    if(ml) ml.textContent=totalLow.toFixed(1);
+    if(mh) mh.textContent=totalHigh.toFixed(1);
+    if(wp&&worst.idx>=0) wp.innerHTML='<span style="color:var(--gold);font-weight:700;">&#9888; Biggest drag: '+worst.name+'</span> <span style="color:#D1D5DB;font-size:0.85rem;">— contributing up to '+worst.high.toFixed(1)+'x of this discount. Addressing this pillar first delivers the fastest valuation recovery.</span>';
+    if(rEl) rEl.style.display='block';
+    if(pEl) pEl.style.display='none';
+}
+
+// ── DASHBOARD EXTRA DYNAMICS (Tweak 4) ──────────────────────────────────────
+function buildDashboardExtras(){
+    // Exit timeline by grade
+    var grade1=urlGrade.charAt(0);
+    var timeline='12-18 months';
+    if(grade1==='A'||grade1==='B') timeline='6-12 months';
+    else if(grade1==='C') timeline='9-12 months';
+    var tEl=document.getElementById('dash-exit-timeline');
+    if(tEl) tEl.textContent=timeline;
+    var stEl=document.getElementById('summary-timeline');
+    if(stEl) stEl.textContent=timeline;
+    // Valuation risk label
+    var vrEl=document.getElementById('summary-val-risk');
+    if(vrEl){
+        if(urlScore>=90) vrEl.textContent='Minimal';
+        else if(urlScore>=70) vrEl.textContent='Low-Moderate';
+        else if(urlScore>=50) vrEl.textContent='Moderate';
+        else if(urlScore>=30) vrEl.textContent='High';
+        else vrEl.textContent='Critical';
+    }
+    // Priority action
+    var minScore=urlP[0],lowestIdx=0;
+    for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
+    var spEl=document.getElementById('summary-priority');
+    if(spEl) spEl.textContent=pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') is your most impactful gap. Closing this alone could recover 0.8-1.5x EBITDA multiple at exit. Start here before addressing other pillars.';
+    // Exec summary immediate action
+    var iaEl=document.getElementById('exec-immediate-action');
+    if(iaEl) iaEl.textContent='Focus on '+pillarName[lowestIdx]+' first. This single pillar is creating the largest drag on your exit valuation. Address it within the next 90 days to unlock maximum premium potential.';
+    // Improved d-summary-long
+    var bestIdx=0,bestScore=urlP[0];
+    for(var j=1;j<urlP.length;j++){if(urlP[j]>bestScore){bestScore=urlP[j];bestIdx=j;}}
+    var weakPillars=[];
+    for(var k=0;k<urlP.length;k++){var p=(urlP[k]/pillarMax[k])*100;if(p<70)weakPillars.push(pillarName[k]);}
+    var summaryLong='';
+    if(grade1==='A'||grade1==='B'){
+        summaryLong='Your business demonstrates strong institutional readiness across most pillars. With focused attention on '+(weakPillars.length>0?weakPillars.join(' and '):'remaining gaps')+', an exit process could begin within 6-12 months.';
+    } else if(grade1==='C'){
+        summaryLong='Your business has solid foundations in '+pillarName[bestIdx]+' but requires structured improvement in '+(weakPillars.slice(0,3).join(', '))+' before institutional buyers will engage at premium multiples.';
+    } else {
+        summaryLong='Your business is in the early stages of exit preparation. Significant gaps across '+(weakPillars.slice(0,3).join(', '))+' require systematic remediation. With the right support, an institutional-grade exit is achievable within 12-18 months.';
+    }
+    var slEls=document.querySelectorAll('.d-summary-long');
+    for(var si=0;si<slEls.length;si++) slEls[si].textContent=summaryLong;
+}
+
+// ── BENCHMARKING DYNAMICS (Tweak 6) ─────────────────────────────────────────
+function buildBenchmarkingExtras(){
+    // Gap to top quartile per pillar
+    var topQ=[24,17,17,17,14,11];
+    var gapIds=['bm-gap-p1','bm-gap-p2','bm-gap-p3','bm-gap-p4','bm-gap-p5','bm-gap-p6'];
+    for(var i=0;i<urlP.length;i++){
+        var el=document.getElementById(gapIds[i]);
+        if(!el) continue;
+        var gap=topQ[i]-urlP[i];
+        if(gap<=0){el.textContent='At top ✓';el.style.color='var(--green)';}
+        else{el.textContent='-'+gap+' pts';el.style.color=gap>=5?'var(--red)':'var(--orange)';}
+    }
+    // Worst gap
+    var maxGapIdx=0,maxGap=topQ[0]-urlP[0];
+    for(var j=1;j<urlP.length;j++){var g=topQ[j]-urlP[j];if(g>maxGap){maxGap=g;maxGapIdx=j;}}
+    var cgEl=document.getElementById('bm-cost-gap-content');
+    if(cgEl){
+        var discMap=[1.5,1.2,2.0,1.2,1.0,1.0];
+        cgEl.innerHTML='<p style="margin-bottom:0.75rem;"><strong style="color:#F87171;">'+pillarName[maxGapIdx]+'</strong> is your widest gap versus sector leaders — <strong style="color:white;">'+maxGap+' points</strong> below top quartile. This single pillar can discount your exit multiple by up to <strong style="color:#F87171;">'+discMap[maxGapIdx]+'x EBITDA</strong> in a buyer\'s due diligence assessment.</p><p style="font-size:0.875rem;">Top-quartile companies in your sector have closed this gap through structured 3-6 month remediation programmes. The valuation recovery is typically immediate and measurable at the point of buyer engagement.</p>';
+    }
+    // Top quartile insights by industry
+    var tqMap={
+        'Technology':['Audited financials with IFRS compliance and clean cap table','Independent board with at least two non-executive directors','Recurring revenue >70% with documented ARR/MRR metrics','Scalable SaaS or platform architecture with documented tech stack'],
+        'Manufacturing':['3+ years audited financials with quality of earnings report','ISO certification and documented operational SOPs','Diversified customer base — no single customer >20% revenue','Succession plan for all key operational roles'],
+        'Services':['Clean client contracts with renewal rates documented','Independent governance with advisory board in place','Documented IP and proprietary methodologies','Revenue diversification across service lines and geographies'],
+        'default':['3+ years of audited financial statements','Formal governance structure with independent oversight','Documented key person succession plans','Clear exit strategy with appointed M&A advisor']
+    };
+    var ind=urlIndustry||'default';
+    var insights=tqMap[ind]||tqMap['default'];
+    var tqEl=document.getElementById('bm-top-quartile-content');
+    if(tqEl){
+        var html='<div style="display:grid;gap:0.75rem;">';
+        for(var k=0;k<insights.length;k++){
+            html+='<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.75rem;background:rgba(30,42,58,0.5);border-radius:6px;"><span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;">&#10003;</span><span style="color:#D1D5DB;font-size:0.875rem;line-height:1.5;">'+insights[k]+'</span></div>';
+        }
+        html+='</div>';
+        tqEl.innerHTML=html;
+    }
+}
+
+// ── SERVICES: SCROLL + REC BOX (Tweak 2) ────────────────────────────────────
+function scrollToPackage(e){
+    e.preventDefault();
+    var rec=getRecommendedPkg();
+    var el=document.getElementById('pkg-'+rec);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function switchToValuation(e){
+    e.preventDefault();
+    var btn=document.querySelector('[onclick*="valuation"]');
+    showTab('valuation',null);
+    var btns=document.querySelectorAll('.tab-btn');
+    for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.indexOf('Valuation')>-1)btns[i].classList.add('active');}
+}
+function getRecommendedPkg(){
+    var pillarsBelow15=0;
+    for(var i=0;i<urlP.length;i++){if(urlP[i]<15)pillarsBelow15++;}
+    if(urlScore>=90) return 'call';
+    if(pillarsBelow15>=3) return 'accelerator';
+    if(urlP[0]<10) return 'health';
+    return 'assessment';
+}
+function buildRecBox(){
+    var rec=getRecommendedPkg();
+    var pkgData={
+        'call':{name:'Strategy Call',reason:'Your scores show strong foundations. A 90-minute Strategy Call will refine your exit timing, confirm your readiness gaps, and give you a clear pathway to market.'},
+        'health':{name:'Annual Business Health Check',reason:'Your assessment indicates strong foundations in most areas. An Annual Business Health Check will systematically close remaining gaps and keep your business exit-ready year on year.'},
+        'assessment':{name:'Exit Readiness Assessment',reason:'Your scores show specific gaps on a solid base. A full Exit Readiness Assessment will give you a detailed gap analysis and a prioritised roadmap to close the remaining distance to institutional-grade readiness.'},
+        'accelerator':{name:'Exit Accelerator Program',reason:'Your pillar scores show critical gaps across multiple areas requiring intensive remediation. The Exit Accelerator gives you a dedicated fractional team to achieve institutional-grade readiness within 12-18 months.'}
+    };
+    var d=pkgData[rec]||pkgData['call'];
+    var nm=document.getElementById('rec-pkg-name');
+    var rs=document.getElementById('rec-pkg-reason');
+    var btn=document.getElementById('rec-pkg-scroll-btn');
+    if(nm) nm.textContent=d.name;
+    if(rs) rs.textContent=d.reason;
+    if(btn) btn.textContent='Review '+d.name+' Details \u2191';
+}
+
 function highlightPackage(){
     // Pillar-based recommendation logic (agreed Feb 2026)
     // p1=Financial Health(30), p2=Governance(20), p3=Leadership(20),
@@ -1109,19 +1398,25 @@ function requestValidation2(){
 
 function requestValidation3(){
     var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 3 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 3 milestones and would like to request validation to unlock Phase 4.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 3 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 3 milestones and would like to request validation to unlock Phase 4.\n\nCompany: '+company+'\\nDashboard: '+window.location.href+'\\n\\nBest regards');
 }
 
-window.onload=function(){
-    var fns=[fillAll,buildPillarCards,buildValueDrivers,buildReadinessPillars,buildActionPlan,buildRoadmap,buildMilestones,buildPhases];
-    for(var f=0;f<fns.length;f++){
-        try{ fns[f](); }
-        catch(e){ console.error(fns[f].name+' error:',e.message); }
-    }
-    setTimeout(function(){
-        try{ highlightPackage(); } catch(e){ console.error('highlightPackage error:',e.message); }
-    },100);
-};
+// ── PAGE INIT ────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', function(){
+    fillAll();
+    buildPillarCards();
+    buildValueDrivers();
+    buildReadinessPillars();
+    buildRoadmap();
+    buildActionPlan();
+    buildPhases();
+    highlightPackage();
+    buildDashboardExtras();
+    buildBenchmarkingExtras();
+    buildRecBox();
+    // Initialise benchmark EBITDA label
+    switchEbitdaMode('own');
+});
 </script>
 </body>
 </html>
