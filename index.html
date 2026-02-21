@@ -95,7 +95,6 @@
     <div class="tab-btn active" onclick="showTab('dashboard',this)">&#128202; Dashboard</div>
     <div class="tab-btn" onclick="showTab('valuation',this)">&#128176; Valuation Analysis</div>
     <div class="tab-btn" onclick="showTab('readiness',this)">&#10003; Exit Readiness</div>
-    <div class="tab-btn" onclick="showTab('roadmap',this)">&#128506; Improvement Roadmap</div>
     <div class="tab-btn" onclick="showTab('actions',this)">&#127919; Action Plan</div>
     <div class="tab-btn" onclick="showTab('benchmarking',this)">&#128200; Benchmarking</div>
     <div class="tab-btn" onclick="showTab('services',this)">&#127873; Service Packages</div>
@@ -291,9 +290,12 @@
     </div>
 </div>
 
-<!-- EXIT READINESS — unchanged -->
+<!-- EXIT READINESS — DIAGNOSIS ONLY -->
 <div id="tab-readiness" class="tab-panel" style="display:none;">
-    <h3 class="section-title">Detailed Pillar Assessment</h3>
+    <h3 class="section-title">Exit Readiness Diagnosis</h3>
+    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+        <p style="color:#E5E7EB;line-height:1.7;margin:0;">This is your honest diagnostic across all six pillars. It shows where your business stands today — strengths, weaknesses and the size of each gap. For your prioritised action list, see the <strong style="color:var(--gold);">Action Plan</strong> tab.</p>
+    </div>
     <div id="readiness-pillars"></div>
 </div>
 
@@ -303,14 +305,17 @@
     <div class="timeline" id="roadmap-timeline"></div>
 </div>
 
-<!-- ACTION PLAN — unchanged -->
+<!-- ACTION PLAN — IMMEDIATE TO-DO -->
 <div id="tab-actions" class="tab-panel" style="display:none;">
-    <h3 class="section-title">90-Day Priority Action Plan</h3>
+    <h3 class="section-title">Your 90-Day Action Plan</h3>
+    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
+        <p style="color:#E5E7EB;line-height:1.7;margin:0;">These are your <strong style="color:var(--gold);">top priority actions right now</strong> — ranked by impact on your exit valuation. Start here before anything else. For the full diagnostic behind these priorities, see the <strong style="color:var(--gold);">Exit Readiness</strong> tab.</p>
+    </div>
     <div id="action-plan-content" style="background:linear-gradient(135deg,#1E2A3A,#1E3A5F);border:3px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;"></div>
     <div class="cta">
         <h2>Ready to Execute These Actions?</h2>
         <p>Book a Strategy Call to discuss implementation timelines, budget planning, grant eligibility, and service packages.</p>
-        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy">Book Strategy Call &#8212; SGD 500</a>
+        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book Strategy Call &#8212; SGD 500</a>
     </div>
 </div>
 
@@ -628,7 +633,7 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var ALL_TABS=['dashboard','valuation','readiness','roadmap','actions','benchmarking','services','tracker'];
+var ALL_TABS=['dashboard','valuation','readiness','actions','benchmarking','services','tracker'];
 
 function showTab(name,btn){
     for(var i=0;i<ALL_TABS.length;i++){
@@ -823,7 +828,7 @@ function buildReadinessPillars(){
         var actHtml='';
         for(var k=0;k<acts.length;k++) actHtml+='<p style="color:#D1D5DB;line-height:1.8;margin-bottom:0.25rem;">\u2022 '+acts[k]+'</p>';
         var div=document.createElement('div'); div.className='card'; div.style.marginBottom='1.5rem';
-        div.innerHTML='<h4 style="color:'+colours[tier]+';font-size:1.25rem;">'+pillarName[i]+' \u2014 '+score+'/'+pillarMax[i]+'</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Required Actions:</strong><div style="margin-top:0.75rem;">'+actHtml+'</div></div>';
+        div.innerHTML='<h4 style="color:'+colours[tier]+';font-size:1.25rem;">'+pillarName[i]+' \u2014 '+score+'/'+pillarMax[i]+'</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Key Findings &amp; Focus Areas:</strong><div style="margin-top:0.75rem;">'+actHtml+'</div></div>';
         container.appendChild(div);
     }
 }
