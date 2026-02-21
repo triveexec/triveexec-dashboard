@@ -367,104 +367,102 @@
     </div>
 </div>
 
-<!-- SERVICES — unchanged -->
+<!-- SERVICES -->
 <div id="tab-services" class="tab-panel" style="display:none;">
     <h3 class="section-title">TriveExec Service Packages</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-bottom:3rem;">
 
-        <!-- TIER 1: Strategy Call -->
-        <div class="card" id="pkg-call" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-            <div id="badge-call" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
-            <div style="text-align:center;padding-top:1rem;">
-                <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128222;</div>
-                <h4 style="font-size:1.1rem;">Strategy Call</h4>
-                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Expert Advisory Session</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 500</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">90-minute session</div>
-            </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;">
-                &#10003; Dashboard findings reviewed<br>&#10003; Personalised action priorities<br>&#10003; Grant eligibility guidance<br>&#10003; Service pathway recommendation<br>&#10003; Written summary post-call
-            </div>
-            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;font-size:0.875rem;">Book Now &#8212; SGD 500</a>
-            <div style="text-align:center;margin-top:0.5rem;font-size:0.75rem;color:#9CA3AF;">&#128179; Secure payment via Stripe</div>
-        </div>
+    <!-- 3 PACKAGE CARDS — fixed 3-column grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2.5rem;">
 
-        <!-- TIER 2: Annual Business Health Check -->
-        <div class="card" id="pkg-health" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-            <div id="badge-health" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+        <!-- Annual Business Health Check -->
+        <div class="card" id="pkg-health" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
+            <div id="badge-health" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
             <div style="text-align:center;padding-top:1rem;">
                 <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#9889;</div>
                 <h4 style="font-size:1.1rem;">Annual Business Health Check</h4>
-                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Annual Assessment</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 20-25K</div>
+                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Ongoing Excellence</div>
+                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 20–25K</div>
                 <div style="color:#D1D5DB;font-size:0.875rem;">Annual engagement</div>
             </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;">
-                &#10003; Annual TriveHealth&#8482; Assessment<br>&#10003; Performance Benchmarking<br>&#10003; Board-Ready Report<br>&#10003; 90-Day Action Plan<br>&#10003; Progress tracking
+            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
+                &#10003; Annual TriveHealth&#8482; Assessment<br>&#10003; Performance Benchmarking<br>&#10003; Board-Ready Report<br>&#10003; 90-Day Action Plan<br>&#10003; Progress Tracking
             </div>
-            <a href="https://calendly.com/triveexec-info" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;font-size:0.875rem;">Schedule Consultation</a>
         </div>
 
-        <!-- TIER 3: Exit Readiness Assessment -->
-        <div class="card" id="pkg-assessment" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-            <div id="badge-assessment" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+        <!-- Exit Readiness Assessment -->
+        <div class="card" id="pkg-assessment" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
+            <div id="badge-assessment" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
             <div style="text-align:center;padding-top:1rem;">
                 <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128188;</div>
                 <h4 style="font-size:1.1rem;">Exit Readiness Assessment</h4>
                 <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Deep Diagnostic</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 40-50K</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">6-8 week engagement</div>
+                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 40–50K</div>
+                <div style="color:#D1D5DB;font-size:0.875rem;">6–8 week engagement</div>
             </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;">
+            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
                 &#10003; Full 6-Pillar Assessment<br>&#10003; Financial Health Review<br>&#10003; Governance Gap Analysis<br>&#10003; Exit Strategy Options<br>&#10003; Priority Action Roadmap
             </div>
-            <a href="https://calendly.com/triveexec-info" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;font-size:0.875rem;">Schedule Consultation</a>
         </div>
 
-        <!-- TIER 4: Exit Accelerator Program -->
-        <div class="card" id="pkg-accelerator" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
-            <div id="badge-accelerator" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+        <!-- Exit Accelerator Program -->
+        <div class="card" id="pkg-accelerator" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
+            <div id="badge-accelerator" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
             <div style="text-align:center;padding-top:1rem;">
                 <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128640;</div>
                 <h4 style="font-size:1.1rem;">Exit Accelerator Program</h4>
                 <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Full Transformation</div>
                 <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">From SGD 100K</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">18-24 month engagement</div>
+                <div style="color:#D1D5DB;font-size:0.875rem;">18–24 month engagement</div>
             </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;">
+            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
                 &#10003; Fractional CFO &amp; COO<br>&#10003; Financial Systems &amp; Audit Prep<br>&#10003; Data Room &amp; CIM<br>&#10003; Transaction Advisory<br>&#10003; Buyer Outreach
             </div>
-            <a href="https://calendly.com/triveexec-info" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;font-size:0.875rem;">Book a Discovery Call</a>
         </div>
 
     </div>
 
-    <!-- MERGED RECOMMENDATION + CTA -->
-    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
-        <div>
-            <div style="display:inline-block;background:rgba(201,169,97,0.15);color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:0.75rem;">&#11088; Recommended For You</div>
-            <div style="font-size:1.2rem;font-weight:800;color:var(--gold);margin-bottom:0.5rem;line-height:1.3;" id="rec-pkg-name">&#8212;</div>
-            <div style="color:#D1D5DB;font-size:0.875rem;line-height:1.6;margin-bottom:1.25rem;max-width:420px;" id="rec-pkg-reason">&#8212;</div>
-            <a id="rec-pkg-scroll-btn" href="#" onclick="scrollToPackage(event)" style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;">&#8212;</a>
-        </div>
-        <div style="width:1px;background:rgba(201,169,97,0.3);align-self:stretch;"></div>
-        <div style="text-align:center;min-width:200px;">
-            <div style="font-size:1.75rem;margin-bottom:0.75rem;">&#128222;</div>
-            <div style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.5rem;">Not Sure Which Package?</div>
-            <div style="color:#9CA3AF;font-size:0.8rem;line-height:1.5;margin-bottom:1.25rem;">Talk to our advisory team and get a personalised recommendation.</div>
-            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:inline-block;border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;white-space:nowrap;">Book Strategy Call &#8212; SGD 500</a>
-            <div style="color:#6B7280;font-size:0.75rem;margin-top:0.5rem;">Up to 90 minutes &#183; Secure via Stripe</div>
-        </div>
-    </div>
+    <!-- MERGED BOTTOM CARD: RECOMMENDATION + MANDATORY STRATEGY CALL -->
+    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;overflow:hidden;margin-bottom:2rem;">
+        <div style="display:grid;grid-template-columns:1fr 1px 380px;">
 
-    <div class="cta">
-        <h2>Ready to Begin Your Exit Journey?</h2>
-        <p>Whether you are starting with a Strategy Call or ready for a full Exit Accelerator engagement, our advisory team will guide you through the right pathway for your business.</p>
-        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book a Strategy Call &#8212; SGD 500</a>
-        <div style="margin-top:1.5rem;">
-            <a href="/cdn-cgi/l/email-protection#d3babda0bab4bba7a093a7a1baa5b6b6abb6b0fdb0bcbe" style="color:var(--gold);font-size:0.9rem;">&#128140; Or email us at <span class="__cf_email__" data-cfemail="aec7c0ddc7c9c6daddeedadcc7d8cbcbd6cbcd80cdc1c3">[email&#160;protected]</span></a>
+            <!-- LEFT: PERSONALISED RECOMMENDATION -->
+            <div style="padding:2rem;">
+                <div style="display:inline-block;background:rgba(201,169,97,0.15);color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;">&#11088; Based On Your Assessment</div>
+                <div style="font-size:1.3rem;font-weight:800;color:var(--gold);margin-bottom:0.75rem;line-height:1.3;" id="rec-pkg-name">&#8212;</div>
+                <div style="color:#D1D5DB;font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem;" id="rec-pkg-reason">&#8212;</div>
+                <a id="rec-pkg-scroll-btn" href="#" onclick="scrollToPackage(event)" style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.875rem;padding:0.75rem 1.75rem;border-radius:8px;text-decoration:none;">&#8212;</a>
+            </div>
+
+            <!-- DIVIDER -->
+            <div style="background:rgba(201,169,97,0.25);"></div>
+
+            <!-- RIGHT: MANDATORY STRATEGY CALL -->
+            <div style="padding:2rem;display:flex;flex-direction:column;justify-content:space-between;">
+                <div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                        <span style="font-size:1.5rem;">&#128222;</span>
+                        <div>
+                            <div style="font-size:1rem;font-weight:700;color:white;">Strategy Call</div>
+                            <div style="font-size:0.8rem;color:var(--gold);font-weight:600;">Required First Step — All Engagements</div>
+                        </div>
+                    </div>
+                    <div style="font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">SGD 500</div>
+                    <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1.25rem;">Up to 90 minutes</div>
+                    <div style="color:#D1D5DB;font-size:0.85rem;line-height:1.9;">
+                        &#10003; Dashboard findings reviewed<br>
+                        &#10003; Personalised action priorities<br>
+                        &#10003; Grant eligibility guidance<br>
+                        &#10003; Service pathway confirmed<br>
+                        &#10003; Written summary post-call
+                    </div>
+                </div>
+                <div style="margin-top:1.5rem;">
+                    <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.9rem;padding:0.875rem 1.5rem;border-radius:8px;text-decoration:none;">Book Strategy Call &#8212; SGD 500</a>
+                    <div style="text-align:center;color:#6B7280;font-size:0.75rem;margin-top:0.5rem;">&#128179; Secure payment via Stripe</div>
+                </div>
+            </div>
+
         </div>
-        <div style="margin-top:1rem;font-size:0.875rem;color:#D1D5DB;">&#128179; Secure payment via Stripe | &#128197; Calendar link sent after payment</div>
     </div>
 </div>
 
@@ -491,50 +489,62 @@
         <div id="phase1-milestones"></div>
     </div>
     <!-- Phase 1 Complete CTA -->
-    <div style="background:linear-gradient(135deg,rgba(201,169,97,0.12),rgba(201,169,97,0.04));border:2px solid var(--gold);border-radius:12px;padding:2rem;margin:2.5rem 0;text-align:center;">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#127942;</div>
-        <h3 style="color:var(--gold);font-size:1.25rem;margin-bottom:0.5rem;">Phase 1 Complete &#8212; What Would You Like to Do Next?</h3>
-        <p style="color:#D1D5DB;font-size:0.9rem;margin-bottom:2rem;line-height:1.7;">Choose the level of support that is right for your business. Phases 2, 3 and 4 are unlocked as part of a TriveExec service engagement.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:900px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,rgba(201,169,97,0.12),rgba(201,169,97,0.04));border:2px solid var(--gold);border-radius:12px;padding:2rem;margin:2.5rem 0;">
+        <div style="text-align:center;margin-bottom:1.75rem;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#127942;</div>
+            <h3 style="color:var(--gold);font-size:1.25rem;margin-bottom:0.5rem;">Ready to Accelerate Your Exit Journey?</h3>
+            <p style="color:#D1D5DB;font-size:0.9rem;line-height:1.7;max-width:600px;margin:0 auto;">All TriveExec engagements begin with a Strategy Call. Book your 90-minute session to review your dashboard results and confirm your recommended service pathway.</p>
+        </div>
 
-            <!-- Strategy Call -->
-            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
-                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128222;</div>
-                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Strategy Call</div>
-                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 500</div>
-                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">90-min advisory session</div>
-                <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;">Book Now &#8212; SGD 500</a>
+        <!-- TWO COLUMNS: PACKAGES LEFT, STRATEGY CALL RIGHT -->
+        <div style="display:grid;grid-template-columns:1fr 1px 320px;gap:0;background:rgba(30,42,58,0.5);border-radius:10px;overflow:hidden;">
+
+            <!-- LEFT: 3 PACKAGES -->
+            <div style="padding:1.5rem;display:grid;grid-template-columns:1fr;gap:0.75rem;">
+                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.25rem;">Choose Your Engagement</div>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
+                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Annual Business Health Check</div><div style="color:#9CA3AF;font-size:0.78rem;">Annual engagement</div></div>
+                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">SGD 20–25K</div></div>
+                </div>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
+                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Exit Readiness Assessment</div><div style="color:#9CA3AF;font-size:0.78rem;">6–8 week engagement</div></div>
+                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">SGD 40–50K</div></div>
+                </div>
+
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
+                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Exit Accelerator Program</div><div style="color:#9CA3AF;font-size:0.78rem;">18–24 month engagement</div></div>
+                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">From SGD 100K</div></div>
+                </div>
             </div>
 
-            <!-- Annual Health Check -->
-            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
-                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#9889;</div>
-                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Annual Health Check</div>
-                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 20-25K</div>
-                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">Annual engagement</div>
-                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Schedule Consultation</a>
-            </div>
+            <!-- DIVIDER -->
+            <div style="background:rgba(201,169,97,0.2);"></div>
 
-            <!-- Exit Readiness Assessment -->
-            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
-                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128188;</div>
-                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Exit Readiness Assessment</div>
-                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 40-50K</div>
-                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">6-8 week engagement</div>
-                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Schedule Consultation</a>
-            </div>
-
-            <!-- Exit Accelerator -->
-            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
-                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128640;</div>
-                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Exit Accelerator Program</div>
-                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">From SGD 100K</div>
-                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">18-24 month engagement</div>
-                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Book Discovery Call</a>
+            <!-- RIGHT: STRATEGY CALL -->
+            <div style="padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
+                <div>
+                    <div style="color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;">Required First Step</div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                        <span style="font-size:1.25rem;">&#128222;</span>
+                        <span style="font-size:1rem;font-weight:700;color:white;">Strategy Call</span>
+                    </div>
+                    <div style="font-size:1.75rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">SGD 500</div>
+                    <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">Up to 90 minutes</div>
+                    <div style="color:#D1D5DB;font-size:0.82rem;line-height:1.9;">
+                        &#10003; Dashboard findings reviewed<br>
+                        &#10003; Personalised action priorities<br>
+                        &#10003; Grant eligibility guidance<br>
+                        &#10003; Service pathway confirmed<br>
+                        &#10003; Written summary post-call
+                    </div>
+                </div>
+                <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.875rem;padding:0.875rem 1rem;border-radius:8px;text-decoration:none;margin-top:1.25rem;">Book Strategy Call &#8212; SGD 500</a>
+                <div style="text-align:center;color:#6B7280;font-size:0.72rem;margin-top:0.4rem;">&#128179; Secure payment via Stripe</div>
             </div>
 
         </div>
-        <p style="color:#6B7280;font-size:0.8rem;margin-top:1.5rem;">&#128179; Secure payment via Stripe for Strategy Call &nbsp;|&nbsp; &#128197; Calendar link for all other packages</p>
     </div>
     <!-- Phases 2-4: built dynamically by buildPhases() based on &phase= URL param -->
     <div id="phase234-container"></div>
@@ -1025,7 +1035,7 @@ function buildPhases(){
         p2html+='<div style="background:rgba(16,185,129,0.08);border:2px solid rgba(16,185,129,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
         p2html+='<h4 style="color:#34D399;margin-bottom:0.5rem;">&#128640; Phase 2: Enhancement — TriveExec Guided</h4>';
         p2html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">Building on your Phase 1 foundation, this phase addresses your next priority pillars: <strong style="color:white;">'+pc3.name+'</strong> and <strong style="color:white;">'+pc4.name+'</strong>. Your TriveExec advisor will guide you through each milestone.<br><br>';
-        p2html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a> &nbsp;|&nbsp; &#128222; Book a check-in via your Calendly link</p>';
+        p2html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a> &nbsp;|&nbsp; &#128222; <a href="https://calendly.com/triveexec-info/triveexec-strategy-call" target="_blank" style="color:var(--gold);">Book a check-in call</a></p>';
         p2html+='</div>';
         p2html+=msHtml2;
         p2html+='<div style="text-align:center;margin-top:2rem;">';
@@ -1331,7 +1341,6 @@ function scrollToPackage(e){
 }
 function switchToValuation(e){
     e.preventDefault();
-    var btn=document.querySelector('[onclick*="valuation"]');
     showTab('valuation',null);
     var btns=document.querySelectorAll('.tab-btn');
     for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.indexOf('Valuation')>-1)btns[i].classList.add('active');}
@@ -1339,7 +1348,6 @@ function switchToValuation(e){
 function getRecommendedPkg(){
     var pillarsBelow15=0;
     for(var i=0;i<urlP.length;i++){if(urlP[i]<15)pillarsBelow15++;}
-    if(urlScore>=90) return 'call';
     if(pillarsBelow15>=3) return 'accelerator';
     if(urlP[0]<10) return 'health';
     return 'assessment';
@@ -1347,12 +1355,11 @@ function getRecommendedPkg(){
 function buildRecBox(){
     var rec=getRecommendedPkg();
     var pkgData={
-        'call':{name:'Strategy Call',reason:'Your scores show strong foundations. A 90-minute Strategy Call will refine your exit timing, confirm your readiness gaps, and give you a clear pathway to market.'},
-        'health':{name:'Annual Business Health Check',reason:'Your assessment indicates strong foundations in most areas. An Annual Business Health Check will systematically close remaining gaps and keep your business exit-ready year on year.'},
-        'assessment':{name:'Exit Readiness Assessment',reason:'Your scores show specific gaps on a solid base. A full Exit Readiness Assessment will give you a detailed gap analysis and a prioritised roadmap to close the remaining distance to institutional-grade readiness.'},
-        'accelerator':{name:'Exit Accelerator Program',reason:'Your pillar scores show critical gaps across multiple areas requiring intensive remediation. The Exit Accelerator gives you a dedicated fractional team to achieve institutional-grade readiness within 12-18 months.'}
+        'health':{name:'Annual Business Health Check',reason:'Your assessment shows a strong foundation with specific gaps that can be systematically closed. An Annual Business Health Check will keep your business improving year on year toward a premium exit.'},
+        'assessment':{name:'Exit Readiness Assessment',reason:'Your scores indicate targeted gaps on a solid base. A deep-dive Exit Readiness Assessment will give you a precise gap analysis and a prioritised roadmap to institutional-grade readiness.'},
+        'accelerator':{name:'Exit Accelerator Program',reason:'Your pillar scores show critical gaps across multiple areas. The Exit Accelerator provides a dedicated fractional team to achieve institutional-grade readiness within 12–18 months.'}
     };
-    var d=pkgData[rec]||pkgData['call'];
+    var d=pkgData[rec]||pkgData['assessment'];
     var nm=document.getElementById('rec-pkg-name');
     var rs=document.getElementById('rec-pkg-reason');
     var btn=document.getElementById('rec-pkg-scroll-btn');
@@ -1362,25 +1369,7 @@ function buildRecBox(){
 }
 
 function highlightPackage(){
-    // Pillar-based recommendation logic (agreed Feb 2026)
-    // p1=Financial Health(30), p2=Governance(20), p3=Leadership(20),
-    // p4=Market Position(20), p5=Operations(16), p6=Exit Readiness(14)
-    var pillarsBelow15=0;
-    for(var i=0;i<urlP.length;i++){if(urlP[i]<15)pillarsBelow15++;}
-    var rec;
-    if(urlScore>=90){
-        // High performers — Strategy Call to refine and plan exit
-        rec='call';
-    } else if(pillarsBelow15>=3){
-        // 3 or more pillars weak — needs full transformation
-        rec='accelerator';
-    } else if(urlP[0]<10){
-        // Financial Health is primary critical gap — targeted fix first
-        rec='health';
-    } else {
-        // Specific gaps but solid base — deep diagnostic
-        rec='assessment';
-    }
+    var rec=getRecommendedPkg();
     var badge=document.getElementById('badge-'+rec),card=document.getElementById('pkg-'+rec);
     if(badge) badge.style.display='block';
     if(card){card.style.border='3px solid var(--gold)'; card.style.boxShadow='0 8px 24px rgba(201,169,97,0.4)'; card.style.background='linear-gradient(135deg,#1E2A3A,#2A3847)';}
