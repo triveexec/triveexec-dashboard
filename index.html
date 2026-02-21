@@ -408,14 +408,54 @@
         </div>
         <div id="phase1-milestones"></div>
     </div>
-    <div style="text-align:center;margin:2.5rem 0;">
-        <button onclick="requestValidation()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">
-            &#10003; Request TriveExec Validation &#8212; Phase 1 Complete
-        </button>
+    <!-- Phase 1 Complete CTA -->
+    <div style="background:linear-gradient(135deg,rgba(201,169,97,0.12),rgba(201,169,97,0.04));border:2px solid var(--gold);border-radius:12px;padding:2rem;margin:2.5rem 0;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#127942;</div>
+        <h3 style="color:var(--gold);font-size:1.25rem;margin-bottom:0.5rem;">Phase 1 Complete &#8212; What Would You Like to Do Next?</h3>
+        <p style="color:#D1D5DB;font-size:0.9rem;margin-bottom:2rem;line-height:1.7;">Choose the level of support that is right for your business. Phases 2, 3 and 4 are unlocked as part of a TriveExec service engagement.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:900px;margin:0 auto;">
+
+            <!-- Strategy Call -->
+            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128222;</div>
+                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Strategy Call</div>
+                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 500</div>
+                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">90-min advisory session</div>
+                <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;">Book Now &#8212; SGD 500</a>
+            </div>
+
+            <!-- Annual Health Check -->
+            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#9889;</div>
+                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Annual Health Check</div>
+                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 20-25K</div>
+                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">Annual engagement</div>
+                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Schedule Consultation</a>
+            </div>
+
+            <!-- Exit Readiness Assessment -->
+            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128188;</div>
+                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Exit Readiness Assessment</div>
+                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">SGD 40-50K</div>
+                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">6-8 week engagement</div>
+                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Schedule Consultation</a>
+            </div>
+
+            <!-- Exit Accelerator -->
+            <div style="background:rgba(30,42,58,0.8);border:2px solid rgba(201,169,97,0.4);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#128640;</div>
+                <div style="color:var(--gold);font-weight:700;font-size:0.9rem;margin-bottom:0.25rem;">Exit Accelerator Program</div>
+                <div style="color:white;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">From SGD 100K</div>
+                <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">18-24 month engagement</div>
+                <a href="https://calendly.com/triveexec-info" target="_blank" style="display:block;background:rgba(201,169,97,0.15);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.6rem 1rem;border-radius:6px;text-decoration:none;border:1px solid var(--gold);">Book Discovery Call</a>
+            </div>
+
+        </div>
+        <p style="color:#6B7280;font-size:0.8rem;margin-top:1.5rem;">&#128179; Secure payment via Stripe for Strategy Call &nbsp;|&nbsp; &#128197; Calendar link for all other packages</p>
     </div>
-    <div class="card" style="opacity:0.6;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 4-6</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
-    <div class="card" style="opacity:0.6;margin-top:1rem;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 3: Validation</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 7-9</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
-    <div class="card" style="opacity:0.6;margin-top:1rem;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 10-12</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
+    <!-- Phases 2-4: built dynamically by buildPhases() based on &phase= URL param -->
+    <div id="phase234-container"></div>
 </div>
 
 </div>
@@ -455,6 +495,7 @@ var urlScore=parseInt(getP('score'))||0;
 var urlGrade=getP('grade')||'';
 var urlIndustry=getP('industry');
 var urlDate=getP('date');
+var urlPhase=parseInt(getP('phase'))||1; // Phase unlock: 1=default, 2/3/4=unlocked by TriveExec
 var urlP=[
     Math.round(parseFloat(getP('p1'))||0),
     Math.round(parseFloat(getP('p2'))||0),
@@ -852,6 +893,185 @@ function buildMilestones(){
     container.innerHTML=html;
 }
 
+function buildPhases(){
+    var container=document.getElementById('phase234-container');
+    if(!container) return;
+
+    // Sort pillars weakest first — Phase 2 uses 3rd and 4th weakest
+    var pillarOrder=[];
+    for(var i=0;i<urlP.length;i++){
+        var pct=(urlP[i]/pillarMax[i])*100;
+        pillarOrder.push({idx:i,pct:pct});
+    }
+    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
+    var third=pillarOrder[2].idx;
+    var fourth=pillarOrder[3].idx;
+    var pc3=pillarContent[third];
+    var pc4=pillarContent[fourth];
+
+    // ── PHASE 2 ──
+    var p2html='';
+    if(urlPhase>=2){
+        // UNLOCKED — dynamic milestones from 3rd and 4th weakest pillars
+        var ms2=[];
+        var w3=pillarContent[third].milestones;
+        var w4=pillarContent[fourth].milestones;
+        for(var j=0;j<3&&j<w3.length;j++) ms2.push(w3[j]);
+        for(var k=0;k<2&&k<w4.length;k++) ms2.push(w4[k]);
+
+        var msHtml2='';
+        for(var mi=0;mi<ms2.length;mi++){
+            var m=ms2[mi];
+            msHtml2+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
+            msHtml2+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
+            msHtml2+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
+            msHtml2+='<div style="flex:1;">';
+            msHtml2+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
+            msHtml2+='<strong style="color:var(--gold);">'+m.title+'</strong>';
+            msHtml2+='<span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span>';
+            msHtml2+='</div>';
+            msHtml2+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p>';
+            msHtml2+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div>';
+            msHtml2+='</div></div></div>';
+        }
+
+        p2html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
+        p2html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
+        p2html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div><h4 style="font-size:1.5rem;margin:0;">Months 4-6</h4></div>';
+        p2html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
+        p2html+='</div>';
+        p2html+='<div style="background:rgba(16,185,129,0.08);border:2px solid rgba(16,185,129,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
+        p2html+='<h4 style="color:#34D399;margin-bottom:0.5rem;">&#128640; Phase 2: Enhancement — TriveExec Guided</h4>';
+        p2html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">Building on your Phase 1 foundation, this phase addresses your next priority pillars: <strong style="color:white;">'+pc3.name+'</strong> and <strong style="color:white;">'+pc4.name+'</strong>. Your TriveExec advisor will guide you through each milestone.<br><br>';
+        p2html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a> &nbsp;|&nbsp; &#128222; Book a check-in via your Calendly link</p>';
+        p2html+='</div>';
+        p2html+=msHtml2;
+        p2html+='<div style="text-align:center;margin-top:2rem;">';
+        p2html+='<button onclick="requestValidation2()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">&#10003; Request TriveExec Validation &#8212; Phase 2 Complete</button>';
+        p2html+='</div></div>';
+    } else {
+        // LOCKED — teaser
+        p2html='<div class="card" style="margin-top:1.5rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
+        p2html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
+        p2html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div>';
+        p2html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 4-6</div></div>';
+        p2html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
+        p2html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
+        p2html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 2:</p>';
+        p2html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; '+pc3.phase2title+'<br>&#128274; '+pc4.phase2title+'<br>&#128274; 5 guided milestones with TriveExec advisor<br>&#128274; External vendor introductions and oversight<br>&#128274; Phase 2 completion certificate</p>';
+        p2html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Complete Phase 1 and book a consultation above to unlock.</div>';
+        p2html+='</div></div>';
+    }
+
+    // ── PHASE 3 ──
+    var p3html='';
+    var phase3Milestones=[
+        {title:'Select Transaction Advisor',priority:'Critical',col:'var(--red)',desc:'Engage M&A advisor or investment bank. Define mandate, fee structure and buyer universe.',tl:'Week 1-3',owner:'CEO/TriveExec'},
+        {title:'Complete Data Room Population',priority:'Critical',col:'var(--red)',desc:'Finalise all financial, legal, operational and governance documents in virtual data room.',tl:'Week 1-6',owner:'CFO/TriveExec'},
+        {title:'Develop Management Presentation',priority:'Critical',col:'var(--red)',desc:'Prepare investor-ready management presentation. Cover strategy, financials, growth plan and team.',tl:'Week 3-7',owner:'CEO/CFO'},
+        {title:'Commission Independent Reviews',priority:'High',col:'var(--orange)',desc:'Engage third parties for quality of earnings, technology and legal due diligence reviews.',tl:'Week 4-8',owner:'TriveExec'},
+        {title:'Build Customer Reference Programme',priority:'High',col:'var(--orange)',desc:'Identify and brief 5-8 referenceable customers. Prepare testimonials and case studies for buyer pack.',tl:'Week 5-9',owner:'Sales/CEO'}
+    ];
+    if(urlPhase>=3){
+        var msHtml3='';
+        for(var mi3=0;mi3<phase3Milestones.length;mi3++){
+            var m3=phase3Milestones[mi3];
+            msHtml3+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
+            msHtml3+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
+            msHtml3+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
+            msHtml3+='<div style="flex:1;">';
+            msHtml3+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
+            msHtml3+='<strong style="color:var(--gold);">'+m3.title+'</strong>';
+            msHtml3+='<span style="background:'+m3.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m3.priority+'</span>';
+            msHtml3+='</div>';
+            msHtml3+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m3.desc+'</p>';
+            msHtml3+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m3.tl+'</span><span>'+m3.owner+'</span></div>';
+            msHtml3+='</div></div></div>';
+        }
+        p3html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
+        p3html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
+        p3html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 3: Validation</div><h4 style="font-size:1.5rem;margin:0;">Months 7-9</h4></div>';
+        p3html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
+        p3html+='</div>';
+        p3html+='<div style="background:rgba(16,185,129,0.08);border:2px solid rgba(16,185,129,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
+        p3html+='<h4 style="color:#34D399;margin-bottom:0.5rem;">&#128269; Phase 3: External Validation — TriveExec Led</h4>';
+        p3html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">This phase involves external advisors, independent reviews and market preparation. TriveExec leads all third-party engagements and manages the process on your behalf.<br><br>';
+        p3html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>';
+        p3html+='</div>';
+        p3html+=msHtml3;
+        p3html+='<div style="text-align:center;margin-top:2rem;">';
+        p3html+='<button onclick="requestValidation3()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">&#10003; Request TriveExec Validation &#8212; Phase 3 Complete</button>';
+        p3html+='</div></div>';
+    } else {
+        p3html='<div class="card" style="margin-top:1rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
+        p3html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
+        p3html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 3: Validation</div>';
+        p3html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 7-9</div></div>';
+        p3html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
+        p3html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
+        p3html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 3:</p>';
+        p3html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; Transaction advisor selection and mandate<br>&#128274; Data room completion and quality review<br>&#128274; Independent quality of earnings report<br>&#128274; Management presentation preparation<br>&#128274; Customer reference programme</p>';
+        p3html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Unlocked by your TriveExec advisor after Phase 2 completion.</div>';
+        p3html+='</div></div>';
+    }
+
+    // ── PHASE 4 ──
+    var p4html='';
+    var phase4Milestones=[
+        {title:'Prepare Information Memorandum (CIM)',priority:'Critical',col:'var(--red)',desc:'Develop comprehensive CIM covering business overview, financials, growth strategy and exit rationale.',tl:'Week 1-4',owner:'TriveExec/CEO'},
+        {title:'Initiate Controlled Buyer Outreach',priority:'Critical',col:'var(--red)',desc:'TriveExec contacts pre-qualified buyer universe. Manage NDAs and initial interest assessments.',tl:'Week 3-6',owner:'TriveExec'},
+        {title:'Management Presentations to Buyers',priority:'Critical',col:'var(--red)',desc:'Conduct management presentations to shortlisted buyers. Refine pitch based on buyer feedback.',tl:'Week 5-8',owner:'CEO/TriveExec'},
+        {title:'Evaluate and Negotiate Indicative Offers',priority:'High',col:'var(--orange)',desc:'Review IOIs and LOIs. Negotiate key terms including price, structure, earnout and conditions.',tl:'Week 7-10',owner:'CEO/TriveExec'},
+        {title:'Final Due Diligence & Deal Structuring',priority:'High',col:'var(--orange)',desc:'Support buyer due diligence process. Finalise deal structure, tax optimisation and transaction documents.',tl:'Week 8-12',owner:'TriveExec/Legal'}
+    ];
+    if(urlPhase>=4){
+        var msHtml4='';
+        for(var mi4=0;mi4<phase4Milestones.length;mi4++){
+            var m4=phase4Milestones[mi4];
+            msHtml4+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
+            msHtml4+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
+            msHtml4+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
+            msHtml4+='<div style="flex:1;">';
+            msHtml4+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
+            msHtml4+='<strong style="color:var(--gold);">'+m4.title+'</strong>';
+            msHtml4+='<span style="background:'+m4.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m4.priority+'</span>';
+            msHtml4+='</div>';
+            msHtml4+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m4.desc+'</p>';
+            msHtml4+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m4.tl+'</span><span>'+m4.owner+'</span></div>';
+            msHtml4+='</div></div></div>';
+        }
+        p4html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
+        p4html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
+        p4html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div><h4 style="font-size:1.5rem;margin:0;">Months 10-12</h4></div>';
+        p4html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
+        p4html+='</div>';
+        p4html+='<div style="background:rgba(201,169,97,0.08);border:2px solid rgba(201,169,97,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
+        p4html+='<h4 style="color:var(--gold);margin-bottom:0.5rem;">&#127942; Phase 4: Go-to-Market — TriveExec Led</h4>';
+        p4html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">This is the culmination of your exit preparation journey. TriveExec manages the full transaction process — from buyer outreach through to deal completion. Your role is to focus on running the business while we manage the exit.<br><br>';
+        p4html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>';
+        p4html+='</div>';
+        p4html+=msHtml4;
+        p4html+='<div style="background:linear-gradient(135deg,rgba(201,169,97,0.15),rgba(201,169,97,0.05));border:2px solid var(--gold);border-radius:10px;padding:2rem;text-align:center;margin-top:2rem;">';
+        p4html+='<div style="font-size:2rem;margin-bottom:0.5rem;">&#127942;</div>';
+        p4html+='<strong style="color:var(--gold);font-size:1.1rem;display:block;margin-bottom:0.5rem;">Exit Transaction in Progress</strong>';
+        p4html+='<p style="color:#D1D5DB;font-size:0.9rem;">Your TriveExec advisor is managing your transaction process. Stay focused on business performance — we handle the deal.</p>';
+        p4html+='</div></div>';
+    } else {
+        p4html='<div class="card" style="margin-top:1rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
+        p4html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
+        p4html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div>';
+        p4html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 10-12</div></div>';
+        p4html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
+        p4html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
+        p4html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 4:</p>';
+        p4html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; Information Memorandum (CIM) preparation<br>&#128274; Controlled buyer outreach and NDA management<br>&#128274; Management presentations to shortlisted buyers<br>&#128274; Offer evaluation and negotiation<br>&#128274; Final due diligence and deal structuring</p>';
+        p4html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Unlocked by your TriveExec advisor after Phase 3 completion.</div>';
+        p4html+='</div></div>';
+    }
+
+    container.innerHTML=p2html+p3html+p4html;
+}
+
 function highlightPackage(){
     // Pillar-based recommendation logic (agreed Feb 2026)
     // p1=Financial Health(30), p2=Governance(20), p3=Leadership(20),
@@ -879,18 +1099,28 @@ function highlightPackage(){
 
 function requestValidation(){
     var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 1 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+}
+
+function requestValidation2(){
+    var company=getP('company')||'Unknown';
+    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 2 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 2 milestones and would like to request validation to unlock Phase 3.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+}
+
+function requestValidation3(){
+    var company=getP('company')||'Unknown';
+    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 3 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 3 milestones and would like to request validation to unlock Phase 4.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
 }
 
 window.onload=function(){
-    fillAll();
-    buildPillarCards();
-    buildValueDrivers();
-    buildReadinessPillars();
-    buildActionPlan();
-    buildRoadmap();
-    buildMilestones();
-    setTimeout(highlightPackage,100);
+    var fns=[fillAll,buildPillarCards,buildValueDrivers,buildReadinessPillars,buildActionPlan,buildRoadmap,buildMilestones,buildPhases];
+    for(var f=0;f<fns.length;f++){
+        try{ fns[f](); }
+        catch(e){ console.error(fns[f].name+' error:',e.message); }
+    }
+    setTimeout(function(){
+        try{ highlightPackage(); } catch(e){ console.error('highlightPackage error:',e.message); }
+    },100);
 };
 </script>
 </body>
