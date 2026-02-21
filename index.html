@@ -466,25 +466,90 @@
     </div>
 </div>
 
-<!-- TRACKER — unchanged -->
+<!-- TRACKER -->
 <div id="tab-tracker" class="tab-panel" style="display:none;">
     <h3 class="section-title">Implementation Progress Tracker</h3>
-    <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
-        <div style="text-align:center;">
-            <h4 style="font-size:1.75rem;margin-bottom:1rem;">Overall Implementation Progress</h4>
-            <div style="font-size:4rem;font-weight:800;color:white;">0%</div>
-            <div style="color:#D1D5DB;margin-bottom:1rem;">0 of 5 milestones completed</div>
-            <div style="background:rgba(255,255,255,0.1);height:24px;border-radius:12px;overflow:hidden;"><div style="background:linear-gradient(90deg,var(--gold),var(--light-gold));height:100%;width:0%;"></div></div>
+
+    <!-- SECTION 1: JOURNEY CONTEXT STRIP -->
+    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+        <div style="background:var(--gold);color:#1E2A3A;font-size:1.5rem;font-weight:800;padding:0.5rem 1.25rem;border-radius:8px;" class="d-grade">&#8212;</div>
+        <div style="flex:1;min-width:200px;">
+            <div id="journey-context-text" style="color:#E5E7EB;line-height:1.7;font-size:0.925rem;">&#8212;</div>
         </div>
     </div>
-    <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">
-            <div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 1: Foundation</div><h4 style="font-size:1.5rem;margin:0;">Months 1-3</h4></div>
+
+    <!-- SECTION 2: OVERALL PROGRESS CARD -->
+    <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:1.5rem;">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
+            <div>
+                <h4 style="font-size:1.1rem;margin-bottom:1rem;">Overall Implementation Progress</h4>
+                <div style="background:rgba(255,255,255,0.1);height:20px;border-radius:10px;overflow:hidden;margin-bottom:0.75rem;">
+                    <div id="overall-progress-bar" style="background:linear-gradient(90deg,var(--gold),var(--light-gold));height:100%;width:0%;transition:width 0.4s ease;border-radius:10px;"></div>
+                </div>
+                <div style="display:flex;gap:2rem;font-size:0.875rem;color:#9CA3AF;flex-wrap:wrap;">
+                    <span>&#128197; Started: <strong style="color:white;" class="d-date">&#8212;</strong></span>
+                    <span>&#127919; Est. completion: <strong style="color:white;" id="est-completion">&#8212;</strong></span>
+                    <span id="progress-status" style="color:var(--green);font-weight:700;">&#10003; On Track</span>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <div id="overall-progress-pct" style="font-size:3.5rem;font-weight:800;color:var(--gold);line-height:1;">0%</div>
+                <div id="overall-progress-count" style="color:#D1D5DB;font-size:0.875rem;margin-top:0.25rem;">0 of 5 completed</div>
+            </div>
         </div>
-        <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">
-            <h4 style="color:#60A5FA;margin-bottom:0.5rem;">&#8505;&#65039; Phase 1 is Self-Managed</h4>
-            <p style="color:#D1D5DB;line-height:1.7;margin:0;">Included with your TriveHealth&#8482; Dashboard. Work through milestones at your own pace.<br><br>
-            &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="/cdn-cgi/l/email-protection#4d24233e242a25393e0d393f243b282835282e632e2220" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="036a6d706a646b77704377716a7566667b66602d606c6e">[email&#160;protected]</span></a></p>
+    </div>
+
+    <!-- SECTION 3: PHASE TIMELINE VISUAL -->
+    <div class="card" style="margin-bottom:1.5rem;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;">
+            <div style="position:absolute;top:24px;left:12.5%;right:12.5%;height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,169,97,0.2));z-index:0;"></div>
+            <div style="text-align:center;position:relative;z-index:1;">
+                <div style="width:48px;height:48px;border-radius:50%;background:var(--gold);color:#1E2A3A;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">1</div>
+                <div style="font-size:0.8rem;font-weight:700;color:var(--gold);">Foundation</div>
+                <div style="font-size:0.72rem;color:#9CA3AF;">Months 1&#8211;3</div>
+                <div style="font-size:0.7rem;color:var(--green);font-weight:600;margin-top:0.25rem;">&#9679; Active</div>
+            </div>
+            <div style="text-align:center;position:relative;z-index:1;" id="phase-dot-2">
+                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
+                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Enhancement</div>
+                <div style="font-size:0.72rem;color:#6B7280;">Months 4&#8211;6</div>
+                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
+            </div>
+            <div style="text-align:center;position:relative;z-index:1;">
+                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
+                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Validation</div>
+                <div style="font-size:0.72rem;color:#6B7280;">Months 7&#8211;9</div>
+                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
+            </div>
+            <div style="text-align:center;position:relative;z-index:1;">
+                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
+                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Market Ready</div>
+                <div style="font-size:0.72rem;color:#6B7280;">Months 10&#8211;12</div>
+                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: PHASE 1 ACTIVE CARD -->
+    <div class="card" id="phase1-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">
+            <div>
+                <div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 1: Foundation</div>
+                <h4 style="font-size:1.5rem;margin:0;">Months 1&#8211;3</h4>
+            </div>
+            <div style="text-align:right;">
+                <div id="phase1-pct" style="font-size:1.5rem;font-weight:800;color:var(--gold);">0%</div>
+                <div style="font-size:0.78rem;color:#9CA3AF;">Phase progress</div>
+            </div>
+        </div>
+        <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.25rem;margin-bottom:1.5rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <span style="font-size:1.25rem;">&#8505;&#65039;</span>
+                <div>
+                    <strong style="color:#60A5FA;display:block;margin-bottom:0.2rem;">Phase 1 is Self-Managed</strong>
+                    <span style="color:#D1D5DB;font-size:0.875rem;">Included with your TriveHealth&#8482; Dashboard. Tick each milestone as you complete it.</span>
+                </div>
+            </div>
         </div>
         <div id="phase1-milestones"></div>
     </div>
@@ -949,40 +1014,103 @@ function buildMilestones(){
     var container=document.getElementById('phase1-milestones');
     if(!container) return;
 
-    // Build milestone pool from 2 weakest pillars (5 total — always)
+    // Build milestone pool from 2 weakest pillars (5 total)
     var pillarOrder=[];
     for(var i=0;i<urlP.length;i++){
-        var pct=(urlP[i]/pillarMax[i])*100;
-        pillarOrder.push({idx:i,pct:pct});
+        pillarOrder.push({idx:i,pct:(urlP[i]/pillarMax[i])*100});
     }
     pillarOrder.sort(function(a,b){return a.pct-b.pct;});
-
-    var weakest=pillarOrder[0].idx;
-    var second=pillarOrder[1].idx;
-
-    // Take first 3 milestones from weakest pillar, first 2 from second weakest
+    var weakest=pillarOrder[0].idx, second=pillarOrder[1].idx;
     var ms=[];
-    var w=pillarContent[weakest].milestones;
-    var s=pillarContent[second].milestones;
+    var w=pillarContent[weakest].milestones, s=pillarContent[second].milestones;
     for(var j=0;j<3&&j<w.length;j++) ms.push(w[j]);
     for(var k=0;k<2&&k<s.length;k++) ms.push(s[k]);
 
     var html='';
     for(var i=0;i<ms.length;i++){
         var m=ms[i];
-        html+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
+        html+='<div class="ms-row" onclick="toggleMilestone(this)" style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;cursor:pointer;transition:background 0.2s;">';
         html+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-        html+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
+        html+='<input type="checkbox" onclick="event.stopPropagation();toggleMilestone(this.parentElement.parentElement.parentElement)" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);flex-shrink:0;">';
         html+='<div style="flex:1;">';
-        html+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
+        html+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">';
         html+='<strong style="color:var(--gold);">'+m.title+'</strong>';
         html+='<span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span>';
         html+='</div>';
         html+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p>';
-        html+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div>';
+        html+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;flex-wrap:wrap;"><span>&#128197; '+m.tl+'</span><span>&#128100; '+m.owner+'</span></div>';
         html+='</div></div></div>';
     }
     container.innerHTML=html;
+    updateProgress();
+}
+
+function toggleMilestone(row){
+    var cb=row.querySelector('input[type="checkbox"]');
+    if(!cb) return;
+    cb.checked=!cb.checked;
+    if(cb.checked){
+        row.style.background='rgba(201,169,97,0.12)';
+        row.style.borderLeftColor='var(--gold)';
+    } else {
+        row.style.background='rgba(30,42,58,0.5)';
+        row.style.borderLeftColor='rgba(201,169,97,0.3)';
+    }
+    updateProgress();
+}
+
+function updateProgress(){
+    var rows=document.querySelectorAll('.ms-row');
+    var total=rows.length, done=0;
+    for(var i=0;i<rows.length;i++){
+        var cb=rows[i].querySelector('input[type="checkbox"]');
+        if(cb&&cb.checked) done++;
+    }
+    var pct=total>0?Math.round((done/total)*100):0;
+    // Overall progress
+    var bar=document.getElementById('overall-progress-bar');
+    var pctEl=document.getElementById('overall-progress-pct');
+    var countEl=document.getElementById('overall-progress-count');
+    if(bar) bar.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=pct+'%';
+    if(countEl) countEl.textContent=done+' of '+total+' completed';
+    // Phase 1 progress
+    var p1El=document.getElementById('phase1-pct');
+    if(p1El) p1El.textContent=pct+'%';
+    // Phase 2 unlock glow at 4/5
+    var dot2=document.getElementById('phase-dot-2');
+    if(dot2&&done>=4){
+        dot2.querySelector('div').style.background='rgba(201,169,97,0.3)';
+        dot2.querySelector('div').style.boxShadow='0 0 16px rgba(201,169,97,0.5)';
+        dot2.querySelector('div').style.color='var(--gold)';
+        dot2.querySelector('div').textContent='2';
+        dot2.querySelectorAll('div')[3].textContent='⚡ Ready to Unlock';
+        dot2.querySelectorAll('div')[3].style.color='var(--gold)';
+    }
+}
+
+function buildJourneyContext(){
+    var jEl=document.getElementById('journey-context-text');
+    if(!jEl) return;
+    var grade1=urlGrade.charAt(0);
+    var timeline='12–18 months';
+    if(grade1==='A'||grade1==='B') timeline='6–12 months';
+    else if(grade1==='C') timeline='9–12 months';
+    // Est completion
+    var ecEl=document.getElementById('est-completion');
+    if(ecEl){
+        var d=new Date();
+        var months=grade1==='A'||grade1==='B'?9:grade1==='C'?11:15;
+        d.setMonth(d.getMonth()+months);
+        ecEl.textContent=d.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+    }
+    // Weak pillars
+    var weakNames=[];
+    for(var i=0;i<urlP.length;i++){
+        if((urlP[i]/pillarMax[i])*100<70) weakNames.push(pillarName[i]);
+    }
+    var weakText=weakNames.length>0?weakNames.slice(0,2).join(' and '):'your identified gaps';
+    jEl.innerHTML='Based on your <strong style="color:var(--gold);">Grade '+urlGrade+' score of '+urlScore+'/120</strong>, your recommended exit preparation journey is <strong style="color:white;">'+timeline+' across 4 phases</strong>. You have gaps in <strong style="color:#F87171;">'+weakText+'</strong> requiring structured remediation before an institutional-grade exit.';
 }
 
 function buildPhases(){
@@ -1403,6 +1531,8 @@ window.addEventListener('DOMContentLoaded', function(){
     buildDashboardExtras();
     buildBenchmarkingExtras();
     buildRecBox();
+    buildMilestones();
+    buildJourneyContext();
     // Initialise benchmark EBITDA label
     switchEbitdaMode('own');
 });
