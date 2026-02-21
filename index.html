@@ -515,10 +515,10 @@
                 <div style="font-size:0.7rem;color:var(--green);font-weight:600;margin-top:0.25rem;">&#9679; Active</div>
             </div>
             <div style="text-align:center;position:relative;z-index:1;" id="phase-dot-2">
-                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
+                <div id="phase2-circle" style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
                 <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Enhancement</div>
                 <div style="font-size:0.72rem;color:#6B7280;">Months 4&#8211;6</div>
-                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
+                <div id="phase2-status" style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
             </div>
             <div style="text-align:center;position:relative;z-index:1;">
                 <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
@@ -755,18 +755,19 @@ function fillAll(){
     setAll('val-uplift-target', upliftTarget);
     setAll('val-uplift-gap', upliftGap);
 
-    // CHANGE 11: Benchmarking — dynamic position header (5 tiers)
+    // Benchmarking position — grade-based (matches grade shown on dashboard)
     var benchTitle, benchDesc;
-    if(urlScore>=90){
+    var g1=urlGrade.charAt(0);
+    if(g1==='A'){
         benchTitle='\ud83c\udfc6 Elite \u2014 Top 10%';
         benchDesc='You rank among the highest-performing exit-ready companies in ASEAN';
-    } else if(urlScore>=70){
+    } else if(g1==='B'){
         benchTitle='\u2b50 Top Quartile';
         benchDesc='You outperform the majority of your peers \u2014 focused improvements will elevate you further';
-    } else if(urlScore>=50){
+    } else if(g1==='C'){
         benchTitle='\ud83d\udcc8 Above Average';
         benchDesc='You are ahead of the baseline \u2014 targeted action can move you to top quartile';
-    } else if(urlScore>=30){
+    } else if(g1==='D'){
         benchTitle='\ud83d\udcca Below Average';
         benchDesc='You have foundational strengths but significant gaps to close before exit readiness';
     } else {
@@ -1034,9 +1035,9 @@ function buildMilestones(){
     var html='';
     for(var i=0;i<ms.length;i++){
         var m=ms[i];
-        html+='<div class="ms-row" onclick="toggleMilestone(this)" style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;cursor:pointer;transition:background 0.2s;">';
+        html+='<div class="ms-row" onclick="toggleMilestone(this,event)" style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;cursor:pointer;transition:background 0.2s;">';
         html+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-        html+='<input type="checkbox" onclick="event.stopPropagation();toggleMilestone(this.parentElement.parentElement.parentElement)" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);flex-shrink:0;">';
+        html+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);flex-shrink:0;">';
         html+='<div style="flex:1;">';
         html+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">';
         html+='<strong style="color:var(--gold);">'+m.title+'</strong>';
@@ -1050,10 +1051,11 @@ function buildMilestones(){
     updateProgress();
 }
 
-function toggleMilestone(row){
+function toggleMilestone(row,evt){
     var cb=row.querySelector('input[type="checkbox"]');
     if(!cb) return;
-    cb.checked=!cb.checked;
+    // If user clicked directly on checkbox, browser already toggled it — don't flip again
+    if(!evt||evt.target!==cb) cb.checked=!cb.checked;
     if(cb.checked){
         row.style.background='rgba(201,169,97,0.12)';
         row.style.borderLeftColor='var(--gold)';
@@ -1082,15 +1084,27 @@ function updateProgress(){
     // Phase 1 progress
     var p1El=document.getElementById('phase1-pct');
     if(p1El) p1El.textContent=pct+'%';
-    // Phase 2 unlock glow at 4/5
-    var dot2=document.getElementById('phase-dot-2');
-    if(dot2&&done>=4){
-        dot2.querySelector('div').style.background='rgba(201,169,97,0.3)';
-        dot2.querySelector('div').style.boxShadow='0 0 16px rgba(201,169,97,0.5)';
-        dot2.querySelector('div').style.color='var(--gold)';
-        dot2.querySelector('div').textContent='2';
-        dot2.querySelectorAll('div')[3].textContent='⚡ Ready to Unlock';
-        dot2.querySelectorAll('div')[3].style.color='var(--gold)';
+    // Phase 2 unlock glow when all 5 done
+    var circle2=document.getElementById('phase2-circle');
+    var status2=document.getElementById('phase2-status');
+    if(circle2&&status2){
+        if(done>=5){
+            circle2.style.background='rgba(201,169,97,0.3)';
+            circle2.style.boxShadow='0 0 16px rgba(201,169,97,0.5)';
+            circle2.style.color='var(--gold)';
+            circle2.textContent='2';
+            status2.textContent='\u26a1 Ready to Unlock';
+            status2.style.color='var(--gold)';
+            status2.style.fontWeight='700';
+        } else {
+            circle2.style.background='#374151';
+            circle2.style.boxShadow='none';
+            circle2.style.color='#9CA3AF';
+            circle2.innerHTML='&#128274;';
+            status2.textContent='Locked';
+            status2.style.color='#6B7280';
+            status2.style.fontWeight='normal';
+        }
     }
 }
 
