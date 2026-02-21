@@ -76,7 +76,7 @@
     <div class="header-inner">
         <div class="brand">Trive<span>Health</span>&#8482;</div>
         <div style="display:flex;align-items:center;gap:1rem;">
-            <button class="print-btn" onclick="shareDashboard()">&#128279; Share Dashboard</button>
+
             <div style="text-align:right;color:rgba(255,255,255,0.8);font-size:0.875rem;">Assessment Date<br><b style="color:var(--gold);" class="d-date">&#8212;</b></div>
         </div>
     </div>
@@ -251,31 +251,10 @@
     <div id="readiness-pillars"></div>
 </div>
 
-<!-- ROADMAP — unchanged -->
+<!-- ROADMAP — dynamic based on pillar scores -->
 <div id="tab-roadmap" class="tab-panel" style="display:none;">
     <h3 class="section-title">12-Month Implementation Timeline</h3>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-phase">Months 1-3: Foundation</div>
-            <div class="timeline-title">Financial Systems &amp; Governance Structure</div>
-            <div class="timeline-desc">Implement comprehensive financial systems, engage audit firm, establish governance framework, begin data room preparation.</div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-phase">Months 4-6: Enhancement</div>
-            <div class="timeline-title">Audit Completion &amp; Process Documentation</div>
-            <div class="timeline-desc">Complete 3-year audited financials, quality of earnings analysis, document all SOPs, establish KPI dashboards.</div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-phase">Months 7-9: Validation</div>
-            <div class="timeline-title">External Validation &amp; Market Preparation</div>
-            <div class="timeline-desc">Management presentations, third-party technology assessment, customer reference programme, transaction advisor selection.</div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-phase">Months 10-12: Market Readiness</div>
-            <div class="timeline-title">Go-to-Market Execution</div>
-            <div class="timeline-desc">CIM preparation, controlled auction process, final due diligence prep, deal structure optimisation, buyer outreach.</div>
-        </div>
-    </div>
+    <div class="timeline" id="roadmap-timeline"></div>
 </div>
 
 <!-- ACTION PLAN — unchanged -->
@@ -677,14 +656,198 @@ function buildActionPlan(){
     container.innerHTML=html;
 }
 
+// ── Pillar content library for dynamic roadmap and milestones ──
+var pillarContent={
+    0:{
+        name:'Financial Health',
+        phase1title:'Financial Systems & Audit Preparation',
+        phase1desc:'Engage fractional CFO, implement cloud accounting system, commission 3-year independent audit, establish monthly management reporting and cash flow forecasting.',
+        phase2title:'Audit Completion & Financial Controls',
+        phase2desc:'Complete audited financials, quality of earnings analysis, implement financial KPI dashboard, establish working capital management processes.',
+        phase3title:'Financial Validation & Investor Readiness',
+        phase3desc:'Finalise audited accounts, prepare financial data room, commission independent quality of earnings report, develop 3-year financial projections.',
+        milestones:[
+            {title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and financial priority assessment.',tl:'Week 1-2',owner:'CEO'},
+            {title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts and reporting.',tl:'Week 3-8',owner:'CFO'},
+            {title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or reputable regional firm for 3-year historical audit. Sign engagement letter.',tl:'Week 8-10',owner:'CFO'},
+            {title:'Establish Management Reporting',priority:'High',col:'var(--orange)',desc:'Implement monthly P&L, balance sheet and cash flow reporting. Set up KPI dashboard.',tl:'Week 6-10',owner:'CFO'},
+            {title:'Begin Financial Data Room',priority:'High',col:'var(--orange)',desc:'Organise financial documents into investor-ready data room. Include 3-year financials and projections.',tl:'Week 10-12',owner:'CFO'}
+        ]
+    },
+    1:{
+        name:'Governance & Controls',
+        phase1title:'Governance Framework & Board Structure',
+        phase1desc:'Establish formal board of directors, appoint independent directors, document board charter and committee structure, implement delegation of authority matrix.',
+        phase2title:'Compliance & Policy Documentation',
+        phase2desc:'Complete all key policy documentation, implement quarterly compliance reporting, establish internal audit function, formalise shareholder agreements.',
+        phase3title:'Governance Validation & Independent Review',
+        phase3desc:'Commission independent governance review, implement board effectiveness assessment, complete compliance certification where applicable.',
+        milestones:[
+            {title:'Establish Board of Directors',priority:'Critical',col:'var(--red)',desc:'Formalise board structure. Identify and appoint independent non-executive directors.',tl:'Week 1-4',owner:'CEO'},
+            {title:'Document Board Charter',priority:'Critical',col:'var(--red)',desc:'Create board charter, committee terms of reference, and delegation of authority matrix.',tl:'Week 3-6',owner:'CEO'},
+            {title:'Engage Corporate Secretary',priority:'High',col:'var(--orange)',desc:'Appoint corporate secretary for proper governance recordkeeping and compliance.',tl:'Week 2-4',owner:'CEO'},
+            {title:'Document Key Policies',priority:'High',col:'var(--orange)',desc:'Document all material policies: HR, finance, IT, data protection, anti-corruption.',tl:'Week 6-10',owner:'Chairman'},
+            {title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room. Organise governance documents into standard M&A categories.',tl:'Week 10-12',owner:'TriveExec'}
+        ]
+    },
+    2:{
+        name:'Leadership & Team',
+        phase1title:'Leadership Assessment & Succession Planning',
+        phase1desc:'Conduct leadership team assessment, identify key person dependencies, build second-tier management layer, formalise HR policies and employment contracts.',
+        phase2title:'Talent Development & Retention',
+        phase2desc:'Implement leadership competency framework, establish retention programme for key talent, develop succession plans for all critical roles.',
+        phase3title:'Leadership Validation & Organisational Readiness',
+        phase3desc:'Commission independent leadership assessment, validate succession plans, implement performance management framework aligned to exit timeline.',
+        milestones:[
+            {title:'Leadership Team Assessment',priority:'Critical',col:'var(--red)',desc:'Conduct structured assessment of all senior leaders. Identify gaps and single-person dependencies.',tl:'Week 1-3',owner:'CEO'},
+            {title:'Build Second-Tier Management',priority:'Critical',col:'var(--red)',desc:'Identify, recruit or develop at least one deputy for each key leadership role.',tl:'Week 3-10',owner:'CEO'},
+            {title:'Formalise HR Policies',priority:'High',col:'var(--orange)',desc:'Document employment contracts, job descriptions, performance review process and compensation structure.',tl:'Week 4-8',owner:'HR/CEO'},
+            {title:'Implement Retention Programme',priority:'High',col:'var(--orange)',desc:'Design retention incentives for key talent. Consider ESOP or long-term incentive plan.',tl:'Week 6-12',owner:'CEO'},
+            {title:'Document Succession Plans',priority:'High',col:'var(--orange)',desc:'Create written succession plans for CEO and all C-suite roles. Test with scenario planning.',tl:'Week 8-12',owner:'Chairman'}
+        ]
+    },
+    3:{
+        name:'Market Position',
+        phase1title:'Market Positioning & Competitive Analysis',
+        phase1desc:'Commission independent market analysis, develop clear competitive positioning statement, build customer reference base, document total addressable market opportunity.',
+        phase2title:'Brand Development & Customer Validation',
+        phase2desc:'Formalise brand identity and messaging, build case studies and client testimonials, implement customer satisfaction measurement, document IP and competitive moat.',
+        phase3title:'Market Validation & Buyer Narrative',
+        phase3desc:'Commission third-party market validation, develop investor-ready market narrative, prepare competitive analysis for information memorandum.',
+        milestones:[
+            {title:'Commission Market Analysis',priority:'Critical',col:'var(--red)',desc:'Engage independent market research firm. Document TAM, SAM, SOM and growth trajectory.',tl:'Week 1-4',owner:'CEO'},
+            {title:'Define Competitive Positioning',priority:'Critical',col:'var(--red)',desc:'Develop clear positioning statement. Document key differentiators and competitive advantages.',tl:'Week 2-6',owner:'CEO'},
+            {title:'Build Customer Reference Base',priority:'High',col:'var(--orange)',desc:'Identify 5-10 referenceable customers. Develop case studies and testimonials.',tl:'Week 4-10',owner:'Sales'},
+            {title:'Implement CRM System',priority:'High',col:'var(--orange)',desc:'Deploy CRM to track pipeline, customer concentration and revenue visibility.',tl:'Week 3-8',owner:'Sales'},
+            {title:'Document IP Portfolio',priority:'High',col:'var(--orange)',desc:'Catalogue all IP, trademarks, patents and proprietary systems. Ensure proper registration.',tl:'Week 6-12',owner:'Legal'}
+        ]
+    },
+    4:{
+        name:'Operations & Scalability',
+        phase1title:'Operational Documentation & Process Mapping',
+        phase1desc:'Map and document all critical business processes, implement project management systems, establish quality control processes, create standard operating procedures.',
+        phase2title:'Systems Implementation & KPI Monitoring',
+        phase2desc:'Implement scalable technology infrastructure, establish operational KPI dashboard, automate key workflows, document technology stack and vendor relationships.',
+        phase3title:'Operational Validation & Scalability Review',
+        phase3desc:'Commission independent operational review, validate scalability for post-acquisition growth, document integration readiness for potential buyers.',
+        milestones:[
+            {title:'Map Critical Business Processes',priority:'Critical',col:'var(--red)',desc:'Document all revenue-generating and operational processes end-to-end using process maps.',tl:'Week 1-4',owner:'COO'},
+            {title:'Implement Project Management System',priority:'Critical',col:'var(--red)',desc:'Deploy PM tool (e.g. Asana, Monday.com). Establish standard project templates.',tl:'Week 2-5',owner:'COO'},
+            {title:'Create SOPs for Key Functions',priority:'High',col:'var(--orange)',desc:'Write standard operating procedures for all critical functions. Train team on SOPs.',tl:'Week 4-10',owner:'COO'},
+            {title:'Establish KPI Dashboard',priority:'High',col:'var(--orange)',desc:'Implement operational KPI monitoring. Define targets and reporting cadence.',tl:'Week 5-9',owner:'COO'},
+            {title:'Technology Stack Documentation',priority:'High',col:'var(--orange)',desc:'Document all systems, integrations, vendor contracts and technology dependencies.',tl:'Week 8-12',owner:'CTO/COO'}
+        ]
+    },
+    5:{
+        name:'Exit Readiness',
+        phase1title:'Exit Strategy Definition & Initial Documentation',
+        phase1desc:'Clarify preferred exit pathway (IPO/M&A/PE), engage exit advisor, commission preliminary valuation assessment, begin data room preparation.',
+        phase2title:'Due Diligence Preparation & Advisor Selection',
+        phase2desc:'Identify and address key due diligence risks, select transaction advisors, complete data room population, develop management presentation.',
+        phase3title:'Market Sounding & Transaction Preparation',
+        phase3desc:'Conduct controlled market sounding with potential buyers, refine valuation expectations, prepare information memorandum, finalise deal structure options.',
+        milestones:[
+            {title:'Engage Exit Advisor',priority:'Critical',col:'var(--red)',desc:'Select and engage TriveExec or specialist exit advisor. Define exit pathway and timeline.',tl:'Week 1-3',owner:'CEO'},
+            {title:'Commission Preliminary Valuation',priority:'Critical',col:'var(--red)',desc:'Commission preliminary valuation assessment to establish realistic exit value range.',tl:'Week 2-5',owner:'CFO'},
+            {title:'Set Up Virtual Data Room',priority:'High',col:'var(--orange)',desc:'Deploy VDR platform. Begin populating with financial, legal and operational documents.',tl:'Week 3-8',owner:'TriveExec'},
+            {title:'Identify Due Diligence Risks',priority:'High',col:'var(--orange)',desc:'Conduct pre-emptive due diligence review. Identify and remediate key risk areas.',tl:'Week 4-9',owner:'TriveExec'},
+            {title:'Develop Management Presentation',priority:'High',col:'var(--orange)',desc:'Prepare investor-ready management presentation covering strategy, financials and growth plan.',tl:'Week 8-12',owner:'CEO/CFO'}
+        ]
+    }
+};
+
+function buildRoadmap(){
+    var container=document.getElementById('roadmap-timeline');
+    if(!container) return;
+
+    // Sort pillars by score (weakest first) — exclude Exit Readiness (p6) from phase ordering
+    // as it's addressed in phase 3 for everyone
+    var pillarOrder=[];
+    for(var i=0;i<5;i++){
+        var pct=(urlP[i]/pillarMax[i])*100;
+        pillarOrder.push({idx:i,pct:pct});
+    }
+    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
+
+    var p1=pillarOrder[0].idx; // weakest
+    var p2=pillarOrder[1].idx; // second weakest
+
+    var pc1=pillarContent[p1];
+    var pc2=pillarContent[p2];
+
+    // Phase 3 validation title adapts to what was addressed in phases 1-2
+    var phase3title='External Validation & Market Preparation';
+    var phase3desc='Management presentations, third-party assessment of '+pc1.name+' and '+pc2.name+' improvements, customer reference programme, transaction advisor selection and engagement.';
+
+    var html='';
+
+    // Phase 1 — led by weakest pillar
+    html+='<div class="timeline-item">';
+    html+='<div class="timeline-phase">Months 1-3: Foundation</div>';
+    html+='<div class="timeline-title">'+pc1.phase1title+'</div>';
+    html+='<div class="timeline-desc">'+pc1.phase1desc+'</div>';
+    html+='</div>';
+
+    // Phase 2 — led by second weakest pillar
+    html+='<div class="timeline-item">';
+    html+='<div class="timeline-phase">Months 4-6: Enhancement</div>';
+    html+='<div class="timeline-title">'+pc2.phase2title+'</div>';
+    html+='<div class="timeline-desc">'+pc2.phase2desc+'</div>';
+    html+='</div>';
+
+    // Phase 3 — validation (semi-dynamic description)
+    html+='<div class="timeline-item">';
+    html+='<div class="timeline-phase">Months 7-9: Validation</div>';
+    html+='<div class="timeline-title">'+phase3title+'</div>';
+    html+='<div class="timeline-desc">'+phase3desc+'</div>';
+    html+='</div>';
+
+    // Phase 4 — always static Go-to-Market
+    html+='<div class="timeline-item">';
+    html+='<div class="timeline-phase">Months 10-12: Market Readiness</div>';
+    html+='<div class="timeline-title">Go-to-Market Execution</div>';
+    html+='<div class="timeline-desc">CIM preparation, controlled auction process, final due diligence prep, deal structure optimisation, buyer outreach.</div>';
+    html+='</div>';
+
+    container.innerHTML=html;
+}
+
 function buildMilestones(){
     var container=document.getElementById('phase1-milestones');
     if(!container) return;
-    var ms=[{title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and priority assessment.',tl:'Week 1-2',owner:'CEO'},{title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts.',tl:'Week 3-8',owner:'CFO'},{title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or regional firm for 3-year historical audit. Sign engagement letter.',tl:'Week 8-10',owner:'CFO'},{title:'Establish Governance Framework',priority:'High',col:'var(--orange)',desc:'Document board structure, committee charters, delegation of authority matrix.',tl:'Week 6-12',owner:'CEO'},{title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room platform and organise into standard M&A categories.',tl:'Week 10-12',owner:'TriveExec'}];
+
+    // Build milestone pool from 2 weakest pillars (5 total — always)
+    var pillarOrder=[];
+    for(var i=0;i<urlP.length;i++){
+        var pct=(urlP[i]/pillarMax[i])*100;
+        pillarOrder.push({idx:i,pct:pct});
+    }
+    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
+
+    var weakest=pillarOrder[0].idx;
+    var second=pillarOrder[1].idx;
+
+    // Take first 3 milestones from weakest pillar, first 2 from second weakest
+    var ms=[];
+    var w=pillarContent[weakest].milestones;
+    var s=pillarContent[second].milestones;
+    for(var j=0;j<3&&j<w.length;j++) ms.push(w[j]);
+    for(var k=0;k<2&&k<s.length;k++) ms.push(s[k]);
+
     var html='';
     for(var i=0;i<ms.length;i++){
         var m=ms[i];
-        html+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;"><div style="display:flex;align-items:flex-start;gap:1rem;"><input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);"><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+m.title+'</strong><span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span></div><p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p><div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div></div></div></div>';
+        html+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
+        html+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
+        html+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
+        html+='<div style="flex:1;">';
+        html+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
+        html+='<strong style="color:var(--gold);">'+m.title+'</strong>';
+        html+='<span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span>';
+        html+='</div>';
+        html+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p>';
+        html+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div>';
+        html+='</div></div></div>';
     }
     container.innerHTML=html;
 }
@@ -719,25 +882,13 @@ function requestValidation(){
     window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
 }
 
-function shareDashboard(){
-    var url=window.location.href;
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(url).then(function(){
-            alert('Dashboard link copied to clipboard!\n\nShare this link to give access to your personalised dashboard.');
-        }).catch(function(){
-            prompt('Copy your dashboard link:',url);
-        });
-    } else {
-        prompt('Copy your dashboard link:',url);
-    }
-}
-
 window.onload=function(){
     fillAll();
     buildPillarCards();
     buildValueDrivers();
     buildReadinessPillars();
     buildActionPlan();
+    buildRoadmap();
     buildMilestones();
     setTimeout(highlightPackage,100);
 };
