@@ -120,7 +120,7 @@
             <div style="text-align:center;">
                 <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Critical Gap</div>
                 <div style="font-size:1.5rem;font-weight:700;color:var(--red);margin-top:0.75rem;"><span class="d-gap">&#8212;</span></div>
-                <div style="color:white;"><span class="d-p1">&#8212;</span>/30 Score</div>
+                <div style="color:white;"><span id="gap-score">&#8212;</span>/<span id="gap-max">&#8212;</span> Score</div>
             </div>
             <div style="text-align:center;">
                 <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Readiness Premium</div>
@@ -229,15 +229,7 @@
         </tbody>
     </table>
 
-    <!-- CHANGE 3: Budget Planning Note — new, ASEAN-generic + Singapore sublayer -->
-    <div style="background:rgba(16,185,129,0.06);border-left:4px solid var(--gold);border-radius:4px;padding:1rem 1.25rem;margin-top:1.25rem;margin-bottom:1.5rem;">
-        <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#128161; Budget Planning Note</strong>
-        <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Government grants and subsidies may be available in your market to offset implementation costs. Engage a local advisor to explore eligibility before committing budgets.</p>
-        <div style="border-top:1px solid rgba(201,169,97,0.25);padding-top:0.75rem;">
-            <p style="font-size:0.8rem;color:var(--gold);font-weight:600;margin-bottom:0.25rem;">&#127480;&#127468; Singapore SMEs</p>
-            <p style="font-size:0.8rem;color:#D1D5DB;">May qualify for <strong style="color:white;">PSG</strong> (up to 50% subsidy, capped at S$30,000/year) and <strong style="color:white;">EDG</strong> grants via the Business Grants Portal (BGP).</p>
-        </div>
-    </div>
+
 
     <div class="grid-3" style="margin-top:1rem;">
         <div class="card"><h4>Value Drivers</h4><div id="value-drivers"></div></div>
@@ -277,7 +269,7 @@
                     <div style="color:#9CA3AF;font-size:0.78rem;margin-top:0.4rem;"><span id="leakage-mult-low">&#8212;</span>x &#8211; <span id="leakage-mult-high">&#8212;</span>x multiple discount vs fully prepared peer</div>
                 </div>
                 <div id="leakage-worst-pillar" style="margin-top:0.75rem;background:rgba(30,42,58,0.6);border-radius:6px;padding:0.875rem;"></div>
-                <p style="color:#6B7280;font-size:0.72rem;line-height:1.6;margin-top:0.75rem;">&#9432; Indicative estimate based on TriveHealth&#8482; pillar scores and sector benchmarks. Not a formal valuation opinion.</p>
+                <p style="color:#6B7280;font-size:0.72rem;line-height:1.6;margin-top:0.75rem;">&#9432; This is an illustrative estimate only, based on TriveHealth&#8482; pillar scores and indicative ASEAN mid-market benchmarks. Figures are directional and should not be relied upon for investment, transaction, or financial decisions. Actual valuation impact depends on your specific financials, sector conditions, buyer appetite and deal structure. For a personalised assessment, book a Strategy Call with TriveExec.</p>
             </div>
             <div id="leakage-prompt" style="margin-top:1.25rem;text-align:center;color:#6B7280;font-size:0.85rem;">Select your EBITDA range above to calculate your value leakage</div>
         </div>
@@ -294,7 +286,7 @@
 <div id="tab-readiness" class="tab-panel" style="display:none;">
     <h3 class="section-title">Exit Readiness Diagnosis</h3>
     <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
-        <p style="color:#E5E7EB;line-height:1.7;margin:0;">This is your honest diagnostic across all six pillars. It shows where your business stands today — strengths, weaknesses and the size of each gap. For your prioritised action list, see the <strong style="color:var(--gold);">Action Plan</strong> tab.</p>
+        <p style="color:#E5E7EB;line-height:1.7;margin:0;">This is your complete six-pillar diagnostic — scores, performance tier and detailed findings for all six areas of your business. Use this to understand the full picture behind your Action Plan priorities. Your top 5 actions derived from this diagnostic are in the <strong style="color:var(--gold);">Action Plan</strong> tab.</p>
     </div>
     <div id="readiness-pillars"></div>
 </div>
@@ -309,7 +301,16 @@
 <div id="tab-actions" class="tab-panel" style="display:none;">
     <h3 class="section-title">Your 90-Day Action Plan</h3>
     <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
-        <p style="color:#E5E7EB;line-height:1.7;margin:0;">These are your <strong style="color:var(--gold);">top priority actions right now</strong> — ranked by impact on your exit valuation. Start here before anything else. For the full diagnostic behind these priorities, see the <strong style="color:var(--gold);">Exit Readiness</strong> tab.</p>
+        <p style="color:#E5E7EB;line-height:1.7;margin:0;">These are your <strong style="color:var(--gold);">top 5 priority actions right now</strong> — ranked by impact on your exit valuation. Start here before anything else. For the full six-pillar diagnostic behind these priorities, see the <strong style="color:var(--gold);">Exit Readiness</strong> tab.</p>
+    </div>
+    <!-- BUDGET PLANNING NOTE -->
+    <div style="background:rgba(16,185,129,0.06);border-left:4px solid var(--gold);border-radius:4px;padding:1rem 1.25rem;margin-bottom:1.5rem;">
+        <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#128161; Budget Planning Note</strong>
+        <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Government grants and subsidies may be available in your market to offset implementation costs. Engage a local advisor to explore eligibility before committing budgets.</p>
+        <div style="border-top:1px solid rgba(201,169,97,0.25);padding-top:0.75rem;">
+            <p style="font-size:0.8rem;color:var(--gold);font-weight:600;margin-bottom:0.25rem;">&#127480;&#127468; Singapore SMEs</p>
+            <p style="font-size:0.8rem;color:#D1D5DB;">May qualify for <strong style="color:white;">PSG</strong> (up to 50% subsidy, capped at S$30,000/year) and <strong style="color:white;">EDG</strong> grants via the Business Grants Portal (BGP).</p>
+        </div>
     </div>
     <div id="action-plan-content" style="background:linear-gradient(135deg,#1E2A3A,#1E3A5F);border:3px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;"></div>
     <div class="cta">
@@ -679,8 +680,9 @@ function fillAll(){
     var gradeMap={'A':'Highly Attractive','A-':'Very Strong','B+':'Strong Potential','B':'Good Foundation','B-':'Moderate Readiness','C+':'Developing','C':'Significant Work Needed','C-':'Major Gaps','D':'Early Stage','F':'Not Ready'};
     var g=urlGrade.charAt(0)+urlGrade.charAt(1);
     var gradeDesc=gradeMap[urlGrade]||gradeMap[g]||'Assessment Complete';
-    var minScore=urlP[0],lowestIdx=0;
-    for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
+    // Find lowest pillar by percentage (not raw score) for accurate critical gap
+    var minPct=(urlP[0]/pillarMax[0]),lowestIdx=0;
+    for(var i=1;i<urlP.length;i++){var p=urlP[i]/pillarMax[i];if(p<minPct){minPct=p;lowestIdx=i;}}
 
     // CHANGE 7: Updated premium tiers (was 4 tiers, now 5 with correct ranges)
     var premium, premiumSubtitle;
@@ -710,6 +712,8 @@ function fillAll(){
     setAll('d-grade-desc',gradeDesc);
     setAll('d-pct',pct);
     setAll('d-gap',pillarName[lowestIdx]);
+    var gsEl=document.getElementById('gap-score'); if(gsEl) gsEl.textContent=urlP[lowestIdx];
+    var gmEl=document.getElementById('gap-max'); if(gmEl) gmEl.textContent=pillarMax[lowestIdx];
     setAll('d-p1',urlP[0]); setAll('d-p2',urlP[1]); setAll('d-p3',urlP[2]);
     setAll('d-p4',urlP[3]); setAll('d-p5',urlP[4]); setAll('d-p6',urlP[5]);
     setAll('d-premium',premium);
@@ -837,24 +841,81 @@ function buildReadinessPillars(){
 function buildActionPlan(){
     var container=document.getElementById('action-plan-content');
     if(!container) return;
-    var thresholds=[[22,'Financial Health','Commission forensic-ready financial clean-up and appoint CFO','Commission independent financial audit and implement monthly reporting','30-60 days','CFO Advisory'],[15,'Governance & Controls','Establish board of directors and implement compliance framework','Formalise board structure and appoint independent directors','60-90 days','Governance Advisory'],[15,'Leadership & Team','Immediate leadership assessment and reduce key person dependency','Build second-tier management and formalise HR policies','60-90 days','People Advisory'],[15,'Market Position','Commission market positioning analysis and build customer reference base','Develop competitive positioning and document market advantages','30-60 days','Strategy Advisory'],[12,'Operations & Scalability','Document all critical processes and implement basic systems','Map operational processes and implement KPI monitoring','60-90 days','Operations Advisory'],[10,'Exit Readiness','Engage exit advisor and develop 3-year exit preparation roadmap','Clarify exit pathway and commission preliminary valuation assessment','30-60 days','Exit Advisory']];
+    // Each threshold: [max, pillarName, critical action, high action, moderate action, timeline, service]
+    var thresholds=[
+        [30,22,14,'Financial Health',
+            'Commission forensic-ready financial clean-up, appoint fractional CFO immediately and begin 3-year independent audit process.',
+            'Commission independent financial audit, implement cloud accounting system and establish monthly management reporting.',
+            'Review and strengthen financial reporting processes and implement basic KPI dashboard.',
+            '30-60 days','CFO Advisory'],
+        [20,15,10,'Governance & Controls',
+            'Establish formal board of directors, appoint independent directors and implement full compliance framework immediately.',
+            'Formalise board structure, appoint independent directors and document all key governance policies.',
+            'Review governance documentation and formalise key policies and board meeting cadence.',
+            '60-90 days','Governance Advisory'],
+        [20,15,10,'Leadership & Team',
+            'Conduct immediate leadership assessment, identify key person dependencies and begin building second-tier management urgently.',
+            'Build second-tier management layer, formalise HR policies and implement retention programme for key talent.',
+            'Document succession plans and formalise performance management processes.',
+            '60-90 days','People Advisory'],
+        [20,15,10,'Market Position',
+            'Commission independent market positioning analysis, build customer reference base and document competitive advantages urgently.',
+            'Develop clear competitive positioning, implement CRM system and build referenceable customer base.',
+            'Strengthen market documentation and begin building customer case studies.',
+            '30-60 days','Strategy Advisory'],
+        [16,12,8,'Operations & Scalability',
+            'Document all critical processes immediately, implement project management system and establish operational KPI monitoring.',
+            'Map and document operational processes, implement KPI dashboard and create SOPs for key functions.',
+            'Review and strengthen existing process documentation and operational reporting.',
+            '60-90 days','Operations Advisory'],
+        [14,10,6,'Exit Readiness',
+            'Engage exit advisor immediately, define exit pathway, commission preliminary valuation and begin data room preparation.',
+            'Clarify preferred exit pathway, commission preliminary valuation assessment and begin organising key documents.',
+            'Review exit timeline assumptions and ensure key exit documentation is being maintained.',
+            '30-60 days','Exit Advisory']
+    ];
     var allActions=[];
     for(var i=0;i<urlP.length;i++){
         var t=thresholds[i];
-        if(urlP[i]<t[0]){
-            var crit=urlP[i]<(t[0]/2);
-            allActions.push({priority:crit?'critical':'high',pillar:t[1],action:crit?t[2]:t[3],timeline:t[4],service:t[5]});
+        var maxScore=t[0],critT=t[2],highT=t[1],pillar=t[3];
+        var actCrit=t[4],actHigh=t[5],actMod=t[6],timeline=t[7],service=t[8];
+        var pct=(urlP[i]/maxScore)*100;
+        var gapPct=((maxScore-urlP[i])/maxScore)*100; // gap from maximum for sorting
+        var priority, action;
+        if(urlP[i]<critT){
+            priority='critical'; action=actCrit;
+        } else if(urlP[i]<highT){
+            priority='high'; action=actHigh;
+        } else if(pct<75){
+            priority='moderate'; action=actMod;
+        } else {
+            continue; // pillar performing well — skip
         }
+        allActions.push({priority:priority,pillar:pillar,action:action,timeline:timeline,service:service,score:urlP[i],max:maxScore,gapPct:gapPct});
     }
-    allActions.sort(function(a,b){return ({critical:0,high:1})[a.priority]-({critical:0,high:1})[b.priority];});
+    // Sort: critical first, then high, then moderate — within each tier sort by worst gap %
+    var order={critical:0,high:1,moderate:2};
+    allActions.sort(function(a,b){
+        if(order[a.priority]!==order[b.priority]) return order[a.priority]-order[b.priority];
+        return b.gapPct-a.gapPct; // within same tier: biggest gap first
+    });
     var top5=allActions.slice(0,5);
-    var html='<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your assessment, here are your priority actions for the next 90 days.</p>';
+    var html='<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your pillar scores, here are your highest-impact actions for the next 90 days — ordered by urgency and exit valuation impact.</p>';
     if(top5.length===0){
         html+='<p style="color:var(--green);font-weight:600;">\u2713 All pillars performing well. Focus on maintaining standards and preparing investor documentation.</p>';
     } else {
         for(var j=0;j<top5.length;j++){
-            var item=top5[j],bc=item.priority==='critical'?'var(--red)':'var(--orange)';
-            html+='<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;text-transform:uppercase;">'+item.priority+'</span></div><p style="color:#E5E7EB;margin:0.25rem 0 0.5rem;">'+item.action+'</p><div style="display:flex;gap:1.5rem;font-size:0.85rem;color:#9CA3AF;"><span>'+item.timeline+'</span><span>'+item.service+'</span></div></div>';
+            var item=top5[j];
+            var bc=item.priority==='critical'?'var(--red)':item.priority==='high'?'var(--orange)':'#6B7280';
+            var label=item.priority==='critical'?'CRITICAL':item.priority==='high'?'HIGH':'MODERATE';
+            html+='<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;">';
+            html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;">';
+            html+='<div style="display:flex;align-items:center;gap:0.5rem;"><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;">'+label+'</span></div>';
+            html+='<span style="font-size:0.78rem;color:#9CA3AF;">Score: <strong style="color:white;">'+item.score+'/'+item.max+'</strong> ('+Math.round((item.score/item.max)*100)+'%)</span>';
+            html+='</div>';
+            html+='<p style="color:#E5E7EB;margin:0.25rem 0 0.75rem;line-height:1.6;">'+item.action+'</p>';
+            html+='<div style="display:flex;gap:1.5rem;font-size:0.82rem;color:#9CA3AF;"><span>&#128197; '+item.timeline+'</span><span>&#128203; '+item.service+'</span></div>';
+            html+='</div>';
         }
     }
     container.innerHTML=html;
@@ -1325,12 +1386,18 @@ var industryBenchmarks={
     'Other':{label:'General SME',ebitda:2000000}
 };
 var pillarDiscounts=[
-    {mildT:22,sevT:14,d:[0.0,0.3,0.3,0.7,0.8,1.5]},
-    {mildT:15,sevT:10,d:[0.0,0.3,0.3,0.6,0.6,1.2]},
-    {mildT:15,sevT:10,d:[0.0,0.2,0.3,0.8,1.0,2.0]},
-    {mildT:15,sevT:10,d:[0.0,0.3,0.3,0.6,0.6,1.2]},
-    {mildT:12,sevT:8, d:[0.0,0.2,0.2,0.5,0.5,1.0]},
-    {mildT:10,sevT:6, d:[0.0,0.2,0.2,0.5,0.5,1.0]}
+    // Financial Health:  above mild=no discount, mild gap=0.1-0.4x, severe=0.4-0.8x
+    {mildT:22,sevT:14,d:[0.0,0.2,0.2,0.4,0.4,0.8]},
+    // Governance:        above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.6x
+    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.6]},
+    // Leadership:        above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.7x
+    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.7]},
+    // Market Position:   above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.6x
+    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.6]},
+    // Operations:        above mild=no discount, mild gap=0.1-0.2x, severe=0.2-0.4x
+    {mildT:12,sevT:8, d:[0.0,0.1,0.1,0.2,0.2,0.4]},
+    // Exit Readiness:    above mild=no discount, mild gap=0.1-0.2x, severe=0.2-0.4x
+    {mildT:10,sevT:6, d:[0.0,0.1,0.1,0.2,0.2,0.4]}
 ];
 function fmtSGD(v){if(v>=1000000)return (v/1000000).toFixed(2)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
 function fmtM(v){if(v>=1000000)return (v/1000000).toFixed(1)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
@@ -1379,7 +1446,7 @@ function calculateValueLeakage(){
         totalLow+=lo;totalHigh+=hi;
         if(hi>worst.high){worst={name:pillarName[i],high:hi,low:lo,idx:i};}
     }
-    totalLow=Math.min(totalLow,5.0);totalHigh=Math.min(totalHigh,8.0);
+    totalLow=Math.min(totalLow,2.0);totalHigh=Math.min(totalHigh,3.5);
     var ll=ebitda*totalLow,lh=ebitda*totalHigh;
     var rEl=document.getElementById('leakage-result'),pEl=document.getElementById('leakage-prompt');
     var lo2=document.getElementById('leakage-low'),hi2=document.getElementById('leakage-high');
@@ -1493,18 +1560,19 @@ function switchToValuation(e){
     for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.indexOf('Valuation')>-1)btns[i].classList.add('active');}
 }
 function getRecommendedPkg(){
-    var pillarsBelow15=0;
-    for(var i=0;i<urlP.length;i++){if(urlP[i]<15)pillarsBelow15++;}
-    if(pillarsBelow15>=3) return 'accelerator';
-    if(urlP[0]<10) return 'health';
-    return 'assessment';
+    // Grade-based recommendation — aligned to the grade shown throughout the dashboard
+    var g=urlGrade.charAt(0);
+    if(g==='A'||g==='B') return 'health';
+    if(g==='C') return 'assessment';
+    return 'accelerator'; // D, F or unknown
 }
 function buildRecBox(){
     var rec=getRecommendedPkg();
+    var g=urlGrade.charAt(0);
     var pkgData={
-        'health':{name:'Annual Business Health Check',reason:'Your assessment shows a strong foundation with specific gaps that can be systematically closed. An Annual Business Health Check will keep your business improving year on year toward a premium exit.'},
-        'assessment':{name:'Exit Readiness Assessment',reason:'Your scores indicate targeted gaps on a solid base. A deep-dive Exit Readiness Assessment will give you a precise gap analysis and a prioritised roadmap to institutional-grade readiness.'},
-        'accelerator':{name:'Exit Accelerator Program',reason:'Your pillar scores show critical gaps across multiple areas. The Exit Accelerator provides a dedicated fractional team to achieve institutional-grade readiness within 12–18 months.'}
+        'health':{name:'Annual Business Health Check',reason:'Your Grade '+urlGrade+' score reflects a strong foundation across most pillars. An Annual Business Health Check will keep your business on track, monitor progress year on year and ensure you maintain premium exit readiness.'},
+        'assessment':{name:'Exit Readiness Assessment',reason:'Your Grade '+urlGrade+' score indicates targeted gaps on an otherwise solid base. A deep-dive Exit Readiness Assessment will give you a precise gap analysis and a prioritised action roadmap to close those gaps before exit.'},
+        'accelerator':{name:'Exit Accelerator Program',reason:'Your Grade '+urlGrade+' score shows critical gaps across multiple pillars that require structured remediation. The Exit Accelerator provides a dedicated fractional team to systematically close those gaps and achieve exit readiness within 12–24 months.'}
     };
     var d=pkgData[rec]||pkgData['assessment'];
     var nm=document.getElementById('rec-pkg-name');
