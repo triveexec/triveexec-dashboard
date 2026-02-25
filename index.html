@@ -76,7 +76,7 @@
     <div class="header-inner">
         <div class="brand">Trive<span>Health</span>&#8482;</div>
         <div style="display:flex;align-items:center;gap:1rem;">
-
+            <button class="print-btn" onclick="window.print()">&#128196; Download PDF</button>
             <div style="text-align:right;color:rgba(255,255,255,0.8);font-size:0.875rem;">Assessment Date<br><b style="color:var(--gold);" class="d-date">&#8212;</b></div>
         </div>
     </div>
@@ -95,6 +95,7 @@
     <div class="tab-btn active" onclick="showTab('dashboard',this)">&#128202; Dashboard</div>
     <div class="tab-btn" onclick="showTab('valuation',this)">&#128176; Valuation Analysis</div>
     <div class="tab-btn" onclick="showTab('readiness',this)">&#10003; Exit Readiness</div>
+    <div class="tab-btn" onclick="showTab('roadmap',this)">&#128506; Improvement Roadmap</div>
     <div class="tab-btn" onclick="showTab('actions',this)">&#127919; Action Plan</div>
     <div class="tab-btn" onclick="showTab('benchmarking',this)">&#128200; Benchmarking</div>
     <div class="tab-btn" onclick="showTab('services',this)">&#127873; Service Packages</div>
@@ -102,7 +103,7 @@
 </div>
 <div class="content-wrap">
 
-<!-- DASHBOARD — unchanged -->
+<!-- DASHBOARD -->
 <div id="tab-dashboard" class="tab-panel" style="display:block;">
     <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
         <div style="text-align:center;margin-bottom:1.5rem;">
@@ -120,7 +121,7 @@
             <div style="text-align:center;">
                 <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Critical Gap</div>
                 <div style="font-size:1.5rem;font-weight:700;color:var(--red);margin-top:0.75rem;"><span class="d-gap">&#8212;</span></div>
-                <div style="color:white;"><span id="gap-score">&#8212;</span>/<span id="gap-max">&#8212;</span> Score</div>
+                <div style="color:white;"><span class="d-p1">&#8212;</span>/30 Score</div>
             </div>
             <div style="text-align:center;">
                 <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Readiness Premium</div>
@@ -128,9 +129,9 @@
                 <div style="color:var(--green);font-weight:600;">Above standard multiple</div>
             </div>
             <div style="text-align:center;">
-                <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Exit Timeline</div>
-                <div style="font-size:1.6rem;font-weight:800;color:var(--gold);margin-top:0.5rem;" id="dash-exit-timeline">&#8212;</div>
-                <div style="color:#D1D5DB;font-weight:600;">estimated to exit-ready</div>
+                <div style="font-size:0.8rem;color:var(--light-gold);margin-bottom:0.5rem;text-transform:uppercase;">Grant Funding</div>
+                <div style="font-size:2rem;font-weight:800;color:var(--green);margin-top:0.5rem;">Up to 50%</div>
+                <div style="color:#D1D5DB;font-weight:600;">costs may be subsidised</div>
             </div>
         </div>
         <div style="background:rgba(201,169,97,0.1);padding:1.5rem;border-radius:8px;border-left:4px solid var(--gold);">
@@ -140,7 +141,7 @@
             </div>
             <div style="display:flex;gap:1rem;align-items:center;">
                 <div style="font-size:2rem;">&#9889;</div>
-                <div><strong style="color:var(--gold);display:block;margin-bottom:0.25rem;">Immediate Action</strong><span id="exec-immediate-action" style="line-height:1.6;">&#8212;</span></div>
+                <div><strong style="color:var(--gold);display:block;margin-bottom:0.25rem;">Immediate Action</strong><span style="line-height:1.6;">Address your critical gap first to capture maximum valuation premium within 3-6 months.</span></div>
             </div>
         </div>
     </div>
@@ -164,24 +165,10 @@
         </div>
         <div class="card">
             <h3 style="font-size:1.5rem;font-weight:700;color:#F9FAFB;margin-bottom:1rem;">Assessment Summary</h3>
-            <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.25rem;" class="d-summary-long">Assessment complete. Review your pillar scores below.</p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.25rem;">
-                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
-                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Valuation Risk</div>
-                    <div style="font-weight:700;color:white;font-size:0.85rem;" id="summary-val-risk">&#8212;</div>
-                </div>
-                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
-                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Biggest Gap</div>
-                    <div style="font-weight:700;color:var(--red);font-size:0.85rem;" class="d-gap">&#8212;</div>
-                </div>
-                <div style="background:rgba(30,42,58,0.6);padding:0.875rem;border-radius:8px;text-align:center;">
-                    <div style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.35rem;">Timeline</div>
-                    <div style="font-weight:700;color:white;font-size:0.85rem;" id="summary-timeline">&#8212;</div>
-                </div>
-            </div>
-            <div style="background:rgba(201,169,97,0.1);padding:1.25rem;border-radius:8px;border-left:4px solid var(--gold);">
-                <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#127919; Your #1 Priority:</strong>
-                <p style="color:#D1D5DB;margin:0;line-height:1.6;" id="summary-priority">&#8212;</p>
+            <p style="color:#D1D5DB;line-height:1.8;margin-bottom:1.5rem;" class="d-summary-long">Assessment complete. Review your pillar scores below.</p>
+            <div style="background:rgba(30,42,58,0.5);padding:1.5rem;border-radius:8px;border-left:4px solid var(--gold);">
+                <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">Priority Focus:</strong>
+                <p style="color:#D1D5DB;margin:0;">Address your critical gap first to capture maximum valuation premium within 3-6 months.</p>
             </div>
         </div>
     </div>
@@ -189,436 +176,218 @@
     <div class="pillar-grid" id="pillar-grid-dashboard"></div>
 </div>
 
-<!-- VALUATION — UPDATED -->
+<!-- VALUATION -->
 <div id="tab-valuation" class="tab-panel" style="display:none;">
-
-    <!-- CHANGE 1: Premium Potential header — now fully dynamic -->
     <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:2rem;color:white;">
         <div style="background:var(--gold);color:#1E2A3A;display:inline-block;padding:0.5rem 1.25rem;border-radius:20px;font-size:0.875rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem;">Premium Potential</div>
         <div style="font-size:3.5rem;font-weight:800;"><span class="d-premium">&#8212;</span></div>
-        <div style="font-size:1.125rem;color:var(--light-gold);" class="val-premium-subtitle">&#8212;</div>
+        <div style="font-size:1.125rem;color:var(--light-gold);">Achievable within 3-6 months | Timeline: <span class="d-timeline">&#8212;</span></div>
     </div>
-
-    <!-- CHANGE 2: Valuation Multiple Analysis table — 4 rows, 2 proprietary -->
     <h3 class="section-title">Valuation Multiple Analysis</h3>
     <table>
         <thead><tr><th>Metric</th><th>Current</th><th>Target</th><th>Uplift</th></tr></thead>
         <tbody>
-            <tr>
-                <td><strong style="color:var(--gold);">EBITDA Multiple</strong><br><span style="font-size:0.75rem;color:#9CA3AF;">Indicative ASEAN mid-market data</span></td>
-                <td>5.5-6.5x</td><td>6.5-8.0x</td>
-                <td style="color:var(--green);font-weight:700;">+1.0-1.5x</td>
-            </tr>
-            <tr>
-                <td><strong style="color:var(--gold);">Revenue Multiple</strong><br><span style="font-size:0.75rem;color:#9CA3AF;">Indicative ASEAN mid-market data</span></td>
-                <td>0.8-1.0x</td><td>1.0-1.2x</td>
-                <td style="color:var(--green);font-weight:700;">+0.2x</td>
-            </tr>
-            <tr>
-                <td><strong style="color:var(--gold);">Readiness Premium / Discount</strong><br><span style="font-size:0.75rem;color:var(--gold);">&#9733; TriveExec Proprietary Index&#8482;</span></td>
-                <td class="val-readiness-current">&#8212;</td>
-                <td class="val-readiness-target">&#8212;</td>
-                <td class="val-readiness-gap" style="font-weight:700;">&#8212;</td>
-            </tr>
-            <tr>
-                <td><strong style="color:var(--gold);">Valuation Uplift Potential</strong><br><span style="font-size:0.75rem;color:var(--gold);">&#9733; TriveExec Proprietary Index&#8482;</span></td>
-                <td>Current readiness score</td>
-                <td class="val-uplift-target">&#8212;</td>
-                <td class="val-uplift-gap" style="color:var(--green);font-weight:700;">&#8212;</td>
-            </tr>
+            <tr><td><strong style="color:var(--gold);">EBITDA Multiple</strong></td><td>5.5-6.5x</td><td>6.5-8.0x</td><td style="color:var(--green);font-weight:700;">+1.0-1.5x</td></tr>
+            <tr><td><strong style="color:var(--gold);">Revenue Multiple</strong></td><td>0.8-1.0x</td><td>1.0-1.2x</td><td style="color:var(--green);font-weight:700;">+0.2x</td></tr>
         </tbody>
     </table>
-
-
-
-    <div class="grid-3" style="margin-top:1rem;">
+    <div class="grid-3" style="margin-top:2rem;">
         <div class="card"><h4>Value Drivers</h4><div id="value-drivers"></div></div>
         <div class="card">
-            <h4>&#128181; Value Leakage Calculator</h4>
-            <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;">Based on your pillar scores, estimate how much exit value you are currently leaving on the table versus a fully prepared peer.</p>
-            <!-- MODE TOGGLE -->
-            <div style="display:flex;gap:0.75rem;margin-bottom:1.25rem;">
-                <button id="btn-own-ebitda" onclick="switchEbitdaMode('own')" style="flex:1;padding:0.6rem;border-radius:6px;border:2px solid var(--gold);background:var(--gold);color:#1E2A3A;font-weight:700;font-size:0.8rem;cursor:pointer;">Use My EBITDA</button>
-                <button id="btn-bench-ebitda" onclick="switchEbitdaMode('benchmark')" style="flex:1;padding:0.6rem;border-radius:6px;border:2px solid var(--gold);background:transparent;color:var(--gold);font-weight:700;font-size:0.8rem;cursor:pointer;">Sector Benchmark</button>
+            <h4>&#127963; Singapore Government Grants</h4>
+            <div style="margin-bottom:1rem;">
+                <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#D1D5DB;font-size:0.9rem;"><span>Productivity Solutions Grant (PSG)</span><span style="color:var(--green);font-weight:700;">Up to 50%</span></div>
+                <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);color:#D1D5DB;font-size:0.9rem;"><span>Enterprise Development Grant (EDG)</span><span style="color:var(--green);font-weight:700;">Up to 50%</span></div>
             </div>
-            <!-- OWN EBITDA -->
-            <div id="own-ebitda-panel">
-                <label style="color:#9CA3AF;font-size:0.8rem;display:block;margin-bottom:0.5rem;">Select your approximate annual EBITDA (S$)</label>
-                <select id="ebitda-select" onchange="calculateValueLeakage()" style="width:100%;padding:0.75rem;border-radius:6px;border:1px solid rgba(201,169,97,0.4);background:#1E2A3A;color:white;font-size:0.9rem;">
-                    <option value="">-- Select a range --</option>
-                    <option value="350000">Under S$500,000</option>
-                    <option value="750000">S$500,000 &#8211; S$1,000,000</option>
-                    <option value="1500000">S$1,000,000 &#8211; S$2,000,000</option>
-                    <option value="3500000">S$2,000,000 &#8211; S$5,000,000</option>
-                    <option value="7500000">S$5,000,000 &#8211; S$10,000,000</option>
-                    <option value="12000000">Above S$10,000,000</option>
-                </select>
-            </div>
-            <!-- BENCHMARK -->
-            <div id="benchmark-ebitda-panel" style="display:none;">
-                <div style="background:rgba(201,169,97,0.08);border-radius:6px;padding:1rem;border-left:3px solid var(--gold);">
-                    <span style="color:#9CA3AF;font-size:0.8rem;">Sector benchmark for </span><span id="bench-industry-label" style="color:var(--gold);font-weight:700;font-size:0.875rem;">your industry</span><br>
-                    <span style="color:white;font-size:1.1rem;font-weight:700;">S$<span id="bench-ebitda-value">&#8212;</span></span><span style="color:#9CA3AF;font-size:0.8rem;"> EBITDA (mid-market benchmark)</span>
-                </div>
-            </div>
-            <!-- RESULT -->
-            <div id="leakage-result" style="margin-top:1.25rem;display:none;">
-                <div style="background:linear-gradient(135deg,rgba(220,38,38,0.15),rgba(220,38,38,0.05));border:1px solid rgba(220,38,38,0.4);border-radius:8px;padding:1.25rem;text-align:center;">
-                    <div style="color:#9CA3AF;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">Estimated Value Leakage</div>
-                    <div style="font-size:1.75rem;font-weight:800;color:#F87171;">S$<span id="leakage-low">&#8212;</span> &#8211; S$<span id="leakage-high">&#8212;</span></div>
-                    <div style="color:#9CA3AF;font-size:0.78rem;margin-top:0.4rem;"><span id="leakage-mult-low">&#8212;</span>x &#8211; <span id="leakage-mult-high">&#8212;</span>x multiple discount vs fully prepared peer</div>
-                </div>
-                <div id="leakage-worst-pillar" style="margin-top:0.75rem;background:rgba(30,42,58,0.6);border-radius:6px;padding:0.875rem;"></div>
-                <p style="color:#6B7280;font-size:0.72rem;line-height:1.6;margin-top:0.75rem;">&#9432; This is an illustrative estimate only, based on TriveHealth&#8482; pillar scores and indicative ASEAN mid-market benchmarks. Figures are directional and should not be relied upon for investment, transaction, or financial decisions. Actual valuation impact depends on your specific financials, sector conditions, buyer appetite and deal structure. For a personalised assessment, book a Strategy Call with TriveExec.</p>
-            </div>
-            <div id="leakage-prompt" style="margin-top:1.25rem;text-align:center;color:#6B7280;font-size:0.85rem;">Select your EBITDA range above to calculate your value leakage</div>
+            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold" style="display:block;text-align:center;font-size:0.875rem;padding:0.75rem 1.5rem;">Check Grant Eligibility &#8212; SGD 500</a>
         </div>
     </div>
-
-    <!-- CHANGE 4: Expanded disclaimer with proprietary methodology note -->
     <div style="background:rgba(30,42,58,0.8);border:1px solid rgba(201,169,97,0.3);border-radius:8px;padding:1.5rem;margin-top:1rem;">
         <strong style="color:var(--gold);display:block;margin-bottom:0.75rem;">&#9432; Important Disclaimer</strong>
-        <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;">EBITDA and Revenue multiples are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A transaction data. As TriveExec builds its proprietary database through ongoing client engagements, these benchmarks will be progressively refined with actual transaction data. Readiness Premium/Discount and Valuation Uplift Potential are calculated using TriveExec's proprietary SME Institutional Readiness Index&#8482; methodology. These figures do not represent a formal valuation opinion. Actual valuation depends on your specific financials, EBITDA, growth trajectory, sector conditions, and buyer appetite. For a personalised valuation analysis based on your actual financials, book a Strategy Call with TriveExec.</p>
+        <p style="color:#D1D5DB;line-height:1.8;font-size:0.9rem;">Valuation multiples are indicative benchmarks based on publicly available mid-market ASEAN M&amp;A data. They do not represent a formal valuation opinion. Actual valuation depends on your specific financials, EBITDA, growth trajectory, sector conditions, and buyer appetite.</p>
     </div>
 </div>
 
-<!-- EXIT READINESS — DIAGNOSIS ONLY -->
+<!-- EXIT READINESS -->
 <div id="tab-readiness" class="tab-panel" style="display:none;">
-    <h3 class="section-title">Exit Readiness Diagnosis</h3>
-    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
-        <p style="color:#E5E7EB;line-height:1.7;margin:0;">This is your complete six-pillar diagnostic — scores, performance tier and detailed findings for all six areas of your business. Use this to understand the full picture behind your Action Plan priorities. Your top 5 actions derived from this diagnostic are in the <strong style="color:var(--gold);">Action Plan</strong> tab.</p>
-    </div>
+    <h3 class="section-title">Detailed Pillar Assessment</h3>
     <div id="readiness-pillars"></div>
 </div>
 
-<!-- ROADMAP — dynamic based on pillar scores -->
+<!-- ROADMAP -->
 <div id="tab-roadmap" class="tab-panel" style="display:none;">
     <h3 class="section-title">12-Month Implementation Timeline</h3>
-    <div class="timeline" id="roadmap-timeline"></div>
-</div>
-
-<!-- ACTION PLAN — IMMEDIATE TO-DO -->
-<div id="tab-actions" class="tab-panel" style="display:none;">
-    <h3 class="section-title">Your 90-Day Action Plan</h3>
-    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;">
-        <p style="color:#E5E7EB;line-height:1.7;margin:0;">These are your <strong style="color:var(--gold);">top 5 priority actions right now</strong> — ranked by impact on your exit valuation. Start here before anything else. For the full six-pillar diagnostic behind these priorities, see the <strong style="color:var(--gold);">Exit Readiness</strong> tab.</p>
-    </div>
-    <!-- BUDGET PLANNING NOTE -->
-    <div style="background:rgba(16,185,129,0.06);border-left:4px solid var(--gold);border-radius:4px;padding:1rem 1.25rem;margin-bottom:1.5rem;">
-        <strong style="color:var(--gold);display:block;margin-bottom:0.5rem;">&#128161; Budget Planning Note</strong>
-        <p style="color:#D1D5DB;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Government grants and subsidies may be available in your market to offset implementation costs. Engage a local advisor to explore eligibility before committing budgets.</p>
-        <div style="border-top:1px solid rgba(201,169,97,0.25);padding-top:0.75rem;">
-            <p style="font-size:0.8rem;color:var(--gold);font-weight:600;margin-bottom:0.25rem;">&#127480;&#127468; Singapore SMEs</p>
-            <p style="font-size:0.8rem;color:#D1D5DB;">May qualify for <strong style="color:white;">PSG</strong> (up to 50% subsidy, capped at S$30,000/year) and <strong style="color:white;">EDG</strong> grants via the Business Grants Portal (BGP).</p>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-phase">Months 1-3: Foundation</div>
+            <div class="timeline-title">Financial Systems &amp; Governance Structure</div>
+            <div class="timeline-desc">Implement comprehensive financial systems, engage audit firm, establish governance framework, begin data room preparation.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-phase">Months 4-6: Enhancement</div>
+            <div class="timeline-title">Audit Completion &amp; Process Documentation</div>
+            <div class="timeline-desc">Complete 3-year audited financials, quality of earnings analysis, document all SOPs, establish KPI dashboards.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-phase">Months 7-9: Validation</div>
+            <div class="timeline-title">External Validation &amp; Market Preparation</div>
+            <div class="timeline-desc">Management presentations, third-party technology assessment, customer reference programme, transaction advisor selection.</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-phase">Months 10-12: Market Readiness</div>
+            <div class="timeline-title">Go-to-Market Execution</div>
+            <div class="timeline-desc">CIM preparation, controlled auction process, final due diligence prep, deal structure optimisation, buyer outreach.</div>
         </div>
     </div>
+</div>
+
+<!-- ACTION PLAN -->
+<div id="tab-actions" class="tab-panel" style="display:none;">
+    <h3 class="section-title">90-Day Priority Action Plan</h3>
     <div id="action-plan-content" style="background:linear-gradient(135deg,#1E2A3A,#1E3A5F);border:3px solid var(--gold);border-radius:12px;padding:2rem;margin-bottom:2rem;"></div>
     <div class="cta">
         <h2>Ready to Execute These Actions?</h2>
         <p>Book a Strategy Call to discuss implementation timelines, budget planning, grant eligibility, and service packages.</p>
-        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book Strategy Call &#8212; SGD 500</a>
+        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy">Book Strategy Call &#8212; SGD 500</a>
     </div>
 </div>
 
-<!-- BENCHMARKING — UPDATED -->
+<!-- BENCHMARKING -->
 <div id="tab-benchmarking" class="tab-panel" style="display:none;">
     <h3 class="section-title">Industry Benchmarking Analysis</h3>
-
-    <!-- CHANGE 5: Position header — now fully dynamic -->
     <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);margin-bottom:2rem;">
         <div style="text-align:center;margin-bottom:2rem;">
             <div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:0.5rem;">Your Position</div>
-            <div style="font-size:3.5rem;font-weight:800;color:var(--gold);" class="bench-position-title">&#8212;</div>
-            <div style="color:#D1D5DB;" class="bench-position-desc">&#8212;</div>
+            <div id="bm-quartile-label" style="font-size:3.5rem;font-weight:800;color:var(--gold);">—</div>
+            <div id="bm-quartile-desc" style="color:#D1D5DB;">—</div>
+        </div>
+        <div style="max-width:700px;margin:0 auto;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <div style="font-weight:700;color:var(--gold);min-width:160px;">Your Company</div>
+                <div style="flex:1;margin:0 1rem;">
+                    <div style="background:rgba(255,255,255,0.1);height:36px;border-radius:8px;overflow:hidden;">
+                        <div id="bm-your-bar" style="background:linear-gradient(90deg,#1E2A3A,var(--gold));height:100%;width:0%;display:flex;align-items:center;justify-content:flex-end;padding-right:0.75rem;color:white;font-weight:700;transition:width 1s ease;"><span class="d-score">—</span></div>
+                    </div>
+                </div>
+                <div id="bm-your-pct" style="font-weight:700;color:var(--gold);min-width:50px;text-align:right;">—</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <div style="font-weight:600;color:#D1D5DB;min-width:160px;">Industry Average</div>
+                <div style="flex:1;margin:0 1rem;">
+                    <div style="background:rgba(255,255,255,0.1);height:30px;border-radius:8px;overflow:hidden;">
+                        <div style="background:#4B5563;height:100%;width:60%;display:flex;align-items:center;justify-content:flex-end;padding-right:0.75rem;color:white;font-weight:600;">72</div>
+                    </div>
+                </div>
+                <div style="color:#D1D5DB;min-width:50px;text-align:right;">60%</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-weight:600;color:var(--gold);min-width:160px;">TriveExec Target</div>
+                <div style="flex:1;margin:0 1rem;">
+                    <div style="background:rgba(255,255,255,0.1);height:30px;border-radius:8px;overflow:hidden;">
+                        <div style="background:var(--gold);height:100%;width:91.7%;display:flex;align-items:center;justify-content:flex-end;padding-right:0.75rem;color:#1E2A3A;font-weight:700;">110</div>
+                    </div>
+                </div>
+                <div style="color:var(--gold);min-width:50px;text-align:right;font-weight:700;">91.7%</div>
+            </div>
         </div>
     </div>
-
-    <h3 class="section-title">Pillar Gap vs Sector Leaders</h3>
+    <h3 class="section-title">Pillar-by-Pillar Benchmarking</h3>
     <div class="card">
         <table>
-            <thead><tr><th>Pillar</th><th>Your Score</th><th>Industry Avg</th><th>Top Quartile</th><th>Gap to Top</th></tr></thead>
-            <tbody>
-                <tr><td><strong style="color:var(--gold);">Financial Health</strong></td><td><span class="d-p1">&#8212;</span>/30</td><td>18</td><td>24</td><td id="bm-gap-p1" style="font-weight:700;">&#8212;</td></tr>
-                <tr><td><strong style="color:var(--gold);">Governance &amp; Controls</strong></td><td><span class="d-p2">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bm-gap-p2" style="font-weight:700;">&#8212;</td></tr>
-                <tr><td><strong style="color:var(--gold);">Leadership &amp; Team</strong></td><td><span class="d-p3">&#8212;</span>/20</td><td>13</td><td>17</td><td id="bm-gap-p3" style="font-weight:700;">&#8212;</td></tr>
-                <tr><td><strong style="color:var(--gold);">Market Position</strong></td><td><span class="d-p4">&#8212;</span>/20</td><td>12</td><td>17</td><td id="bm-gap-p4" style="font-weight:700;">&#8212;</td></tr>
-                <tr><td><strong style="color:var(--gold);">Operations &amp; Scalability</strong></td><td><span class="d-p5">&#8212;</span>/16</td><td>10</td><td>14</td><td id="bm-gap-p5" style="font-weight:700;">&#8212;</td></tr>
-                <tr><td><strong style="color:var(--gold);">Exit Readiness</strong></td><td><span class="d-p6">&#8212;</span>/14</td><td>7</td><td>11</td><td id="bm-gap-p6" style="font-weight:700;">&#8212;</td></tr>
-            </tbody>
+            <thead><tr><th>Pillar</th><th>Your Score</th><th>Industry Avg</th><th>Top Quartile</th><th>Status</th></tr></thead>
+            <tbody id="bm-pillar-rows"></tbody>
         </table>
         <div style="margin-top:1rem;padding:1rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid var(--gold);font-size:0.85rem;color:#D1D5DB;">
-            <strong style="color:var(--gold);">&#128203; Disclaimer:</strong> Industry benchmarks are derived from AI-assisted research and publicly available market data across mid-market SMEs in the ASEAN region. These figures are indicative. TriveExec is actively building its proprietary benchmarking database through ongoing client assessments.
+            <strong style="color:var(--gold);">Disclaimer:</strong> Benchmarks are indicative, derived from publicly available ASEAN mid-market M&amp;A transaction data and TriveExec's growing proprietary database of SME institutional readiness assessments. As our database expands, benchmarks will be refined to reflect actual market performance across industries and geographies.
         </div>
-    </div>
-
-    <!-- THE GAP THAT COSTS YOU MOST -->
-    <div class="card" style="background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.03));border:1px solid rgba(239,68,68,0.3);">
-        <h4 style="color:#F87171;">&#9888; The Gap That Costs You Most</h4>
-        <div id="bm-cost-gap-content" style="color:#D1D5DB;line-height:1.7;"></div>
-    </div>
-
-    <!-- WHAT TOP QUARTILE COMPANIES DO DIFFERENTLY -->
-    <div class="card">
-        <h4>&#127942; What Top-Quartile Companies Do Differently</h4>
-        <div id="bm-top-quartile-content" style="color:#D1D5DB;"></div>
-    </div>
-
-    <!-- VALUATION CONNECTION -->
-    <div style="background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.3);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-        <div>
-            <div style="color:var(--gold);font-weight:700;margin-bottom:0.35rem;">&#128181; Your Valuation Gap vs Sector Leaders</div>
-            <div style="color:#D1D5DB;font-size:0.875rem;line-height:1.6;" id="bm-val-connection">Based on your score gap versus top-quartile peers, see the Value Leakage Calculator in the Valuation Analysis tab for a personalised S$ estimate.</div>
-        </div>
-        <a href="#" onclick="switchToValuation(event)" style="white-space:nowrap;display:inline-block;border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:0.85rem;padding:0.7rem 1.5rem;border-radius:6px;text-decoration:none;">View Calculator &#8594;</a>
     </div>
 </div>
 
 <!-- SERVICES -->
 <div id="tab-services" class="tab-panel" style="display:none;">
     <h3 class="section-title">TriveExec Service Packages</h3>
-
-    <!-- 3 PACKAGE CARDS — fixed 3-column grid -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2.5rem;">
-
-        <!-- Annual Business Health Check -->
-        <div class="card" id="pkg-health" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
-            <div id="badge-health" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
-            <div style="text-align:center;padding-top:1rem;">
-                <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#9889;</div>
-                <h4 style="font-size:1.1rem;">Annual Business Health Check</h4>
-                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Ongoing Excellence</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 20–25K</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">Annual engagement</div>
-            </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
-                &#10003; Annual TriveHealth&#8482; Assessment<br>&#10003; Performance Benchmarking<br>&#10003; Board-Ready Report<br>&#10003; 90-Day Action Plan<br>&#10003; Progress Tracking
-            </div>
-        </div>
-
-        <!-- Exit Readiness Assessment -->
-        <div class="card" id="pkg-assessment" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
-            <div id="badge-assessment" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
-            <div style="text-align:center;padding-top:1rem;">
-                <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128188;</div>
-                <h4 style="font-size:1.1rem;">Exit Readiness Assessment</h4>
-                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Deep Diagnostic</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 40–50K</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">6–8 week engagement</div>
-            </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
-                &#10003; Full 6-Pillar Assessment<br>&#10003; Financial Health Review<br>&#10003; Governance Gap Analysis<br>&#10003; Exit Strategy Options<br>&#10003; Priority Action Roadmap
-            </div>
-        </div>
-
-        <!-- Exit Accelerator Program -->
-        <div class="card" id="pkg-accelerator" style="border:2px solid rgba(201,169,97,0.3);position:relative;display:flex;flex-direction:column;">
-            <div id="badge-accelerator" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;white-space:nowrap;">&#11088; Recommended For You</div>
-            <div style="text-align:center;padding-top:1rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-bottom:3rem;">
+        <div class="card" id="pkg-exit" style="border:3px solid var(--gold);background:linear-gradient(135deg,#1E2A3A,#2A3847);position:relative;">
+            <div id="badge-exit" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+            <div style="text-align:center;padding-top:1.5rem;">
                 <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128640;</div>
-                <h4 style="font-size:1.1rem;">Exit Accelerator Program</h4>
-                <div style="color:#D1D5DB;margin-bottom:1rem;font-size:0.875rem;">Full Transformation</div>
-                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">From SGD 100K</div>
-                <div style="color:#D1D5DB;font-size:0.875rem;">18–24 month engagement</div>
+                <h4 style="font-size:1.5rem;">Exit Accelerator Program</h4>
+                <div style="color:#D1D5DB;margin-bottom:1rem;">Full Transformation</div>
+                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 420K</div>
+                <div style="color:#D1D5DB;font-size:0.875rem;">18-24 month engagement</div>
             </div>
-            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;font-size:0.9rem;flex:1;">
+            <div style="border-top:2px solid var(--gold);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;">
                 &#10003; Fractional CFO &amp; COO<br>&#10003; Financial Systems &amp; Audit Prep<br>&#10003; Data Room &amp; CIM<br>&#10003; Transaction Advisory<br>&#10003; Buyer Outreach
             </div>
+            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;">Schedule Consultation</a>
         </div>
-
+        <div class="card" id="pkg-financial" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
+            <div id="badge-financial" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#128188;</div>
+                <h4>Exit Readiness Assessment</h4>
+                <div style="color:#D1D5DB;margin-bottom:1rem;">Deep Diagnostic</div>
+                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 40-50K</div>
+                <div style="color:#D1D5DB;font-size:0.875rem;">6-8 week engagement</div>
+            </div>
+            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;">
+                &#10003; Full 6-Pillar Assessment<br>&#10003; Financial Health Review<br>&#10003; Governance Gap Analysis<br>&#10003; Exit Strategy Options<br>&#10003; Priority Action Roadmap
+            </div>
+            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;">Learn More</a>
+        </div>
+        <div class="card" id="pkg-sprint" style="border:2px solid rgba(201,169,97,0.3);position:relative;">
+            <div id="badge-sprint" style="display:none;position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;padding:0.5rem 2rem;border-radius:20px;font-weight:700;font-size:0.875rem;">&#11088; Recommended</div>
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:0.5rem;">&#9889;</div>
+                <h4>Annual Business Health Check</h4>
+                <div style="color:#D1D5DB;margin-bottom:1rem;">Annual Assessment</div>
+                <div style="font-size:2.5rem;font-weight:800;color:var(--gold);">SGD 20-25K</div>
+                <div style="color:#D1D5DB;font-size:0.875rem;">Annual engagement</div>
+            </div>
+            <div style="border-top:2px solid rgba(201,169,97,0.3);padding-top:1rem;margin-top:1rem;color:#D1D5DB;line-height:2;">
+                &#10003; Annual TriveHealth Assessment<br>&#10003; Performance Benchmarking<br>&#10003; Board-Ready Report<br>&#10003; 90-Day Action Plan
+            </div>
+            <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-navy" style="display:block;text-align:center;margin-top:1.5rem;">Get Started</a>
+        </div>
     </div>
-
-    <!-- MERGED BOTTOM CARD: RECOMMENDATION + MANDATORY STRATEGY CALL -->
-    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:2px solid var(--gold);border-radius:12px;overflow:hidden;margin-bottom:2rem;">
-        <div style="display:grid;grid-template-columns:1fr 1px 380px;">
-
-            <!-- LEFT: PERSONALISED RECOMMENDATION -->
-            <div style="padding:2rem;">
-                <div style="display:inline-block;background:rgba(201,169,97,0.15);color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:1rem;">&#11088; Based On Your Assessment</div>
-                <div style="font-size:1.3rem;font-weight:800;color:var(--gold);margin-bottom:0.75rem;line-height:1.3;" id="rec-pkg-name">&#8212;</div>
-                <div style="color:#D1D5DB;font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem;" id="rec-pkg-reason">&#8212;</div>
-                <a id="rec-pkg-scroll-btn" href="#" onclick="scrollToPackage(event)" style="display:inline-block;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.875rem;padding:0.75rem 1.75rem;border-radius:8px;text-decoration:none;">&#8212;</a>
-            </div>
-
-            <!-- DIVIDER -->
-            <div style="background:rgba(201,169,97,0.25);"></div>
-
-            <!-- RIGHT: MANDATORY STRATEGY CALL -->
-            <div style="padding:2rem;display:flex;flex-direction:column;justify-content:space-between;">
-                <div>
-                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
-                        <span style="font-size:1.5rem;">&#128222;</span>
-                        <div>
-                            <div style="font-size:1rem;font-weight:700;color:white;">Strategy Call</div>
-                            <div style="font-size:0.8rem;color:var(--gold);font-weight:600;">Required First Step — All Engagements</div>
-                        </div>
-                    </div>
-                    <div style="font-size:2rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">SGD 500</div>
-                    <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1.25rem;">Up to 90 minutes</div>
-                    <div style="color:#D1D5DB;font-size:0.85rem;line-height:1.9;">
-                        &#10003; Dashboard findings reviewed<br>
-                        &#10003; Personalised action priorities<br>
-                        &#10003; Grant eligibility guidance<br>
-                        &#10003; Service pathway confirmed<br>
-                        &#10003; Written summary post-call
-                    </div>
-                </div>
-                <div style="margin-top:1.5rem;">
-                    <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.9rem;padding:0.875rem 1.5rem;border-radius:8px;text-decoration:none;">Book Strategy Call &#8212; SGD 500</a>
-                    <div style="text-align:center;color:#6B7280;font-size:0.75rem;margin-top:0.5rem;">&#128179; Secure payment via Stripe</div>
-                </div>
-            </div>
-
-        </div>
+    <div class="cta">
+        <h2>Not Sure Which Package?</h2>
+        <p>Book a 90-minute Strategy Call. We will review your dashboard, discuss your timeline, and create a personalised action plan.</p>
+        <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" class="btn-gold">Book Strategy Call &#8212; SGD 500</a>
+        <div style="margin-top:1.5rem;font-size:0.875rem;color:#D1D5DB;">&#128179; Secure payment via Stripe | &#128197; Calendar link sent after payment</div>
     </div>
 </div>
 
 <!-- TRACKER -->
 <div id="tab-tracker" class="tab-panel" style="display:none;">
     <h3 class="section-title">Implementation Progress Tracker</h3>
-
-    <!-- SECTION 1: JOURNEY CONTEXT STRIP -->
-    <div style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border-left:5px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
-        <div style="background:var(--gold);color:#1E2A3A;font-size:1.5rem;font-weight:800;padding:0.5rem 1.25rem;border-radius:8px;" class="d-grade">&#8212;</div>
-        <div style="flex:1;min-width:200px;">
-            <div id="journey-context-text" style="color:#E5E7EB;line-height:1.7;font-size:0.925rem;">&#8212;</div>
+    <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:2rem;">
+        <div style="text-align:center;">
+            <h4 style="font-size:1.75rem;margin-bottom:1rem;">Overall Implementation Progress</h4>
+            <div style="font-size:4rem;font-weight:800;color:white;">0%</div>
+            <div style="color:#D1D5DB;margin-bottom:1rem;">0 of 5 milestones completed</div>
+            <div style="background:rgba(255,255,255,0.1);height:24px;border-radius:12px;overflow:hidden;"><div style="background:linear-gradient(90deg,var(--gold),var(--light-gold));height:100%;width:0%;"></div></div>
         </div>
     </div>
-
-    <!-- SECTION 2: OVERALL PROGRESS CARD -->
-    <div class="card" style="background:linear-gradient(135deg,#1E2A3A,#2A3847);border:3px solid var(--gold);margin-bottom:1.5rem;">
-        <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
-            <div>
-                <h4 style="font-size:1.1rem;margin-bottom:1rem;">Overall Implementation Progress</h4>
-                <div style="background:rgba(255,255,255,0.1);height:20px;border-radius:10px;overflow:hidden;margin-bottom:0.75rem;">
-                    <div id="overall-progress-bar" style="background:linear-gradient(90deg,var(--gold),var(--light-gold));height:100%;width:0%;transition:width 0.4s ease;border-radius:10px;"></div>
-                </div>
-                <div style="display:flex;gap:2rem;font-size:0.875rem;color:#9CA3AF;flex-wrap:wrap;">
-                    <span>&#128197; Started: <strong style="color:white;" class="d-date">&#8212;</strong></span>
-                    <span>&#127919; Est. completion: <strong style="color:white;" id="est-completion">&#8212;</strong></span>
-                    <span id="progress-status" style="color:var(--green);font-weight:700;">&#10003; On Track</span>
-                </div>
-            </div>
-            <div style="text-align:center;">
-                <div id="overall-progress-pct" style="font-size:3.5rem;font-weight:800;color:var(--gold);line-height:1;">0%</div>
-                <div id="overall-progress-count" style="color:#D1D5DB;font-size:0.875rem;margin-top:0.25rem;">0 of 5 completed</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 3: PHASE TIMELINE VISUAL -->
-    <div class="card" style="margin-bottom:1.5rem;">
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;">
-            <div style="position:absolute;top:24px;left:12.5%;right:12.5%;height:3px;background:linear-gradient(90deg,var(--gold),rgba(201,169,97,0.2));z-index:0;"></div>
-            <div style="text-align:center;position:relative;z-index:1;">
-                <div style="width:48px;height:48px;border-radius:50%;background:var(--gold);color:#1E2A3A;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">1</div>
-                <div style="font-size:0.8rem;font-weight:700;color:var(--gold);">Foundation</div>
-                <div style="font-size:0.72rem;color:#9CA3AF;">Months 1&#8211;3</div>
-                <div style="font-size:0.7rem;color:var(--green);font-weight:600;margin-top:0.25rem;">&#9679; Active</div>
-            </div>
-            <div style="text-align:center;position:relative;z-index:1;" id="phase-dot-2">
-                <div id="phase2-circle" style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
-                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Enhancement</div>
-                <div style="font-size:0.72rem;color:#6B7280;">Months 4&#8211;6</div>
-                <div id="phase2-status" style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
-            </div>
-            <div style="text-align:center;position:relative;z-index:1;">
-                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
-                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Validation</div>
-                <div style="font-size:0.72rem;color:#6B7280;">Months 7&#8211;9</div>
-                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
-            </div>
-            <div style="text-align:center;position:relative;z-index:1;">
-                <div style="width:48px;height:48px;border-radius:50%;background:#374151;color:#9CA3AF;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">&#128274;</div>
-                <div style="font-size:0.8rem;font-weight:700;color:#9CA3AF;">Market Ready</div>
-                <div style="font-size:0.72rem;color:#6B7280;">Months 10&#8211;12</div>
-                <div style="font-size:0.7rem;color:#6B7280;margin-top:0.25rem;">Locked</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 4: PHASE 1 ACTIVE CARD -->
-    <div class="card" id="phase1-card">
+    <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">
-            <div>
-                <div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 1: Foundation</div>
-                <h4 style="font-size:1.5rem;margin:0;">Months 1&#8211;3</h4>
-            </div>
-            <div style="text-align:right;">
-                <div id="phase1-pct" style="font-size:1.5rem;font-weight:800;color:var(--gold);">0%</div>
-                <div style="font-size:0.78rem;color:#9CA3AF;">Phase progress</div>
-            </div>
+            <div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 1: Foundation</div><h4 style="font-size:1.5rem;margin:0;">Months 1-3</h4></div>
         </div>
-        <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.25rem;margin-bottom:1.5rem;">
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-                <span style="font-size:1.25rem;">&#8505;&#65039;</span>
-                <div>
-                    <strong style="color:#60A5FA;display:block;margin-bottom:0.2rem;">Phase 1 is Self-Managed</strong>
-                    <span style="color:#D1D5DB;font-size:0.875rem;">Included with your TriveHealth&#8482; Dashboard. Tick each milestone as you complete it.</span>
-                </div>
-            </div>
+        <div style="background:rgba(30,58,138,0.1);border:2px solid rgba(59,130,246,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">
+            <h4 style="color:#60A5FA;margin-bottom:0.5rem;">&#8505;&#65039; Phase 1 is Self-Managed</h4>
+            <p style="color:#D1D5DB;line-height:1.7;margin:0;">Included with your TriveHealth&#8482; Dashboard. Work through milestones at your own pace.<br><br>
+            &#128222; <strong style="color:#60A5FA;">Strategy Call (SGD 500)</strong> for guided review. &#128140; <a href="/cdn-cgi/l/email-protection#bad3d4c9d3ddd2cec9facec8d3ccdfdfc2dfd994d9d5d7" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="deb7b0adb7b9b6aaad9eaaacb7a8bbbba6bbbdf0bdb1b3">[email&#160;protected]</span></a></p>
         </div>
         <div id="phase1-milestones"></div>
     </div>
-    <!-- Phase 1 Complete CTA -->
-    <div style="background:linear-gradient(135deg,rgba(201,169,97,0.12),rgba(201,169,97,0.04));border:2px solid var(--gold);border-radius:12px;padding:2rem;margin:2.5rem 0;">
-        <div style="text-align:center;margin-bottom:1.75rem;">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem;">&#127942;</div>
-            <h3 style="color:var(--gold);font-size:1.25rem;margin-bottom:0.5rem;">Ready to Accelerate Your Exit Journey?</h3>
-            <p style="color:#D1D5DB;font-size:0.9rem;line-height:1.7;max-width:600px;margin:0 auto;">All TriveExec engagements begin with a Strategy Call. Book your 90-minute session to review your dashboard results and confirm your recommended service pathway.</p>
-        </div>
-
-        <!-- TWO COLUMNS: PACKAGES LEFT, STRATEGY CALL RIGHT -->
-        <div style="display:grid;grid-template-columns:1fr 1px 320px;gap:0;background:rgba(30,42,58,0.5);border-radius:10px;overflow:hidden;">
-
-            <!-- LEFT: 3 PACKAGES -->
-            <div style="padding:1.5rem;display:grid;grid-template-columns:1fr;gap:0.75rem;">
-                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.25rem;">Choose Your Engagement</div>
-
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
-                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Annual Business Health Check</div><div style="color:#9CA3AF;font-size:0.78rem;">Annual engagement</div></div>
-                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">SGD 20–25K</div></div>
-                </div>
-
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
-                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Exit Readiness Assessment</div><div style="color:#9CA3AF;font-size:0.78rem;">6–8 week engagement</div></div>
-                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">SGD 40–50K</div></div>
-                </div>
-
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.875rem 1rem;background:rgba(30,42,58,0.6);border-radius:8px;border:1px solid rgba(201,169,97,0.2);">
-                    <div><div style="font-weight:700;color:white;font-size:0.9rem;">Exit Accelerator Program</div><div style="color:#9CA3AF;font-size:0.78rem;">18–24 month engagement</div></div>
-                    <div style="text-align:right;"><div style="color:var(--gold);font-weight:800;font-size:0.95rem;">From SGD 100K</div></div>
-                </div>
-            </div>
-
-            <!-- DIVIDER -->
-            <div style="background:rgba(201,169,97,0.2);"></div>
-
-            <!-- RIGHT: STRATEGY CALL -->
-            <div style="padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;">
-                <div>
-                    <div style="color:var(--gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;">Required First Step</div>
-                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
-                        <span style="font-size:1.25rem;">&#128222;</span>
-                        <span style="font-size:1rem;font-weight:700;color:white;">Strategy Call</span>
-                    </div>
-                    <div style="font-size:1.75rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">SGD 500</div>
-                    <div style="color:#9CA3AF;font-size:0.8rem;margin-bottom:1rem;">Up to 90 minutes</div>
-                    <div style="color:#D1D5DB;font-size:0.82rem;line-height:1.9;">
-                        &#10003; Dashboard findings reviewed<br>
-                        &#10003; Personalised action priorities<br>
-                        &#10003; Grant eligibility guidance<br>
-                        &#10003; Service pathway confirmed<br>
-                        &#10003; Written summary post-call
-                    </div>
-                </div>
-                <a href="https://buy.stripe.com/28E4gzdb70D06G0ae693y02" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-weight:700;font-size:0.875rem;padding:0.875rem 1rem;border-radius:8px;text-decoration:none;margin-top:1.25rem;">Book Strategy Call &#8212; SGD 500</a>
-                <div style="text-align:center;color:#6B7280;font-size:0.72rem;margin-top:0.4rem;">&#128179; Secure payment via Stripe</div>
-            </div>
-
-        </div>
+    <div style="text-align:center;margin:2.5rem 0;">
+        <button onclick="requestValidation()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">
+            &#10003; Request TriveExec Validation &#8212; Phase 1 Complete
+        </button>
     </div>
-    <!-- Phases 2-4: built dynamically by buildPhases() based on &phase= URL param -->
-    <div id="phase234-container"></div>
+    <div class="card" style="opacity:0.6;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 4-6</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
+    <div class="card" style="opacity:0.6;margin-top:1rem;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 3: Validation</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 7-9</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
+    <div class="card" style="opacity:0.6;margin-top:1rem;"><div style="display:flex;justify-content:space-between;"><div><div style="font-size:0.8rem;color:#D1D5DB;text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div><div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 10-12</div></div><div style="font-size:1.5rem;font-weight:800;color:#6B7280;">Locked</div></div></div>
 </div>
 
 </div>
@@ -629,12 +398,12 @@
         <strong style="color:var(--gold);">Singapore &#183; Malaysia &#183; Indonesia</strong><br>
         Transforming mid-market ASEAN SMEs | Premium exits &amp; succession planning<br><br>
         This assessment is confidential and valid for 90 days.<br>
-        <a href="/cdn-cgi/l/email-protection#0c65627f656b64787f4c787e657a696974696f226f6361"><span class="__cf_email__" data-cfemail="f39a9d809a949b8780b387819a8596968b9690dd909c9e">[email&#160;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#bcd5d2cfd5dbd4c8cffcc8ced5cad9d9c4d9df92dfd3d1"><span class="__cf_email__" data-cfemail="fd94938e949a95898ebd898f948b989885989ed39e9290">[email&#160;protected]</span></a>
     </p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var ALL_TABS=['dashboard','valuation','readiness','actions','benchmarking','services','tracker'];
+var ALL_TABS=['dashboard','valuation','readiness','roadmap','actions','benchmarking','services','tracker'];
 
 function showTab(name,btn){
     for(var i=0;i<ALL_TABS.length;i++){
@@ -658,7 +427,6 @@ var urlScore=parseInt(getP('score'))||0;
 var urlGrade=getP('grade')||'';
 var urlIndustry=getP('industry');
 var urlDate=getP('date');
-var urlPhase=parseInt(getP('phase'))||1; // Phase unlock: 1=default, 2/3/4=unlocked by TriveExec
 var urlP=[
     Math.round(parseFloat(getP('p1'))||0),
     Math.round(parseFloat(getP('p2'))||0),
@@ -668,7 +436,7 @@ var urlP=[
     Math.round(parseFloat(getP('p6'))||0)
 ];
 var pillarMax=[30,20,20,20,16,14];
-var pillarName=['Financial Health','Governance & Controls','Leadership & Team','Market Position','Operations & Scalability','Exit Readiness'];
+var pillarName=['Financial Health','Governance & Controls','Leadership & Team','Market Position','Operations & Technology','Exit Readiness'];
 
 function setAll(cls,val){
     var els=document.querySelectorAll('.'+cls);
@@ -680,109 +448,62 @@ function fillAll(){
     var gradeMap={'A':'Highly Attractive','A-':'Very Strong','B+':'Strong Potential','B':'Good Foundation','B-':'Moderate Readiness','C+':'Developing','C':'Significant Work Needed','C-':'Major Gaps','D':'Early Stage','F':'Not Ready'};
     var g=urlGrade.charAt(0)+urlGrade.charAt(1);
     var gradeDesc=gradeMap[urlGrade]||gradeMap[g]||'Assessment Complete';
-    // Find lowest pillar by percentage (not raw score) for accurate critical gap
-    var minPct=(urlP[0]/pillarMax[0]),lowestIdx=0;
-    for(var i=1;i<urlP.length;i++){var p=urlP[i]/pillarMax[i];if(p<minPct){minPct=p;lowestIdx=i;}}
-
-    // CHANGE 7: Updated premium tiers (was 4 tiers, now 5 with correct ranges)
-    var premium, premiumSubtitle;
-    if(urlScore>=90){
-        premium='20-30%';
-        premiumSubtitle='Achievable within 3-6 months';
-    } else if(urlScore>=70){
-        premium='15-20%';
-        premiumSubtitle='Achievable within 6-12 months';
-    } else if(urlScore>=50){
-        premium='10-15%';
-        premiumSubtitle='Achievable within 12-18 months';
-    } else if(urlScore>=30){
-        premium='5-10%';
-        premiumSubtitle='Achievable within 18-24 months';
-    } else {
-        premium='Significant Uplift Possible';
-        premiumSubtitle='Foundation building required \u2014 24-36 months';
-    }
-
+    var minScore=urlP[0],lowestIdx=0;
+    for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
+    var premium=urlScore>=90?'15-20%':urlScore>=70?'10-15%':urlScore>=50?'5-10%':'3-5%';
+    var timeline=urlScore>=90?'6-12 months':urlScore>=70?'12-18 months':urlScore>=50?'18-24 months':'24-36 months';
     var summaryMap={'A':'Exceptional institutional readiness across most pillars.','B+':'Strong performance with good institutional readiness.','B':'Good foundation with moderate readiness.','C+':'Several areas require attention.','C':'Significant gaps across multiple pillars.','D':'Critical gaps - early stages of exit preparation.','F':'Fundamental transformation required.'};
     var summary=summaryMap[urlGrade]||'Review your pillar scores below.';
-
     setAll('d-company',urlCompany||'Your Company');
     setAll('d-score',urlScore||'—');
     setAll('d-grade',urlGrade||'—');
     setAll('d-grade-desc',gradeDesc);
     setAll('d-pct',pct);
     setAll('d-gap',pillarName[lowestIdx]);
-    var gsEl=document.getElementById('gap-score'); if(gsEl) gsEl.textContent=urlP[lowestIdx];
-    var gmEl=document.getElementById('gap-max'); if(gmEl) gmEl.textContent=pillarMax[lowestIdx];
     setAll('d-p1',urlP[0]); setAll('d-p2',urlP[1]); setAll('d-p3',urlP[2]);
     setAll('d-p4',urlP[3]); setAll('d-p5',urlP[4]); setAll('d-p6',urlP[5]);
     setAll('d-premium',premium);
+    setAll('d-timeline',timeline);
     setAll('d-summary',summary);
     setAll('d-summary-long',summary+' Critical improvement needed in '+pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') to unlock maximum exit premium.');
     setAll('d-date',urlDate||new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}));
     if(urlIndustry) setAll('d-industry',urlIndustry);
     if(urlCompany) document.title='TriveHealth\u2122 - '+urlCompany;
-
-    // CHANGE 8: Valuation tab — premium subtitle
-    setAll('val-premium-subtitle', premiumSubtitle);
-
-    // CHANGE 9: Valuation tab — Readiness Premium/Discount row (dynamic)
-    var readinessCurrent, readinessTarget, readinessGap, readinessGapColor;
-    if(urlScore>=90){
-        readinessCurrent='Strong Premium'; readinessTarget='Maximum Premium';
-        readinessGap='+20-30% above baseline'; readinessGapColor='var(--green)';
-    } else if(urlScore>=70){
-        readinessCurrent='Moderate Premium'; readinessTarget='Strong Premium';
-        readinessGap='+10-20% above baseline'; readinessGapColor='var(--green)';
-    } else if(urlScore>=50){
-        readinessCurrent='Baseline'; readinessTarget='Moderate Premium';
-        readinessGap='+5-10% uplift available'; readinessGapColor='var(--orange)';
-    } else if(urlScore>=30){
-        readinessCurrent='Discount Applied'; readinessTarget='Baseline';
-        readinessGap='-10-15% vs peers'; readinessGapColor='var(--orange)';
-    } else {
-        readinessCurrent='Significant Discount'; readinessTarget='Baseline';
-        readinessGap='-20-25% vs peers'; readinessGapColor='var(--red)';
-    }
-    setAll('val-readiness-current', readinessCurrent);
-    setAll('val-readiness-target', readinessTarget);
-    var rgEls=document.querySelectorAll('.val-readiness-gap');
-    for(var ri=0;ri<rgEls.length;ri++){ rgEls[ri].textContent=readinessGap; rgEls[ri].style.color=readinessGapColor; }
-
-    // CHANGE 10: Valuation tab — Uplift Potential row (dynamic)
-    var upliftTarget, upliftGap;
-    if(urlScore>=90){ upliftTarget='Optimise for exit'; upliftGap='Up to 30% uplift'; }
-    else if(urlScore>=70){ upliftTarget='Address key gaps'; upliftGap='Up to 20% uplift'; }
-    else if(urlScore>=50){ upliftTarget='Structured improvement'; upliftGap='Up to 15% uplift'; }
-    else if(urlScore>=30){ upliftTarget='Foundation + growth'; upliftGap='Up to 25% uplift'; }
-    else { upliftTarget='Full transformation'; upliftGap='Up to 40% uplift'; }
-    setAll('val-uplift-target', upliftTarget);
-    setAll('val-uplift-gap', upliftGap);
-
-    // Benchmarking position — grade-based (matches grade shown on dashboard)
-    var benchTitle, benchDesc;
-    var g1=urlGrade.charAt(0);
-    if(g1==='A'){
-        benchTitle='\ud83c\udfc6 Elite \u2014 Top 10%';
-        benchDesc='You rank among the highest-performing exit-ready companies in ASEAN';
-    } else if(g1==='B'){
-        benchTitle='\u2b50 Top Quartile';
-        benchDesc='You outperform the majority of your peers \u2014 focused improvements will elevate you further';
-    } else if(g1==='C'){
-        benchTitle='\ud83d\udcc8 Above Average';
-        benchDesc='You are ahead of the baseline \u2014 targeted action can move you to top quartile';
-    } else if(g1==='D'){
-        benchTitle='\ud83d\udcca Below Average';
-        benchDesc='You have foundational strengths but significant gaps to close before exit readiness';
-    } else {
-        benchTitle='\ud83d\udd27 Foundation Stage';
-        benchDesc='Substantial groundwork required \u2014 significant value creation opportunity ahead';
-    }
-    setAll('bench-position-title', benchTitle);
-    setAll('bench-position-desc', benchDesc);
-
     var c=document.getElementById('score-circle');
     if(c) c.setAttribute('stroke-dashoffset',(565.48-(urlScore/120)*565.48).toString());
+}
+
+function buildBenchmarking(){
+    var bmPct=((urlScore/120)*100);
+    var bmLabel,bmDesc,bmColor;
+    if(urlScore>=90){bmLabel="TOP QUARTILE";bmDesc="Among the highest-performing companies in institutional readiness";bmColor="var(--green)";}
+    else if(urlScore>=70){bmLabel="ABOVE AVERAGE";bmDesc="Performing above the industry average u2014 targeted improvements will unlock premium exit value";bmColor="var(--gold)";}
+    else if(urlScore>=50){bmLabel="INDUSTRY AVERAGE";bmDesc="Performing at or near the industry average u2014 significant gaps remain before institutional readiness";bmColor="var(--orange)";}
+    else{bmLabel="BELOW AVERAGE";bmDesc="Significant transformation required to reach institutional readiness standards";bmColor="var(--red)";}
+    var ql=document.getElementById("bm-quartile-label");
+    var qd=document.getElementById("bm-quartile-desc");
+    var ybar=document.getElementById("bm-your-bar");
+    var ypct=document.getElementById("bm-your-pct");
+    if(ql){ql.textContent=bmLabel;ql.style.color=bmColor;}
+    if(qd) qd.textContent=bmDesc;
+    if(ybar){ybar.style.width=bmPct.toFixed(1)+"%";ybar.style.background="linear-gradient(90deg,#1E2A3A,"+bmColor+")";}
+    if(ypct) ypct.textContent=bmPct.toFixed(1)+"%";
+    var bmBenchmarks=[[18,24],[12,17],[13,17],[12,17],[10,14],[7,11]];
+    var bmTbody=document.getElementById("bm-pillar-rows");
+    if(bmTbody){
+        bmTbody.innerHTML="";
+        for(var bi=0;bi<urlP.length;bi++){
+            var bScore=urlP[bi],bMax=pillarMax[bi],bAvg=bmBenchmarks[bi][0],bTop=bmBenchmarks[bi][1];
+            var bStatus,bStatusColor;
+            if(bScore>=bTop){bStatus="Above Top Quartile";bStatusColor="var(--green)";}
+            else if(bScore>=bAvg){bStatus="Above Average";bStatusColor="var(--gold)";}
+            else if(bScore>=(bAvg*0.7)){bStatus="Below Average";bStatusColor="var(--orange)";}
+            else{bStatus="Critical Gap";bStatusColor="var(--red)";}
+            var tr=document.createElement("tr");
+            tr.innerHTML="<td><strong style=color:var(--gold)>"+pillarName[bi]+"</strong></td><td><strong style=color:"+bStatusColor+">"+bScore+"</strong>/"+bMax+"</td><td>"+bAvg+"</td><td>"+bTop+"</td><td style=color:"+bStatusColor+";font-weight:700>"+bStatus+"</td>";
+            bmTbody.appendChild(tr);
+        }
+    }
 }
 
 function buildPillarCards(){
@@ -833,7 +554,7 @@ function buildReadinessPillars(){
         var actHtml='';
         for(var k=0;k<acts.length;k++) actHtml+='<p style="color:#D1D5DB;line-height:1.8;margin-bottom:0.25rem;">\u2022 '+acts[k]+'</p>';
         var div=document.createElement('div'); div.className='card'; div.style.marginBottom='1.5rem';
-        div.innerHTML='<h4 style="color:'+colours[tier]+';font-size:1.25rem;">'+pillarName[i]+' \u2014 '+score+'/'+pillarMax[i]+'</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Key Findings &amp; Focus Areas:</strong><div style="margin-top:0.75rem;">'+actHtml+'</div></div>';
+        div.innerHTML='<h4 style="color:'+colours[tier]+';font-size:1.25rem;">'+pillarName[i]+' \u2014 '+score+'/'+pillarMax[i]+'</h4><div style="background:rgba(30,42,58,0.5);padding:1rem;border-radius:8px;"><strong style="color:var(--gold);">Required Actions:</strong><div style="margin-top:0.75rem;">'+actHtml+'</div></div>';
         container.appendChild(div);
     }
 }
@@ -841,788 +562,66 @@ function buildReadinessPillars(){
 function buildActionPlan(){
     var container=document.getElementById('action-plan-content');
     if(!container) return;
-    // Each threshold: [max, pillarName, critical action, high action, moderate action, timeline, service]
-    var thresholds=[
-        [30,22,14,'Financial Health',
-            'Commission forensic-ready financial clean-up, appoint fractional CFO immediately and begin 3-year independent audit process.',
-            'Commission independent financial audit, implement cloud accounting system and establish monthly management reporting.',
-            'Review and strengthen financial reporting processes and implement basic KPI dashboard.',
-            '30-60 days','CFO Advisory'],
-        [20,15,10,'Governance & Controls',
-            'Establish formal board of directors, appoint independent directors and implement full compliance framework immediately.',
-            'Formalise board structure, appoint independent directors and document all key governance policies.',
-            'Review governance documentation and formalise key policies and board meeting cadence.',
-            '60-90 days','Governance Advisory'],
-        [20,15,10,'Leadership & Team',
-            'Conduct immediate leadership assessment, identify key person dependencies and begin building second-tier management urgently.',
-            'Build second-tier management layer, formalise HR policies and implement retention programme for key talent.',
-            'Document succession plans and formalise performance management processes.',
-            '60-90 days','People Advisory'],
-        [20,15,10,'Market Position',
-            'Commission independent market positioning analysis, build customer reference base and document competitive advantages urgently.',
-            'Develop clear competitive positioning, implement CRM system and build referenceable customer base.',
-            'Strengthen market documentation and begin building customer case studies.',
-            '30-60 days','Strategy Advisory'],
-        [16,12,8,'Operations & Scalability',
-            'Document all critical processes immediately, implement project management system and establish operational KPI monitoring.',
-            'Map and document operational processes, implement KPI dashboard and create SOPs for key functions.',
-            'Review and strengthen existing process documentation and operational reporting.',
-            '60-90 days','Operations Advisory'],
-        [14,10,6,'Exit Readiness',
-            'Engage exit advisor immediately, define exit pathway, commission preliminary valuation and begin data room preparation.',
-            'Clarify preferred exit pathway, commission preliminary valuation assessment and begin organising key documents.',
-            'Review exit timeline assumptions and ensure key exit documentation is being maintained.',
-            '30-60 days','Exit Advisory']
-    ];
+    var thresholds=[[22,'Financial Health','Commission forensic-ready financial clean-up and appoint CFO','Commission independent financial audit and implement monthly reporting','30-60 days','CFO Advisory'],[15,'Governance & Controls','Establish board of directors and implement compliance framework','Formalise board structure and appoint independent directors','60-90 days','Governance Advisory'],[15,'Leadership & Team','Immediate leadership assessment and reduce key person dependency','Build second-tier management and formalise HR policies','60-90 days','People Advisory'],[15,'Market Position','Commission market positioning analysis and build customer reference base','Develop competitive positioning and document market advantages','30-60 days','Strategy Advisory'],[12,'Operations & Technology','Document all critical processes and implement basic systems','Map operational processes and implement KPI monitoring','60-90 days','Operations Advisory'],[10,'Exit Readiness','Engage exit advisor and develop 3-year exit preparation roadmap','Clarify exit pathway and commission preliminary valuation assessment','30-60 days','Exit Advisory']];
     var allActions=[];
     for(var i=0;i<urlP.length;i++){
         var t=thresholds[i];
-        var maxScore=t[0],critT=t[2],highT=t[1],pillar=t[3];
-        var actCrit=t[4],actHigh=t[5],actMod=t[6],timeline=t[7],service=t[8];
-        var pct=(urlP[i]/maxScore)*100;
-        var gapPct=((maxScore-urlP[i])/maxScore)*100; // gap from maximum for sorting
-        var priority, action;
-        if(urlP[i]<critT){
-            priority='critical'; action=actCrit;
-        } else if(urlP[i]<highT){
-            priority='high'; action=actHigh;
-        } else if(pct<75){
-            priority='moderate'; action=actMod;
-        } else {
-            continue; // pillar performing well — skip
+        if(urlP[i]<t[0]){
+            var crit=urlP[i]<(t[0]/2);
+            allActions.push({priority:crit?'critical':'high',pillar:t[1],action:crit?t[2]:t[3],timeline:t[4],service:t[5]});
         }
-        allActions.push({priority:priority,pillar:pillar,action:action,timeline:timeline,service:service,score:urlP[i],max:maxScore,gapPct:gapPct});
     }
-    // Sort: critical first, then high, then moderate — within each tier sort by worst gap %
-    var order={critical:0,high:1,moderate:2};
-    allActions.sort(function(a,b){
-        if(order[a.priority]!==order[b.priority]) return order[a.priority]-order[b.priority];
-        return b.gapPct-a.gapPct; // within same tier: biggest gap first
-    });
+    allActions.sort(function(a,b){return ({critical:0,high:1})[a.priority]-({critical:0,high:1})[b.priority];});
     var top5=allActions.slice(0,5);
-    var html='<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your pillar scores, here are your highest-impact actions for the next 90 days — ordered by urgency and exit valuation impact.</p>';
+    var html='<p style="color:#E5E7EB;line-height:1.8;margin-bottom:1.5rem;">Based on your assessment, here are your priority actions for the next 90 days.</p>';
     if(top5.length===0){
         html+='<p style="color:var(--green);font-weight:600;">\u2713 All pillars performing well. Focus on maintaining standards and preparing investor documentation.</p>';
     } else {
         for(var j=0;j<top5.length;j++){
-            var item=top5[j];
-            var bc=item.priority==='critical'?'var(--red)':item.priority==='high'?'var(--orange)':'#6B7280';
-            var label=item.priority==='critical'?'CRITICAL':item.priority==='high'?'HIGH':'MODERATE';
-            html+='<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;">';
-            html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;">';
-            html+='<div style="display:flex;align-items:center;gap:0.5rem;"><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;">'+label+'</span></div>';
-            html+='<span style="font-size:0.78rem;color:#9CA3AF;">Score: <strong style="color:white;">'+item.score+'/'+item.max+'</strong> ('+Math.round((item.score/item.max)*100)+'%)</span>';
-            html+='</div>';
-            html+='<p style="color:#E5E7EB;margin:0.25rem 0 0.75rem;line-height:1.6;">'+item.action+'</p>';
-            html+='<div style="display:flex;gap:1.5rem;font-size:0.82rem;color:#9CA3AF;"><span>&#128197; '+item.timeline+'</span><span>&#128203; '+item.service+'</span></div>';
-            html+='</div>';
+            var item=top5[j],bc=item.priority==='critical'?'var(--red)':'var(--orange)';
+            html+='<div style="background:rgba(30,42,58,0.6);border-left:4px solid '+bc+';border-radius:8px;padding:1rem 1.25rem;margin-bottom:1rem;"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+item.pillar+'</strong><span style="background:'+bc+';color:#fff;font-size:0.7rem;padding:0.15rem 0.5rem;border-radius:20px;text-transform:uppercase;">'+item.priority+'</span></div><p style="color:#E5E7EB;margin:0.25rem 0 0.5rem;">'+item.action+'</p><div style="display:flex;gap:1.5rem;font-size:0.85rem;color:#9CA3AF;"><span>'+item.timeline+'</span><span>'+item.service+'</span></div></div>';
         }
     }
-    container.innerHTML=html;
-}
-
-// ── Pillar content library for dynamic roadmap and milestones ──
-var pillarContent={
-    0:{
-        name:'Financial Health',
-        phase1title:'Financial Systems & Audit Preparation',
-        phase1desc:'Engage fractional CFO, implement cloud accounting system, commission 3-year independent audit, establish monthly management reporting and cash flow forecasting.',
-        phase2title:'Audit Completion & Financial Controls',
-        phase2desc:'Complete audited financials, quality of earnings analysis, implement financial KPI dashboard, establish working capital management processes.',
-        phase3title:'Financial Validation & Investor Readiness',
-        phase3desc:'Finalise audited accounts, prepare financial data room, commission independent quality of earnings report, develop 3-year financial projections.',
-        milestones:[
-            {title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and financial priority assessment.',tl:'Week 1-2',owner:'CEO'},
-            {title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts and reporting.',tl:'Week 3-8',owner:'CFO'},
-            {title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or reputable regional firm for 3-year historical audit. Sign engagement letter.',tl:'Week 8-10',owner:'CFO'},
-            {title:'Establish Management Reporting',priority:'High',col:'var(--orange)',desc:'Implement monthly P&L, balance sheet and cash flow reporting. Set up KPI dashboard.',tl:'Week 6-10',owner:'CFO'},
-            {title:'Begin Financial Data Room',priority:'High',col:'var(--orange)',desc:'Organise financial documents into investor-ready data room. Include 3-year financials and projections.',tl:'Week 10-12',owner:'CFO'}
-        ]
-    },
-    1:{
-        name:'Governance & Controls',
-        phase1title:'Governance Framework & Board Structure',
-        phase1desc:'Establish formal board of directors, appoint independent directors, document board charter and committee structure, implement delegation of authority matrix.',
-        phase2title:'Compliance & Policy Documentation',
-        phase2desc:'Complete all key policy documentation, implement quarterly compliance reporting, establish internal audit function, formalise shareholder agreements.',
-        phase3title:'Governance Validation & Independent Review',
-        phase3desc:'Commission independent governance review, implement board effectiveness assessment, complete compliance certification where applicable.',
-        milestones:[
-            {title:'Establish Board of Directors',priority:'Critical',col:'var(--red)',desc:'Formalise board structure. Identify and appoint independent non-executive directors.',tl:'Week 1-4',owner:'CEO'},
-            {title:'Document Board Charter',priority:'Critical',col:'var(--red)',desc:'Create board charter, committee terms of reference, and delegation of authority matrix.',tl:'Week 3-6',owner:'CEO'},
-            {title:'Engage Corporate Secretary',priority:'High',col:'var(--orange)',desc:'Appoint corporate secretary for proper governance recordkeeping and compliance.',tl:'Week 2-4',owner:'CEO'},
-            {title:'Document Key Policies',priority:'High',col:'var(--orange)',desc:'Document all material policies: HR, finance, IT, data protection, anti-corruption.',tl:'Week 6-10',owner:'Chairman'},
-            {title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room. Organise governance documents into standard M&A categories.',tl:'Week 10-12',owner:'TriveExec'}
-        ]
-    },
-    2:{
-        name:'Leadership & Team',
-        phase1title:'Leadership Assessment & Succession Planning',
-        phase1desc:'Conduct leadership team assessment, identify key person dependencies, build second-tier management layer, formalise HR policies and employment contracts.',
-        phase2title:'Talent Development & Retention',
-        phase2desc:'Implement leadership competency framework, establish retention programme for key talent, develop succession plans for all critical roles.',
-        phase3title:'Leadership Validation & Organisational Readiness',
-        phase3desc:'Commission independent leadership assessment, validate succession plans, implement performance management framework aligned to exit timeline.',
-        milestones:[
-            {title:'Leadership Team Assessment',priority:'Critical',col:'var(--red)',desc:'Conduct structured assessment of all senior leaders. Identify gaps and single-person dependencies.',tl:'Week 1-3',owner:'CEO'},
-            {title:'Build Second-Tier Management',priority:'Critical',col:'var(--red)',desc:'Identify, recruit or develop at least one deputy for each key leadership role.',tl:'Week 3-10',owner:'CEO'},
-            {title:'Formalise HR Policies',priority:'High',col:'var(--orange)',desc:'Document employment contracts, job descriptions, performance review process and compensation structure.',tl:'Week 4-8',owner:'HR/CEO'},
-            {title:'Implement Retention Programme',priority:'High',col:'var(--orange)',desc:'Design retention incentives for key talent. Consider ESOP or long-term incentive plan.',tl:'Week 6-12',owner:'CEO'},
-            {title:'Document Succession Plans',priority:'High',col:'var(--orange)',desc:'Create written succession plans for CEO and all C-suite roles. Test with scenario planning.',tl:'Week 8-12',owner:'Chairman'}
-        ]
-    },
-    3:{
-        name:'Market Position',
-        phase1title:'Market Positioning & Competitive Analysis',
-        phase1desc:'Commission independent market analysis, develop clear competitive positioning statement, build customer reference base, document total addressable market opportunity.',
-        phase2title:'Brand Development & Customer Validation',
-        phase2desc:'Formalise brand identity and messaging, build case studies and client testimonials, implement customer satisfaction measurement, document IP and competitive moat.',
-        phase3title:'Market Validation & Buyer Narrative',
-        phase3desc:'Commission third-party market validation, develop investor-ready market narrative, prepare competitive analysis for information memorandum.',
-        milestones:[
-            {title:'Commission Market Analysis',priority:'Critical',col:'var(--red)',desc:'Engage independent market research firm. Document TAM, SAM, SOM and growth trajectory.',tl:'Week 1-4',owner:'CEO'},
-            {title:'Define Competitive Positioning',priority:'Critical',col:'var(--red)',desc:'Develop clear positioning statement. Document key differentiators and competitive advantages.',tl:'Week 2-6',owner:'CEO'},
-            {title:'Build Customer Reference Base',priority:'High',col:'var(--orange)',desc:'Identify 5-10 referenceable customers. Develop case studies and testimonials.',tl:'Week 4-10',owner:'Sales'},
-            {title:'Implement CRM System',priority:'High',col:'var(--orange)',desc:'Deploy CRM to track pipeline, customer concentration and revenue visibility.',tl:'Week 3-8',owner:'Sales'},
-            {title:'Document IP Portfolio',priority:'High',col:'var(--orange)',desc:'Catalogue all IP, trademarks, patents and proprietary systems. Ensure proper registration.',tl:'Week 6-12',owner:'Legal'}
-        ]
-    },
-    4:{
-        name:'Operations & Scalability',
-        phase1title:'Operational Documentation & Process Mapping',
-        phase1desc:'Map and document all critical business processes, implement project management systems, establish quality control processes, create standard operating procedures.',
-        phase2title:'Systems Implementation & KPI Monitoring',
-        phase2desc:'Implement scalable technology infrastructure, establish operational KPI dashboard, automate key workflows, document technology stack and vendor relationships.',
-        phase3title:'Operational Validation & Scalability Review',
-        phase3desc:'Commission independent operational review, validate scalability for post-acquisition growth, document integration readiness for potential buyers.',
-        milestones:[
-            {title:'Map Critical Business Processes',priority:'Critical',col:'var(--red)',desc:'Document all revenue-generating and operational processes end-to-end using process maps.',tl:'Week 1-4',owner:'COO'},
-            {title:'Implement Project Management System',priority:'Critical',col:'var(--red)',desc:'Deploy PM tool (e.g. Asana, Monday.com). Establish standard project templates.',tl:'Week 2-5',owner:'COO'},
-            {title:'Create SOPs for Key Functions',priority:'High',col:'var(--orange)',desc:'Write standard operating procedures for all critical functions. Train team on SOPs.',tl:'Week 4-10',owner:'COO'},
-            {title:'Establish KPI Dashboard',priority:'High',col:'var(--orange)',desc:'Implement operational KPI monitoring. Define targets and reporting cadence.',tl:'Week 5-9',owner:'COO'},
-            {title:'Technology Stack Documentation',priority:'High',col:'var(--orange)',desc:'Document all systems, integrations, vendor contracts and technology dependencies.',tl:'Week 8-12',owner:'CTO/COO'}
-        ]
-    },
-    5:{
-        name:'Exit Readiness',
-        phase1title:'Exit Strategy Definition & Initial Documentation',
-        phase1desc:'Clarify preferred exit pathway (IPO/M&A/PE), engage exit advisor, commission preliminary valuation assessment, begin data room preparation.',
-        phase2title:'Due Diligence Preparation & Advisor Selection',
-        phase2desc:'Identify and address key due diligence risks, select transaction advisors, complete data room population, develop management presentation.',
-        phase3title:'Market Sounding & Transaction Preparation',
-        phase3desc:'Conduct controlled market sounding with potential buyers, refine valuation expectations, prepare information memorandum, finalise deal structure options.',
-        milestones:[
-            {title:'Engage Exit Advisor',priority:'Critical',col:'var(--red)',desc:'Select and engage TriveExec or specialist exit advisor. Define exit pathway and timeline.',tl:'Week 1-3',owner:'CEO'},
-            {title:'Commission Preliminary Valuation',priority:'Critical',col:'var(--red)',desc:'Commission preliminary valuation assessment to establish realistic exit value range.',tl:'Week 2-5',owner:'CFO'},
-            {title:'Set Up Virtual Data Room',priority:'High',col:'var(--orange)',desc:'Deploy VDR platform. Begin populating with financial, legal and operational documents.',tl:'Week 3-8',owner:'TriveExec'},
-            {title:'Identify Due Diligence Risks',priority:'High',col:'var(--orange)',desc:'Conduct pre-emptive due diligence review. Identify and remediate key risk areas.',tl:'Week 4-9',owner:'TriveExec'},
-            {title:'Develop Management Presentation',priority:'High',col:'var(--orange)',desc:'Prepare investor-ready management presentation covering strategy, financials and growth plan.',tl:'Week 8-12',owner:'CEO/CFO'}
-        ]
-    }
-};
-
-function buildRoadmap(){
-    var container=document.getElementById('roadmap-timeline');
-    if(!container) return;
-
-    // Sort pillars by score (weakest first) — exclude Exit Readiness (p6) from phase ordering
-    // as it's addressed in phase 3 for everyone
-    var pillarOrder=[];
-    for(var i=0;i<5;i++){
-        var pct=(urlP[i]/pillarMax[i])*100;
-        pillarOrder.push({idx:i,pct:pct});
-    }
-    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
-
-    var p1=pillarOrder[0].idx; // weakest
-    var p2=pillarOrder[1].idx; // second weakest
-
-    var pc1=pillarContent[p1];
-    var pc2=pillarContent[p2];
-
-    // Phase 3 validation title adapts to what was addressed in phases 1-2
-    var phase3title='External Validation & Market Preparation';
-    var phase3desc='Management presentations, third-party assessment of '+pc1.name+' and '+pc2.name+' improvements, customer reference programme, transaction advisor selection and engagement.';
-
-    var html='';
-
-    // Phase 1 — led by weakest pillar
-    html+='<div class="timeline-item">';
-    html+='<div class="timeline-phase">Months 1-3: Foundation</div>';
-    html+='<div class="timeline-title">'+pc1.phase1title+'</div>';
-    html+='<div class="timeline-desc">'+pc1.phase1desc+'</div>';
-    html+='</div>';
-
-    // Phase 2 — led by second weakest pillar
-    html+='<div class="timeline-item">';
-    html+='<div class="timeline-phase">Months 4-6: Enhancement</div>';
-    html+='<div class="timeline-title">'+pc2.phase2title+'</div>';
-    html+='<div class="timeline-desc">'+pc2.phase2desc+'</div>';
-    html+='</div>';
-
-    // Phase 3 — validation (semi-dynamic description)
-    html+='<div class="timeline-item">';
-    html+='<div class="timeline-phase">Months 7-9: Validation</div>';
-    html+='<div class="timeline-title">'+phase3title+'</div>';
-    html+='<div class="timeline-desc">'+phase3desc+'</div>';
-    html+='</div>';
-
-    // Phase 4 — always static Go-to-Market
-    html+='<div class="timeline-item">';
-    html+='<div class="timeline-phase">Months 10-12: Market Readiness</div>';
-    html+='<div class="timeline-title">Go-to-Market Execution</div>';
-    html+='<div class="timeline-desc">CIM preparation, controlled auction process, final due diligence prep, deal structure optimisation, buyer outreach.</div>';
-    html+='</div>';
-
     container.innerHTML=html;
 }
 
 function buildMilestones(){
     var container=document.getElementById('phase1-milestones');
     if(!container) return;
-
-    // Build milestone pool from 2 weakest pillars (5 total)
-    var pillarOrder=[];
-    for(var i=0;i<urlP.length;i++){
-        pillarOrder.push({idx:i,pct:(urlP[i]/pillarMax[i])*100});
-    }
-    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
-    var weakest=pillarOrder[0].idx, second=pillarOrder[1].idx;
-    var ms=[];
-    var w=pillarContent[weakest].milestones, s=pillarContent[second].milestones;
-    for(var j=0;j<3&&j<w.length;j++) ms.push(w[j]);
-    for(var k=0;k<2&&k<s.length;k++) ms.push(s[k]);
-
+    var ms=[{title:'Engage Fractional CFO',priority:'Critical',col:'var(--red)',desc:'Interview and onboard fractional CFO. Establish weekly cadence and priority assessment.',tl:'Week 1-2',owner:'CEO'},{title:'Select & Implement Financial System',priority:'Critical',col:'var(--red)',desc:'Evaluate Xero vs QuickBooks. Implement chosen system with full chart of accounts.',tl:'Week 3-8',owner:'CFO'},{title:'Engage Audit Firm',priority:'Critical',col:'var(--red)',desc:'Select Big 4 or regional firm for 3-year historical audit. Sign engagement letter.',tl:'Week 8-10',owner:'CFO'},{title:'Establish Governance Framework',priority:'High',col:'var(--orange)',desc:'Document board structure, committee charters, delegation of authority matrix.',tl:'Week 6-12',owner:'CEO'},{title:'Begin Data Room Structure',priority:'High',col:'var(--orange)',desc:'Set up virtual data room platform and organise into standard M&A categories.',tl:'Week 10-12',owner:'TriveExec'}];
     var html='';
     for(var i=0;i<ms.length;i++){
         var m=ms[i];
-        html+='<div class="ms-row" onclick="toggleMilestone(this,event)" style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;cursor:pointer;transition:background 0.2s;">';
-        html+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-        html+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);flex-shrink:0;">';
-        html+='<div style="flex:1;">';
-        html+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap;">';
-        html+='<strong style="color:var(--gold);">'+m.title+'</strong>';
-        html+='<span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span>';
-        html+='</div>';
-        html+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p>';
-        html+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;flex-wrap:wrap;"><span>&#128197; '+m.tl+'</span><span>&#128100; '+m.owner+'</span></div>';
-        html+='</div></div></div>';
+        html+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;"><div style="display:flex;align-items:flex-start;gap:1rem;"><input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);"><div style="flex:1;"><div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;"><strong style="color:var(--gold);">'+m.title+'</strong><span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span></div><p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p><div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div></div></div></div>';
     }
     container.innerHTML=html;
-    updateProgress();
-}
-
-function toggleMilestone(row,evt){
-    var cb=row.querySelector('input[type="checkbox"]');
-    if(!cb) return;
-    // If user clicked directly on checkbox, browser already toggled it — don't flip again
-    if(!evt||evt.target!==cb) cb.checked=!cb.checked;
-    if(cb.checked){
-        row.style.background='rgba(201,169,97,0.12)';
-        row.style.borderLeftColor='var(--gold)';
-    } else {
-        row.style.background='rgba(30,42,58,0.5)';
-        row.style.borderLeftColor='rgba(201,169,97,0.3)';
-    }
-    updateProgress();
-}
-
-function updateProgress(){
-    var rows=document.querySelectorAll('.ms-row');
-    var total=rows.length, done=0;
-    for(var i=0;i<rows.length;i++){
-        var cb=rows[i].querySelector('input[type="checkbox"]');
-        if(cb&&cb.checked) done++;
-    }
-    var pct=total>0?Math.round((done/total)*100):0;
-    // Overall progress
-    var bar=document.getElementById('overall-progress-bar');
-    var pctEl=document.getElementById('overall-progress-pct');
-    var countEl=document.getElementById('overall-progress-count');
-    if(bar) bar.style.width=pct+'%';
-    if(pctEl) pctEl.textContent=pct+'%';
-    if(countEl) countEl.textContent=done+' of '+total+' completed';
-    // Phase 1 progress
-    var p1El=document.getElementById('phase1-pct');
-    if(p1El) p1El.textContent=pct+'%';
-    // Phase 2 unlock glow when all 5 done
-    var circle2=document.getElementById('phase2-circle');
-    var status2=document.getElementById('phase2-status');
-    if(circle2&&status2){
-        if(done>=5){
-            circle2.style.background='rgba(201,169,97,0.3)';
-            circle2.style.boxShadow='0 0 16px rgba(201,169,97,0.5)';
-            circle2.style.color='var(--gold)';
-            circle2.textContent='2';
-            status2.textContent='\u26a1 Ready to Unlock';
-            status2.style.color='var(--gold)';
-            status2.style.fontWeight='700';
-        } else {
-            circle2.style.background='#374151';
-            circle2.style.boxShadow='none';
-            circle2.style.color='#9CA3AF';
-            circle2.innerHTML='&#128274;';
-            status2.textContent='Locked';
-            status2.style.color='#6B7280';
-            status2.style.fontWeight='normal';
-        }
-    }
-}
-
-function buildJourneyContext(){
-    var jEl=document.getElementById('journey-context-text');
-    if(!jEl) return;
-    var grade1=urlGrade.charAt(0);
-    var timeline='12–18 months';
-    if(grade1==='A'||grade1==='B') timeline='6–12 months';
-    else if(grade1==='C') timeline='9–12 months';
-    // Est completion
-    var ecEl=document.getElementById('est-completion');
-    if(ecEl){
-        var d=new Date();
-        var months=grade1==='A'||grade1==='B'?9:grade1==='C'?11:15;
-        d.setMonth(d.getMonth()+months);
-        ecEl.textContent=d.toLocaleDateString('en-GB',{month:'long',year:'numeric'});
-    }
-    // Weak pillars
-    var weakNames=[];
-    for(var i=0;i<urlP.length;i++){
-        if((urlP[i]/pillarMax[i])*100<70) weakNames.push(pillarName[i]);
-    }
-    var weakText=weakNames.length>0?weakNames.slice(0,2).join(' and '):'your identified gaps';
-    jEl.innerHTML='Based on your <strong style="color:var(--gold);">Grade '+urlGrade+' score of '+urlScore+'/120</strong>, your recommended exit preparation journey is <strong style="color:white;">'+timeline+' across 4 phases</strong>. You have gaps in <strong style="color:#F87171;">'+weakText+'</strong> requiring structured remediation before an institutional-grade exit.';
-}
-
-function buildPhases(){
-    var container=document.getElementById('phase234-container');
-    if(!container) return;
-
-    // Sort pillars weakest first — Phase 2 uses 3rd and 4th weakest
-    var pillarOrder=[];
-    for(var i=0;i<urlP.length;i++){
-        var pct=(urlP[i]/pillarMax[i])*100;
-        pillarOrder.push({idx:i,pct:pct});
-    }
-    pillarOrder.sort(function(a,b){return a.pct-b.pct;});
-    var third=pillarOrder[2].idx;
-    var fourth=pillarOrder[3].idx;
-    var pc3=pillarContent[third];
-    var pc4=pillarContent[fourth];
-
-    // ── PHASE 2 ──
-    var p2html='';
-    if(urlPhase>=2){
-        // UNLOCKED — dynamic milestones from 3rd and 4th weakest pillars
-        var ms2=[];
-        var w3=pillarContent[third].milestones;
-        var w4=pillarContent[fourth].milestones;
-        for(var j=0;j<3&&j<w3.length;j++) ms2.push(w3[j]);
-        for(var k=0;k<2&&k<w4.length;k++) ms2.push(w4[k]);
-
-        var msHtml2='';
-        for(var mi=0;mi<ms2.length;mi++){
-            var m=ms2[mi];
-            msHtml2+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
-            msHtml2+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-            msHtml2+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
-            msHtml2+='<div style="flex:1;">';
-            msHtml2+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
-            msHtml2+='<strong style="color:var(--gold);">'+m.title+'</strong>';
-            msHtml2+='<span style="background:'+m.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m.priority+'</span>';
-            msHtml2+='</div>';
-            msHtml2+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m.desc+'</p>';
-            msHtml2+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m.tl+'</span><span>'+m.owner+'</span></div>';
-            msHtml2+='</div></div></div>';
-        }
-
-        p2html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
-        p2html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
-        p2html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div><h4 style="font-size:1.5rem;margin:0;">Months 4-6</h4></div>';
-        p2html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
-        p2html+='</div>';
-        p2html+='<div style="background:rgba(16,185,129,0.08);border:2px solid rgba(16,185,129,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
-        p2html+='<h4 style="color:#34D399;margin-bottom:0.5rem;">&#128640; Phase 2: Enhancement — TriveExec Guided</h4>';
-        p2html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">Building on your Phase 1 foundation, this phase addresses your next priority pillars: <strong style="color:white;">'+pc3.name+'</strong> and <strong style="color:white;">'+pc4.name+'</strong>. Your TriveExec advisor will guide you through each milestone.<br><br>';
-        p2html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a> &nbsp;|&nbsp; &#128222; <a href="https://calendly.com/triveexec-info/triveexec-strategy-call" target="_blank" style="color:var(--gold);">Book a check-in call</a></p>';
-        p2html+='</div>';
-        p2html+=msHtml2;
-        p2html+='<div style="text-align:center;margin-top:2rem;">';
-        p2html+='<button onclick="requestValidation2()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">&#10003; Request TriveExec Validation &#8212; Phase 2 Complete</button>';
-        p2html+='</div></div>';
-    } else {
-        // LOCKED — teaser
-        p2html='<div class="card" style="margin-top:1.5rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
-        p2html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
-        p2html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 2: Enhancement</div>';
-        p2html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 4-6</div></div>';
-        p2html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
-        p2html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
-        p2html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 2:</p>';
-        p2html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; '+pc3.phase2title+'<br>&#128274; '+pc4.phase2title+'<br>&#128274; 5 guided milestones with TriveExec advisor<br>&#128274; External vendor introductions and oversight<br>&#128274; Phase 2 completion certificate</p>';
-        p2html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Complete Phase 1 and book a consultation above to unlock.</div>';
-        p2html+='</div></div>';
-    }
-
-    // ── PHASE 3 ──
-    var p3html='';
-    var phase3Milestones=[
-        {title:'Select Transaction Advisor',priority:'Critical',col:'var(--red)',desc:'Engage M&A advisor or investment bank. Define mandate, fee structure and buyer universe.',tl:'Week 1-3',owner:'CEO/TriveExec'},
-        {title:'Complete Data Room Population',priority:'Critical',col:'var(--red)',desc:'Finalise all financial, legal, operational and governance documents in virtual data room.',tl:'Week 1-6',owner:'CFO/TriveExec'},
-        {title:'Develop Management Presentation',priority:'Critical',col:'var(--red)',desc:'Prepare investor-ready management presentation. Cover strategy, financials, growth plan and team.',tl:'Week 3-7',owner:'CEO/CFO'},
-        {title:'Commission Independent Reviews',priority:'High',col:'var(--orange)',desc:'Engage third parties for quality of earnings, technology and legal due diligence reviews.',tl:'Week 4-8',owner:'TriveExec'},
-        {title:'Build Customer Reference Programme',priority:'High',col:'var(--orange)',desc:'Identify and brief 5-8 referenceable customers. Prepare testimonials and case studies for buyer pack.',tl:'Week 5-9',owner:'Sales/CEO'}
-    ];
-    if(urlPhase>=3){
-        var msHtml3='';
-        for(var mi3=0;mi3<phase3Milestones.length;mi3++){
-            var m3=phase3Milestones[mi3];
-            msHtml3+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
-            msHtml3+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-            msHtml3+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
-            msHtml3+='<div style="flex:1;">';
-            msHtml3+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
-            msHtml3+='<strong style="color:var(--gold);">'+m3.title+'</strong>';
-            msHtml3+='<span style="background:'+m3.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m3.priority+'</span>';
-            msHtml3+='</div>';
-            msHtml3+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m3.desc+'</p>';
-            msHtml3+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m3.tl+'</span><span>'+m3.owner+'</span></div>';
-            msHtml3+='</div></div></div>';
-        }
-        p3html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
-        p3html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
-        p3html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 3: Validation</div><h4 style="font-size:1.5rem;margin:0;">Months 7-9</h4></div>';
-        p3html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
-        p3html+='</div>';
-        p3html+='<div style="background:rgba(16,185,129,0.08);border:2px solid rgba(16,185,129,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
-        p3html+='<h4 style="color:#34D399;margin-bottom:0.5rem;">&#128269; Phase 3: External Validation — TriveExec Led</h4>';
-        p3html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">This phase involves external advisors, independent reviews and market preparation. TriveExec leads all third-party engagements and manages the process on your behalf.<br><br>';
-        p3html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>';
-        p3html+='</div>';
-        p3html+=msHtml3;
-        p3html+='<div style="text-align:center;margin-top:2rem;">';
-        p3html+='<button onclick="requestValidation3()" style="background:linear-gradient(135deg,var(--gold),var(--light-gold));color:#1E2A3A;font-size:1rem;font-weight:700;padding:1rem 2.5rem;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">&#10003; Request TriveExec Validation &#8212; Phase 3 Complete</button>';
-        p3html+='</div></div>';
-    } else {
-        p3html='<div class="card" style="margin-top:1rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
-        p3html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
-        p3html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 3: Validation</div>';
-        p3html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 7-9</div></div>';
-        p3html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
-        p3html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
-        p3html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 3:</p>';
-        p3html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; Transaction advisor selection and mandate<br>&#128274; Data room completion and quality review<br>&#128274; Independent quality of earnings report<br>&#128274; Management presentation preparation<br>&#128274; Customer reference programme</p>';
-        p3html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Unlocked by your TriveExec advisor after Phase 2 completion.</div>';
-        p3html+='</div></div>';
-    }
-
-    // ── PHASE 4 ──
-    var p4html='';
-    var phase4Milestones=[
-        {title:'Prepare Information Memorandum (CIM)',priority:'Critical',col:'var(--red)',desc:'Develop comprehensive CIM covering business overview, financials, growth strategy and exit rationale.',tl:'Week 1-4',owner:'TriveExec/CEO'},
-        {title:'Initiate Controlled Buyer Outreach',priority:'Critical',col:'var(--red)',desc:'TriveExec contacts pre-qualified buyer universe. Manage NDAs and initial interest assessments.',tl:'Week 3-6',owner:'TriveExec'},
-        {title:'Management Presentations to Buyers',priority:'Critical',col:'var(--red)',desc:'Conduct management presentations to shortlisted buyers. Refine pitch based on buyer feedback.',tl:'Week 5-8',owner:'CEO/TriveExec'},
-        {title:'Evaluate and Negotiate Indicative Offers',priority:'High',col:'var(--orange)',desc:'Review IOIs and LOIs. Negotiate key terms including price, structure, earnout and conditions.',tl:'Week 7-10',owner:'CEO/TriveExec'},
-        {title:'Final Due Diligence & Deal Structuring',priority:'High',col:'var(--orange)',desc:'Support buyer due diligence process. Finalise deal structure, tax optimisation and transaction documents.',tl:'Week 8-12',owner:'TriveExec/Legal'}
-    ];
-    if(urlPhase>=4){
-        var msHtml4='';
-        for(var mi4=0;mi4<phase4Milestones.length;mi4++){
-            var m4=phase4Milestones[mi4];
-            msHtml4+='<div style="padding:1.25rem;background:rgba(30,42,58,0.5);border-radius:8px;border-left:4px solid rgba(201,169,97,0.3);margin-bottom:1rem;">';
-            msHtml4+='<div style="display:flex;align-items:flex-start;gap:1rem;">';
-            msHtml4+='<input type="checkbox" style="width:24px;height:24px;margin-top:0.25rem;cursor:pointer;accent-color:var(--gold);">';
-            msHtml4+='<div style="flex:1;">';
-            msHtml4+='<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">';
-            msHtml4+='<strong style="color:var(--gold);">'+m4.title+'</strong>';
-            msHtml4+='<span style="background:'+m4.col+';color:white;padding:0.2rem 0.6rem;border-radius:12px;font-size:0.75rem;font-weight:700;">'+m4.priority+'</span>';
-            msHtml4+='</div>';
-            msHtml4+='<p style="color:#D1D5DB;line-height:1.6;margin-bottom:0.75rem;">'+m4.desc+'</p>';
-            msHtml4+='<div style="display:flex;gap:1.5rem;font-size:0.875rem;color:#9CA3AF;"><span>'+m4.tl+'</span><span>'+m4.owner+'</span></div>';
-            msHtml4+='</div></div></div>';
-        }
-        p4html='<div class="card" style="margin-top:1.5rem;border:2px solid var(--gold);">';
-        p4html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gold);">';
-        p4html+='<div><div style="font-size:0.8rem;color:var(--gold);text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div><h4 style="font-size:1.5rem;margin:0;">Months 10-12</h4></div>';
-        p4html+='<div style="background:var(--green);color:white;padding:0.4rem 1rem;border-radius:20px;font-size:0.8rem;font-weight:700;">&#10003; Unlocked</div>';
-        p4html+='</div>';
-        p4html+='<div style="background:rgba(201,169,97,0.08);border:2px solid rgba(201,169,97,0.3);border-radius:10px;padding:1.5rem;margin-bottom:2rem;">';
-        p4html+='<h4 style="color:var(--gold);margin-bottom:0.5rem;">&#127942; Phase 4: Go-to-Market — TriveExec Led</h4>';
-        p4html+='<p style="color:#D1D5DB;line-height:1.7;margin:0;">This is the culmination of your exit preparation journey. TriveExec manages the full transaction process — from buyer outreach through to deal completion. Your role is to focus on running the business while we manage the exit.<br><br>';
-        p4html+='&#128140; <a href="mailto:insights@triveexec.com" style="color:var(--gold);">insights@triveexec.com</a></p>';
-        p4html+='</div>';
-        p4html+=msHtml4;
-        p4html+='<div style="background:linear-gradient(135deg,rgba(201,169,97,0.15),rgba(201,169,97,0.05));border:2px solid var(--gold);border-radius:10px;padding:2rem;text-align:center;margin-top:2rem;">';
-        p4html+='<div style="font-size:2rem;margin-bottom:0.5rem;">&#127942;</div>';
-        p4html+='<strong style="color:var(--gold);font-size:1.1rem;display:block;margin-bottom:0.5rem;">Exit Transaction in Progress</strong>';
-        p4html+='<p style="color:#D1D5DB;font-size:0.9rem;">Your TriveExec advisor is managing your transaction process. Stay focused on business performance — we handle the deal.</p>';
-        p4html+='</div></div>';
-    } else {
-        p4html='<div class="card" style="margin-top:1rem;opacity:0.75;border:1px solid rgba(201,169,97,0.2);">';
-        p4html+='<div style="display:flex;justify-content:space-between;align-items:flex-start;">';
-        p4html+='<div><div style="font-size:0.8rem;color:#9CA3AF;text-transform:uppercase;font-weight:700;">Phase 4: Market Readiness</div>';
-        p4html+='<div style="font-size:1.25rem;font-weight:700;color:#D1D5DB;">Months 10-12</div></div>';
-        p4html+='<div style="font-size:1.25rem;font-weight:800;color:#6B7280;">&#128274; Locked</div></div>';
-        p4html+='<div style="margin-top:1.25rem;padding:1.25rem;background:rgba(30,42,58,0.4);border-radius:8px;border-left:4px solid rgba(201,169,97,0.2);">';
-        p4html+='<p style="color:#9CA3AF;font-size:0.875rem;margin-bottom:0.75rem;font-weight:600;">What\'s inside Phase 4:</p>';
-        p4html+='<p style="color:#6B7280;font-size:0.875rem;line-height:1.7;">&#128274; Information Memorandum (CIM) preparation<br>&#128274; Controlled buyer outreach and NDA management<br>&#128274; Management presentations to shortlisted buyers<br>&#128274; Offer evaluation and negotiation<br>&#128274; Final due diligence and deal structuring</p>';
-        p4html+='<div style="margin-top:1rem;padding:0.75rem;background:rgba(201,169,97,0.08);border-radius:6px;font-size:0.8rem;color:var(--gold);">&#128274; Available as part of a TriveExec service engagement. Unlocked by your TriveExec advisor after Phase 3 completion.</div>';
-        p4html+='</div></div>';
-    }
-
-    container.innerHTML=p2html+p3html+p4html;
-}
-
-// ── VALUE LEAKAGE CALCULATOR (Tweak 1) ──────────────────────────────────────
-var ebitdaMode='own';
-var industryBenchmarks={
-    'Technology':{label:'Technology',ebitda:2500000},
-    'Manufacturing':{label:'Manufacturing',ebitda:3500000},
-    'Services':{label:'Professional Services',ebitda:2000000},
-    'Healthcare':{label:'Healthcare / MedTech',ebitda:2500000},
-    'F&B':{label:'F&B',ebitda:1000000},
-    'Retail':{label:'Retail / Consumer',ebitda:1500000},
-    'Logistics':{label:'Logistics / Supply Chain',ebitda:2500000},
-    'Construction':{label:'Construction / Engineering',ebitda:3000000},
-    'Other':{label:'General SME',ebitda:2000000}
-};
-var pillarDiscounts=[
-    // Financial Health:  above mild=no discount, mild gap=0.1-0.4x, severe=0.4-0.8x
-    {mildT:22,sevT:14,d:[0.0,0.2,0.2,0.4,0.4,0.8]},
-    // Governance:        above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.6x
-    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.6]},
-    // Leadership:        above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.7x
-    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.7]},
-    // Market Position:   above mild=no discount, mild gap=0.1-0.3x, severe=0.3-0.6x
-    {mildT:15,sevT:10,d:[0.0,0.1,0.1,0.3,0.3,0.6]},
-    // Operations:        above mild=no discount, mild gap=0.1-0.2x, severe=0.2-0.4x
-    {mildT:12,sevT:8, d:[0.0,0.1,0.1,0.2,0.2,0.4]},
-    // Exit Readiness:    above mild=no discount, mild gap=0.1-0.2x, severe=0.2-0.4x
-    {mildT:10,sevT:6, d:[0.0,0.1,0.1,0.2,0.2,0.4]}
-];
-function fmtSGD(v){if(v>=1000000)return (v/1000000).toFixed(2)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
-function fmtM(v){if(v>=1000000)return (v/1000000).toFixed(1)+'M';if(v>=1000)return (v/1000).toFixed(0)+'K';return v.toLocaleString();}
-function switchEbitdaMode(mode){
-    ebitdaMode=mode;
-    var op=document.getElementById('own-ebitda-panel'),bp=document.getElementById('benchmark-ebitda-panel');
-    var bo=document.getElementById('btn-own-ebitda'),bb=document.getElementById('btn-bench-ebitda');
-    if(mode==='own'){
-        op.style.display='block';bp.style.display='none';
-        bo.style.background='var(--gold)';bo.style.color='#1E2A3A';
-        bb.style.background='transparent';bb.style.color='var(--gold)';
-    } else {
-        op.style.display='none';bp.style.display='block';
-        bo.style.background='transparent';bo.style.color='var(--gold)';
-        bb.style.background='var(--gold)';bb.style.color='#1E2A3A';
-        var ind=urlIndustry||'Other';
-        var bench=industryBenchmarks[ind]||industryBenchmarks['Other'];
-        var lbl=document.getElementById('bench-industry-label');
-        var val=document.getElementById('bench-ebitda-value');
-        if(lbl) lbl.textContent=bench.label;
-        if(val) val.textContent=fmtM(bench.ebitda);
-    }
-    calculateValueLeakage();
-}
-function calculateValueLeakage(){
-    var ebitda=0;
-    if(ebitdaMode==='own'){
-        var sel=document.getElementById('ebitda-select');
-        if(!sel||!sel.value){
-            var r=document.getElementById('leakage-result'),p=document.getElementById('leakage-prompt');
-            if(r) r.style.display='none';
-            if(p) p.style.display='block';
-            return;
-        }
-        ebitda=parseFloat(sel.value);
-    } else {
-        var ind2=urlIndustry||'Other';
-        ebitda=(industryBenchmarks[ind2]||industryBenchmarks['Other']).ebitda;
-    }
-    var totalLow=0,totalHigh=0,worst={name:'',high:0,idx:-1};
-    for(var i=0;i<urlP.length;i++){
-        var pd=pillarDiscounts[i],lo,hi;
-        if(urlP[i]>=pd.mildT){lo=pd.d[0];hi=pd.d[1];}
-        else if(urlP[i]>=pd.sevT){lo=pd.d[2];hi=pd.d[3];}
-        else{lo=pd.d[4];hi=pd.d[5];}
-        totalLow+=lo;totalHigh+=hi;
-        if(hi>worst.high){worst={name:pillarName[i],high:hi,low:lo,idx:i};}
-    }
-    totalLow=Math.min(totalLow,2.0);totalHigh=Math.min(totalHigh,3.5);
-    var ll=ebitda*totalLow,lh=ebitda*totalHigh;
-    var rEl=document.getElementById('leakage-result'),pEl=document.getElementById('leakage-prompt');
-    var lo2=document.getElementById('leakage-low'),hi2=document.getElementById('leakage-high');
-    var ml=document.getElementById('leakage-mult-low'),mh=document.getElementById('leakage-mult-high');
-    var wp=document.getElementById('leakage-worst-pillar');
-    if(lo2) lo2.textContent=fmtSGD(ll);
-    if(hi2) hi2.textContent=fmtSGD(lh);
-    if(ml) ml.textContent=totalLow.toFixed(1);
-    if(mh) mh.textContent=totalHigh.toFixed(1);
-    if(wp&&worst.idx>=0) wp.innerHTML='<span style="color:var(--gold);font-weight:700;">&#9888; Biggest drag: '+worst.name+'</span> <span style="color:#D1D5DB;font-size:0.85rem;">— contributing up to '+worst.high.toFixed(1)+'x of this discount. Addressing this pillar first delivers the fastest valuation recovery.</span>';
-    if(rEl) rEl.style.display='block';
-    if(pEl) pEl.style.display='none';
-}
-
-// ── DASHBOARD EXTRA DYNAMICS (Tweak 4) ──────────────────────────────────────
-function buildDashboardExtras(){
-    // Exit timeline by grade
-    var grade1=urlGrade.charAt(0);
-    var timeline='12-18 months';
-    if(grade1==='A'||grade1==='B') timeline='6-12 months';
-    else if(grade1==='C') timeline='9-12 months';
-    var tEl=document.getElementById('dash-exit-timeline');
-    if(tEl) tEl.textContent=timeline;
-    var stEl=document.getElementById('summary-timeline');
-    if(stEl) stEl.textContent=timeline;
-    // Valuation risk label
-    var vrEl=document.getElementById('summary-val-risk');
-    if(vrEl){
-        if(urlScore>=90) vrEl.textContent='Minimal';
-        else if(urlScore>=70) vrEl.textContent='Low-Moderate';
-        else if(urlScore>=50) vrEl.textContent='Moderate';
-        else if(urlScore>=30) vrEl.textContent='High';
-        else vrEl.textContent='Critical';
-    }
-    // Priority action
-    var minScore=urlP[0],lowestIdx=0;
-    for(var i=1;i<urlP.length;i++){if(urlP[i]<minScore){minScore=urlP[i];lowestIdx=i;}}
-    var spEl=document.getElementById('summary-priority');
-    if(spEl) spEl.textContent=pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') is your most impactful gap. Closing this alone could recover 0.8-1.5x EBITDA multiple at exit. Start here before addressing other pillars.';
-    // Exec summary immediate action
-    var iaEl=document.getElementById('exec-immediate-action');
-    if(iaEl) iaEl.textContent='Focus on '+pillarName[lowestIdx]+' first. This single pillar is creating the largest drag on your exit valuation. Address it within the next 90 days to unlock maximum premium potential.';
-    // Improved d-summary-long
-    var bestIdx=0,bestScore=urlP[0];
-    for(var j=1;j<urlP.length;j++){if(urlP[j]>bestScore){bestScore=urlP[j];bestIdx=j;}}
-    var weakPillars=[];
-    for(var k=0;k<urlP.length;k++){var p=(urlP[k]/pillarMax[k])*100;if(p<70)weakPillars.push(pillarName[k]);}
-    var summaryLong='';
-    if(grade1==='A'||grade1==='B'){
-        summaryLong='Your business demonstrates strong institutional readiness across most pillars. With focused attention on '+(weakPillars.length>0?weakPillars.join(' and '):'remaining gaps')+', an exit process could begin within 6-12 months.';
-    } else if(grade1==='C'){
-        summaryLong='Your business has solid foundations in '+pillarName[bestIdx]+' but requires structured improvement in '+(weakPillars.slice(0,3).join(', '))+' before institutional buyers will engage at premium multiples.';
-    } else {
-        summaryLong='Your business is in the early stages of exit preparation. Significant gaps across '+(weakPillars.slice(0,3).join(', '))+' require systematic remediation. With the right support, an institutional-grade exit is achievable within 12-18 months.';
-    }
-    var slEls=document.querySelectorAll('.d-summary-long');
-    for(var si=0;si<slEls.length;si++) slEls[si].textContent=summaryLong;
-}
-
-// ── BENCHMARKING DYNAMICS (Tweak 6) ─────────────────────────────────────────
-function buildBenchmarkingExtras(){
-    // Gap to top quartile per pillar
-    var topQ=[24,17,17,17,14,11];
-    var gapIds=['bm-gap-p1','bm-gap-p2','bm-gap-p3','bm-gap-p4','bm-gap-p5','bm-gap-p6'];
-    for(var i=0;i<urlP.length;i++){
-        var el=document.getElementById(gapIds[i]);
-        if(!el) continue;
-        var gap=topQ[i]-urlP[i];
-        if(gap<=0){el.textContent='At top ✓';el.style.color='var(--green)';}
-        else{el.textContent='-'+gap+' pts';el.style.color=gap>=5?'var(--red)':'var(--orange)';}
-    }
-    // Worst gap
-    var maxGapIdx=0,maxGap=topQ[0]-urlP[0];
-    for(var j=1;j<urlP.length;j++){var g=topQ[j]-urlP[j];if(g>maxGap){maxGap=g;maxGapIdx=j;}}
-    var cgEl=document.getElementById('bm-cost-gap-content');
-    if(cgEl){
-        var discMap=[1.5,1.2,2.0,1.2,1.0,1.0];
-        cgEl.innerHTML='<p style="margin-bottom:0.75rem;"><strong style="color:#F87171;">'+pillarName[maxGapIdx]+'</strong> is your widest gap versus sector leaders — <strong style="color:white;">'+maxGap+' points</strong> below top quartile. This single pillar can discount your exit multiple by up to <strong style="color:#F87171;">'+discMap[maxGapIdx]+'x EBITDA</strong> in a buyer\'s due diligence assessment.</p><p style="font-size:0.875rem;">Top-quartile companies in your sector have closed this gap through structured 3-6 month remediation programmes. The valuation recovery is typically immediate and measurable at the point of buyer engagement.</p>';
-    }
-    // Top quartile insights by industry
-    var tqMap={
-        'Technology':['Audited financials with IFRS compliance and clean cap table','Independent board with at least two non-executive directors','Recurring revenue >70% with documented ARR/MRR metrics','Scalable SaaS or platform architecture with documented tech stack'],
-        'Manufacturing':['3+ years audited financials with quality of earnings report','ISO certification and documented operational SOPs','Diversified customer base — no single customer >20% revenue','Succession plan for all key operational roles'],
-        'Services':['Clean client contracts with renewal rates documented','Independent governance with advisory board in place','Documented IP and proprietary methodologies','Revenue diversification across service lines and geographies'],
-        'default':['3+ years of audited financial statements','Formal governance structure with independent oversight','Documented key person succession plans','Clear exit strategy with appointed M&A advisor']
-    };
-    var ind=urlIndustry||'default';
-    var insights=tqMap[ind]||tqMap['default'];
-    var tqEl=document.getElementById('bm-top-quartile-content');
-    if(tqEl){
-        var html='<div style="display:grid;gap:0.75rem;">';
-        for(var k=0;k<insights.length;k++){
-            html+='<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.75rem;background:rgba(30,42,58,0.5);border-radius:6px;"><span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;">&#10003;</span><span style="color:#D1D5DB;font-size:0.875rem;line-height:1.5;">'+insights[k]+'</span></div>';
-        }
-        html+='</div>';
-        tqEl.innerHTML=html;
-    }
-}
-
-// ── SERVICES: SCROLL + REC BOX (Tweak 2) ────────────────────────────────────
-function scrollToPackage(e){
-    e.preventDefault();
-    var rec=getRecommendedPkg();
-    var el=document.getElementById('pkg-'+rec);
-    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
-}
-function switchToValuation(e){
-    e.preventDefault();
-    showTab('valuation',null);
-    var btns=document.querySelectorAll('.tab-btn');
-    for(var i=0;i<btns.length;i++){btns[i].classList.remove('active');if(btns[i].textContent.indexOf('Valuation')>-1)btns[i].classList.add('active');}
-}
-function getRecommendedPkg(){
-    // Grade-based recommendation — aligned to the grade shown throughout the dashboard
-    var g=urlGrade.charAt(0);
-    if(g==='A'||g==='B') return 'health';
-    if(g==='C') return 'assessment';
-    return 'accelerator'; // D, F or unknown
-}
-function buildRecBox(){
-    var rec=getRecommendedPkg();
-    var g=urlGrade.charAt(0);
-    var pkgData={
-        'health':{name:'Annual Business Health Check',reason:'Your Grade '+urlGrade+' score reflects a strong foundation across most pillars. An Annual Business Health Check will keep your business on track, monitor progress year on year and ensure you maintain premium exit readiness.'},
-        'assessment':{name:'Exit Readiness Assessment',reason:'Your Grade '+urlGrade+' score indicates targeted gaps on an otherwise solid base. A deep-dive Exit Readiness Assessment will give you a precise gap analysis and a prioritised action roadmap to close those gaps before exit.'},
-        'accelerator':{name:'Exit Accelerator Program',reason:'Your Grade '+urlGrade+' score shows critical gaps across multiple pillars that require structured remediation. The Exit Accelerator provides a dedicated fractional team to systematically close those gaps and achieve exit readiness within 12–24 months.'}
-    };
-    var d=pkgData[rec]||pkgData['assessment'];
-    var nm=document.getElementById('rec-pkg-name');
-    var rs=document.getElementById('rec-pkg-reason');
-    var btn=document.getElementById('rec-pkg-scroll-btn');
-    if(nm) nm.textContent=d.name;
-    if(rs) rs.textContent=d.reason;
-    if(btn) btn.textContent='Review '+d.name+' Details \u2191';
 }
 
 function highlightPackage(){
-    var rec=getRecommendedPkg();
+    var below=0;
+    for(var i=0;i<urlP.length;i++){if(urlP[i]<15)below++;}
+    var rec=urlP[0]<10&&below<=2?'financial':below>=3?'exit':'sprint';
     var badge=document.getElementById('badge-'+rec),card=document.getElementById('pkg-'+rec);
     if(badge) badge.style.display='block';
-    if(card){card.style.border='3px solid var(--gold)'; card.style.boxShadow='0 8px 24px rgba(201,169,97,0.4)'; card.style.background='linear-gradient(135deg,#1E2A3A,#2A3847)';}
+    if(card){card.style.border='3px solid var(--gold)'; card.style.boxShadow='0 8px 24px rgba(201,169,97,0.4)';}
 }
 
 function requestValidation(){
     var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 1 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 1 milestones and would like to request validation.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
+    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\\n\nPlease confirm receipt.\n\nCompany: '+company+'\nDashboard: '+window.location.href);
 }
 
-function requestValidation2(){
-    var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 2 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 2 milestones and would like to request validation to unlock Phase 3.\n\nCompany: '+company+'\nDashboard: '+window.location.href+'\n\nBest regards');
-}
-
-function requestValidation3(){
-    var company=getP('company')||'Unknown';
-    window.location.href='mailto:insights@triveexec.com?subject='+encodeURIComponent('Phase 3 Validation Request - '+company)+'&body='+encodeURIComponent('Hello TriveExec Team,\n\nI have completed Phase 3 milestones and would like to request validation to unlock Phase 4.\n\nCompany: '+company+'\\nDashboard: '+window.location.href+'\\n\\nBest regards');
-}
-
-// ── PAGE INIT ────────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', function(){
+window.onload=function(){
     fillAll();
+    buildBenchmarking();
     buildPillarCards();
     buildValueDrivers();
     buildReadinessPillars();
-    buildRoadmap();
     buildActionPlan();
-    buildPhases();
-    highlightPackage();
-    buildDashboardExtras();
-    buildBenchmarkingExtras();
-    buildRecBox();
     buildMilestones();
-    buildJourneyContext();
-    // Initialise benchmark EBITDA label
-    switchEbitdaMode('own');
-});
+    highlightPackage();
+    showTab('dashboard',document.querySelector('.tab-btn'));
+};
 </script>
 </body>
 </html>
