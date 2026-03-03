@@ -641,7 +641,7 @@
         <strong style="color:var(--gold);">Singapore &#183; Malaysia &#183; Indonesia</strong><br>
         Transforming mid-market ASEAN SMEs | Premium exits &amp; succession planning<br><br>
         This assessment is confidential and valid for 90 days.<br>
-        <a href="/cdn-cgi/l/email-protection#0c65627f656b64787f4c787e657a696974696f226f6361"><span class="__cf_email__" data-cfemail="f39a9d809a949b8780b387819a8596968b9690dd909c9e">[email&#160;protected]</span></a>
+        <a href="mailto:insights@triveexec.com">insights@triveexec.com</a>
     </p>
 </footer>
 
@@ -733,7 +733,7 @@ function fillAll(){
     setAll('d-premium',premium);
     setAll('d-summary',summary);
     setAll('d-summary-long',summary+' Critical improvement needed in '+pillarName[lowestIdx]+' ('+urlP[lowestIdx]+'/'+pillarMax[lowestIdx]+') to unlock maximum exit premium.');
-    var _d=new Date();setAll('d-date',urlDate||(_d.getDate()+' '+_mo[_d.getMonth()]+' '+_d.getFullYear()));
+    var _d=new Date();var _dispDate=urlDate?(function(){var _p=new Date(urlDate);return _p.getUTCDate()+' '+_mo[_p.getUTCMonth()]+' '+_p.getUTCFullYear();}()):(_d.getDate()+' '+_mo[_d.getMonth()]+' '+_d.getFullYear());setAll('d-date',_dispDate);
     if(urlIndustry) setAll('d-industry',urlIndustry);
     if(urlCompany) document.title='TriveHealth\u2122 - '+urlCompany;
 
