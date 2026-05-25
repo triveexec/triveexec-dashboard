@@ -1,0 +1,2695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Littlesparks Montessori — TriveExec Client Advisory Portal v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1F3C;
+  --navy-mid: #142850;
+  --navy-card: #162d58;
+  --navy-soft: #1e3a6e;
+  --gold: #C9A84C;
+  --gold-light: #E2C07A;
+  --gold-pale: #f5e9cc;
+  --gold-glow: rgba(201,168,76,0.15);
+  --white: #FAFBFC;
+  --off: #F0EDE5;
+  --muted: #8A94A6;
+  --text: #DDE1E9;
+  --green: #2D9B6F;
+  --green-bg: rgba(45,155,111,0.12);
+  --amber: #C9A84C;
+  --amber-bg: rgba(201,168,76,0.1);
+  --red: #C0392B;
+  --line: rgba(201,168,76,0.12);
+  --radius: 10px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── HEADER ─── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(13,31,60,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-mark {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.brand-name span { color: var(--gold); }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hdr-client {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--gold-light);
+}
+.hdr-ref {
+  font-size: 11px; color: var(--muted);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 3px 9px; border-radius: 20px;
+  letter-spacing: 0.06em;
+}
+
+/* ─── HERO BANNER ─── */
+.hero {
+  background: linear-gradient(160deg, #0d1f3c 0%, #142850 50%, #0d1f3c 100%);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 48px 28px 44px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+.hero-greeting {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero-title em { color: var(--gold); font-style: normal; }
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hero-pill {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+}
+.pill-green { background: var(--green-bg); color: #4cdd9f; border: 1px solid rgba(45,155,111,0.3); }
+.pill-gold { background: var(--gold-glow); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.pill-blue { background: rgba(122,171,245,0.1); color: #7aabf5; border: 1px solid rgba(122,171,245,0.25); }
+
+.hero-score-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 16px;
+  padding: 28px 32px;
+  text-align: center;
+  min-width: 200px;
+  position: relative;
+}
+.hero-score-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 30%; right: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 2px;
+}
+.score-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.score-ring-big {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  background: rgba(201,168,76,0.05);
+  box-shadow: 0 0 24px rgba(201,168,76,0.12);
+}
+.score-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+.score-denom { font-size: 11px; color: rgba(201,168,76,0.5); margin-top: 2px; }
+.score-tier {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; color: var(--white);
+  margin-bottom: 4px;
+}
+.score-tier-sub { font-size: 11px; color: var(--muted); }
+
+/* Labels used as tab controls */
+label.tab-btn {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+label.quick-nav-btn {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+/* ─── NAV TABS ─── */
+.nav-tabs-wrap {
+  background: rgba(13,31,60,0.95);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 64px;
+  z-index: 190;
+}
+.nav-tabs {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  padding: 16px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tab-btn:hover { color: var(--white); }
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.tab-icon { font-size: 14px; }
+
+/* ─── CONTENT ─── */
+.content-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 40px 28px 80px;
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ─── SECTION HEADERS ─── */
+.section-eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.section-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+.section-divider {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 36px;
+}
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card-grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+/* ─── SCORE SECTION ─── */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.pillar-card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+.pillar-card.strong::before { opacity: 1; }
+.pillar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.pillar-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+}
+.pillar-score-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--gold);
+  white-space: nowrap; flex-shrink: 0;
+  padding-left: 12px;
+}
+.pillar-bar-track {
+  height: 5px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.pillar-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  transition: width 0.8s ease;
+}
+.pillar-tier {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px;
+  display: inline-block; margin-bottom: 8px;
+}
+.tier-strong { background: var(--green-bg); color: #4cdd9f; }
+.tier-mid { background: rgba(201,168,76,0.12); color: var(--gold); }
+.tier-build { background: rgba(255,255,255,0.06); color: var(--muted); }
+.pillar-note { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+/* ─── VALUATION SECTION ─── */
+.val-staircase {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 40px;
+}
+.val-step {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.val-step-head {
+  padding: 20px 20px 16px;
+}
+.val-step-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.val-step-range {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.val-step-basis { font-size: 11px; opacity: 0.65; }
+.val-step-body { padding: 0 20px 18px; }
+.val-step-row {
+  display: flex; justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 12px;
+}
+.val-step-row:last-child { border-bottom: none; }
+.val-step-row .lbl { color: var(--muted); }
+.val-step-row .val { color: var(--white); font-weight: 500; }
+
+.vs-without { background: rgba(139,26,26,0.15); border: 1px solid rgba(139,26,26,0.25); }
+.vs-without .val-step-label { color: #ff9999; }
+.vs-without .val-step-range { color: #ff9999; }
+
+.vs-advised { background: var(--navy-card); border: 2px solid rgba(201,168,76,0.45); }
+.vs-advised .val-step-label { color: var(--gold); }
+.vs-advised .val-step-range { color: var(--white); }
+
+.vs-strategic { background: rgba(26,107,60,0.15); border: 1px solid rgba(26,107,60,0.3); }
+.vs-strategic .val-step-label { color: #4cdd9f; }
+.vs-strategic .val-step-range { color: #4cdd9f; }
+
+.val-arrow {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: var(--gold); font-size: 18px;
+}
+.val-arrow-lift {
+  font-size: 10px; font-weight: 700;
+  color: var(--green); text-align: center;
+  margin-top: 4px; letter-spacing: 0.04em;
+}
+
+.advisory-gap-bar {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.gap-bar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--white);
+  margin-bottom: 4px;
+}
+.gap-bar-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.gap-track {
+  height: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.gap-fill {
+  position: absolute; left: 0; top: 0;
+  height: 100%; border-radius: 10px;
+  background: linear-gradient(90deg, rgba(139,26,26,0.6), var(--gold), #4cdd9f);
+}
+.gap-markers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px; color: var(--muted);
+}
+.gap-markers span { font-weight: 600; color: var(--white); }
+
+/* ─── JOURNEY / TIMELINE ─── */
+.phase-list { display: flex; flex-direction: column; gap: 12px; }
+.phase-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  position: relative;
+}
+.phase-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 23px; top: 48px;
+  width: 2px;
+  height: calc(100% + 0px);
+  background: linear-gradient(180deg, rgba(201,168,76,0.3), rgba(201,168,76,0.05));
+  z-index: 0;
+}
+.phase-num-wrap { position: relative; z-index: 1; }
+.phase-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--navy-card);
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--gold);
+}
+.phase-num.done { background: rgba(45,155,111,0.2); border-color: var(--green); color: #4cdd9f; }
+.phase-num.current { background: rgba(201,168,76,0.15); box-shadow: 0 0 16px rgba(201,168,76,0.2); }
+.phase-body {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-bottom: 12px;
+}
+.phase-meta {
+  display: flex; align-items: center;
+  gap: 10px; margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.phase-badge {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px;
+  background: var(--gold-glow); color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.25);
+}
+.phase-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 600;
+  color: var(--white); margin-bottom: 6px;
+}
+.phase-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+.phase-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.phase-col-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.phase-col-label.yours { color: var(--gold); }
+.phase-col-label.ours { color: #7aabf5; }
+.phase-col-items { list-style: none; }
+.phase-col-items li {
+  font-size: 12px; color: var(--muted);
+  padding: 3px 0;
+  display: flex; align-items: flex-start; gap: 6px;
+  line-height: 1.45;
+}
+.phase-col-items li::before { content: '·'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+/* ─── ACTION PLAN ─── */
+.action-list { display: flex; flex-direction: column; gap: 14px; }
+.action-card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.action-head {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 0;
+  align-items: stretch;
+}
+.action-num-col {
+  background: var(--navy-mid);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  padding: 18px 10px;
+  border-right: 1px solid var(--line);
+}
+.action-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--gold);
+  line-height: 1;
+}
+.action-num-label {
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(201,168,76,0.4); margin-top: 3px;
+}
+.action-head-body { padding: 16px 20px; }
+.action-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 600;
+  color: var(--white); margin-bottom: 4px;
+}
+.action-owner {
+  font-size: 11px; color: var(--muted);
+}
+.action-owner strong { color: var(--gold-light); }
+.action-value-col {
+  background: rgba(45,155,111,0.08);
+  border-left: 1px solid rgba(45,155,111,0.2);
+  padding: 16px 18px;
+  display: flex; flex-direction: column;
+  align-items: flex-end; justify-content: center;
+  min-width: 130px;
+}
+.action-value-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 3px; }
+.action-value-num { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #4cdd9f; text-align: right; }
+.action-body { padding: 0 20px 18px 72px; }
+.action-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+.action-steps { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.action-steps li {
+  font-size: 12px; color: var(--muted);
+  display: flex; align-items: flex-start; gap: 8px;
+  line-height: 1.5;
+}
+.action-step-n {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  flex-shrink: 0; margin-top: 1px;
+}
+.action-meta {
+  display: flex; gap: 16px; margin-top: 12px;
+  padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04);
+}
+.action-meta-item { font-size: 11px; }
+.action-meta-item .aml { color: var(--muted); margin-bottom: 1px; }
+.action-meta-item .amv { color: var(--white); font-weight: 500; }
+
+/* ─── LEVERS ─── */
+.levers-intro {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  margin-bottom: 36px;
+  align-items: center;
+}
+.lever-scenario {
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  text-align: center;
+}
+.ls-without { background: rgba(139,26,26,0.12); border: 1px solid rgba(139,26,26,0.2); }
+.ls-base { background: var(--navy-card); border: 2px solid rgba(201,168,76,0.4); }
+.ls-strategic { background: rgba(26,107,60,0.12); border: 1px solid rgba(26,107,60,0.25); }
+.ls-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+.ls-without .ls-label { color: #ff9999; }
+.ls-base .ls-label { color: var(--gold); }
+.ls-strategic .ls-label { color: #4cdd9f; }
+.ls-range { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; }
+.ls-without .ls-range { color: #ff9999; }
+.ls-base .ls-range { color: var(--white); }
+.ls-strategic .ls-range { color: #4cdd9f; }
+.ls-basis { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.ls-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.ls-arrow .arrow { font-size: 20px; color: var(--gold); }
+.ls-arrow .lift { font-size: 10px; color: var(--green); font-weight: 700; margin-top: 2px; }
+
+.lever-stage-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px; margin-top: 28px;
+}
+.lever-stage-badge {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+.lsb-1 { background: var(--navy-mid); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.lsb-2 { background: rgba(26,107,60,0.2); color: #4cdd9f; border: 1px solid rgba(26,107,60,0.3); }
+.lever-stage-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; color: var(--white);
+}
+.lever-stage-lift { font-size: 13px; color: var(--green); font-weight: 600; margin-left: auto; }
+
+.lever-cards { display: flex; flex-direction: column; gap: 10px; }
+.lever-card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: 46px 1fr 120px;
+  overflow: hidden;
+}
+.lever-card.stage2 { border-left: 3px solid rgba(45,155,111,0.4); }
+.lever-id-col {
+  background: var(--navy-mid);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 14px 8px;
+  border-right: 1px solid var(--line);
+}
+.lever-id { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--gold); }
+.lever-body { padding: 14px 18px; }
+.lever-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.lever-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+.lever-owner { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.lever-owner strong { color: var(--gold-light); }
+.lever-lift-col {
+  background: rgba(45,155,111,0.07);
+  border-left: 1px solid rgba(45,155,111,0.15);
+  display: flex; flex-direction: column;
+  align-items: flex-end; justify-content: center;
+  padding: 14px 16px;
+  text-align: right;
+}
+.lever-lift-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 3px; }
+.lever-lift-num { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #4cdd9f; }
+
+.lever-total {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+.lever-total-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; color: var(--white);
+}
+.lever-total-label span { color: var(--muted); font-size: 14px; }
+.lever-total-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--gold);
+}
+
+/* ─── DOCUMENTS ─── */
+.doc-list { display: flex; flex-direction: column; gap: 10px; }
+.doc-row {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.doc-icon {
+  width: 44px; height: 44px;
+  background: var(--navy-mid);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em; color: var(--gold);
+  flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.doc-info h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--white); margin-bottom: 3px;
+}
+.doc-info p { font-size: 12px; color: var(--muted); }
+.doc-status {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+  white-space: nowrap;
+}
+.status-done { background: var(--green-bg); color: #4cdd9f; border: 1px solid rgba(45,155,111,0.2); }
+.status-pending { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+
+.doc-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; color: var(--white);
+  margin-bottom: 12px; margin-top: 28px;
+  padding-left: 12px;
+  border-left: 2px solid var(--gold);
+}
+.doc-section-title:first-child { margin-top: 0; }
+
+/* ─── NEXT STEPS ─── */
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.nsg-col {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.nsg-head {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 10px;
+}
+.nsg-period {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold);
+}
+.nsg-month { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--white); }
+.nsg-body { padding: 14px 18px; }
+.next-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.next-item:last-child { border-bottom: none; }
+.next-check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(201,168,76,0.35);
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+}
+.next-check.done { background: var(--green-bg); border-color: var(--green); }
+.next-check.done::after { content: '✓'; font-size: 9px; color: #4cdd9f; }
+.next-text { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.next-text strong { color: var(--white); display: block; font-size: 13px; margin-bottom: 1px; }
+.next-owner { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+.contact-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.contact-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; color: var(--white);
+  margin-bottom: 4px;
+}
+.contact-card-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.team-member {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.tm-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.tm-name { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+.tm-role { font-size: 11px; color: var(--gold); margin-bottom: 6px; }
+.tm-resp { font-size: 11px; color: var(--muted); line-height: 1.45; }
+
+/* ─── OVERVIEW WELCOME ─── */
+.welcome-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; margin-bottom: 32px; }
+.welcome-message {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+}
+.welcome-message-eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.welcome-message-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--white); margin-bottom: 14px;
+  line-height: 1.2;
+}
+.welcome-message-body { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.welcome-message-body p + p { margin-top: 10px; }
+.welcome-sidebar { display: flex; flex-direction: column; gap: 12px; }
+.stat-card {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.stat-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.stat-card-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; color: var(--white);
+  margin-bottom: 4px;
+}
+.stat-card-note { font-size: 11px; color: var(--muted); }
+
+.quick-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.quick-nav-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.quick-nav-btn:hover {
+  background: var(--gold-glow);
+  border-color: rgba(201,168,76,0.3);
+}
+.qnb-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.qnb-label { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.qnb-sub { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RADIO-BUTTON TAB SYSTEM
+   Pure CSS. Zero JavaScript. Works on file://, GoodReader,
+   Google Drive, every browser, every device.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Hide the radio inputs themselves — they are invisible controllers */
+.tab-radio { display: none !important; position: absolute; }
+
+/* Hide ALL panes by default */
+.tab-pane { display: none; }
+
+/* Show the pane whose radio is checked
+   The ~ selector reaches any subsequent sibling, so as long as
+   the <input> elements sit before .content-wrap in the DOM, this works */
+#tr-overview:checked  ~ .content-wrap #overview   { display: block; }
+#tr-score:checked     ~ .content-wrap #score       { display: block; }
+#tr-value:checked     ~ .content-wrap #value       { display: block; }
+#tr-journey:checked   ~ .content-wrap #journey     { display: block; }
+#tr-actions:checked   ~ .content-wrap #actions     { display: block; }
+#tr-levers:checked    ~ .content-wrap #levers      { display: block; }
+#tr-documents:checked ~ .content-wrap #documents   { display: block; }
+#tr-nextsteps:checked ~ .content-wrap #nextsteps   { display: block; }
+
+/* Active tab label styling via :checked state
+   Default active = overview (radio is checked by default) */
+#tr-overview:checked  ~ .nav-tabs-wrap label[for="tr-overview"],
+#tr-score:checked     ~ .nav-tabs-wrap label[for="tr-score"],
+#tr-value:checked     ~ .nav-tabs-wrap label[for="tr-value"],
+#tr-journey:checked   ~ .nav-tabs-wrap label[for="tr-journey"],
+#tr-actions:checked   ~ .nav-tabs-wrap label[for="tr-actions"],
+#tr-levers:checked    ~ .nav-tabs-wrap label[for="tr-levers"],
+#tr-documents:checked ~ .nav-tabs-wrap label[for="tr-documents"],
+#tr-nextsteps:checked ~ .nav-tabs-wrap label[for="tr-nextsteps"] {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Hero score card visibility: show only on overview */
+#tr-score:checked     ~ .hero .hero-score-card,
+#tr-value:checked     ~ .hero .hero-score-card,
+#tr-journey:checked   ~ .hero .hero-score-card,
+#tr-actions:checked   ~ .hero .hero-score-card,
+#tr-levers:checked    ~ .hero .hero-score-card,
+#tr-documents:checked ~ .hero .hero-score-card,
+#tr-nextsteps:checked ~ .hero .hero-score-card { display: none; }
+
+/* ─── RESPONSIVE ─── */
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-score-card { display: none; }
+  .val-staircase { grid-template-columns: 1fr; gap: 10px; }
+  .val-arrow { display: none; }
+  .levers-intro { grid-template-columns: 1fr; gap: 10px; }
+  .ls-arrow { display: none; }
+  .next-steps-grid { grid-template-columns: 1fr; }
+  .welcome-grid { grid-template-columns: 1fr; }
+  .phase-split { grid-template-columns: 1fr; }
+  .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+  .lever-card { grid-template-columns: 46px 1fr; }
+  .lever-lift-col { display: none; }
+  .action-value-col { display: none; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .card-grid-auto { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  /* Layout */
+  .header-inner { padding: 0 14px; height: auto; min-height: 56px; flex-wrap: wrap; gap: 6px; }
+  .hdr-ref { display: none; }
+  .hdr-client { font-size: 13px; }
+  .brand-name { font-size: 16px; }
+  .brand-mark { width: 28px; height: 28px; font-size: 14px; }
+
+  /* Hero */
+  .hero-inner { padding: 22px 16px 20px; gap: 16px; }
+  .hero-title { font-size: 1.55rem; }
+  .hero-sub { font-size: 13px; margin-bottom: 16px; }
+  .hero-pills { gap: 6px; }
+  .hero-pill { font-size: 10px; padding: 4px 10px; }
+
+  /* Nav tabs */
+  .nav-tabs-wrap { top: 56px; }
+  .nav-tabs { padding: 0 8px; }
+  .tab-btn { padding: 12px 10px; font-size: 10px; letter-spacing: 0.05em; gap: 4px; }
+  .tab-icon { font-size: 12px; }
+
+  /* Content */
+  .content-wrap { padding: 20px 14px 60px; }
+  .section-title { font-size: 1.35rem; }
+  .section-sub { font-size: 13px; }
+
+  /* Welcome */
+  .welcome-message { padding: 20px 18px; }
+  .welcome-message-title { font-size: 1.35rem; }
+  .welcome-message-body { font-size: 13px; }
+  .stat-card-val { font-size: 1.2rem; }
+  .quick-nav-grid { grid-template-columns: 1fr; gap: 8px; }
+  .quick-nav-btn { padding: 12px 14px; }
+
+  /* Score pillars */
+  .pillar-grid { grid-template-columns: 1fr; gap: 10px; }
+  .pillar-card { padding: 14px 16px; }
+
+  /* Valuation */
+  .val-step { padding: 0; }
+  .val-step-head { padding: 14px 16px 10px; }
+  .val-step-range { font-size: 1.25rem; }
+  .val-step-body { padding: 0 16px 14px; }
+  .advisory-gap-bar { padding: 18px 16px; }
+  .gap-markers { font-size: 10px; }
+
+  /* Journey / phases */
+  .phase-item { grid-template-columns: 36px 1fr; gap: 10px; }
+  .phase-num { width: 36px; height: 36px; font-size: 15px; }
+  .phase-body { padding: 14px 16px; }
+  .phase-name { font-size: 15px; }
+  .phase-desc { font-size: 12px; }
+  .phase-col-items li { font-size: 11px; }
+
+  /* Action plan */
+  .action-card { }
+  .action-head { grid-template-columns: 46px 1fr; }
+  .action-value-col { display: none; }
+  .action-title { font-size: 14px; }
+  .action-owner { font-size: 10px; }
+  .action-body { padding: 0 14px 14px 58px; }
+  .action-desc { font-size: 12px; }
+  .action-steps li { font-size: 11px; }
+  .action-meta { flex-wrap: wrap; gap: 8px; }
+  .action-meta-item .aml { font-size: 10px; }
+  .action-meta-item .amv { font-size: 11px; }
+
+  /* Levers */
+  .lever-card { grid-template-columns: 40px 1fr; }
+  .lever-lift-col { display: none; }
+  .lever-id { font-size: 13px; }
+  .lever-title { font-size: 13px; }
+  .lever-desc { font-size: 11px; }
+  .lever-stage-head { flex-wrap: wrap; gap: 6px; }
+  .lever-stage-lift { margin-left: 0; font-size: 12px; }
+  .lever-total { flex-direction: column; gap: 6px; align-items: flex-start; }
+  .lever-total-num { font-size: 18px; }
+
+  /* Documents */
+  .doc-row { grid-template-columns: 36px 1fr; gap: 10px; }
+  .doc-icon { width: 36px; height: 36px; font-size: 9px; }
+  .doc-info h4 { font-size: 13px; }
+  .doc-info p { font-size: 11px; }
+  .doc-status { font-size: 10px; padding: 3px 8px; }
+  .dl-btn { padding: 0.3rem 0.65rem; font-size: 11px; }
+  .doc-section-title { font-size: 15px; }
+
+  /* Next steps */
+  .nsg-head { padding: 10px 14px; }
+  .nsg-body { padding: 10px 14px; }
+  .next-text { font-size: 11px; }
+  .next-text strong { font-size: 12px; }
+  .contact-card { padding: 18px 16px; }
+  .team-grid { grid-template-columns: 1fr; gap: 8px; }
+  .tm-name { font-size: 13px; }
+  .tm-role { font-size: 10px; }
+  .tm-resp { font-size: 10px; }
+
+  /* Footer */
+  div[style*="background:var(--navy-mid)"] { padding: 14px 16px; }
+}
+
+/* ─── DOWNLOAD BUTTON ─── */
+.dl-btn {
+  padding: 0.38rem 0.9rem;
+  background: var(--navy);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.dl-btn:hover { background: var(--navy-soft); }
+.doc-row { align-items: center; }
+</style>
+</head>
+<body>
+
+<!-- RADIO TAB CONTROLLERS: display:none, drive all tab logic via CSS -->
+<input type="radio" name="ls-tabs" id="tr-overview" class="tab-radio" checked>
+<input type="radio" name="ls-tabs" id="tr-score" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-value" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-journey" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-actions" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-levers" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-documents" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-nextsteps" class="tab-radio">
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="brand-mark">T</div>
+      <div class="brand-name">Trive<span>Exec</span> Holdings</div>
+    </div>
+    <div class="header-right">
+      <div class="hdr-client">Littlesparks Montessori</div>
+      <div class="hdr-ref">LS-2026-001 · v3 · Confidential</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-greeting">Your Advisory Portal</div>
+      <h1 class="hero-title">Welcome, <em>Gloria.</em><br>Your Exit Journey Starts Here.</h1>
+      <p class="hero-sub">This is your private TriveExec portal — a live view of your business readiness, where your value stands today, and the steps we're taking together to maximise your outcome. Twenty years of building deserve the right exit.</p>
+      <div class="hero-pills">
+        <span class="hero-pill pill-green">✓ Engagement Active</span>
+        <span class="hero-pill pill-gold">Exit Advisory</span>
+        <span class="hero-pill pill-blue">Success Fee Only · No Retainer</span>
+      </div>
+    </div>
+    <div class="hero-score-card">
+      <div class="score-label">TriveHealth™ Score</div>
+      <div class="score-ring-big">
+        <div class="score-num">72</div>
+        <div class="score-denom">/ 120</div>
+      </div>
+      <div class="score-tier">Moderate-High Readiness</div>
+      <div class="score-tier-sub">Exit pathway: Active</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NAV TABS ═══ -->
+<div class="nav-tabs-wrap">
+  <div class="nav-tabs">
+    <label for="tr-overview" class="tab-btn"><span class="tab-icon">🏠</span> Overview</label>
+    <label for="tr-score" class="tab-btn"><span class="tab-icon">📊</span> Your Score</label>
+    <label for="tr-value" class="tab-btn"><span class="tab-icon">💰</span> Your Value</label>
+    <label for="tr-journey" class="tab-btn"><span class="tab-icon">🗺️</span> Your Journey</label>
+    <label for="tr-actions" class="tab-btn"><span class="tab-icon">✅</span> Action Plan</label>
+    <label for="tr-levers" class="tab-btn"><span class="tab-icon">🔧</span> Building Value</label>
+    <label for="tr-documents" class="tab-btn"><span class="tab-icon">📁</span> Documents</label>
+    <label for="tr-nextsteps" class="tab-btn"><span class="tab-icon">📋</span> Next Steps</label>
+  </div>
+</div>
+
+<!-- ═══ CONTENT ═══ -->
+<div class="content-wrap">
+
+  <!-- ───────── OVERVIEW ───────── -->
+  <div id="overview" class="tab-pane">
+
+    <div class="welcome-grid">
+      <div class="welcome-message">
+        <div class="welcome-message-eyebrow">A message from your advisory team</div>
+        <div class="welcome-message-title">You've built something rare, Gloria.</div>
+        <div class="welcome-message-body">
+          <p>Twenty years in one location. A Montessori curriculum that parents in Siglap have trusted with their children at the most important stage of their lives. A community of alumni families who keep coming back.</p>
+          <p>That is not a small thing. Most businesses are built to be sold. Littlesparks was built to last — and that is exactly why it deserves to be valued correctly, passed on carefully, and realised fully.</p>
+          <p>This portal is your live view of the journey. Your TriveHealth™ score tells us where you stand today. The valuation scenarios show you what's possible. The action plan shows you the steps. And your TriveExec team is with you every step of the way.</p>
+          <p style="margin-top:14px; color: var(--gold-light); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 15px;">— Carol Fong, Strategic Advisor</p>
+        </div>
+      </div>
+      <div class="welcome-sidebar">
+        <div class="stat-card">
+          <div class="stat-card-label">Your TriveHealth™ Score</div>
+          <div class="stat-card-val">72.05 / 120</div>
+          <div class="stat-card-note">Moderate-High Readiness · Exit pathway active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Advisory Target Outcome</div>
+          <div class="stat-card-val">SGD 650K – 900K</div>
+          <div class="stat-card-note">TriveExec base target for your engagement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Advisory Value We Unlock</div>
+          <div class="stat-card-val">+SGD 370K – 620K</div>
+          <div class="stat-card-note">Above what an unadvised listing would achieve</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Programme Timeline</div>
+          <div class="stat-card-val">7 – 9 Months</div>
+          <div class="stat-card-note">6-phase programme · Engagement from 1 June 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Your portal at a glance</div>
+    <div class="quick-nav-grid">
+      <label for="tr-score" class="quick-nav-btn">
+        <div class="qnb-icon">📊</div>
+        <div>
+          <div class="qnb-label">Your TriveHealth™ Score</div>
+          <div class="qnb-sub">See how your business scores across 6 dimensions and what each means for your exit</div>
+        </div>
+      </label>
+      <label for="tr-value" class="quick-nav-btn">
+        <div class="qnb-icon">💰</div>
+        <div>
+          <div class="qnb-label">What Your Business is Worth</div>
+          <div class="qnb-sub">Three scenarios: where you start, where TriveExec takes you, and the strategic ceiling</div>
+        </div>
+      </label>
+      <label for="tr-journey" class="quick-nav-btn">
+        <div class="qnb-icon">🗺️</div>
+        <div>
+          <div class="qnb-label">Your Exit Journey</div>
+          <div class="qnb-sub">The 6-phase programme, month by month — what happens and who does what</div>
+        </div>
+      </label>
+      <label for="tr-actions" class="quick-nav-btn">
+        <div class="qnb-icon">✅</div>
+        <div>
+          <div class="qnb-label">Your Action Plan</div>
+          <div class="qnb-sub">5 steps to maximise your outcome — what you need to do and by when</div>
+        </div>
+      </label>
+      <label for="tr-levers" class="quick-nav-btn">
+        <div class="qnb-icon">🔧</div>
+        <div>
+          <div class="qnb-label">Building Your Value</div>
+          <div class="qnb-sub">9 levers that lift your outcome — each with an estimated SGD impact</div>
+        </div>
+      </label>
+      <label for="tr-nextsteps" class="quick-nav-btn">
+        <div class="qnb-icon">📋</div>
+        <div>
+          <div class="qnb-label">Next 30 / 60 / 90 Days</div>
+          <div class="qnb-sub">Your prioritised checklist — exactly what to focus on right now</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- ───────── SCORE ───────── -->
+  <div id="score" class="tab-pane">
+    <div class="section-eyebrow">TriveHealth™ Assessment</div>
+    <div class="section-title">Your Business Readiness Score</div>
+    <p class="section-sub">Your TriveHealth™ score of 72.05 out of 120 places you in the Moderate-High readiness band. It means your foundations are strong — particularly your brand and community — with clear, actionable steps to unlock your full value before we begin the acquirer process.</p>
+    <div class="section-divider"></div>
+
+    <div style="display:grid; grid-template-columns: auto 1fr; gap:32px; align-items:start; margin-bottom:36px;">
+      <div style="background:var(--navy-card); border:1px solid rgba(201,168,76,0.35); border-radius:16px; padding:28px 32px; text-align:center; min-width:200px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Overall Score</div>
+        <div class="score-ring-big" style="margin-bottom:14px;">
+          <div class="score-num">72</div>
+          <div class="score-denom">/ 120</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:4px;">Moderate-High</div>
+        <div style="font-size:12px;color:var(--muted);">Exit Pathway: Active</div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line);">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">Score percentile</div>
+          <div style="height:6px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;">
+            <div style="width:60%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:10px;"></div>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:6px;">Top 35% of assessed businesses</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white);margin-bottom:10px;">What your score means</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:10px;">Your strongest dimension is <strong style="color:var(--white);">Market Position</strong> — a 78% score driven by Littlesparks' 20-year reputation, Siglap community trust, and Montessori positioning. This is your most important asset and will be central to how we present your business to potential acquirers.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:10px;">The areas with the most room for improvement are <strong style="color:var(--white);">Key Person &amp; Team</strong> and <strong style="color:var(--white);">Exit Readiness</strong> — and these are precisely what your Action Plan addresses. They are not weaknesses; they are opportunities your TriveExec team will help you close before we open conversations with any acquirer.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;">The Financial Health score will improve significantly once we document your true earning power — which is the first step in your Action Plan.</p>
+      </div>
+    </div>
+
+    <div class="pillar-grid">
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-name">Financial Health</div>
+          <div class="pillar-score-badge">14.2 / 25</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:57%"></div>
+        </div>
+        <span class="pillar-tier tier-mid">57% · Developing</span>
+        <div class="pillar-note">Your revenue has been consistent and your business is profitable. The opportunity here is to document your true earning power properly — once we do that, this score moves significantly, and so does your valuation.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-name">Governance &amp; Legal</div>
+          <div class="pillar-score-badge">13.5 / 20</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:68%"></div>
+        </div>
+        <span class="pillar-tier tier-mid">68% · Growth-Ready</span>
+        <div class="pillar-note">Your corporate structure is sound. The main item to resolve is confirming your licence conditions and what transfers to a new owner — this is an early priority in your Action Plan and your advisory team will guide you through it.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-name">Management &amp; Team</div>
+          <div class="pillar-score-badge">9.8 / 20</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:49%"></div>
+        </div>
+        <span class="pillar-tier tier-build">49% · Developing</span>
+        <div class="pillar-note">Your team is capable and loyal. The opportunity is to put a clear management structure around what you've built — so that a future acquirer sees a business that thrives with or without you in a day-to-day role. This is the single biggest value lever available to you.</div>
+      </div>
+
+      <div class="pillar-card strong">
+        <div class="pillar-header">
+          <div class="pillar-name">Market Position</div>
+          <div class="pillar-score-badge">15.5 / 20</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:78%"></div>
+        </div>
+        <span class="pillar-tier tier-strong">78% · Transaction-Ready ★</span>
+        <div class="pillar-note">This is your strongest dimension and your greatest asset. Twenty years in the same location. A Montessori curriculum that parents choose specifically. A Siglap community that trusts you. This is what makes Littlesparks rare — and it is rare.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-name">Exit Readiness</div>
+          <div class="pillar-score-badge">10.5 / 20</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:53%"></div>
+        </div>
+        <span class="pillar-tier tier-build">53% · Building</span>
+        <div class="pillar-note">This score will rise rapidly as we work through your Action Plan together. Right now your deal-ready documents are being built, your business story is being crafted, and the process infrastructure is being put in place. This is exactly what TriveExec is here to do.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-name">Operational Resilience</div>
+          <div class="pillar-score-badge">8.55 / 15</div>
+        </div>
+        <div class="pillar-bar-track">
+          <div class="pillar-bar-fill" style="width:57%"></div>
+        </div>
+        <span class="pillar-tier tier-mid">57% · Developing</span>
+        <div class="pillar-note">Your operations work well. The next step is documenting how — curriculum frameworks, operational procedures, supplier contacts — so that your knowledge lives in the business, not just in your head. Pauline Lim from your TriveExec team will lead this with you.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ───────── VALUE ───────── -->
+  <div id="value" class="tab-pane">
+    <div class="section-eyebrow">TriveIQ™ Valuation Intelligence</div>
+    <div class="section-title">What Your Business Is Worth</div>
+    <p class="section-sub">There are three possible outcomes for Littlesparks — and the difference between them is significant. Your advisory programme is designed to take you from the first scenario to the second, and to reach for the third if we find the right acquirer.</p>
+    <div class="section-divider"></div>
+
+    <div class="val-staircase">
+      <div class="val-step vs-without">
+        <div class="val-step-head">
+          <div class="val-step-label">Without Advisory Support</div>
+          <div class="val-step-range">SGD 280K – 420K</div>
+          <div class="val-step-basis">Open listing · single buyer · no business story</div>
+        </div>
+        <div class="val-step-body">
+          <div class="val-step-row"><span class="lbl">How this happens</span><span class="val">Listed without advisory, like most businesses</span></div>
+          <div class="val-step-row"><span class="lbl">Typical buyer</span><span class="val">Individual operator; distress buyer</span></div>
+          <div class="val-step-row"><span class="lbl">Your position</span><span class="val">Price anchored to other listings; no leverage</span></div>
+          <div class="val-step-row"><span class="lbl">What's missing</span><span class="val">True earning power, business story, competitive process</span></div>
+        </div>
+      </div>
+
+      <div class="val-arrow">
+        <div>→</div>
+        <div class="val-arrow-lift">+SGD 270–360K</div>
+      </div>
+
+      <div class="val-step vs-advised">
+        <div class="val-step-head">
+          <div class="val-step-label">TriveExec Advisory · Our Target</div>
+          <div class="val-step-range">SGD 550K – 780K</div>
+          <div class="val-step-basis">6-phase programme · professional presentation · right acquirers</div>
+        </div>
+        <div class="val-step-body">
+          <div class="val-step-row"><span class="lbl">How this happens</span><span class="val">Full TriveExec programme, Action Plan completed</span></div>
+          <div class="val-step-row"><span class="lbl">Typical buyer</span><span class="val">Established operator; enrichment group; educator</span></div>
+          <div class="val-step-row"><span class="lbl">Your position</span><span class="val">Professional presentation; multiple interested parties</span></div>
+          <div class="val-step-row"><span class="lbl">What we add</span><span class="val">Documented earnings, IM, structured buyer process</span></div>
+        </div>
+      </div>
+
+      <div class="val-arrow">
+        <div>→</div>
+        <div class="val-arrow-lift">+SGD 270–420K</div>
+      </div>
+
+      <div class="val-step vs-strategic">
+        <div class="val-step-head">
+          <div class="val-step-label">Strategic Acquirer · Best Outcome</div>
+          <div class="val-step-range">SGD 900K – 1.2M</div>
+          <div class="val-step-basis">Montessori network · East Coast expansion · 20-year brand premium</div>
+        </div>
+        <div class="val-step-body">
+          <div class="val-step-row"><span class="lbl">How this happens</span><span class="val">Right acquirer finds strategic value in your location</span></div>
+          <div class="val-step-row"><span class="lbl">Typical buyer</span><span class="val">Established Montessori group seeking East Coast presence</span></div>
+          <div class="val-step-row"><span class="lbl">Your position</span><span class="val">Irreplaceable — 20 years, Siglap community, curriculum</span></div>
+          <div class="val-step-row"><span class="lbl">What unlocks this</span><span class="val">Curriculum documented; occupancy strong; community story told</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advisory-gap-bar">
+      <div class="gap-bar-title">The TriveExec Value You're Unlocking</div>
+      <div class="gap-bar-sub">The difference between an unadvised listing and your TriveExec programme target is approximately SGD 370,000 to SGD 620,000. This is the gap your advisory is designed to close.</div>
+      <div class="gap-track">
+        <div class="gap-fill" style="width:100%;"></div>
+      </div>
+      <div class="gap-markers">
+        <div>SGD 280K <span>Without advisory</span></div>
+        <div>SGD 665K <span>TriveExec target</span></div>
+        <div>SGD 1.2M <span>Strategic ceiling</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px; background:var(--navy-card); border:1px solid var(--line); border-radius:var(--radius); padding:24px 28px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white);margin-bottom:12px;">What makes Littlesparks valuable to the right acquirer</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:14px 16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">20-Year Heritage</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Two decades in the same location, serving the same community. That trust cannot be bought — it can only be inherited.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:14px 16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Montessori Curriculum</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Parents who seek Montessori are choosing deliberately. That's a premium parent profile and a curriculum that commands higher fees.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:14px 16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">East Coast Location</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Siglap Drive is a quality residential corridor. No major Montessori operator has a centre here — that's a geographic gap your acquirer fills in one transaction.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:14px 16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Private Fee Model</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Parents pay full market rate because they believe in what Littlesparks offers. This is real, market-validated revenue — not subsidy-dependent income.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius);padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--muted);">
+      <strong style="color:var(--gold);">Disclosure:</strong> All valuation figures are indicative ranges based on TriveIQ™ methodology and comparable market transactions. Final transaction value depends on verified financial information, due diligence findings, deal structure, and market conditions at time of sale. Your TriveExec team will discuss these figures with you in detail.
+    </div>
+  </div>
+
+  <!-- ───────── JOURNEY ───────── -->
+  <div id="journey" class="tab-pane">
+    <div class="section-eyebrow">6-Phase Programme</div>
+    <div class="section-title">Your Exit Journey</div>
+    <p class="section-sub">Every exit is a process, and every process has a sequence. Over 7 to 9 months, TriveExec walks this journey with you — handling the complexity, the buyer conversations, and the paperwork, while you focus on running your school at its best.</p>
+    <div class="section-divider"></div>
+
+    <div class="phase-list">
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num current">1</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Months 1–2</span>
+            <span class="phase-badge" style="background:rgba(122,171,245,0.1);color:#7aabf5;border-color:rgba(122,171,245,0.25);">Starting Now</span>
+          </div>
+          <div class="phase-name">Foundations — Presenting Your Business at Its True Value</div>
+          <p class="phase-desc">Before any acquirer sees Littlesparks, we make sure they see the real picture. This means documenting what you actually earn — not just what's on paper — and building the deal-ready library that serious buyers require.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Provide FY2022–2024 financial records to Ann Nee</li>
+                <li>Confirm your MOE registration details</li>
+                <li>Begin lease conversations with your landlord</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Reconstruct your true earning power</li>
+                <li>Build your deal-ready document library</li>
+                <li>Advise on licence and lease strategy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num">2</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Months 1–3</span>
+          </div>
+          <div class="phase-name">Readiness — Strengthening What Matters to an Acquirer</div>
+          <p class="phase-desc">We address the items that acquirers look at closely: your management structure, your curriculum documentation, and your lease position. Each one has a measurable impact on your outcome — and each one is achievable.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Work with Pauline to document your curriculum</li>
+                <li>Identify or begin looking for a Head of School</li>
+                <li>Negotiate lease extension with landlord</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Guide curriculum documentation framework</li>
+                <li>Advise on management structure and transition plan</li>
+                <li>Support lease negotiation strategy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num">3</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Month 3</span>
+          </div>
+          <div class="phase-name">Your Story — The Business Presentation That Opens Doors</div>
+          <p class="phase-desc">We bring together everything we've built — your financials, your history, your curriculum, your community — into a professional business presentation that tells the Littlesparks story compellingly to serious acquirers. This document is the foundation of every conversation that follows.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Review and approve your business story</li>
+                <li>Share any additional context or achievements</li>
+                <li>Collect parent testimonials if available</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Write your Information Memorandum</li>
+                <li>Craft your acquirer teaser</li>
+                <li>Prepare your management Q&amp;A briefing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num">4</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Months 3–5</span>
+          </div>
+          <div class="phase-name">Acquirer Engagement — Connecting with the Right People</div>
+          <p class="phase-desc">TriveExec contacts pre-qualified acquirers on your behalf — discreetly and professionally, under confidentiality agreements. You will never be approached cold. All conversations are managed by your advisory team; you engage only when it makes sense for you to.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Continue running the school at its best</li>
+                <li>Stay available for advisory team updates</li>
+                <li>Meet shortlisted acquirers when introduced by TriveExec</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Identify and approach qualified acquirers</li>
+                <li>Manage all confidentiality agreements</li>
+                <li>Distribute your business presentation to shortlist</li>
+                <li>Manage all offers of interest</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num">5</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Months 5–7</span>
+          </div>
+          <div class="phase-name">Due Diligence — Your Team Manages the Detail</div>
+          <p class="phase-desc">When an acquirer is serious, they will look at everything. TriveExec coordinates the entire process — answering questions, managing your document library, working with your legal counsel, and protecting your interests throughout.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Respond to specific questions via TriveExec</li>
+                <li>Engage your legal counsel on SPA terms</li>
+                <li>Continue running the school normally</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Manage all buyer due diligence requests</li>
+                <li>Coordinate your document library responses</li>
+                <li>Identify and pre-empt any issues early</li>
+                <li>Support your legal counsel on key terms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num-wrap">
+          <div class="phase-num">6</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-meta">
+            <span class="phase-badge">Months 7–9</span>
+          </div>
+          <div class="phase-name">Deal &amp; Close — Celebrating What You've Built</div>
+          <p class="phase-desc">The final phase brings together deal structure, transition planning, and closing. We advise on how to structure the deal to maximise your net proceeds and ensure the right outcome for your community, your staff, and your legacy.</p>
+          <div class="phase-split">
+            <div>
+              <div class="phase-col-label yours">You do</div>
+              <ul class="phase-col-items">
+                <li>Work with legal counsel on Sale &amp; Purchase Agreement</li>
+                <li>Agree your transition advisory arrangement</li>
+                <li>Plan your handover with the new owner</li>
+              </ul>
+            </div>
+            <div>
+              <div class="phase-col-label ours">TriveExec does</div>
+              <ul class="phase-col-items">
+                <li>Advise on deal structure and your net outcome</li>
+                <li>Support SPA negotiation with your legal counsel</li>
+                <li>Manage licence transfer process</li>
+                <li>Ensure your legacy terms are protected</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ───────── ACTIONS ───────── -->
+  <div id="actions" class="tab-pane">
+    <div class="section-eyebrow">Strategic Action Plan v3</div>
+    <div class="section-title">Your Action Plan</div>
+    <p class="section-sub">Five steps stand between where you are today and being ready to open conversations with acquirers. Each one has a clear owner, a clear timeline, and a clear impact on what you achieve at close. Your TriveExec team supports every one of them.</p>
+    <div class="section-divider"></div>
+
+    <div class="action-list">
+
+      <div class="action-card">
+        <div class="action-head">
+          <div class="action-num-col">
+            <div class="action-num">1</div>
+            <div class="action-num-label">First</div>
+          </div>
+          <div class="action-head-body">
+            <div class="action-title">Present Your True Earning Power</div>
+            <div class="action-owner">Lead: <strong>Goh Ann Nee (CFO)</strong> with you · Timeline: Months 1–2</div>
+          </div>
+          <div class="action-value-col">
+            <div class="action-value-label">Value unlocked</div>
+            <div class="action-value-num">+SGD 80–120K</div>
+          </div>
+        </div>
+        <div class="action-body">
+          <p class="action-desc">A business is valued on what it earns — but the way most businesses record their finances doesn't reflect what a new owner would actually take home. Your accounts include your own salary, which would be managed differently by a new owner, as well as other items that are personal to you. We'll work through your last three years of financials together and present your earning power honestly and compellingly. This single step is the most important thing we can do to increase what an acquirer will offer.</p>
+          <ul class="action-steps">
+            <li><span class="action-step-n">1</span>Share your FY2022, FY2023, and FY2024 P&amp;L with Ann Nee</li>
+            <li><span class="action-step-n">2</span>Walk Ann Nee through your annual expenses and director compensation</li>
+            <li><span class="action-step-n">3</span>Identify any one-off costs that won't recur for a new owner</li>
+            <li><span class="action-step-n">4</span>TriveExec prepares a verified earnings summary for your document library</li>
+          </ul>
+          <div class="action-meta">
+            <div class="action-meta-item"><div class="aml">Timeline</div><div class="amv">Months 1–2</div></div>
+            <div class="action-meta-item"><div class="aml">Your effort</div><div class="amv">Provide documents; one working session with Ann Nee</div></div>
+            <div class="action-meta-item"><div class="aml">Blocks</div><div class="amv">No business presentation can be finalised until this is done</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-head">
+          <div class="action-num-col">
+            <div class="action-num">2</div>
+            <div class="action-num-label">Early</div>
+          </div>
+          <div class="action-head-body">
+            <div class="action-title">Confirm Your Licence and What Transfers to a New Owner</div>
+            <div class="action-owner">Lead: <strong>You (Gloria)</strong> with TriveExec advisory support · Timeline: Month 1</div>
+          </div>
+          <div class="action-value-col">
+            <div class="action-value-label">Value unlocked</div>
+            <div class="action-value-num">Deal-enabling</div>
+          </div>
+        </div>
+        <div class="action-body">
+          <p class="action-desc">Your MOE registration is what makes Littlesparks what it is. A serious acquirer will ask about it in their first meeting — and they will need to know what conditions are attached and what the process is for a new owner to take over. The clearer and simpler this is, the more confident an acquirer will be. TriveExec will help you understand the questions and prepare the answers.</p>
+          <ul class="action-steps">
+            <li><span class="action-step-n">1</span>Retrieve your MOE registration certificate and any conditions</li>
+            <li><span class="action-step-n">2</span>Confirm whether any ECDA licence applies and whether it carries government subsidy</li>
+            <li><span class="action-step-n">3</span>TriveExec advises on the transfer process and any regulatory steps</li>
+            <li><span class="action-step-n">4</span>Include a clear licence brief in your document library</li>
+          </ul>
+          <div class="action-meta">
+            <div class="action-meta-item"><div class="aml">Timeline</div><div class="amv">Month 1 — first priority</div></div>
+            <div class="action-meta-item"><div class="aml">Your effort</div><div class="amv">Locate documents; one advisory call with TriveExec</div></div>
+            <div class="action-meta-item"><div class="aml">Impact</div><div class="amv">Removes the single biggest structural question an acquirer will have</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-head">
+          <div class="action-num-col">
+            <div class="action-num">3</div>
+            <div class="action-num-label">Parallel</div>
+          </div>
+          <div class="action-head-body">
+            <div class="action-title">Document Your Montessori Methodology</div>
+            <div class="action-owner">Lead: <strong>Pauline Lim (CPO)</strong> with you · Timeline: Months 1–3</div>
+          </div>
+          <div class="action-value-col">
+            <div class="action-value-label">Value unlocked</div>
+            <div class="action-value-num">+SGD 60–100K</div>
+          </div>
+        </div>
+        <div class="action-body">
+          <p class="action-desc">Your Montessori curriculum is one of the things that makes Littlesparks distinctive. Right now it lives largely in your knowledge and your teaching practice. The goal of this step is to put it on paper — not to change it, but to show an acquirer (especially one who cares about educational quality) that it will outlive you in the business. Pauline will work with you to do this in a way that feels natural, not bureaucratic.</p>
+          <ul class="action-steps">
+            <li><span class="action-step-n">1</span>Working sessions with Pauline to map the curriculum framework by age group</li>
+            <li><span class="action-step-n">2</span>Document your teaching approach and what makes it distinctively Littlesparks</li>
+            <li><span class="action-step-n">3</span>Prepare a teacher orientation guide (key for showing the school can train staff independently)</li>
+            <li><span class="action-step-n">4</span>Confirm Montessori accreditation certificates and their status</li>
+          </ul>
+          <div class="action-meta">
+            <div class="action-meta-item"><div class="aml">Timeline</div><div class="amv">Months 1–3 (can run alongside Steps 1 and 2)</div></div>
+            <div class="action-meta-item"><div class="aml">Your effort</div><div class="amv">3–4 working sessions with Pauline over this period</div></div>
+            <div class="action-meta-item"><div class="aml">Impact</div><div class="amv">Turns your most important intangible into something an acquirer can see and value</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-head">
+          <div class="action-num-col">
+            <div class="action-num">4</div>
+            <div class="action-num-label">Parallel</div>
+          </div>
+          <div class="action-head-body">
+            <div class="action-title">Secure Your Location for the Long Term</div>
+            <div class="action-owner">Lead: <strong>You (Gloria)</strong> — landlord relationship · Timeline: Months 1–2</div>
+          </div>
+          <div class="action-value-col">
+            <div class="action-value-label">Value unlocked</div>
+            <div class="action-value-num">+SGD 40–70K</div>
+          </div>
+        </div>
+        <div class="action-body">
+          <p class="action-desc">Your location at Bowmont Centre is part of what makes Littlesparks valuable. An acquirer needs to know that the lease continues after the sale — ideally for at least five years. A short remaining lease creates uncertainty; a secure, extended lease is reassuring and increases what an acquirer will pay. TriveExec will advise you on how to approach this negotiation with your landlord.</p>
+          <ul class="action-steps">
+            <li><span class="action-step-n">1</span>Review your current lease expiry and rental terms</li>
+            <li><span class="action-step-n">2</span>TriveExec advises on the negotiation approach and ideal terms</li>
+            <li><span class="action-step-n">3</span>Approach landlord for extension — target 5 years with a 5-year renewal option</li>
+            <li><span class="action-step-n">4</span>Executed extension included in your document library</li>
+          </ul>
+          <div class="action-meta">
+            <div class="action-meta-item"><div class="aml">Timeline</div><div class="amv">Months 1–2 — start the landlord conversation early</div></div>
+            <div class="action-meta-item"><div class="aml">Your effort</div><div class="amv">Landlord negotiation (your relationship); TriveExec strategy support</div></div>
+            <div class="action-meta-item"><div class="aml">Impact</div><div class="amv">Converts what could be a deal concern into a deal asset</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-head">
+          <div class="action-num-col">
+            <div class="action-num">5</div>
+            <div class="action-num-label">Ongoing</div>
+          </div>
+          <div class="action-head-body">
+            <div class="action-title">Build the Management Team Around You</div>
+            <div class="action-owner">Lead: <strong>You (Gloria)</strong> with TriveExec HR advisory · Timeline: Months 2–4</div>
+          </div>
+          <div class="action-value-col">
+            <div class="action-value-label">Value unlocked</div>
+            <div class="action-value-num">+SGD 50–80K</div>
+          </div>
+        </div>
+        <div class="action-body">
+          <p class="action-desc">An acquirer needs to be confident that Littlesparks will thrive after you move to a less hands-on role. This doesn't mean removing yourself — it means showing that the school has a management structure that works around you. The simplest way to do this is to identify or appoint a Head of School who can manage day-to-day operations, leaving you in an oversight and advisory capacity.</p>
+          <ul class="action-steps">
+            <li><span class="action-step-n">1</span>Identify the member of your current team best placed to step into a Head of School role</li>
+            <li><span class="action-step-n">2</span>Document key operational procedures, supplier contacts, and daily routines</li>
+            <li><span class="action-step-n">3</span>Begin gradually transitioning day-to-day parent communications to your school team</li>
+            <li><span class="action-step-n">4</span>Plan a transition advisory arrangement to include in the sale agreement (6–12 months post-close)</li>
+          </ul>
+          <div class="action-meta">
+            <div class="action-meta-item"><div class="aml">Timeline</div><div class="amv">Months 2–4 (can run parallel with other steps)</div></div>
+            <div class="action-meta-item"><div class="aml">Your effort</div><div class="amv">Internal team conversations; TriveExec provides framework and support</div></div>
+            <div class="action-meta-item"><div class="aml">Impact</div><div class="amv">The single biggest reduction in an acquirer's perceived risk</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ───────── LEVERS ───────── -->
+  <div id="levers" class="tab-pane">
+    <div class="section-eyebrow">TriveIQ™ Value Intelligence</div>
+    <div class="section-title">How We Build Your Value</div>
+    <p class="section-sub">Every step you take — and every step TriveExec takes — adds to what an acquirer will pay. Below are the nine specific levers, what each one does, and how much value each one unlocks. The first five take you from where you are to our base target. The next four reach for the strategic ceiling.</p>
+    <div class="section-divider"></div>
+
+    <div class="levers-intro">
+      <div class="lever-scenario ls-without">
+        <div class="ls-label">Without Advisory Support</div>
+        <div class="ls-range">SGD 280–420K</div>
+        <div class="ls-basis">Unadvised listing</div>
+      </div>
+      <div class="ls-arrow">
+        <div class="arrow">→</div>
+        <div class="lift">Levers 1–5</div>
+        <div class="lift">+SGD 270–360K</div>
+      </div>
+      <div class="lever-scenario ls-base">
+        <div class="ls-label">TriveExec Base Target</div>
+        <div class="ls-range">SGD 550–780K</div>
+        <div class="ls-basis">Advised sale programme</div>
+      </div>
+      <div class="ls-arrow">
+        <div class="arrow">→</div>
+        <div class="lift">Levers 6–9</div>
+        <div class="lift">+SGD 270–420K</div>
+      </div>
+      <div class="lever-scenario ls-strategic">
+        <div class="ls-label">Strategic Best Outcome</div>
+        <div class="ls-range">SGD 900K–1.2M</div>
+        <div class="ls-basis">Strategic acquirer premium</div>
+      </div>
+    </div>
+
+    <div class="lever-stage-head">
+      <span class="lever-stage-badge lsb-1">Stage 1</span>
+      <span class="lever-stage-title">From today to your TriveExec target</span>
+      <span class="lever-stage-lift">+SGD 270–360K</span>
+    </div>
+    <div class="lever-cards">
+      <div class="lever-card">
+        <div class="lever-id-col"><div class="lever-id">1</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Present your true earning power</div>
+          <div class="lever-desc">Documenting your real owner earnings removes the uncertainty discount buyers apply to undocumented businesses. A buyer who can see three years of verified earnings will offer significantly more than one who has to guess.</div>
+          <div class="lever-owner">You + <strong>Ann Nee</strong> · Months 1–2</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 80–120K</div>
+        </div>
+      </div>
+      <div class="lever-card">
+        <div class="lever-id-col"><div class="lever-id">2</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Your professional business presentation</div>
+          <div class="lever-desc">A professionally written business presentation repositions Littlesparks from "a school for sale" to "a premium acquisition opportunity." This changes the type of buyer who responds — and what they're willing to pay.</div>
+          <div class="lever-owner"><strong>Carol + Pauline</strong> · Month 3</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 50–80K</div>
+        </div>
+      </div>
+      <div class="lever-card">
+        <div class="lever-id-col"><div class="lever-id">3</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Connecting with the right acquirers</div>
+          <div class="lever-desc">When multiple qualified acquirers receive your presentation at the same time, each one knows they are not the only interested party. This naturally leads to stronger offers. TriveExec manages the entire process on your behalf.</div>
+          <div class="lever-owner"><strong>Carol (TriveExec leads)</strong> · Months 3–5</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 80–120K</div>
+        </div>
+      </div>
+      <div class="lever-card">
+        <div class="lever-id-col"><div class="lever-id">4</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Securing your location for the long term</div>
+          <div class="lever-desc">A 5-year lease with a renewal option tells an acquirer that their investment in Littlesparks is protected. A short remaining lease creates doubt; a secured lease creates confidence.</div>
+          <div class="lever-owner">You (landlord relationship) · Months 1–2</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 40–70K</div>
+        </div>
+      </div>
+      <div class="lever-card">
+        <div class="lever-id-col"><div class="lever-id">5</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Building management depth around you</div>
+          <div class="lever-desc">An acquirer who can see a capable Head of School managing day-to-day operations is far more confident than one who sees everything flowing through the founder. This is the single biggest risk reducer for any buyer.</div>
+          <div class="lever-owner">You + TriveExec HR advisory · Months 2–4</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 50–80K</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lever-stage-head">
+      <span class="lever-stage-badge lsb-2">Stage 2</span>
+      <span class="lever-stage-title">From base target to strategic ceiling</span>
+      <span class="lever-stage-lift">+SGD 270–420K</span>
+    </div>
+    <div class="lever-cards">
+      <div class="lever-card stage2">
+        <div class="lever-id-col"><div class="lever-id">6</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Finding the acquirer who sees your full value</div>
+          <div class="lever-desc">There are established Montessori operators with no presence in the East Coast corridor. For them, Littlesparks is not just a school — it is a foothold in a location they cannot replicate. TriveExec identifies and approaches these acquirers directly and discreetly.</div>
+          <div class="lever-owner"><strong>Carol (TriveExec leads)</strong> · Months 3–5</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 150–250K</div>
+        </div>
+      </div>
+      <div class="lever-card stage2">
+        <div class="lever-id-col"><div class="lever-id">7</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Documenting your Montessori methodology</div>
+          <div class="lever-desc">A Montessori operator acquiring Littlesparks wants to see the curriculum as a transferable institutional asset — something they can build on, train staff with, and maintain. Pauline will work with you to create that documentation.</div>
+          <div class="lever-owner">You + <strong>Pauline (CPO)</strong> · Months 1–3</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 60–100K</div>
+        </div>
+      </div>
+      <div class="lever-card stage2">
+        <div class="lever-id-col"><div class="lever-id">8</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Demonstrating demand — keep enrolment strong</div>
+          <div class="lever-desc">A school that is full — or has a waitlist — tells an acquirer everything about the community's trust in it. For the 6 months before we open acquirer conversations, high enrolment is one of the most powerful things you can demonstrate.</div>
+          <div class="lever-owner">You (enrolment) · Ongoing</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 60–80K</div>
+        </div>
+      </div>
+      <div class="lever-card stage2">
+        <div class="lever-id-col"><div class="lever-id">9</div></div>
+        <div class="lever-body">
+          <div class="lever-title">Your community story — 20 years of Siglap trust</div>
+          <div class="lever-desc">Data about families served, multi-sibling enrolments, and parent testimonials turns goodwill from an accounting line into something a buyer can feel. We'll include this in your business presentation to make the Littlesparks story as compelling as the numbers.</div>
+          <div class="lever-owner">You + <strong>Pauline</strong> · Months 2–3</div>
+        </div>
+        <div class="lever-lift-col">
+          <div class="lever-lift-label">Adds</div>
+          <div class="lever-lift-num">+SGD 40–60K</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lever-total">
+      <div>
+        <div class="lever-total-label">All 9 levers combined <span>— Bear to Strategic ceiling</span></div>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px;">This is the total uplift your programme can achieve</div>
+      </div>
+      <div class="lever-total-num">+SGD 610K – 960K</div>
+    </div>
+  </div>
+
+  <!-- ───────── DOCUMENTS ───────── -->
+  <div id="documents" class="tab-pane">
+    <div class="section-eyebrow">Your Document Library · LS-2026-001</div>
+    <div class="section-title">Documents Prepared for You</div>
+    <p class="section-sub">Your TriveExec team has prepared the following documents as part of your engagement. Click <strong style="color:var(--gold);">↓ Download</strong> to save any completed document directly to your device. Documents marked as awaiting your input need information from you before they can be finalised.</p>
+    <div class="section-divider"></div>
+
+    <div class="doc-section-title">Completed — Ready to Download</div>
+    <div class="doc-list">
+      <div class="doc-row">
+        <div class="doc-icon">NDA</div>
+        <div class="doc-info">
+          <h4>Confidentiality Agreement</h4>
+          <p>TE-NDA-2025-LS-001 · Three-party NDA · TriveExec + Littlesparks + Brightsparks · SIAC arbitration · Singapore law · Signed</p>
+          <div class="doc-status status-done">✓ Signed &amp; Active</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('nda')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">EL</div>
+        <div class="doc-info">
+          <h4>Advisory Engagement Letter</h4>
+          <p>TE-EL-2025-001 v8 · Dated 1 June 2026 · Signed by Goh Ann Nee · Success fee only — 3% below SGD 1M, 4% above · No retainer</p>
+          <div class="doc-status status-done">✓ Signed &amp; Active</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('el')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">VMR</div>
+        <div class="doc-info">
+          <h4>TriveHealth™ Business Readiness Report</h4>
+          <p>Your 72.05/120 assessment · Scores across 6 dimensions · What each score means for your exit</p>
+          <div class="doc-status status-done">✓ Complete</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('vmr')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">SAP</div>
+        <div class="doc-info">
+          <h4>Your Strategic Action Plan (v3)</h4>
+          <p>Your 5-step plan to maximise your outcome · Owner assignments · Timeline · Estimated value of each step</p>
+          <div class="doc-status status-done">✓ Complete</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('sap')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">DDQ</div>
+        <div class="doc-info">
+          <h4>Business Information Questionnaire</h4>
+          <p>66 questions across 8 sections · Your responses build the data room that serious acquirers will review</p>
+          <div class="doc-status status-done">✓ Complete</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('ddq')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">VAL</div>
+        <div class="doc-info">
+          <h4>Valuation &amp; Exit Options Analysis</h4>
+          <p>Three scenarios · Market comparables · Exit options compared · 9 value levers · TriveIQ™ methodology</p>
+          <div class="doc-status status-done">✓ Complete</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('val')">↓ Download</button>
+      </div>
+      <div class="doc-row">
+        <div class="doc-icon">BUY</div>
+        <div class="doc-info">
+          <h4>Acquirer Research Report</h4>
+          <p>Potential acquirer profiles · Comparable transactions in Singapore · Approach strategy by acquirer type</p>
+          <div class="doc-status status-done">✓ Complete</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('buyer')">↓ Download</button>
+      </div>
+    </div>
+
+    <div class="doc-section-title" style="margin-top:28px;">Awaiting Your Input — Action Required</div>
+    <div class="doc-list">
+      <div class="doc-row" style="border-color:rgba(201,168,76,0.25);">
+        <div class="doc-icon" style="border-color:rgba(201,168,76,0.3);color:var(--gold);">FIN</div>
+        <div class="doc-info">
+          <h4>Your Earnings Summary</h4>
+          <p>Reconstructs your true earning power · Requires FY2022–2024 P&amp;L · Please email to <strong>ann.nee@triveexec.com</strong> · Unlocks your Business Presentation</p>
+          <div class="doc-status status-pending">⏳ Awaiting Your Financials</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('fin')" style="opacity:0.7;">↓ Template</button>
+      </div>
+      <div class="doc-row" style="border-color:rgba(201,168,76,0.25);">
+        <div class="doc-icon" style="border-color:rgba(201,168,76,0.3);color:var(--gold);">IM</div>
+        <div class="doc-info">
+          <h4>Your Business Presentation</h4>
+          <p>Draft structure complete · Financial summary section will be inserted once earnings are verified · This is what qualified acquirers receive</p>
+          <div class="doc-status status-pending">⏳ Pending Earnings Data</div>
+        </div>
+        <button class="dl-btn" onclick="downloadDoc('im')" style="opacity:0.7;">↓ Draft</button>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--navy-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:8px;">The one action that unblocks everything</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:10px;">Share your FY2022–2024 financial records with Ann Nee and your Earnings Summary and Business Presentation will be completed. Email them to <strong style="color:var(--gold-light);">ann.nee@triveexec.com</strong> in any format.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.65;">Questions about any document? Contact Carol Fong at <strong style="color:var(--gold-light);">carol@triveexec.com</strong>.</p>
+    </div>
+  </div>
+
+
+  <!-- ───────── NEXT STEPS ───────── -->
+  <div id="nextsteps" class="tab-pane">
+    <div class="section-eyebrow">Your Prioritised Checklist</div>
+    <div class="section-title">Your Next 30, 60 &amp; 90 Days</div>
+    <p class="section-sub">Everything that needs to happen, in the order it needs to happen. TriveExec handles what's marked as yours to review — and supports everything marked as yours to do.</p>
+    <div class="section-divider"></div>
+
+    <div class="next-steps-grid">
+
+      <div class="nsg-col">
+        <div class="nsg-head">
+          <div>
+            <div class="nsg-period">Month 1</div>
+            <div class="nsg-month">First 30 Days</div>
+          </div>
+        </div>
+        <div class="nsg-body">
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Share your 3 years of financial records</strong>
+              Send FY2022–2024 P&amp;L to Ann Nee. This is the most important thing you can do right now — everything else follows from it.
+              <div class="next-owner">You → Ann Nee (CFO)</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Retrieve your MOE registration certificate</strong>
+              Locate the original certificate and any conditions of registration. Email a copy to Carol.
+              <div class="next-owner">You → Carol (Strategic Advisor)</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Start your landlord conversation</strong>
+              Reach out to your Bowmont Centre landlord to open a conversation about lease extension. No commitment needed yet — just open the door.
+              <div class="next-owner">You (your landlord relationship)</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Introductory call with your full advisory team</strong>
+              30-minute call with Carol, Ann Nee, and Pauline to align on timelines and answer any questions.
+              <div class="next-owner">TriveExec schedules</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsg-col">
+        <div class="nsg-head">
+          <div>
+            <div class="nsg-period">Months 2–3</div>
+            <div class="nsg-month">Days 30–90</div>
+          </div>
+        </div>
+        <div class="nsg-body">
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>First working session with Pauline on curriculum</strong>
+              2-hour session to map your Montessori framework by age group. Pauline leads; you share your knowledge.
+              <div class="next-owner">You + Pauline (CPO)</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Review your earnings summary</strong>
+              Ann Nee presents the reconstructed earning power document. You review and confirm it reflects the business accurately.
+              <div class="next-owner">Ann Nee presents → you review</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Identify your potential Head of School</strong>
+              Think about which member of your team could step into a senior leadership role. This doesn't mean changing anything yet — just identifying the right person.
+              <div class="next-owner">You</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Progress lease extension discussion</strong>
+              Move from opening conversation to a proposed extension. TriveExec advises on terms.
+              <div class="next-owner">You + TriveExec strategy support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nsg-col">
+        <div class="nsg-head">
+          <div>
+            <div class="nsg-period">Months 3–4</div>
+            <div class="nsg-month">Days 90+</div>
+          </div>
+        </div>
+        <div class="nsg-body">
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Review and approve your Business Presentation</strong>
+              Carol and Pauline present the completed Information Memorandum. You confirm the story is right.
+              <div class="next-owner">Carol + Pauline present → you approve</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Curriculum documentation complete</strong>
+              Lesson framework, teacher guide, and materials inventory documented with Pauline. Ready for inclusion in your document library.
+              <div class="next-owner">You + Pauline (CPO)</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>Head of School transition begins</strong>
+              Identified person begins taking on expanded responsibilities. Document operational procedures with TriveExec HR advisory support.
+              <div class="next-owner">You + TriveExec HR advisory</div>
+            </div>
+          </div>
+          <div class="next-item">
+            <div class="next-check"></div>
+            <div class="next-text">
+              <strong>TriveExec opens acquirer conversations</strong>
+              Your presentation goes out to pre-qualified acquirers under confidentiality. You will be updated at each stage.
+              <div class="next-owner">Carol leads — you are updated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-title">Your TriveExec Advisory Team</div>
+      <div class="contact-card-sub">Your team is available throughout this process. Carol leads all acquirer conversations. Ann Nee manages your financial documents. Pauline leads curriculum documentation and your business story.</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="tm-avatar">CF</div>
+          <div class="tm-name">Carol Fong</div>
+          <div class="tm-role">Strategic Advisor · Lead</div>
+          <div class="tm-resp">Buyer engagement · deal structuring · strategic positioning · your primary point of contact</div>
+        </div>
+        <div class="team-member">
+          <div class="tm-avatar">PL</div>
+          <div class="tm-name">Pauline Lim</div>
+          <div class="tm-role">Chief Product Officer</div>
+          <div class="tm-resp">Business presentation · curriculum documentation · your Littlesparks story</div>
+        </div>
+        <div class="team-member">
+          <div class="tm-avatar">AN</div>
+          <div class="tm-name">Goh Ann Nee</div>
+          <div class="tm-role">Chief Financial Officer</div>
+          <div class="tm-resp">Earnings documentation · financial summary · document library management</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius);padding:20px 24px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:6px;">The most important thing you can do today</div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.65;max-width:560px;margin:0 auto;">Share your financial records with Ann Nee. Everything else — the business presentation, the acquirer conversations, the valuation — depends on this. It is the first domino, and once it falls, the programme moves.</p>
+      <div style="margin-top:14px;font-size:12px;color:var(--gold);">ann.nee@triveexec.com · carol@triveexec.com</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div style="background:var(--navy-mid);border-top:1px solid var(--line);padding:20px 28px;text-align:center;">
+  <div style="max-width:1160px;margin:0 auto;font-size:11px;color:var(--muted);">
+    <strong style="color:var(--gold);">TriveExec Holdings Pte Ltd</strong> &nbsp;·&nbsp; Client Advisory Portal v3 &nbsp;·&nbsp; LS-2026-001 &nbsp;·&nbsp; Littlesparks &amp; Brightsparks &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; &copy; 2026
+  </div>
+</div>
+
+<!-- Tab navigation: pure CSS radio-button system -->
+
+<script>
+/* ===== DOCUMENT DOWNLOAD ENGINE =====
+   All documents embedded. onclick="downloadDoc(id)" triggers browser save.
+   Tabs use pure CSS radio system — no JS needed for navigation. */
+
+var DOC_CSS = '<style>body{font-family:Georgia,serif;max-width:860px;margin:0 auto;padding:2rem;color:#2e2b25;background:#fff}h1{font-size:1.6rem;color:#1F3864;font-weight:normal;border-bottom:2px solid #C9A84C;padding-bottom:.5rem;margin-bottom:.5rem}h2{font-size:1.1rem;color:#1F3864;font-weight:normal;margin-top:1.5rem;border-left:3px solid #C9A84C;padding-left:.75rem}.meta{font-size:.8rem;color:#9b9585;font-family:Arial,sans-serif;margin-bottom:1.5rem}table{width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:.82rem;margin:.75rem 0}th{background:#1F3864;color:#C9A84C;padding:.5rem .8rem;text-align:left;font-size:.72rem;letter-spacing:.06em}td{padding:.55rem .8rem;border-bottom:1px solid #e2ddd2;vertical-align:top;line-height:1.55}tr:nth-child(even) td{background:#f9f9f7}p{line-height:1.7;font-size:.9rem;margin:.75rem 0}.disc{background:#fef3d7;border:1px solid rgba(122,79,0,.2);border-radius:4px;padding:.75rem 1rem;font-family:Arial,sans-serif;font-size:.78rem;color:#7a4f00;margin:1rem 0}ol,ul{padding-left:1.3rem;font-size:.88rem;line-height:1.7}li{margin-bottom:.3rem}.sig{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2ddd2;font-family:Arial,sans-serif;font-size:.8rem}.footer{margin-top:2rem;font-size:.7rem;font-family:Arial,sans-serif;color:#9b9585;border-top:1px solid #e2ddd2;padding-top:.75rem;text-align:center}</style>';
+
+function makeDoc(title, body) {
+  return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' + DOC_CSS + '</head><body>' + body + '</body></html>';
+}
+
+/* ===== DOCUMENT CONTENT ===== */
+var DOCS = {};
+
+DOCS.nda = makeDoc('NDA — TE-NDA-2025-LS-001',
+  '<h1>Non-Disclosure Agreement</h1>' +
+  '<div class="meta">Reference: TE-NDA-2025-LS-001 &nbsp;&middot;&nbsp; TriveExec Holdings Pte Ltd &nbsp;&middot;&nbsp; Confidential</div>' +
+  '<div class="disc">Governed by the laws of Singapore. Disputes resolved by SIAC arbitration.</div>' +
+  '<h2>1. Parties</h2>' +
+  '<table><tr><th>Party</th><th>Role</th><th>Details</th></tr>' +
+  '<tr><td><strong>TriveExec Holdings Pte Ltd</strong></td><td>Receiving Party</td><td>Advisory services recipient</td></tr>' +
+  '<tr><td><strong>Littlesparks Montessori Pte Ltd</strong></td><td>Disclosing Party 1</td><td>20 Siglap Dr #01-02 Bowmont Centre Singapore 456192</td></tr>' +
+  '<tr><td><strong>Brightsparks Enrichment Pte Ltd</strong></td><td>Disclosing Party 2</td><td>Related entity to Littlesparks</td></tr></table>' +
+  '<h2>2. Confidential Information</h2>' +
+  '<p>"Confidential Information" means all information disclosed by the Disclosing Parties, whether oral, written, or electronic, including: financial statements, enrolment data, fee structures, operational procedures, curriculum materials, intellectual property, employee information, lease terms, and any information relating to a potential Transaction.</p>' +
+  '<h2>3. Obligations of Receiving Party</h2>' +
+  '<ol><li>Hold all Confidential Information in strict confidence using at least the same degree of care as its own confidential information (not less than reasonable care).</li>' +
+  '<li>Not disclose Confidential Information to any third party without prior written consent of both Disclosing Parties.</li>' +
+  '<li>Use Confidential Information solely for the purpose of the advisory engagement under TE-EL-2025-001.</li>' +
+  '<li>Limit access to authorised personnel on a strict need-to-know basis.</li>' +
+  '<li>Promptly notify Disclosing Parties upon becoming aware of any actual or threatened unauthorised disclosure.</li></ol>' +
+  '<h2>4. Exceptions</h2>' +
+  '<p>Obligations do not apply to information that: (a) is or becomes publicly known through no breach; (b) was rightfully known prior to disclosure; (c) is independently developed without reference to Confidential Information; or (d) is required to be disclosed by law, provided prior written notice is given where practicable.</p>' +
+  '<h2>5. Term</h2>' +
+  '<p>This Agreement remains in force for three (3) years from execution, or until completion or termination of the advisory engagement, whichever is later.</p>' +
+  '<h2>6. Governing Law</h2>' +
+  '<p>Governed by the laws of Singapore. Disputes resolved by SIAC arbitration in accordance with SIAC Arbitration Rules.</p>' +
+  '<h2>7. Signatures</h2>' +
+  '<table><tr><th>Party</th><th>Signatory</th><th>Title</th><th>Date</th></tr>' +
+  '<tr><td>TriveExec Holdings Pte Ltd</td><td>Goh Ann Nee</td><td>Chief Financial Officer</td><td>_______________</td></tr>' +
+  '<tr><td>Littlesparks Montessori Pte Ltd</td><td>Gloria Tan</td><td>Director</td><td>_______________</td></tr>' +
+  '<tr><td>Brightsparks Enrichment Pte Ltd</td><td>Gloria Tan</td><td>Director</td><td>_______________</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; TE-NDA-2025-LS-001 &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.ddq = makeDoc('DDQ — Littlesparks LS-2026-001',
+  '<h1>Due Diligence Questionnaire</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; 66 Questions &middot; 8 Sections &middot; TriveExec Holdings</div>' +
+  '<div class="disc">Responses form the basis of financial normalisation and the Information Memorandum. All information is subject to NDA TE-NDA-2025-LS-001. Provide supporting documents where indicated.</div>' +
+  '<h2>Section A — Financial Performance (FY2022-2024)</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>A1</td><td>Provide accountant-prepared or audited P&amp;L for FY2022, FY2023, FY2024.</td><td>P&amp;L statements</td></tr>' +
+  '<tr><td>A2</td><td>Total gross revenue for each financial year?</td><td>P&amp;L</td></tr>' +
+  '<tr><td>A3</td><td>Net profit after tax for each year?</td><td>P&amp;L</td></tr>' +
+  '<tr><td>A4</td><td>Total owner/director compensation in each year (salary, CPF, dividends, director fees)?</td><td>IR8A / CPF statements</td></tr>' +
+  '<tr><td>A5</td><td>Any personal or non-business expenses in the P&amp;L? Itemise.</td><td>Management accounts</td></tr>' +
+  '<tr><td>A6</td><td>Annual rental expense for each year?</td><td>Lease agreements</td></tr>' +
+  '<tr><td>A7</td><td>Total staff costs (salaries, CPF, levy) for each year?</td><td>Payroll records</td></tr>' +
+  '<tr><td>A8</td><td>List any one-time or non-recurring expenses in each year.</td><td>Management accounts</td></tr>' +
+  '<tr><td>A9</td><td>Depreciation charge for each year?</td><td>Fixed asset register</td></tr>' +
+  '<tr><td>A10</td><td>Any related-party transactions? Describe and quantify.</td><td>Accounts / declarations</td></tr>' +
+  '<tr><td>A11</td><td>Outstanding liabilities as of most recent month end?</td><td>Balance sheet</td></tr>' +
+  '<tr><td>A12</td><td>Outstanding loans, deferred payments, or undisclosed liabilities?</td><td>Loan statements</td></tr></table>' +
+  '<h2>Section B — Revenue Quality &amp; Enrolment</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>B1</td><td>Approved maximum student capacity by level?</td><td>MOE/licence certificate</td></tr>' +
+  '<tr><td>B2</td><td>Current enrolment by level (Nursery, K1, K2, enrichment)?</td><td>Enrolment register</td></tr>' +
+  '<tr><td>B3</td><td>Average monthly fee per student by level?</td><td>Fee schedule</td></tr>' +
+  '<tr><td>B4</td><td>Enrolment at start of each academic year FY2022-2024?</td><td>Historical records</td></tr>' +
+  '<tr><td>B5</td><td>Student retention rate year-on-year?</td><td>Enrolment records</td></tr>' +
+  '<tr><td>B6</td><td>Number of sibling enrolments currently?</td><td>Enrolment register</td></tr>' +
+  '<tr><td>B7</td><td>Is there a waitlist? How many students?</td><td>Waitlist register</td></tr>' +
+  '<tr><td>B8</td><td>Average monthly revenue per enrolled student?</td><td>Calculated from P&amp;L</td></tr>' +
+  '<tr><td>B9</td><td>How is revenue collected (monthly, termly, annually)?</td><td>Fee policy</td></tr>' +
+  '<tr><td>B10</td><td>Outstanding fee arrears? Quantify.</td><td>Accounts receivable</td></tr>' +
+  '<tr><td>B11</td><td>Enrichment programmes offered? Revenue contribution?</td><td>Programme schedule + P&amp;L</td></tr></table>' +
+  '<h2>Section C — Cost Structure &amp; Lease</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>C1</td><td>Copy of current lease: commencement, expiry, monthly rent?</td><td>Lease agreement</td></tr>' +
+  '<tr><td>C2</td><td>Option to renew? On what terms?</td><td>Lease agreement</td></tr>' +
+  '<tr><td>C3</td><td>Total monthly rental (base + service charge + GST)?</td><td>Lease / invoices</td></tr>' +
+  '<tr><td>C4</td><td>Any arrears or disputes with landlord?</td><td>Correspondence</td></tr>' +
+  '<tr><td>C5</td><td>Total monthly fixed costs (rent, utilities, insurance)?</td><td>Management accounts</td></tr>' +
+  '<tr><td>C6</td><td>Variable cost per additional student?</td><td>Management estimates</td></tr>' +
+  '<tr><td>C7</td><td>Major equipment and fixtures; estimated remaining useful life?</td><td>Fixed asset register</td></tr>' +
+  '<tr><td>C8</td><td>Significant capex in last 3 years?</td><td>P&amp;L / asset register</td></tr></table>' +
+  '<h2>Section D — Governance &amp; Legal</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>D1</td><td>Copy of MOE registration certificate and conditions?</td><td>MOE certificate</td></tr>' +
+  '<tr><td>D2</td><td>Is the school ECDA-licensed? Does it carry government subsidy?</td><td>ECDA licence</td></tr>' +
+  '<tr><td>D3</td><td>Any notice of non-compliance or enforcement from MOE or ECDA?</td><td>Correspondence</td></tr>' +
+  '<tr><td>D4</td><td>Ongoing or threatened legal disputes?</td><td>Legal correspondence</td></tr>' +
+  '<tr><td>D5</td><td>ACRA profile, shareholding structure, director register?</td><td>ACRA Bizfile</td></tr>' +
+  '<tr><td>D6</td><td>Charges, pledges, or encumbrances over the business or assets?</td><td>ACRA / bank statements</td></tr>' +
+  '<tr><td>D7</td><td>Montessori curriculum AMI or AMS certified? Are certifications transferable?</td><td>AMI/AMS certificates</td></tr></table>' +
+  '<h2>Section E — Key Person Risk</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>E1</td><td>Functions performed solely by the founder (Gloria Tan)?</td><td>Ops chart</td></tr>' +
+  '<tr><td>E2</td><td>Current headcount by role and employment type?</td><td>HR records</td></tr>' +
+  '<tr><td>E3</td><td>Head of School or Principal who can manage independently?</td><td>HR records / job descriptions</td></tr>' +
+  '<tr><td>E4</td><td>Average staff tenure? Resignation risks?</td><td>HR records</td></tr>' +
+  '<tr><td>E5</td><td>Non-compete or confidentiality clauses in employment agreements?</td><td>Employment contracts</td></tr>' +
+  '<tr><td>E6</td><td>Estimated cost of replacing founder with professional Head of School?</td><td>Market rate benchmarks</td></tr>' +
+  '<tr><td>E7</td><td>Is founder willing to stay in transition advisory role 6-12 months post-close?</td><td>Founder declaration</td></tr></table>' +
+  '<h2>Section F — Market Position</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>F1</td><td>Montessori-specific certifications or accreditations held?</td><td>Certificates</td></tr>' +
+  '<tr><td>F2</td><td>How does Littlesparks position vs other Montessori providers in Siglap / East Coast?</td><td>Founder narrative</td></tr>' +
+  '<tr><td>F3</td><td>Primary source of new student referrals?</td><td>Enrolment intake records</td></tr>' +
+  '<tr><td>F4</td><td>Online presence (website, social media)? Metrics?</td><td>Social analytics</td></tr>' +
+  '<tr><td>F5</td><td>Parent complaints or formal feedback in last 3 years?</td><td>Feedback log</td></tr>' +
+  '<tr><td>F6</td><td>Number of families who enrolled more than one child over the school\'s history?</td><td>Enrolment records</td></tr></table>' +
+  '<h2>Section G — Exit Readiness</h2>' +
+  '<table><tr><th>#</th><th>Question</th><th>Document Required</th></tr>' +
+  '<tr><td>G1</td><td>Preferred deal structure (full sale, majority sale, other)?</td><td>Founder declaration</td></tr>' +
+  '<tr><td>G2</td><td>Target transaction timeline?</td><td>Founder declaration</td></tr>' +
+  '<tr><td>G3</td><td>Known interested parties or prior buyer approaches?</td><td>Founder declaration</td></tr>' +
+  '<tr><td>G4</td><td>Would founder consider deferred consideration or earnout?</td><td>Founder declaration</td></tr>' +
+  '<tr><td>G5</td><td>Pre-emptive rights, drag-along, or tag-along in company constitution?</td><td>Company constitution</td></tr>' +
+  '<tr><td>G6</td><td>Post-sale role founder is willing to perform?</td><td>Founder declaration</td></tr>' +
+  '<tr><td>G7</td><td>Business operated through single entity? Related entities included or excluded?</td><td>ACRA / corporate structure</td></tr></table>' +
+  '<h2>Section H — Priority Document Checklist</h2>' +
+  '<table><tr><th>#</th><th>Document</th><th>Status</th></tr>' +
+  '<tr><td>H1</td><td>FY2022, FY2023, FY2024 P&amp;L statements (accountant-prepared or audited)</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H2</td><td>Current lease agreement with expiry and renewal options</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H3</td><td>MOE registration certificate</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H4</td><td>ECDA licence (if applicable)</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H5</td><td>ACRA Bizfile and company constitution</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H6</td><td>Current enrolment register by level</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H7</td><td>Staff list with roles and employment type</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H8</td><td>Montessori accreditation certificates (AMI/AMS)</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H9</td><td>Fee schedule (current and prior year)</td><td>[ ] Not yet provided</td></tr>' +
+  '<tr><td>H10</td><td>Fixed asset register</td><td>[ ] Not yet provided</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; LS-2026-001 DDQ &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.vmr = makeDoc('TriveHealth VMR — Littlesparks',
+  '<h1>TriveHealth&#8482; Value Intelligence Report</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; TriveExec Holdings &middot; Q1 2026</div>' +
+  '<div class="disc">Prepared for strategic advisory purposes only. Scores based on information provided by the client. All figures indicative; not a formal valuation or audit opinion.</div>' +
+  '<h2>Overall Score</h2>' +
+  '<table><tr><th>Score</th><th>Maximum</th><th>Readiness Category</th></tr>' +
+  '<tr><td><strong>72.05</strong></td><td>120</td><td><strong>Moderate-High — Exit Pathway: Active</strong></td></tr></table>' +
+  '<h2>Dimensional Scorecard</h2>' +
+  '<table><tr><th>Dimension</th><th>Score</th><th>Max</th><th>Assessment</th></tr>' +
+  '<tr><td>Financial Health</td><td>14.2</td><td>25</td><td>Revenue consistent; normalisation required; no audited accounts</td></tr>' +
+  '<tr><td>Governance &amp; Legal</td><td>13.5</td><td>20</td><td>MOE-registered; corporate structure sound; licence transfer to be confirmed</td></tr>' +
+  '<tr><td>Key Person Risk</td><td>9.8</td><td>20</td><td>High founder dependency — single biggest valuation risk</td></tr>' +
+  '<tr><td>Market Position</td><td>15.5</td><td>20</td><td>Strong: 20-year Montessori brand; East Coast catchment; loyal parent community</td></tr>' +
+  '<tr><td>Exit Readiness</td><td>10.5</td><td>20</td><td>No data room; no IM; no buyer pipeline — process infrastructure to be built</td></tr>' +
+  '<tr><td>Operational Resilience</td><td>8.55</td><td>15</td><td>Curriculum implicit; ops undocumented; lease terms unconfirmed</td></tr></table>' +
+  '<h2>Key Strengths</h2>' +
+  '<ul><li><strong>20-year operating history</strong> — rare in Singapore private kindergarten sector; deep community goodwill</li>' +
+  '<li><strong>Authentic Montessori curriculum</strong> — differentiates from commodity childcare; commands fee premium</li>' +
+  '<li><strong>East Coast / Siglap location</strong> — identified gap in Brighton and Starshine Montessori networks; strategic value to acquirer</li>' +
+  '<li><strong>Private fee model</strong> — not reliant on government subsidy; proven parent willingness to pay</li>' +
+  '<li><strong>Low leverage</strong> — business appears to carry minimal debt; clean balance sheet for acquirer</li></ul>' +
+  '<h2>Key Risks</h2>' +
+  '<ul><li><strong>Key person risk</strong> — operations heavily dependent on Gloria Tan; mitigation required before sale</li>' +
+  '<li><strong>Unverified financials</strong> — no accountant-compiled statements; buyers will require before LOI</li>' +
+  '<li><strong>Licence transfer uncertainty</strong> — MOE/ECDA status and transferability not yet confirmed</li>' +
+  '<li><strong>Lease tenure</strong> — expiry and renewal options not confirmed; short tenure is a material deal risk</li>' +
+  '<li><strong>No government subsidy</strong> — private kindergarten; limits buyer pool to private operators only</li></ul>' +
+  '<h2>Revised Valuation Summary (TriveIQ&#8482;)</h2>' +
+  '<table><tr><th>Scenario</th><th>Range</th><th>Basis</th></tr>' +
+  '<tr><td>Bear — Open market, no advisory</td><td>SGD 280,000 – 420,000</td><td>BusinessForSale.sg comparable; no competitive process</td></tr>' +
+  '<tr><td>Base — TriveExec advised sale</td><td>SGD 550,000 – 780,000</td><td>6-phase programme; normalised financials; structured process</td></tr>' +
+  '<tr><td>Bull — Strategic Montessori acquirer</td><td>SGD 900,000 – 1,200,000</td><td>Brighton/Starshine-type buyer; East Coast network gap premium</td></tr></table>' +
+  '<div class="disc">Valuation recalibrated. A single-branch private kindergarten with no government subsidy is benchmarked against private education comparables, not ECDA-subsidised multi-centre operators.</div>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; TriveHealth&#8482; VMR &middot; LS-2026-001 &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.sap = makeDoc('SAP v3 — Littlesparks LS-2026-001',
+  '<h1>Strategic Action Plan v3</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; TriveExec Holdings &middot; Q2 2026</div>' +
+  '<h2>Action 1 — Financial Normalisation</h2>' +
+  '<table><tr><th>Element</th><th>Detail</th></tr>' +
+  '<tr><td>Priority</td><td><strong>CRITICAL — Must complete before any buyer process</strong></td></tr>' +
+  '<tr><td>Objective</td><td>Reconstruct FY2022-2024 earnings to reflect what a new owner would actually take home (Seller\'s Discretionary Earnings)</td></tr>' +
+  '<tr><td>Actions</td><td>(1) Obtain FY2022-2024 P&amp;L from Gloria &nbsp; (2) Remove above-market owner compensation &nbsp; (3) Strip non-recurring and personal expenses &nbsp; (4) Calculate SDE, EBITDA, per-student revenue for all 3 years &nbsp; (5) Engage accountant to prepare compilation report</td></tr>' +
+  '<tr><td>Owner</td><td>Goh Ann Nee (CFO) + Gloria Tan</td></tr>' +
+  '<tr><td>Timeline</td><td>Months 1-2</td></tr>' +
+  '<tr><td>Value impact</td><td>+SGD 80,000 – 120,000 (removes buyer uncertainty discount)</td></tr></table>' +
+  '<h2>Action 2 — Licence Confirmation</h2>' +
+  '<table><tr><th>Element</th><th>Detail</th></tr>' +
+  '<tr><td>Priority</td><td>HIGH — Deal-enabling; required before IM can be finalised</td></tr>' +
+  '<tr><td>Objective</td><td>Confirm MOE registration status, any ECDA licence conditions, and transferability to new owner</td></tr>' +
+  '<tr><td>Actions</td><td>(1) Retrieve MOE registration certificate &nbsp; (2) Confirm whether ECDA-licensed and whether govt subsidy applies &nbsp; (3) Engage MCCY if licence transfer conditions need written confirmation &nbsp; (4) Include licence brief in data room</td></tr>' +
+  '<tr><td>Owner</td><td>Gloria Tan + TriveExec legal advisory</td></tr>' +
+  '<tr><td>Timeline</td><td>Month 1</td></tr>' +
+  '<tr><td>Value impact</td><td>Deal-enabling — removes single biggest structural risk for buyers</td></tr></table>' +
+  '<h2>Action 3 — Curriculum Documentation</h2>' +
+  '<table><tr><th>Element</th><th>Detail</th></tr>' +
+  '<tr><td>Priority</td><td>MEDIUM — Required for bull case / strategic buyer premium</td></tr>' +
+  '<tr><td>Objective</td><td>Package Montessori curriculum as a transferable institutional asset</td></tr>' +
+  '<tr><td>Actions</td><td>(1) Document lesson plan framework by age group &nbsp; (2) Prepare teacher training guide &nbsp; (3) Inventory Montessori materials &nbsp; (4) Confirm AMI/AMS certification status and assignability &nbsp; (5) Package as Curriculum Excellence Brief for IM appendix</td></tr>' +
+  '<tr><td>Owner</td><td>Gloria Tan + Pauline Lim (CPO)</td></tr>' +
+  '<tr><td>Timeline</td><td>Months 1-3</td></tr>' +
+  '<tr><td>Value impact</td><td>+SGD 60,000 – 100,000 (Montessori IP premium)</td></tr></table>' +
+  '<h2>Action 4 — Lease Extension</h2>' +
+  '<table><tr><th>Element</th><th>Detail</th></tr>' +
+  '<tr><td>Priority</td><td>HIGH — Execute before buyer outreach commences</td></tr>' +
+  '<tr><td>Objective</td><td>Secure minimum 5-year lease with 5-year renewal option at Bowmont Centre</td></tr>' +
+  '<tr><td>Actions</td><td>(1) Review current lease expiry &nbsp; (2) Engage landlord for extension &nbsp; (3) Target: 5 years + 5-year option at fixed-escalation rate &nbsp; (4) Execute and include in data room</td></tr>' +
+  '<tr><td>Owner</td><td>Gloria Tan (landlord relationship) with TriveExec support</td></tr>' +
+  '<tr><td>Timeline</td><td>Months 1-2</td></tr>' +
+  '<tr><td>Value impact</td><td>+SGD 40,000 – 70,000 (converts deal risk into deal asset)</td></tr></table>' +
+  '<h2>Action 5 — Key Person Transition Plan</h2>' +
+  '<table><tr><th>Element</th><th>Detail</th></tr>' +
+  '<tr><td>Priority</td><td>HIGH — Must demonstrate independence before serious buyers will commit</td></tr>' +
+  '<tr><td>Objective</td><td>Reduce founder-dependency discount; demonstrate school can operate in Gloria\'s oversight role</td></tr>' +
+  '<tr><td>Actions</td><td>(1) Identify or appoint Head of School / Principal &nbsp; (2) Transfer parent-facing relationships to school staff &nbsp; (3) Document operational procedures and supplier contacts &nbsp; (4) Structure 6-12 month transition advisory arrangement for SPA</td></tr>' +
+  '<tr><td>Owner</td><td>Gloria Tan + TriveExec HR advisory</td></tr>' +
+  '<tr><td>Timeline</td><td>Months 2-4</td></tr>' +
+  '<tr><td>Value impact</td><td>+SGD 50,000 – 80,000 (reduces key-person discount)</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; SAP v3 &middot; LS-2026-001 &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.el = makeDoc('Engagement Letter v8 — TE-EL-2025-001',
+  '<h1>Engagement Letter</h1>' +
+  '<div class="meta">Reference: TE-EL-2025-001 (v8) &middot; Date: 1 June 2026 &middot; TriveExec Holdings Pte Ltd</div>' +
+  '<p>Gloria Tan<br>Director, Littlesparks Montessori &amp; Enrichment Center<br>20 Siglap Dr, #01-02 Bowmont Centre, Singapore 456192</p>' +
+  '<p>Dear Ms. Gloria Tan,</p>' +
+  '<p>We are pleased to set out the terms of engagement under which TriveExec Holdings Pte Ltd will provide strategic exit advisory services to Littlesparks Montessori &amp; Enrichment Center. This letter supersedes all prior versions and constitutes the binding terms of our engagement.</p>' +
+  '<h2>1. Scope of Services</h2>' +
+  '<ol><li><strong>Phase 1 — Financial Normalisation:</strong> Reconstruction of FY2022-2024 earnings to Seller\'s Discretionary Earnings (SDE) basis; preparation of normalised financial summary for data room.</li>' +
+  '<li><strong>Phase 2 — Structural Readiness:</strong> MOE registration and ECDA licence review; lease position; key person risk analysis.</li>' +
+  '<li><strong>Phase 3 — Information Memorandum:</strong> Professional IM including business overview, curriculum narrative, financials summary, valuation range, and deal structure options.</li>' +
+  '<li><strong>Phase 4 — Buyer Targeting:</strong> Pre-qualified buyer outreach including Montessori network operators; NDA management; teaser and IM distribution.</li>' +
+  '<li><strong>Phase 5 — Due Diligence Management:</strong> Coordination of buyer due diligence; DDQ management; data room administration.</li>' +
+  '<li><strong>Phase 6 — Deal Structuring:</strong> Advisory on deal structure, SPA terms, and licence transfer conditions.</li></ol>' +
+  '<h2>2. Advisory Team</h2>' +
+  '<table><tr><th>Name</th><th>Role</th><th>Responsibility</th></tr>' +
+  '<tr><td>Carol Fong</td><td>Strategic Advisor</td><td>Lead advisor; buyer outreach; deal structuring; strategic positioning</td></tr>' +
+  '<tr><td>Pauline Lim</td><td>Chief Product Officer</td><td>IM narrative; curriculum documentation; vendor story</td></tr>' +
+  '<tr><td>Goh Ann Nee</td><td>Chief Financial Officer</td><td>Financial normalisation; data room; DDQ management</td></tr></table>' +
+  '<h2>3. Advisory Fees</h2>' +
+  '<table><tr><th>Fee Type</th><th>Detail</th></tr>' +
+  '<tr><td>Retainer</td><td><strong>Nil.</strong> No retainer fee payable.</td></tr>' +
+  '<tr><td>Success Fee — below SGD 1,000,000</td><td><strong>3%</strong> of total transaction consideration</td></tr>' +
+  '<tr><td>Success Fee — SGD 1,000,000 and above</td><td><strong>4%</strong> of total transaction consideration</td></tr>' +
+  '<tr><td>Trigger</td><td>Success Fee payable upon signing of binding Sale and Purchase Agreement (SPA) or equivalent legally binding document.</td></tr>' +
+  '<tr><td>Expenses</td><td>Out-of-pocket expenses (if any) to be pre-approved by client and reimbursed at cost.</td></tr></table>' +
+  '<h2>4. Client Obligations</h2>' +
+  '<ol><li>Provide all information and documents requested under the DDQ in a timely manner.</li>' +
+  '<li>Not engage in buyer discussions directly without prior written consent of TriveExec.</li>' +
+  '<li>Inform TriveExec promptly of any approach or expression of interest received from any third party.</li>' +
+  '<li>Maintain strict confidentiality regarding the sale process and identity of prospective buyers.</li></ol>' +
+  '<h2>5. Term &amp; Termination</h2>' +
+  '<p>This engagement commences 1 June 2026 and continues until: (a) completion of a transaction; (b) mutual written agreement to terminate; or (c) 12 months from commencement. Either party may terminate with 30 days written notice. The success fee remains payable if a transaction is completed within 18 months of termination with a buyer introduced during the engagement period.</p>' +
+  '<div class="sig">' +
+  '<p>Accepted and agreed:</p>' +
+  '<table><tr><th>TriveExec Holdings Pte Ltd</th><th>Littlesparks Montessori &amp; Enrichment Center</th></tr>' +
+  '<tr><td>Goh Ann Nee ________________________<br>Chief Financial Officer<br>Date: 1 June 2026</td>' +
+  '<td>Gloria Tan ________________________<br>Director<br>Date: _______________</td></tr></table></div>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; TE-EL-2025-001 v8 &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.buyer = makeDoc('Buyer Profile Report — LS-2026-001',
+  '<h1>Buyer Profile Report</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; TriveExec Holdings &middot; May 2026</div>' +
+  '<div class="disc">Confidential. Not to be distributed to prospective buyers. Internal advisory use only.</div>' +
+  '<h2>Named Strategic Targets — Primary Outreach</h2>' +
+  '<table><tr><th>Operator</th><th>Centres</th><th>East Coast?</th><th>Strategic Fit</th><th>Approach</th></tr>' +
+  '<tr><td><strong>Brighton Montessori</strong></td><td>8 centres, SPARK-certified, 30 years</td><td>No — gap identified</td><td>Highest priority. Premium Montessori brand. Siglap fills geographic gap.</td><td>Discreet teaser under NDA; frame as East Coast foothold</td></tr>' +
+  '<tr><td><strong>Starshine Montessori</strong></td><td>3 centres, West Singapore, 20+ years</td><td>No — West only</td><td>High priority. East Coast would be first East-side presence.</td><td>Frame as network expansion eastward; community trust angle</td></tr>' +
+  '<tr><td><strong>Greentree Montessori</strong></td><td>3 centres, North/Central corridor</td><td>No — North only</td><td>Medium. East Coast is a stretch but possible.</td><td>Late-stage fallback if Tier 1 and 2 stall</td></tr></table>' +
+  '<h2>Buyer Universe — 4 Tiers</h2>' +
+  '<table><tr><th>Tier</th><th>Profile</th><th>Price Range</th><th>Structure</th><th>Key Concern</th></tr>' +
+  '<tr><td>Tier 1</td><td>Regional childcare operator (5+ centres, Singapore/ASEAN)</td><td>SGD 550K-780K</td><td>Full acquisition; possible occupancy earnout</td><td>Can Montessori culture survive integration?</td></tr>' +
+  '<tr><td>Tier 2</td><td>International Montessori / early years group</td><td>SGD 900K-1.2M</td><td>Full acquisition; transition advisory for Gloria</td><td>Curriculum transfer; quality post-founder</td></tr>' +
+  '<tr><td>Tier 3</td><td>PE / family office with education thesis</td><td>SGD 500K-750K</td><td>60-80% acquisition + earnout; Gloria retains minority</td><td>Key person risk; independent management required</td></tr>' +
+  '<tr><td>Tier 4</td><td>Individual operator / principal-educator</td><td>SGD 350K-550K</td><td>Full acquisition; possible vendor financing</td><td>Financing capacity; bank loan or deferred consideration</td></tr></table>' +
+  '<h2>Transaction Comparables</h2>' +
+  '<table><tr><th>Transaction</th><th>Year</th><th>Price</th><th>Note</th></tr>' +
+  '<tr><td>MindChamps — Punggol Northshore franchise unit</td><td>2019</td><td>SGD 3.79M</td><td>Single franchise SPV with proprietary MindChamps IP — institutional ceiling reference</td></tr>' +
+  '<tr><td>Preschool 1 centre + 3 franchise units, Bishan</td><td>2026 (listed)</td><td>SGD 850K asking</td><td>4-unit package; effective approx SGD 212K per unit</td></tr>' +
+  '<tr><td>Chinese enrichment centre, private (K1-Sec 4)</td><td>2026 (listed)</td><td>SGD 248,800 asking</td><td>Private enrichment, no subsidy — closest peer to Littlesparks on licence type</td></tr>' +
+  '<tr><td>Premium childcare franchise, Tai Seng MRT</td><td>2026 (listed)</td><td>SGD 400K asking</td><td>Includes franchise fee; ECDA-licensed; short lease risk</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; Buyer Profile Report &middot; LS-2026-001 &middot; Confidential &middot; &copy; 2026</div>');
+
+DOCS.val = makeDoc('Valuation Analysis — LS-2026-001',
+  '<h1>Valuation &amp; Exit Options Analysis</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; TriveExec Holdings &middot; May 2026</div>' +
+  '<div class="disc"><strong>Critical recalibration:</strong> Littlesparks is a single-branch private kindergarten with no ECDA/CDA government subsidy. Valuation benchmarked against private education comparables (BusinessForSale.sg: SGD 250K-1M). Previous estimates of SGD 4.8M-9.6M incorrectly benchmarked against ECDA-subsidised multi-centre operators and are superseded.</div>' +
+  '<h2>Valuation Scenarios</h2>' +
+  '<table><tr><th>Scenario</th><th>Range</th><th>Multiple Basis</th><th>Trigger</th></tr>' +
+  '<tr><td>Bear — Open market</td><td>SGD 280,000 – 420,000</td><td>Asset value + goodwill; no premium</td><td>Unadvised listing on BusinessForSale.sg</td></tr>' +
+  '<tr><td>Base — TriveExec advised</td><td>SGD 550,000 – 780,000</td><td>Normalised earnings x 1.5-2.5 + brand premium</td><td>6-phase programme; structured competitive process</td></tr>' +
+  '<tr><td>Bull — Strategic buyer</td><td>SGD 900,000 – 1,200,000</td><td>Strategic location premium; East Coast network gap</td><td>Brighton/Starshine-type acquirer</td></tr></table>' +
+  '<h2>Exit Options Comparison</h2>' +
+  '<table><tr><th>Option</th><th>Est. Value</th><th>Structure</th><th>Advisory</th></tr>' +
+  '<tr><td>Closure / wind down</td><td>SGD 0 – 50K</td><td>Asset liquidation</td><td>No</td></tr>' +
+  '<tr><td>Open market (no advisory)</td><td>SGD 280K – 420K</td><td>BusinessForSale.sg listing</td><td>Not recommended</td></tr>' +
+  '<tr><td>Structured sale via TriveExec</td><td>SGD 550K – 780K</td><td>Full sale; competitive process; IM</td><td>Yes — recommended</td></tr>' +
+  '<tr><td>Strategic Montessori buyer</td><td>SGD 900K – 1.2M</td><td>Full acquisition by Montessori network</td><td>Yes — targeted approach</td></tr></table>' +
+  '<h2>TriveExec Value Proposition</h2>' +
+  '<table><tr><th>Metric</th><th>Value</th></tr>' +
+  '<tr><td>Open-market floor (unadvised)</td><td>SGD 280,000</td></tr>' +
+  '<tr><td>TriveExec base target (midpoint)</td><td>SGD 665,000</td></tr>' +
+  '<tr><td><strong>Advisory value gap</strong></td><td><strong>+SGD 385,000</strong></td></tr>' +
+  '<tr><td>Success fee at SGD 665K (3%)</td><td>SGD 19,950</td></tr>' +
+  '<tr><td>Net value delivered to vendor</td><td><strong>approx. SGD 365,000</strong></td></tr></table>' +
+  '<h2>Key Valuation Levers</h2>' +
+  '<table><tr><th>Lever</th><th>Stage</th><th>Est. Impact</th></tr>' +
+  '<tr><td>L1 Financial normalisation</td><td>Bear to Base</td><td>+SGD 80,000 – 120,000</td></tr>' +
+  '<tr><td>L2 Information Memorandum</td><td>Bear to Base</td><td>+SGD 50,000 – 80,000</td></tr>' +
+  '<tr><td>L3 Competitive buyer process</td><td>Bear to Base</td><td>+SGD 80,000 – 120,000</td></tr>' +
+  '<tr><td>L4 Lease extension</td><td>Bear to Base</td><td>+SGD 40,000 – 70,000</td></tr>' +
+  '<tr><td>L5 Transition plan</td><td>Bear to Base</td><td>+SGD 50,000 – 80,000</td></tr>' +
+  '<tr><td>L6 Strategic buyer targeting</td><td>Base to Bull</td><td>+SGD 150,000 – 250,000</td></tr>' +
+  '<tr><td>L7 Curriculum documentation</td><td>Base to Bull</td><td>+SGD 60,000 – 100,000</td></tr>' +
+  '<tr><td>L8 Occupancy optimisation</td><td>Base to Bull</td><td>+SGD 60,000 – 80,000</td></tr>' +
+  '<tr><td>L9 Community brand story</td><td>Base to Bull</td><td>+SGD 40,000 – 60,000</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; Valuation Analysis &middot; LS-2026-001 &middot; Confidential &middot; All figures indicative &middot; &copy; 2026</div>');
+
+DOCS.fin = makeDoc('Financial Normalisation Template — LS-2026-001',
+  '<h1>Financial Normalisation Template</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; TEMPLATE — Awaiting client financial data</div>' +
+  '<div class="disc"><strong>Template only.</strong> Fields marked [INPUT] require data from Gloria Tan. All figures to be verified by Goh Ann Nee (CFO) before inclusion in the Information Memorandum or data room.</div>' +
+  '<h2>Step 1 — Gross Revenue</h2>' +
+  '<table><tr><th>Revenue Line</th><th>FY2022 (SGD)</th><th>FY2023 (SGD)</th><th>FY2024 (SGD)</th></tr>' +
+  '<tr><td>Tuition / monthly fees</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td>Enrichment programme fees</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td>Registration / material fees</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td>Other income</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td><strong>Total Gross Revenue</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td></tr></table>' +
+  '<h2>Step 2 — Net Profit (As Reported)</h2>' +
+  '<table><tr><th>Item</th><th>FY2022</th><th>FY2023</th><th>FY2024</th></tr>' +
+  '<tr><td>Net Profit After Tax (per P&amp;L)</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td>Depreciation &amp; Amortisation</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td>Interest expense (if any)</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td></tr>' +
+  '<tr><td><strong>EBITDA (as reported)</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td></tr></table>' +
+  '<h2>Step 3 — Normalisation Adjustments</h2>' +
+  '<table><tr><th>Adjustment</th><th>FY2022</th><th>FY2023</th><th>FY2024</th><th>Notes</th></tr>' +
+  '<tr><td>Add back: Owner salary (actual drawn)</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td><td>Per IR8A / CPF statement</td></tr>' +
+  '<tr><td>Deduct: Market-rate management salary</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td><td>Head of School market rate: est. SGD 5,000-7,000 per month</td></tr>' +
+  '<tr><td>Add back: Non-recurring items</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td><td>Legal costs, one-off capex, etc.</td></tr>' +
+  '<tr><td>Add back: Personal expenses through company</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td><td>Vehicle, travel, personal insurance</td></tr>' +
+  '<tr><td>Add back: Owner CPF employer portion</td><td>[INPUT]</td><td>[INPUT]</td><td>[INPUT]</td><td>Per CPF statements</td></tr>' +
+  '<tr><td><strong>Total Adjustments</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td><td><strong>[CALCULATED]</strong></td><td></td></tr></table>' +
+  '<h2>Step 4 — Normalised Earnings</h2>' +
+  '<table><tr><th>Metric</th><th>FY2022</th><th>FY2023</th><th>FY2024</th><th>3-Yr Avg</th></tr>' +
+  '<tr><td><strong>Normalised SDE</strong></td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td></tr>' +
+  '<tr><td><strong>Normalised EBITDA</strong></td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td></tr>' +
+  '<tr><td>EBITDA Margin (%)</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td></tr>' +
+  '<tr><td>Revenue per enrolled student</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td><td>[CALCULATED]</td></tr></table>' +
+  '<h2>Step 5 — Valuation Crosscheck</h2>' +
+  '<table><tr><th>Method</th><th>Input</th><th>Basis</th><th>Indicated Value</th></tr>' +
+  '<tr><td>SDE Multiple (advised sale)</td><td>3-yr avg SDE: [INPUT]</td><td>1.5x – 2.5x</td><td>[CALCULATED] – [CALCULATED]</td></tr>' +
+  '<tr><td>Revenue Multiple</td><td>Annual revenue: [INPUT]</td><td>0.5x – 0.8x</td><td>[CALCULATED] – [CALCULATED]</td></tr>' +
+  '<tr><td>Market comparable</td><td>Peer range</td><td>BusinessForSale.sg</td><td>SGD 550K – SGD 780K (base)</td></tr></table>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; Financial Normalisation Template &middot; LS-2026-001 &middot; TEMPLATE ONLY &middot; &copy; 2026</div>');
+
+DOCS.im = makeDoc('Information Memorandum DRAFT — LS-2026-001',
+  '<h1>Information Memorandum — DRAFT</h1>' +
+  '<div class="meta">Littlesparks Montessori &amp; Enrichment Center &middot; LS-2026-001 &middot; CONFIDENTIAL — Qualified Recipients Under NDA Only</div>' +
+  '<div class="disc"><strong>DRAFT — Financials section incomplete.</strong> The financial summary (Section 4) requires normalised SDE figures. Do not distribute to any buyer until financials are verified and inserted.</div>' +
+  '<h2>Executive Summary</h2>' +
+  '<p>Littlesparks Montessori &amp; Enrichment Center is a 20-year private Montessori kindergarten located at 20 Siglap Drive, #01-02 Bowmont Centre, Singapore 456192. TriveExec Holdings is mandated to conduct a structured sale on behalf of founder-director Gloria Tan.</p>' +
+  '<p>This transaction is a rare opportunity to acquire an established, community-trusted Montessori institution in Singapore\'s East Coast corridor — a geographic area not served by any of the major Montessori operators. The vendor seeks a buyer who shares the Montessori ethos and is committed to the school\'s continuity.</p>' +
+  '<h2>Investment Highlights</h2>' +
+  '<ul><li><strong>20-year operating history</strong> — deep community trust; loyal parent referral network; multi-sibling enrolment</li>' +
+  '<li><strong>Authentic Montessori curriculum</strong> — differentiates from commodity childcare; commands fee premium</li>' +
+  '<li><strong>Strategic East Coast location</strong> — Siglap / Bowmont Centre; identified gap in all major Montessori networks</li>' +
+  '<li><strong>Private fee model</strong> — independent of government subsidy; proven parent willingness to pay at market rates</li>' +
+  '<li><strong>Vendor transition support</strong> — Gloria Tan available for 6-12 month advisory post-close</li></ul>' +
+  '<h2>Business Overview</h2>' +
+  '<table><tr><th>Parameter</th><th>Detail</th></tr>' +
+  '<tr><td>Legal name</td><td>Littlesparks Montessori Pte Ltd (and related entity Brightsparks Enrichment Pte Ltd)</td></tr>' +
+  '<tr><td>Address</td><td>20 Siglap Dr, #01-02 Bowmont Centre, Singapore 456192</td></tr>' +
+  '<tr><td>Director / Founder</td><td>Gloria Tan</td></tr>' +
+  '<tr><td>Established</td><td>Approx. 20 years prior to 2026</td></tr>' +
+  '<tr><td>Programme</td><td>Private Montessori kindergarten (K1/K2) and enrichment</td></tr>' +
+  '<tr><td>Licence type</td><td>MOE-registered [ECDA licence status to be confirmed]</td></tr>' +
+  '<tr><td>Government subsidy</td><td>None — private fee model only</td></tr></table>' +
+  '<h2>Financial Summary</h2>' +
+  '<div class="disc"><strong>[SECTION PENDING — awaiting normalised financials from Financial Normalisation Template]</strong><br>' +
+  'This section will include: FY2022-2024 normalised SDE, EBITDA, and revenue; enrolment and fee metrics; cost structure summary.</div>' +
+  '<h2>Indicative Valuation</h2>' +
+  '<table><tr><th>Scenario</th><th>Range</th><th>Basis</th></tr>' +
+  '<tr><td>Base (structured sale)</td><td>SGD 550,000 – 780,000</td><td>Advised sale; competitive process; IM</td></tr>' +
+  '<tr><td>Strategic buyer premium</td><td>SGD 900,000 – 1,200,000</td><td>Montessori network; East Coast gap acquisition</td></tr></table>' +
+  '<h2>Deal Structure Options</h2>' +
+  '<ol><li><strong>Full sale of business and assets</strong> — preferred; cleanest structure</li>' +
+  '<li><strong>Full share acquisition</strong> — subject to ACRA / MCCY approval; retains all contracts and licences</li>' +
+  '<li><strong>Majority acquisition with earnout</strong> — 70-80% upfront; 20-30% deferred on enrolment milestones; Gloria in advisory role 12 months</li></ol>' +
+  '<h2>Process</h2>' +
+  '<p>TriveExec manages all buyer interaction. Interested parties must execute NDA TE-NDA-2025-LS-001 before receiving this document. Indicative offers invited by [DATE TO BE SET]. Management meetings arranged for shortlisted buyers.</p>' +
+  '<p>Contact: Carol Fong, Strategic Advisor, TriveExec Holdings — carol@triveexec.com</p>' +
+  '<div class="footer">TriveExec Holdings Pte Ltd &middot; IM DRAFT &middot; LS-2026-001 &middot; CONFIDENTIAL — NOT FOR DISTRIBUTION &middot; &copy; 2026</div>');
+
+/* ===== DOWNLOAD ===== */
+var DOC_FILENAMES = {
+  nda:   'TE-NDA-2025-LS-001_Non-Disclosure-Agreement.html',
+  ddq:   'LS-2026-001_Due-Diligence-Questionnaire.html',
+  vmr:   'LS-2026-001_TriveHealth-VMR.html',
+  sap:   'LS-2026-001_Strategic-Action-Plan-v3.html',
+  el:    'TE-EL-2025-001_Engagement-Letter-v8.html',
+  buyer: 'LS-2026-001_Buyer-Profile-Report.html',
+  val:   'LS-2026-001_Valuation-Analysis.html',
+  fin:   'LS-2026-001_Financial-Normalisation-Template.html',
+  im:    'LS-2026-001_Information-Memorandum-DRAFT.html'
+};
+
+
+function downloadDoc(id) {
+  var content = DOCS[id];
+  if (!content) { alert('Document not available.'); return; }
+  var blob = new Blob([content], {type: 'text/html;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = DOC_FILENAMES[id] || (id + '.html');
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
