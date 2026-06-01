@@ -1086,6 +1086,116 @@ label.quick-nav-btn {
 }
 .dl-btn:hover { background: var(--navy-soft); }
 .doc-row { align-items: center; }
+
+/* ─── UPLOADS TAB ─── */
+#tr-uploads:checked ~ .content-wrap #uploads { display: block; }
+#tr-uploads:checked ~ .nav-tabs-wrap label[for="tr-uploads"] {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+#tr-uploads:checked ~ .content-wrap #overview { display: none; }
+
+.upload-slot {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.upload-slot-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.upload-slot-icon {
+  width: 42px; height: 42px;
+  border-radius: 8px;
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700;
+  color: var(--gold); flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+.upload-slot-info { flex: 1; }
+.upload-slot-info h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--white); margin-bottom: 3px;
+}
+.upload-slot-info p { font-size: 12px; color: var(--muted); }
+.upload-slot-body {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 7px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.upload-btn:hover { opacity: 0.88; }
+.upload-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  background: transparent;
+  color: var(--gold);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1px solid rgba(201,168,76,0.35);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.upload-btn-secondary:hover { background: var(--gold-glow); }
+.upload-instructions {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.55;
+}
+.upload-priority {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px;
+  flex-shrink: 0;
+}
+.pri-urgent { background: rgba(192,57,43,0.15); color: #ff9999; border: 1px solid rgba(192,57,43,0.3); }
+.pri-soon   { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.pri-when   { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.1); }
+
+.upload-triveexec-section {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-top: 28px;
+}
+.upload-how-it-works {
+  background: var(--navy-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 16px;
+}
 </style>
 </head>
 <body>
@@ -1099,6 +1209,7 @@ label.quick-nav-btn {
 <input type="radio" name="ls-tabs" id="tr-levers" class="tab-radio">
 <input type="radio" name="ls-tabs" id="tr-documents" class="tab-radio">
 <input type="radio" name="ls-tabs" id="tr-nextsteps" class="tab-radio">
+<input type="radio" name="ls-tabs" id="tr-uploads" class="tab-radio">
 
 
 <!-- ═══ HEADER ═══ -->
@@ -1151,6 +1262,7 @@ label.quick-nav-btn {
     <label for="tr-levers" class="tab-btn"><span class="tab-icon">🔧</span> Building Value</label>
     <label for="tr-documents" class="tab-btn"><span class="tab-icon">📁</span> Documents</label>
     <label for="tr-nextsteps" class="tab-btn"><span class="tab-icon">📋</span> Next Steps</label>
+    <label for="tr-uploads" class="tab-btn"><span class="tab-icon">📤</span> Send Documents</label>
   </div>
 </div>
 
@@ -2266,6 +2378,186 @@ label.quick-nav-btn {
 
   </div>
 </div>
+
+  <!-- ───────── SEND DOCUMENTS ───────── -->
+  <div id="uploads" class="tab-pane">
+    <div class="section-eyebrow">Document Submissions — LS-2026-001</div>
+    <div class="section-title">Send Documents to Your Advisory Team</div>
+    <p class="section-sub">Use the buttons below to send each document directly to the right person on your TriveExec team. Tapping a button opens your email with the recipient, subject line, and instructions already filled in — just attach your file and send.</p>
+    <div class="section-divider"></div>
+
+    <!-- URGENT -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:12px;padding-left:12px;border-left:2px solid #ff9999;">
+      Action Required — These Are Blocking Your Business Presentation
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">P&L</div>
+        <div class="upload-slot-info">
+          <h4>FY2022, FY2023 &amp; FY2024 Financial Statements</h4>
+          <p>Your P&amp;L for the last three financial years · Any format (PDF, Excel, scanned copy) · Send to Goh Ann Nee (CFO)</p>
+        </div>
+        <span class="upload-priority pri-urgent">Urgent</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:ann.nee@triveexec.com?subject=LS-2026-001%20%E2%80%94%20FY2022-2024%20Financial%20Statements&body=Hi%20Ann%20Nee%2C%0A%0APlease%20find%20attached%20my%20financial%20statements%20for%20Littlesparks%20Montessori%3A%0A%0A%E2%80%A2%20FY2022%20P%26L%0A%E2%80%A2%20FY2023%20P%26L%0A%E2%80%A2%20FY2024%20P%26L%0A%0APlease%20let%20me%20know%20if%20you%20need%20anything%20else.%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email financials to Ann Nee
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach your files · Hit send</span>
+      </div>
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">MOE</div>
+        <div class="upload-slot-info">
+          <h4>MOE Registration Certificate</h4>
+          <p>Your current MOE registration certificate and any conditions attached · Scan or photo is fine · Send to Carol Fong</p>
+        </div>
+        <span class="upload-priority pri-urgent">Urgent</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:carol@triveexec.com?subject=LS-2026-001%20%E2%80%94%20MOE%20Registration%20Certificate&body=Hi%20Carol%2C%0A%0APlease%20find%20attached%20the%20MOE%20registration%20certificate%20for%20Littlesparks%20Montessori.%0A%0APlease%20let%20me%20know%20if%20you%20need%20any%20additional%20documents.%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email MOE certificate to Carol
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach the certificate · Hit send</span>
+      </div>
+    </div>
+
+    <!-- SOON -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin:24px 0 12px;padding-left:12px;border-left:2px solid var(--gold);">
+      Needed Soon — Within the Next 30 Days
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">LEASE</div>
+        <div class="upload-slot-info">
+          <h4>Bowmont Centre Lease Agreement</h4>
+          <p>Current lease including start date, expiry date, monthly rent, and any renewal options · Send to Carol Fong</p>
+        </div>
+        <span class="upload-priority pri-soon">Soon</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:carol@triveexec.com?subject=LS-2026-001%20%E2%80%94%20Lease%20Agreement%20(Bowmont%20Centre)&body=Hi%20Carol%2C%0A%0APlease%20find%20attached%20the%20current%20lease%20agreement%20for%20Littlesparks%20Montessori%20at%20Bowmont%20Centre.%0A%0ALease%20expiry%20date%3A%20%5Bplease%20fill%20in%5D%0ARenewal%20option%3A%20%5BYes%20%2F%20No%5D%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email lease to Carol
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach the lease · Hit send</span>
+      </div>
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">ACRA</div>
+        <div class="upload-slot-info">
+          <h4>ACRA Bizfile — Company Profile</h4>
+          <p>Current ACRA Bizfile for Littlesparks Montessori Pte Ltd and Brightsparks Enrichment Pte Ltd · Download from Bizfile+ portal · Send to Ann Nee</p>
+        </div>
+        <span class="upload-priority pri-soon">Soon</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:ann.nee@triveexec.com?subject=LS-2026-001%20%E2%80%94%20ACRA%20Bizfile&body=Hi%20Ann%20Nee%2C%0A%0APlease%20find%20attached%20the%20ACRA%20Bizfile%20for%3A%0A%0A%E2%80%A2%20Littlesparks%20Montessori%20Pte%20Ltd%0A%E2%80%A2%20Brightsparks%20Enrichment%20Pte%20Ltd%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email ACRA to Ann Nee
+        </a>
+        <a class="upload-btn-secondary" href="https://www.bizfile.gov.sg" target="_blank">
+          🔗 Open Bizfile+ portal
+        </a>
+        <span class="upload-instructions">Download your profile from Bizfile+ first, then attach and send</span>
+      </div>
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">STAFF</div>
+        <div class="upload-slot-info">
+          <h4>Staff List</h4>
+          <p>Current headcount by role and employment type (full/part-time) · Excel or Word is fine · Send to Ann Nee</p>
+        </div>
+        <span class="upload-priority pri-soon">Soon</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:ann.nee@triveexec.com?subject=LS-2026-001%20%E2%80%94%20Staff%20List&body=Hi%20Ann%20Nee%2C%0A%0APlease%20find%20attached%20the%20current%20staff%20list%20for%20Littlesparks%20Montessori.%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email staff list to Ann Nee
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach your staff list · Hit send</span>
+      </div>
+    </div>
+
+    <!-- WHEN READY -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin:24px 0 12px;padding-left:12px;border-left:2px solid rgba(255,255,255,0.15);">
+      When You Are Ready — Months 2–3
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">AMI</div>
+        <div class="upload-slot-info">
+          <h4>Montessori Accreditation Certificates</h4>
+          <p>Any AMI, AMS, or other Montessori accreditation certificates held by the school · Send to Pauline Lim</p>
+        </div>
+        <span class="upload-priority pri-when">Months 2–3</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:pauline@triveexec.com?subject=LS-2026-001%20%E2%80%94%20Montessori%20Accreditation%20Certificates&body=Hi%20Pauline%2C%0A%0APlease%20find%20attached%20the%20Montessori%20accreditation%20certificates%20for%20Littlesparks.%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email certificates to Pauline
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach certificates · Hit send</span>
+      </div>
+    </div>
+
+    <div class="upload-slot">
+      <div class="upload-slot-head">
+        <div class="upload-slot-icon">FEES</div>
+        <div class="upload-slot-info">
+          <h4>Current Fee Schedule</h4>
+          <p>Your current tuition and programme fees by level (K1, K2, enrichment) and any prior year fee schedules · Send to Ann Nee</p>
+        </div>
+        <span class="upload-priority pri-when">Months 2–3</span>
+      </div>
+      <div class="upload-slot-body">
+        <a class="upload-btn" href="mailto:ann.nee@triveexec.com?subject=LS-2026-001%20%E2%80%94%20Fee%20Schedule&body=Hi%20Ann%20Nee%2C%0A%0APlease%20find%20attached%20the%20current%20fee%20schedule%20for%20Littlesparks%20Montessori.%0A%0ABest%20regards%2C%0AGloria%20Tan%0ALittlesparks%20Montessori">
+          📎 Email fee schedule to Ann Nee
+        </a>
+        <span class="upload-instructions">Opens your Mail app · Attach fee schedule · Hit send</span>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="upload-how-it-works">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:10px;">How this works</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold);flex-shrink:0;">1</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Tap the gold button · Your Mail app opens with everything pre-filled</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold);flex-shrink:0;">2</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Attach your document from your files or photos</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold);flex-shrink:0;">3</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.55;">Hit Send · Your TriveExec team receives it immediately</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);">
+        Any format is accepted — PDF, Excel, Word, JPG, or a phone photo of a printed document. If you are unsure which document to send first, start with the <strong style="color:var(--gold-light);">financial statements</strong> — that single action unblocks the most work.
+      </div>
+    </div>
+
+    <!-- TRIVEEXEC UPLOADS TO GLORIA -->
+    <div class="upload-triveexec-section">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--white);margin-bottom:6px;">Documents from TriveExec to you</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px;">When your advisory team prepares a new document for you — your Earnings Summary, Business Presentation, or any updated analysis — it will appear in the <strong style="color:var(--gold-light);">Documents tab</strong> with a Download button. You will also receive an email from Carol with a direct link. No action needed on your part.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="upload-btn-secondary" href="mailto:carol@triveexec.com?subject=LS-2026-001%20%E2%80%94%20General%20Query&body=Hi%20Carol%2C%0A%0A" style="font-size:12px;padding:7px 14px;">✉️ Message Carol</a>
+        <a class="upload-btn-secondary" href="mailto:ann.nee@triveexec.com?subject=LS-2026-001%20%E2%80%94%20General%20Query&body=Hi%20Ann%20Nee%2C%0A%0A" style="font-size:12px;padding:7px 14px;">✉️ Message Ann Nee</a>
+        <a class="upload-btn-secondary" href="mailto:pauline@triveexec.com?subject=LS-2026-001%20%E2%80%94%20General%20Query&body=Hi%20Pauline%2C%0A%0A" style="font-size:12px;padding:7px 14px;">✉️ Message Pauline</a>
+      </div>
+    </div>
+
+  </div>
+
 
 <!-- ═══ FOOTER ═══ -->
 <div style="background:var(--navy-mid);border-top:1px solid var(--line);padding:20px 28px;text-align:center;">
