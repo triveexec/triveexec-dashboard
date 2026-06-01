@@ -220,6 +220,21 @@ label.quick-nav-btn {
   position: sticky;
   top: 64px;
   z-index: 190;
+  position: relative;
+}
+.nav-tabs-wrap::after {
+  content: '›';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 32px;
+  background: linear-gradient(90deg, transparent, rgba(13,31,60,0.98));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(201,168,76,0.5);
+  font-size: 18px;
+  pointer-events: none;
+  z-index: 2;
 }
 .nav-tabs {
   max-width: 1160px;
@@ -234,11 +249,11 @@ label.quick-nav-btn {
 .nav-tabs::-webkit-scrollbar { display: none; }
 
 .tab-btn {
-  padding: 16px 20px;
+  padding: 14px 14px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
   background: none;
@@ -249,9 +264,10 @@ label.quick-nav-btn {
   transition: color 0.15s, border-color 0.15s;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 .tab-btn:hover { color: var(--white); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 .tab-btn.active {
   color: var(--gold);
   border-bottom-color: var(--gold);
@@ -264,6 +280,7 @@ label.quick-nav-btn {
   margin: 0 auto;
   padding: 40px 28px 80px;
 }
+
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
 
@@ -904,45 +921,27 @@ label.quick-nav-btn {
    ═══════════════════════════════════════════════════════════ */
 
 /* Hide the radio inputs themselves — they are invisible controllers */
-.tab-radio { display: none !important; position: absolute; }
 
 /* Hide ALL panes by default */
-.tab-pane { display: none; }
 
 /* Show the pane whose radio is checked
    The ~ selector reaches any subsequent sibling, so as long as
    the <input> elements sit before .content-wrap in the DOM, this works */
-#tr-overview:checked  ~ .content-wrap #overview   { display: block; }
-#tr-score:checked     ~ .content-wrap #score       { display: block; }
-#tr-value:checked     ~ .content-wrap #value       { display: block; }
-#tr-journey:checked   ~ .content-wrap #journey     { display: block; }
-#tr-actions:checked   ~ .content-wrap #actions     { display: block; }
-#tr-levers:checked    ~ .content-wrap #levers      { display: block; }
-#tr-documents:checked ~ .content-wrap #documents   { display: block; }
-#tr-nextsteps:checked ~ .content-wrap #nextsteps   { display: block; }
 
-/* Active tab label styling via :checked state
    Default active = overview (radio is checked by default) */
-#tr-overview:checked  ~ .nav-tabs-wrap label[for="tr-overview"],
-#tr-score:checked     ~ .nav-tabs-wrap label[for="tr-score"],
-#tr-value:checked     ~ .nav-tabs-wrap label[for="tr-value"],
-#tr-journey:checked   ~ .nav-tabs-wrap label[for="tr-journey"],
-#tr-actions:checked   ~ .nav-tabs-wrap label[for="tr-actions"],
-#tr-levers:checked    ~ .nav-tabs-wrap label[for="tr-levers"],
-#tr-documents:checked ~ .nav-tabs-wrap label[for="tr-documents"],
-#tr-nextsteps:checked ~ .nav-tabs-wrap label[for="tr-nextsteps"] {
   color: var(--gold);
   border-bottom-color: var(--gold);
 }
 
 /* Hero score card visibility: show only on overview */
-#tr-score:checked     ~ .hero .hero-score-card,
-#tr-value:checked     ~ .hero .hero-score-card,
-#tr-journey:checked   ~ .hero .hero-score-card,
-#tr-actions:checked   ~ .hero .hero-score-card,
-#tr-levers:checked    ~ .hero .hero-score-card,
-#tr-documents:checked ~ .hero .hero-score-card,
-#tr-nextsteps:checked ~ .hero .hero-score-card { display: none; }
+
+
+/* On small screens: icon-only tabs so all 9 fit without scrolling */
+@media (max-width: 480px) {
+  .tab-btn { padding: 12px 8px; gap: 0; font-size: 0; letter-spacing: 0; }
+  .tab-icon { font-size: 16px; }
+  .tab-btn.active .tab-icon { font-size: 17px; }
+}
 
 /* ─── RESPONSIVE ─── */
 
@@ -1087,13 +1086,9 @@ label.quick-nav-btn {
 .dl-btn:hover { background: var(--navy-soft); }
 .doc-row { align-items: center; }
 
-/* ─── UPLOADS TAB ─── */
-#tr-uploads:checked ~ .content-wrap #uploads { display: block; }
-#tr-uploads:checked ~ .nav-tabs-wrap label[for="tr-uploads"] {
   color: var(--gold);
   border-bottom-color: var(--gold);
 }
-#tr-uploads:checked ~ .content-wrap #overview { display: none; }
 
 .upload-slot {
   background: var(--navy-card);
@@ -1201,15 +1196,6 @@ label.quick-nav-btn {
 <body>
 
 <!-- RADIO TAB CONTROLLERS: display:none, drive all tab logic via CSS -->
-<input type="radio" name="ls-tabs" id="tr-overview" class="tab-radio" checked>
-<input type="radio" name="ls-tabs" id="tr-score" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-value" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-journey" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-actions" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-levers" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-documents" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-nextsteps" class="tab-radio">
-<input type="radio" name="ls-tabs" id="tr-uploads" class="tab-radio">
 
 
 <!-- ═══ HEADER ═══ -->
@@ -1254,23 +1240,24 @@ label.quick-nav-btn {
 <!-- ═══ NAV TABS ═══ -->
 <div class="nav-tabs-wrap">
   <div class="nav-tabs">
-    <label for="tr-overview" class="tab-btn"><span class="tab-icon">🏠</span> Overview</label>
-    <label for="tr-score" class="tab-btn"><span class="tab-icon">📊</span> Your Score</label>
-    <label for="tr-value" class="tab-btn"><span class="tab-icon">💰</span> Your Value</label>
-    <label for="tr-journey" class="tab-btn"><span class="tab-icon">🗺️</span> Your Journey</label>
-    <label for="tr-actions" class="tab-btn"><span class="tab-icon">✅</span> Action Plan</label>
-    <label for="tr-levers" class="tab-btn"><span class="tab-icon">🔧</span> Building Value</label>
-    <label for="tr-documents" class="tab-btn"><span class="tab-icon">📁</span> Documents</label>
-    <label for="tr-nextsteps" class="tab-btn"><span class="tab-icon">📋</span> Next Steps</label>
-    <label for="tr-uploads" class="tab-btn"><span class="tab-icon">📤</span> Send Documents</label>
+    <button class="tab-btn" data-tab="overview" onclick="showTab('overview')"><span class="tab-icon">🏠</span> Overview</button>
+    <button class="tab-btn" data-tab="score" onclick="showTab('score')"><span class="tab-icon">📊</span> Your Score</button>
+    <button class="tab-btn" data-tab="value" onclick="showTab('value')"><span class="tab-icon">💰</span> Your Value</button>
+    <button class="tab-btn" data-tab="journey" onclick="showTab('journey')"><span class="tab-icon">🗺️</span> Your Journey</button>
+    <button class="tab-btn" data-tab="actions" onclick="showTab('actions')"><span class="tab-icon">✅</span> Action Plan</button>
+    <button class="tab-btn" data-tab="levers" onclick="showTab('levers')"><span class="tab-icon">🔧</span> Building Value</button>
+    <button class="tab-btn" data-tab="documents" onclick="showTab('documents')"><span class="tab-icon">📁</span> Documents</button>
+    <button class="tab-btn" data-tab="nextsteps" onclick="showTab('nextsteps')"><span class="tab-icon">📋</span> Next Steps</button>
+    <button class="tab-btn" data-tab="uploads" onclick="showTab('uploads')"><span class="tab-icon">📤</span> Send Docs</button>
   </div>
 </div>
+
 
 <!-- ═══ CONTENT ═══ -->
 <div class="content-wrap">
 
   <!-- ───────── OVERVIEW ───────── -->
-  <div id="overview" class="tab-pane">
+  <div id="overview" class="tab-pane active">
 
     <div class="welcome-grid">
       <div class="welcome-message">
@@ -1309,48 +1296,48 @@ label.quick-nav-btn {
 
     <div class="section-eyebrow">Your portal at a glance</div>
     <div class="quick-nav-grid">
-      <label for="tr-score" class="quick-nav-btn">
+      <button class="quick-nav-btn" onclick="showTab('score')"
         <div class="qnb-icon">📊</div>
         <div>
           <div class="qnb-label">Your TriveHealth™ Score</div>
           <div class="qnb-sub">See how your business scores across 6 dimensions and what each means for your exit</div>
         </div>
-      </label>
-      <label for="tr-value" class="quick-nav-btn">
+      </button>
+      <button class="quick-nav-btn" onclick="showTab('value')"
         <div class="qnb-icon">💰</div>
         <div>
           <div class="qnb-label">What Your Business is Worth</div>
           <div class="qnb-sub">Three scenarios: where you start, where TriveExec takes you, and the strategic ceiling</div>
         </div>
-      </label>
-      <label for="tr-journey" class="quick-nav-btn">
+      </button>
+      <button class="quick-nav-btn" onclick="showTab('journey')"
         <div class="qnb-icon">🗺️</div>
         <div>
           <div class="qnb-label">Your Exit Journey</div>
           <div class="qnb-sub">The 6-phase programme, month by month — what happens and who does what</div>
         </div>
-      </label>
-      <label for="tr-actions" class="quick-nav-btn">
+      </button>
+      <button class="quick-nav-btn" onclick="showTab('actions')"
         <div class="qnb-icon">✅</div>
         <div>
           <div class="qnb-label">Your Action Plan</div>
           <div class="qnb-sub">5 steps to maximise your outcome — what you need to do and by when</div>
         </div>
-      </label>
-      <label for="tr-levers" class="quick-nav-btn">
+      </button>
+      <button class="quick-nav-btn" onclick="showTab('levers')"
         <div class="qnb-icon">🔧</div>
         <div>
           <div class="qnb-label">Building Your Value</div>
           <div class="qnb-sub">9 levers that lift your outcome — each with an estimated SGD impact</div>
         </div>
-      </label>
-      <label for="tr-nextsteps" class="quick-nav-btn">
+      </button>
+      <button class="quick-nav-btn" onclick="showTab('nextsteps')"
         <div class="qnb-icon">📋</div>
         <div>
           <div class="qnb-label">Next 30 / 60 / 90 Days</div>
           <div class="qnb-sub">Your prioritised checklist — exactly what to focus on right now</div>
         </div>
-      </label>
+      </button>
     </div>
   </div>
 
@@ -2569,6 +2556,28 @@ label.quick-nav-btn {
 <!-- Tab navigation: pure CSS radio-button system -->
 
 <script>
+/* ===== TAB NAVIGATION ===== */
+function showTab(id) {
+  var panes = document.querySelectorAll('.tab-pane');
+  for (var i = 0; i < panes.length; i++) {
+    panes[i].classList.remove('active');
+  }
+  var btns = document.querySelectorAll('.tab-btn');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].classList.remove('active');
+  }
+  var pane = document.getElementById(id);
+  if (pane) pane.classList.add('active');
+  var btn = document.querySelector('[data-tab="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  showTab('overview');
+});
+
+/* ===== DOCUMENT DOWNLOAD ENGINE ===== */
 /* ===== DOCUMENT DOWNLOAD ENGINE =====
    All documents embedded. onclick="downloadDoc(id)" triggers browser save.
    Tabs use pure CSS radio system — no JS needed for navigation. */
